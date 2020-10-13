@@ -3095,7 +3095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
-  canIncrementLists: 0
+  canIncrementLists: 1
   interval: 0
   interruptTasks: {fileID: 0}
   interruptInterval: 0
@@ -3182,7 +3182,7 @@ MonoBehaviour:
   skipConditions: []
   tasks: []
   objectsList: []
-  repeat: 10
+  repeat: 3
   overideRepeat: {fileID: 0}
   repeatCount: 1
   hideTargetsDuringTask: 0
