@@ -144,7 +144,6 @@ public class RelocationTask : ExperimentTask
         if (isScaled) scaledAvatarLog.navLog = false;
 
         // turn off the object so that it doesn't bother us in future trials
-        Debug.Log(current);
         current.SetActive(false); 
 
         if (canIncrementLists)
