@@ -249,7 +249,7 @@ MonoBehaviour:
   - {fileID: 1206326396}
   - {fileID: 1159868620}
   - {fileID: 1540131662}
-  stayAwayDistance: 0.2
+  stayAwayDistance: 0.25
   targetLocationParent: {fileID: 5308465572129788264}
   startLocationParent: {fileID: 5308465570273599371}
   targetObjectParent: {fileID: 5308465571431694794}
@@ -260,6 +260,7 @@ MonoBehaviour:
   targetObjectTemplate: {fileID: 5387326638374018490, guid: d8860be3f78643749800d5e50b4778a9,
     type: 3}
   numberOfTrials: 3
+  ground: {fileID: 1772511063}
 --- !u!1 &78827798
 GameObject:
   m_ObjectHideFlags: 0
