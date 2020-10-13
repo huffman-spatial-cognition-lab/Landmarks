@@ -1,16 +1,9 @@
 ﻿/*
-    LM Dummy
+    pto_generateStartGoalPairs
        
-    Attached object holds task components that need to be effectively ignored 
-    by Tasklist but are required for the script. Thus the object this is 
-    attached to can be detected by Tasklist (won't throw error), but does nothing 
-    except start and end.   
+    Generates and populates starting and target locations/objects.
 
-    Copyright (C) 2019 Michael J. Starrett
-
-    Navigate by StarrLite (Powered by LandMarks)
-    Human Spatial Cognition Laboratory
-    Department of Psychology - University of Arizona   
+    Sinan Yumurtaci -- Colby College
 */
 
 using System.Collections;
@@ -21,8 +14,17 @@ public class pto_generateStartGoalPairs : ExperimentTask
 {
     [Header("Task-specific Properties")]
     public GameObject[] stayAwayObjects;
-    
     public float stayAwayDistance;
+
+    public Transform targetLocationParent;
+    public Transform startLocationParent;
+    public Transform targetObjectParent;
+    
+    public GameObject targetLocationTemplate;
+    public GameObject startLocationTemplate;
+    public GameObject targetObjectTemplate;
+
+    public int numberOfTrials;
 
     private ObjectList startOutputList;
     private ObjectList goalOutputList;
@@ -31,7 +33,32 @@ public class pto_generateStartGoalPairs : ExperimentTask
     {
         TASK_START();
 
-        // LEAVE BLANK
+        Vector3[] startLocations = new Vector3[3];
+        startLocations[0] = new Vector3(-1.5f, 0.5f, 2.5f);
+        startLocations[1] = new Vector3(0    , 0.5f, 2.5f);
+        startLocations[2] = new Vector3(1.5f , 0.5f, 2.5f);
+
+        Vector3[] targetLocations = new Vector3[3];
+        targetLocations[0] = new Vector3(-1.5f, 0.5f, -2.5f);
+        targetLocations[1] = new Vector3(0    , 0.5f, -2.5f);
+        targetLocations[2] = new Vector3(1.5f , 0.5f, -2.5f);
+
+        GameObject go;
+
+        foreach (Vector3 startLocation in startLocations){
+            go = Instantiate(startLocationTemplate, startLocation, Quaternion.identity);
+            go.transform.parent = startLocationParent;
+        }
+
+        foreach (Vector3 targetLocation in targetLocations){
+            go = Instantiate(targetLocationTemplate, targetLocation, Quaternion.identity);
+            go.transform.parent = targetLocationParent;
+            go = Instantiate(targetObjectTemplate, targetLocation, Quaternion.identity);
+            go.transform.parent = targetObjectParent;
+        }
+
+
+
     }
 
 
