@@ -28,6 +28,7 @@ public class NavigationTask : ExperimentTask
 	public TextAsset NavigationInstruction;
 
     public HideTargetOnStart hideTargetOnStart;
+    public bool hideTargetOnEnd;
     [Range(0,60)] public float showTargetAfterSeconds;
     public bool hideNonTargets;
 
@@ -246,6 +247,10 @@ public class NavigationTask : ExperimentTask
 		//avatarController.stop();
 		avatarLog.navLog = false;
         if (isScaled) scaledAvatarLog.navLog = false;
+
+        if(hideTargetOnEnd){
+            current.SetActive(false); 
+        }
 
         // close the door if the target was a store and it is open
         // if it's a target, open the door to show it's active

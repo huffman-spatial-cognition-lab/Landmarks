@@ -3073,6 +3073,7 @@ MonoBehaviour:
   showScoring: 0
   NavigationInstruction: {fileID: 0}
   hideTargetOnStart: 0
+  hideTargetOnEnd: 1
   showTargetAfterSeconds: 5
   hideNonTargets: 0
 --- !u!4 &1082064272914265474
