@@ -13,8 +13,7 @@ using UnityEngine;
 public class pto_generateStartGoalPairs : ExperimentTask
 {
     [Header("Task-specific Properties")]
-    public GameObject[] stayAwayObjects;
-    public float stayAwayObjectsDistance;
+    public float minimumWallDistance;
     public float minimumTravelDistance;
 
     public Transform targetLocationParent;
@@ -44,10 +43,10 @@ public class pto_generateStartGoalPairs : ExperimentTask
 
         // get the x and z range for our generation from the ground object
         Transform groundT = ground.transform;
-        float xMin = groundT.position.x - groundT.lossyScale.x / 2;
-        float xMax = groundT.position.x + groundT.lossyScale.x / 2;
-        float zMin = groundT.position.y - groundT.lossyScale.z / 2;
-        float zMax = groundT.position.y + groundT.lossyScale.z / 2;
+        float xMin = groundT.position.x - groundT.lossyScale.x / 2 + minimumWallDistance;
+        float xMax = groundT.position.x + groundT.lossyScale.x / 2 - minimumWallDistance;
+        float zMin = groundT.position.y - groundT.lossyScale.z / 2 + minimumWallDistance;
+        float zMax = groundT.position.y + groundT.lossyScale.z / 2 - minimumWallDistance;
 
         Debug.Log(xMin);
         Debug.Log(xMax);Debug.Log(zMin);Debug.Log(zMax);
@@ -55,6 +54,7 @@ public class pto_generateStartGoalPairs : ExperimentTask
         for (int i = 0; i < numberOfTrials; i++){
             Vector3 startLocation;
             Vector3 targetLocation;
+            float travelDistance;
             do{
 
                 // set up random locations
@@ -62,12 +62,10 @@ public class pto_generateStartGoalPairs : ExperimentTask
                 targetLocation = new Vector3(Random.Range(xMin, xMax), 0.5f, Random.Range(zMin, zMax));
                 
                 // test conditions
-
                 // test: distance to each other
+                travelDistance = Vector3.Distance(startLocation, targetLocation);
 
-                // test: distance to stayAwayObjects
-
-            }while(false);
+            }while(travelDistance < minimumTravelDistance);
 
             startLocations[i] = startLocation;
             targetLocations[i] = targetLocation;

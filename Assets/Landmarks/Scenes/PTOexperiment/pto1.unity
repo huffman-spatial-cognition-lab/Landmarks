@@ -244,12 +244,8 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  stayAwayObjects:
-  - {fileID: 1155273992}
-  - {fileID: 1206326396}
-  - {fileID: 1159868620}
-  - {fileID: 1540131662}
-  stayAwayDistance: 0.25
+  minimumWallDistance: 0.25
+  minimumTravelDistance: 1
   targetLocationParent: {fileID: 5308465572129788264}
   startLocationParent: {fileID: 5308465570273599371}
   targetObjectParent: {fileID: 5308465571431694794}
