@@ -62,7 +62,9 @@ public class RelocationTask : ExperimentTask
         */
 
         // make sure the target is visible
-        destinations.currentObject().SetActive(true); 
+        //  destinations.currentObject().SetActive(true); 
+        current.SetActive(true);
+        
         try
         {
             destinations.currentObject().GetComponent<MeshRenderer>().enabled = true;
@@ -140,6 +142,10 @@ public class RelocationTask : ExperimentTask
 		//avatarController.stop();
 		avatarLog.navLog = false;
         if (isScaled) scaledAvatarLog.navLog = false;
+
+        // turn off the object so that it doesn't bother us in future trials
+        Debug.Log(current);
+        current.SetActive(false); 
 
         if (canIncrementLists)
 		{
