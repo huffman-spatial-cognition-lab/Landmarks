@@ -24,6 +24,9 @@ public class pto_generateStartGoalPairs : ExperimentTask
     
     public float stayAwayDistance;
 
+    private ObjectList startOutputList;
+    private ObjectList goalOutputList;
+
     public override void startTask()
     {
         TASK_START();
