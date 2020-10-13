@@ -62,10 +62,7 @@ public class RelocationTask : ExperimentTask
         */
 
         // make sure the target is visible
-        Debug.Log("----");
-        Debug.Log(destinations.currentObject());
         destinations.currentObject().SetActive(true); 
-        Debug.Log("----");
         try
         {
             destinations.currentObject().GetComponent<MeshRenderer>().enabled = true;
