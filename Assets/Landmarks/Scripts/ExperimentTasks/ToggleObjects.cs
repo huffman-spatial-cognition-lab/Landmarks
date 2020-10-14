@@ -10,10 +10,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum ToggleMode
+{
+    setTrue, // true
+    setFalse, // false
+    toggle // ! of current state
+}
+
 public class ToggleObjects : ExperimentTask
 {
     [Header("Task-specific Properties")]
     public List<GameObject> parentObjects;
+    public ToggleMode mode;
 
     public override void startTask()
     {
@@ -22,17 +31,30 @@ public class ToggleObjects : ExperimentTask
         // LEAVE BLANK
     }
 
-
     public override void TASK_START()
     {
         if (!manager) Start();
         base.startTask();
 
         foreach(GameObject parentObject in parentObjects){
-
+        bool newVal;
             foreach (Transform child in parentObject.transform) {
-                child.gameObject.SetActive(!child.gameObject.activeSelf);
-                Debug.Log("1");
+                switch (mode)
+                {
+                    case ToggleMode.setTrue:
+                        newVal = true;
+                        break;
+                    case ToggleMode.setFalse:
+                        newVal = false;
+                        break;
+                    case ToggleMode.toggle:
+                        newVal = !child.gameObject.activeSelf;
+                        break;
+                    default:
+                        newVal = !child.gameObject.activeSelf;
+                        break;
+                }
+                child.gameObject.SetActive(newVal);
             }
 
         }
