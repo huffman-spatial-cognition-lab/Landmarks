@@ -15,6 +15,7 @@ public class pto_generateStartGoalPairs : ExperimentTask
     [Header("Task-specific Properties")]
     public float minimumWallDistance;
     public float minimumTravelDistance;
+    private float minimumBetweenTrialDistance = 1;
 
     public Transform targetLocationParent;
     public Transform startLocationParent;
@@ -55,6 +56,8 @@ public class pto_generateStartGoalPairs : ExperimentTask
             Vector3 startLocation;
             Vector3 targetLocation;
             float travelDistance;
+            float betweenTrialDistance;
+            bool isPairValid = true;
             do{
 
                 // set up random locations
@@ -62,10 +65,26 @@ public class pto_generateStartGoalPairs : ExperimentTask
                 targetLocation = new Vector3(Random.Range(xMin, xMax), 0.5f, Random.Range(zMin, zMax));
                 
                 // test conditions
-                // test: distance to each other
+                
                 travelDistance = Vector3.Distance(startLocation, targetLocation);
+                
+                if (i==0){
+                    betweenTrialDistance = Vector3.Distance(new Vector3(0,0,0), startLocation);
+                }else{
+                    betweenTrialDistance = Vector3.Distance(targetLocations[i-1],startLocation);
+                }
 
-            }while(travelDistance < minimumTravelDistance);
+                isPairValid = true; // assume valid until proven otherwise
+
+                if (travelDistance < minimumTravelDistance){
+                    isPairValid = false;
+                }
+
+                if (betweenTrialDistance < minimumBetweenTrialDistance){
+                    isPairValid = false;
+                }
+
+            }while(isPairValid);
 
             startLocations[i] = startLocation;
             targetLocations[i] = targetLocation;
