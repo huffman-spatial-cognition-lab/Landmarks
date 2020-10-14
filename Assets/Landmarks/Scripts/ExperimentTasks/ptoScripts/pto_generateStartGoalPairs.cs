@@ -15,7 +15,7 @@ public class pto_generateStartGoalPairs : ExperimentTask
     [Header("Task-specific Properties")]
     public float minimumWallDistance;
     public float minimumTravelDistance;
-    private float minimumBetweenTrialDistance = 1;
+    public float minimumBetweenTrialDistance = 2;
 
     public Transform targetLocationParent;
     public Transform startLocationParent;
@@ -49,9 +49,6 @@ public class pto_generateStartGoalPairs : ExperimentTask
         float zMin = groundT.position.y - groundT.lossyScale.z / 2 + minimumWallDistance;
         float zMax = groundT.position.y + groundT.lossyScale.z / 2 - minimumWallDistance;
 
-        Debug.Log(xMin);
-        Debug.Log(xMax);Debug.Log(zMin);Debug.Log(zMax);
-
         for (int i = 0; i < numberOfTrials; i++){
             Vector3 startLocation;
             Vector3 targetLocation;
@@ -67,7 +64,7 @@ public class pto_generateStartGoalPairs : ExperimentTask
                 // test conditions
                 
                 travelDistance = Vector3.Distance(startLocation, targetLocation);
-                
+
                 if (i==0){
                     betweenTrialDistance = Vector3.Distance(new Vector3(0,0,0), startLocation);
                 }else{
@@ -84,7 +81,9 @@ public class pto_generateStartGoalPairs : ExperimentTask
                     isPairValid = false;
                 }
 
-            }while(isPairValid);
+            }while(!isPairValid);
+
+            Debug.Log(betweenTrialDistance);
 
             startLocations[i] = startLocation;
             targetLocations[i] = targetLocation;
