@@ -8,7 +8,8 @@ public enum HideTargetOnStart
     Off,
     SetInactive,
     SetInvisible,
-    SetProbeTrial
+    SetProbeTrial,
+    SetHiddenFromDistance
 }
 
 public class NavigationTask : ExperimentTask
@@ -31,6 +32,7 @@ public class NavigationTask : ExperimentTask
     public bool hideTargetOnEnd;
     [Range(0,60)] public float showTargetAfterSeconds;
     public bool hideNonTargets;
+    public float hiddenFromDistanceRadius;
 
 
     // For logging output
@@ -112,6 +114,12 @@ public class NavigationTask : ExperimentTask
                 destinations.currentObject().SetActive(false);
                 destinations.currentObject().GetComponent<MeshRenderer>().enabled = false;
             }
+            else if (hideTargetOnStart == HideTargetOnStart.SetHiddenFromDistance)
+            {
+                destinations.currentObject().GetComponent<MeshRenderer>().enabled = false;
+            }
+
+            
         }
         else
         {
@@ -213,6 +221,18 @@ public class NavigationTask : ExperimentTask
             scaledPlayerDistance += Vector3.Distance(scaledAvatar.transform.position, scaledPlayerLastPosition);
             scaledPlayerLastPosition = scaledAvatar.transform.position;
         }
+
+        
+        if (hideTargetOnStart == HideTargetOnStart.SetHiddenFromDistance)
+        {
+            float distToTarget = Vector3.Distance(playerLastPosition, destinations.currentObject().transform.position);
+            if(distToTarget <= hiddenFromDistanceRadius){
+                Debug.Log(distToTarget);
+                destinations.currentObject().SetActive(true);
+                destinations.currentObject().GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+
 
 		if (killCurrent == true)
 		{

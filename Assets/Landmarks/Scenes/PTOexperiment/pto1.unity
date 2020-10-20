@@ -2369,10 +2369,11 @@ MonoBehaviour:
   penaltyRate: 2000
   showScoring: 0
   NavigationInstruction: {fileID: 0}
-  hideTargetOnStart: 0
+  hideTargetOnStart: 4
   hideTargetOnEnd: 1
-  showTargetAfterSeconds: 5
+  showTargetAfterSeconds: 0
   hideNonTargets: 0
+  hiddenFromDistanceRadius: 1.7
 --- !u!4 &1082064272914265474
 Transform:
   m_ObjectHideFlags: 0
