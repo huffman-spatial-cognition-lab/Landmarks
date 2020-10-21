@@ -11,7 +11,7 @@ for distance in distance_set:
             matrix.append([str(count), str(distance), str(border)])
             count += 1
 
-with open("matrix.json","w") as matrixfile:
+with open("config.json","w") as matrixfile:
     data = {
         "matrix": matrix
     }
