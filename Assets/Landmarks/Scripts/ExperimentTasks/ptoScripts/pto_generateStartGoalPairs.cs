@@ -59,9 +59,6 @@ public class pto_generateStartGoalPairs : ExperimentTask
             }  
         }
 
-        Debug.Log(trialMatrix);
-
-
         Vector3[] startLocations = new Vector3[numberOfTrials];
         Vector3[] targetLocations = new Vector3[numberOfTrials];
 
