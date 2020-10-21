@@ -42,10 +42,10 @@ public class pto_generateStartGoalPairs : ExperimentTask
 
         
 
-        List<List<double>> trialMatrix = new List<List<double>>();
+        List<List<float>> trialMatrix = new List<List<float>>();
 
-        List<double> distanceList = new List<double> {2, 2.5, 3, 3.5};
-        List<double> borderList =new List<double>  {0, 1};
+        List<float> distanceList = new List<float> {2.5f, 3.5f};
+        List<float> borderList =new List<float>  {0f, 1f};
 
         numberOfTrials = trialRepeatCount * distanceList.Count * borderList.Count;
 
@@ -53,7 +53,7 @@ public class pto_generateStartGoalPairs : ExperimentTask
         foreach (int distance in distanceList){
             foreach (int border in borderList){
                 for(int i = 0; i < trialRepeatCount; i++){
-                    trialMatrix.Add(new List<double> {count, distance,border});
+                    trialMatrix.Add(new List<float> {count, distance,border});
                     count++;
                 }
             }  
@@ -74,18 +74,22 @@ public class pto_generateStartGoalPairs : ExperimentTask
         for (int i = 0; i < numberOfTrials; i++){
             Vector3 startLocation;
             Vector3 targetLocation;
-            float travelDistance;
+            Vector2 deltaVector; 
             float betweenTrialDistance;
             bool isPairValid = true;
             do{
 
-                // set up random locations
+                // set up random starting location and direction
                 startLocation = new Vector3(Random.Range(xMin, xMax), 0.5f, Random.Range(zMin, zMax));
-                targetLocation = new Vector3(Random.Range(xMin, xMax), 0.5f, Random.Range(zMin, zMax));
+                deltaVector = Random.insideUnitCircle.normalized * trialMatrix[i][1];
+
+                targetLocation = new Vector3(
+                    startLocation.x + deltaVector.x,
+                    0.5f, 
+                    startLocation.z + deltaVector.y
+                );
                 
                 // test conditions
-                
-                travelDistance = Vector3.Distance(startLocation, targetLocation);
 
                 if (i==0){
                     betweenTrialDistance = Vector3.Distance(new Vector3(0,0,0), startLocation);
@@ -95,17 +99,17 @@ public class pto_generateStartGoalPairs : ExperimentTask
 
                 isPairValid = true; // assume valid until proven otherwise
 
-                if (travelDistance < minimumTravelDistance){
+                if (targetLocation.x < xMin | targetLocation.x > xMax){
                     isPairValid = false;
                 }
-
+                if (targetLocation.z < zMin | targetLocation.z > zMax){
+                    isPairValid = false;
+                }
                 if (betweenTrialDistance < minimumBetweenTrialDistance){
                     isPairValid = false;
                 }
 
             }while(!isPairValid);
-
-            Debug.Log(betweenTrialDistance);
 
             startLocations[i] = startLocation;
             targetLocations[i] = targetLocation;
