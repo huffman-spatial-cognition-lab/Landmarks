@@ -246,6 +246,7 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
+  trialRepeatCount: 2
   minimumWallDistance: 0.25
   minimumTravelDistance: 1
   minimumBetweenTrialDistance: 2
@@ -258,7 +259,6 @@ MonoBehaviour:
     type: 3}
   targetObjectTemplate: {fileID: 5387326638374018490, guid: d8860be3f78643749800d5e50b4778a9,
     type: 3}
-  numberOfTrials: 3
   ground: {fileID: 1772511063}
 --- !u!1 &78827798
 GameObject:

@@ -13,6 +13,8 @@ using UnityEngine;
 public class pto_generateStartGoalPairs : ExperimentTask
 {
     [Header("Task-specific Properties")]
+
+    public int trialRepeatCount;
     public float minimumWallDistance;
     public float minimumTravelDistance;
     public float minimumBetweenTrialDistance = 2;
@@ -25,16 +27,39 @@ public class pto_generateStartGoalPairs : ExperimentTask
     public GameObject startLocationTemplate;
     public GameObject targetObjectTemplate;
 
-    public int numberOfTrials;
+    private int numberOfTrials;
 
     public GameObject ground;
 
     private ObjectList startOutputList;
     private ObjectList goalOutputList;
 
+    
+
     public override void startTask()
     {
         TASK_START();
+
+        
+
+        List<List<double>> trialMatrix = new List<List<double>>();
+
+        List<double> distanceList = new List<double> {2, 2.5, 3, 3.5};
+        List<double> borderList =new List<double>  {0, 1};
+
+        numberOfTrials = trialRepeatCount * distanceList.Count * borderList.Count;
+
+        int count = 0;
+        foreach (int distance in distanceList){
+            foreach (int border in borderList){
+                for(int i = 0; i < trialRepeatCount; i++){
+                    trialMatrix.Add(new List<double> {count, distance,border});
+                    count++;
+                }
+            }  
+        }
+
+        Debug.Log(trialMatrix);
 
 
         Vector3[] startLocations = new Vector3[numberOfTrials];
