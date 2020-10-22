@@ -40,11 +40,9 @@ public class pto_generateStartGoalPairs : ExperimentTask
     {
         TASK_START();
 
-        
-
         List<List<float>> trialMatrix = new List<List<float>>();
 
-        List<float> distanceList = new List<float> {2.5f, 3.5f};
+        List<float> distanceList = new List<float> {3.5f, 4.5f};
         List<float> borderList =new List<float>  {0f, 1f};
 
         numberOfTrials = trialRepeatCount * distanceList.Count * borderList.Count;
@@ -65,54 +63,15 @@ public class pto_generateStartGoalPairs : ExperimentTask
         Random.seed = 42;
 
         // get the x and z range for our generation from the ground object
-        Transform groundT = ground.transform;
-        float xMin = groundT.position.x - groundT.lossyScale.x / 2 + minimumWallDistance;
-        float xMax = groundT.position.x + groundT.lossyScale.x / 2 - minimumWallDistance;
-        float zMin = groundT.position.y - groundT.lossyScale.z / 2 + minimumWallDistance;
-        float zMax = groundT.position.y + groundT.lossyScale.z / 2 - minimumWallDistance;
-
+        
+        Vector3 lastTargetLocation = new Vector3(0, 0, 0);
         for (int i = 0; i < numberOfTrials; i++){
-            Vector3 startLocation;
-            Vector3 targetLocation;
-            Vector2 deltaVector; 
-            float betweenTrialDistance;
-            bool isPairValid = true;
-            do{
 
-                // set up random starting location and direction
-                startLocation = new Vector3(Random.Range(xMin, xMax), 0.5f, Random.Range(zMin, zMax));
-                deltaVector = Random.insideUnitCircle.normalized * trialMatrix[i][1];
+            List<Vector3> generatedLocations = generateStartGoalPair(trialMatrix[i][1], lastTargetLocation, true, ground.transform);
 
-                targetLocation = new Vector3(
-                    startLocation.x + deltaVector.x,
-                    0.5f, 
-                    startLocation.z + deltaVector.y
-                );
-                
-                // test conditions
-
-                if (i==0){
-                    betweenTrialDistance = Vector3.Distance(new Vector3(0,0,0), startLocation);
-                }else{
-                    betweenTrialDistance = Vector3.Distance(targetLocations[i-1],startLocation);
-                }
-
-                isPairValid = true; // assume valid until proven otherwise
-
-                if (targetLocation.x < xMin | targetLocation.x > xMax){
-                    isPairValid = false;
-                }
-                if (targetLocation.z < zMin | targetLocation.z > zMax){
-                    isPairValid = false;
-                }
-                if (betweenTrialDistance < minimumBetweenTrialDistance){
-                    isPairValid = false;
-                }
-
-            }while(!isPairValid);
-
-            startLocations[i] = startLocation;
-            targetLocations[i] = targetLocation;
+            startLocations[i] = generatedLocations[0];
+            targetLocations[i] = generatedLocations[1];
+            lastTargetLocation = targetLocations[i];
         }
 
         /*
@@ -142,6 +101,57 @@ public class pto_generateStartGoalPairs : ExperimentTask
 
     }
 
+    private List<Vector3> generateStartGoalPair(float distance, Vector3 lastLocation, bool passBorder, Transform groundT){
+        
+        Vector3 startLocation;
+        Vector3 targetLocation;
+        Vector2 deltaVector; 
+        float betweenTrialDistance;
+        bool isPairValid = true;
+
+        float xMin = groundT.position.x - groundT.lossyScale.x / 2 + minimumWallDistance;
+        float xMax = groundT.position.x + groundT.lossyScale.x / 2 - minimumWallDistance;
+        float zMin = groundT.position.y - groundT.lossyScale.z / 2 + minimumWallDistance;
+        float zMax = groundT.position.y + groundT.lossyScale.z / 2 - minimumWallDistance;
+        float borderZ = (zMin + zMax) / 2;
+
+        do{
+
+            // set up random starting location and direction
+            startLocation = new Vector3(Random.Range(xMin, xMax), 0.5f, Random.Range(zMin, zMax));
+            deltaVector = Random.insideUnitCircle.normalized * distance;
+
+            targetLocation = new Vector3(
+                startLocation.x + deltaVector.x,
+                0.5f, 
+                startLocation.z + deltaVector.y
+            );
+            
+            betweenTrialDistance = Vector3.Distance(lastLocation,startLocation);
+            
+
+            isPairValid = true; // assume valid until proven otherwise
+
+            if (targetLocation.x < xMin | targetLocation.x > xMax){
+                isPairValid = false;
+            }
+            if (targetLocation.z < zMin | targetLocation.z > zMax){
+                isPairValid = false;
+            }
+            if (betweenTrialDistance < minimumBetweenTrialDistance){
+                isPairValid = false;
+            }
+            if (passBorder){
+                if( (startLocation.z < borderZ) == (targetLocation.z < borderZ) ){ // if on the same side of the border x-boundary
+                    isPairValid = false;
+                }
+            }
+
+        }while(!isPairValid);
+
+        return new List<Vector3> {startLocation, targetLocation};
+    }
+    
 
     public override void TASK_START()
     {
