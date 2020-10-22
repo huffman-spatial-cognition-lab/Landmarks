@@ -40,22 +40,39 @@ public class pto_generateStartGoalPairs : ExperimentTask
     {
         TASK_START();
 
-        List<List<float>> trialMatrix = new List<List<float>>();
-
+        // base trial matrix is just the count and distance pairs
+        List<List<float>> baseTrialMatrix = new List<List<float>>();
         List<float> distanceList = new List<float> {3.5f, 4.5f};
-        List<float> borderList =new List<float>  {0f, 1f};
-
-        numberOfTrials = trialRepeatCount * distanceList.Count * borderList.Count;
 
         int count = 0;
         foreach (int distance in distanceList){
-            foreach (int border in borderList){
-                for(int i = 0; i < trialRepeatCount; i++){
-                    trialMatrix.Add(new List<float> {count, distance,border});
-                    count++;
-                }
+            for(int i = 0; i < trialRepeatCount; i++){
+                baseTrialMatrix.Add(new List<float> {count, distance});
+                count++;
             }  
         }
+
+        // master trial matrix contains all trials we want
+        // *** structure: ***
+        // count, distance, showBorder, acrossBorder
+        List<List<float>> masterTrialMatrix = new List<List<float>>();
+        List<float> baseTrial;
+        for (int i = 0; i < baseTrialMatrix.Count; i++){
+            baseTrial = baseTrialMatrix[i];
+            masterTrialMatrix.Add(new List<float> {baseTrial[0], baseTrial[1], 0f, 1f});
+            masterTrialMatrix.Add(new List<float> {baseTrial[0], baseTrial[1], 1f, 1f});
+            if (i%2 == 0){
+                masterTrialMatrix.Add(new List<float> {baseTrial[0], baseTrial[1], 1f, 0f});
+            }
+        }
+
+        Debug.Log("base: ");
+        Debug.Log(baseTrialMatrix.Count);
+        Debug.Log("master: ");
+        Debug.Log(masterTrialMatrix.Count);
+
+
+        numberOfTrials = masterTrialMatrix.Count;
 
         Vector3[] startLocations = new Vector3[numberOfTrials];
         Vector3[] targetLocations = new Vector3[numberOfTrials];
@@ -65,9 +82,11 @@ public class pto_generateStartGoalPairs : ExperimentTask
         // get the x and z range for our generation from the ground object
         
         Vector3 lastTargetLocation = new Vector3(0, 0, 0);
+        List<float> trial;
         for (int i = 0; i < numberOfTrials; i++){
-
-            List<Vector3> generatedLocations = generateStartGoalPair(trialMatrix[i][1], lastTargetLocation, true, ground.transform);
+            trial = masterTrialMatrix[i];
+            bool showBorder = trial[3] == 1.0f;
+            List<Vector3> generatedLocations = generateStartGoalPair(trial[1], lastTargetLocation, showBorder, ground.transform);
 
             startLocations[i] = generatedLocations[0];
             targetLocations[i] = generatedLocations[1];
