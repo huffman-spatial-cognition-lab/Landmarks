@@ -34,6 +34,9 @@ public class pto_generateStartGoalPairs : ExperimentTask
     private ObjectList startOutputList;
     private ObjectList goalOutputList;
 
+
+    // exported
+    public List<List<float>> masterTrialMatrix;
     
 
     public override void startTask()
@@ -55,7 +58,7 @@ public class pto_generateStartGoalPairs : ExperimentTask
         // master trial matrix contains all trials we want
         // *** structure: ***
         // count, distance, showBorder, acrossBorder
-        List<List<float>> masterTrialMatrix = new List<List<float>>();
+        masterTrialMatrix = new List<List<float>>();
         List<float> baseTrial;
         for (int i = 0; i < baseTrialMatrix.Count; i++){
             baseTrial = baseTrialMatrix[i];
