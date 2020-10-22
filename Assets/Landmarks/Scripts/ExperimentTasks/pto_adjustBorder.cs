@@ -31,7 +31,9 @@ public class pto_adjustBorder : ExperimentTask
         if (!manager) Start();
         base.startTask();
 
+        Debug.Log("pto_adjustBorder ----------------");
         Debug.Log(trialData.GetComponent<pto_generateStartGoalPairs>().masterTrialMatrix);
+        Debug.Log(this.parentTask.repeatCount);
 
         if(mode == adjustState.onCondition){
 
