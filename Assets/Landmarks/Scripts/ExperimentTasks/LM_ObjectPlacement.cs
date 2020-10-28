@@ -124,9 +124,16 @@ public class LM_ObjectPlacement : ExperimentTask
                 markerLocation = markerObject.transform.position;
                 markerLocation += targetTranslation * translationSpeed;
                 markerLocation.y = markerFixedHeight;
-                markerObject.transform.position = markerLocation;
-                
+                markerObject.transform.position = markerLocation; 
             }
+
+            // submit the position
+            // todo: how to "Return" with the VR?
+            if ( Input.GetKeyDown(KeyCode.Return))
+                {
+                    Debug.Log("todo--objectPointing--logging");
+                    return true;
+                }
         }
 
         return false;
@@ -148,7 +155,9 @@ public class LM_ObjectPlacement : ExperimentTask
 
         // WRITE TASK EXIT CODE HERE
 
-        //TODO: remove marker object
+        Destroy(markerObject);
+        avatar.GetComponent<FirstPersonController>().enabled = true;
+        oriented = false;
     }
 
 }

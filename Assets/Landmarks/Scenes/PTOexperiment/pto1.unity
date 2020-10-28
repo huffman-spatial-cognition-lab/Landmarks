@@ -1006,7 +1006,7 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  markerObjectTemplate: {fileID: 5387326638374018490, guid: d8860be3f78643749800d5e50b4778a9,
+  markerObjectTemplate: {fileID: 8845932247092423020, guid: 018acccbec7002b45a34990ccc1f81c4,
     type: 3}
   markerStartDistance: 2
   markerFixedHeight: 0.66
