@@ -16,6 +16,7 @@ public class pto_adjustBorder : ExperimentTask
 {
     [Header("Task-specific Properties")]
     public adjustState mode;
+    public GameObject borderParent;
     public GameObject trialData; // game object from which to pull the masterTrialMatrix data
 
     public override void startTask()
@@ -31,15 +32,24 @@ public class pto_adjustBorder : ExperimentTask
         if (!manager) Start();
         base.startTask();
 
-        Debug.Log("pto_adjustBorder ----------------");
-        Debug.Log(trialData.GetComponent<pto_generateStartGoalPairs>().masterTrialMatrix);
-        Debug.Log(this.parentTask.repeatCount);
+        bool newBorderActive = false;
 
         if(mode == adjustState.onCondition){
-
+            int trialIndex = this.parentTask.repeatCount;
+            float borderIsOn = trialData.GetComponent<pto_generateStartGoalPairs>().masterTrialMatrix[this.parentTask.repeatCount][2];
+            if(borderIsOn == 1){
+                newBorderActive = true;
+            }else{
+                newBorderActive = false;
+            }
         }else if(mode == adjustState.off){
-
+            newBorderActive = false;
         }
+
+        foreach (Transform child in borderParent.transform) {
+            child.gameObject.SetActive(newBorderActive);
+        }
+
     }
 
 

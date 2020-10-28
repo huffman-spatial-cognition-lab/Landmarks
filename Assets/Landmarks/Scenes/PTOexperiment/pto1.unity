@@ -518,6 +518,7 @@ MonoBehaviour:
   triggerOnStart: 0
   triggerOnEnd: 0
   mode: 1
+  borderParent: {fileID: 265180561}
   trialData: {fileID: 48458637}
 --- !u!1 &415114628
 GameObject:
@@ -1659,6 +1660,7 @@ MonoBehaviour:
   triggerOnStart: 0
   triggerOnEnd: 0
   mode: 0
+  borderParent: {fileID: 265180561}
   trialData: {fileID: 48458637}
 --- !u!1 &11654344331747036
 GameObject:
