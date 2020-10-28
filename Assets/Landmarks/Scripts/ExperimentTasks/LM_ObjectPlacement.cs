@@ -24,6 +24,8 @@ public class LM_ObjectPlacement : ExperimentTask
     public GameObject markerObjectTemplate;
     [Range(0.0f, 100.0f)]
     public float markerStartDistance;
+    [Range(-1.0f, 3.0f)]
+    public float markerFixedHeight;
     public float translationSpeed;
 
     // Private Variables
@@ -67,15 +69,16 @@ public class LM_ObjectPlacement : ExperimentTask
             {
                 // Lock player movment & reset looking
                 avatar.GetComponent<FirstPersonController>().enabled = false; // disable the controller to work
-                avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero; // reset the camera
+                //avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = new Vector3 (25, 0, 0); // reset the camera
                 avatar.GetComponent<FirstPersonController>().ResetMouselook(); // reset the zero position to be our current cam orientation
             }
 
             // Instantiate the Marker
-            markerLocation = manager.player.transform.position; //TODO player location + orientation * 1
+            markerLocation = manager.player.transform.position + avatar.GetComponentInChildren<Camera>().transform.forward * markerStartDistance;
+            markerLocation.y = markerFixedHeight;
             markerObject = Instantiate(markerObjectTemplate, markerLocation, Quaternion.identity);
-            markerObject.transform.localPosition = new Vector3(0,0, -markerStartDistance);
-            markerObject.transform.localEulerAngles = Vector3.zero;
+            //markerObject.transform.localPosition = new Vector3(0,0, -markerStartDistance);    
+            //markerObject.transform.localEulerAngles = Vector3.zero;
 
             // label them as oriented
             oriented = true;
@@ -91,18 +94,35 @@ public class LM_ObjectPlacement : ExperimentTask
         }
         else
         {
-            if(Input.GetKeyDown(KeyCode.LeftArrow)){
-
+            int targetMovementHori = 0;
+            int targetMovementVert = 0;
+            Vector3 targetTranslation = Vector3.zero;
+            if(Input.GetKey(KeyCode.U)){
+                targetMovementVert = 1;
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow)){
-
+            if (Input.GetKey(KeyCode.M)){
+                targetMovementVert = -1;
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow)){
-
+            if (Input.GetKey(KeyCode.H)){
+                targetMovementHori = -1;
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow)){
-
+            if (Input.GetKey(KeyCode.K)){
+                targetMovementHori = 1;  
             }
+            
+            if (targetMovementHori != 0){
+                targetTranslation += avatar.GetComponentInChildren<Camera>().transform.right * Time.deltaTime * targetMovementHori;
+            }
+            if (targetMovementVert != 0){
+                targetTranslation += avatar.GetComponentInChildren<Camera>().transform.forward * Time.deltaTime * targetMovementVert;
+                Debug.Log(targetTranslation);
+            }
+            markerLocation = markerObject.transform.position;
+            markerLocation += targetTranslation;
+            markerLocation.y = markerFixedHeight;
+            markerObject.transform.position = markerLocation;
+            
+
         }
         return false;
         
