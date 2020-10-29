@@ -153,7 +153,23 @@ public class LM_ObjectPlacement : ExperimentTask
     {
         base.endTask();
 
-        // WRITE TASK EXIT CODE HERE
+        // --------------------------
+        // Log data
+        // --------------------------
+
+        if (trialLog.active)
+        {
+            trialLog.AddData(transform.name + "_task", "ObjectPlacement");
+            /*
+            trialLog.AddData(transform.name + "_playerLocation", startAngle.ToString()); // record where we started the compass at
+            trialLog.AddData(transform.name + "_responseCW", response.ToString());
+            trialLog.AddData(transform.name + "_answerCW", answer.ToString());
+            trialLog.AddData(transform.name + "_signedError", signedError.ToString());
+            trialLog.AddData(transform.name + "_absError", absError.ToString());
+            trialLog.AddData(transform.name + "_SOPorientingTime", orientTime.ToString());
+            trialLog.AddData(transform.name + "_responseTime", responseTime.ToString());
+            */
+        }
 
         Destroy(markerObject);
         avatar.GetComponent<FirstPersonController>().enabled = true;
