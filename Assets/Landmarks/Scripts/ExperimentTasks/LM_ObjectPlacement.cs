@@ -67,10 +67,8 @@ public class LM_ObjectPlacement : ExperimentTask
                 }
                 else 
                 {
-                    // Lock player movement & reset looking at the current orientation
+                    // Lock player movement & reset looking at the current orientation ONLY IF KEYBOARD CONTROLS
                     avatar.GetComponent<FirstPersonController>().enabled = false; // disable the controller to work
-                    //avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = new Vector3 (25, 0, 0); // reset the camera
-                    //avatar.GetComponent<FirstPersonController>().ResetMouselook(); // reset the zero position to be our current cam orientation
                 }
 
                 // Instantiate the Marker
@@ -172,7 +170,9 @@ public class LM_ObjectPlacement : ExperimentTask
         }
 
         Destroy(markerObject);
-        avatar.GetComponent<FirstPersonController>().enabled = true;
+        if(!vrEnabled){
+            avatar.GetComponent<FirstPersonController>().enabled = true;
+        }
         oriented = false;
     }
 
