@@ -39,7 +39,8 @@ public enum UserInterface
     KeyboardMouse,
     ViveRoomspace,
     ViveVirtualizer,
-    ViveKatwalk
+    ViveKatwalk,
+    OculusQuest
 }
 
 public class Experiment : MonoBehaviour {
@@ -349,6 +350,9 @@ public class Experiment : MonoBehaviour {
                 case "ViveKatwalk":
                     userInterface = UserInterface.ViveKatwalk;
                     break;
+                case "OculusQuest":
+                    userInterface = UserInterface.OculusQuest;
+                    break;
                 default:
                     userInterface = UserInterface.KeyboardMouse;
                     break;
@@ -399,6 +403,22 @@ public class Experiment : MonoBehaviour {
 
 										goto default;
 								}
+
+            case UserInterface.OculusQuest:
+
+                try
+                {
+                        lmPlayer = GameObject.Find("OVRPlayerController").GetComponent<LM_PlayerController>();
+
+                        break;
+                }
+                catch (Exception ex)
+                {
+                        Debug.LogWarning("The proprietary ViveKatwalkController asset cannot be found.\n" +
+                            "Are you missing the prefab in your Landmarks project or a reference to the prefab in your scene?");
+
+                        goto default;
+                }
 
             default:
 
