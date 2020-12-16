@@ -20,6 +20,8 @@ public class RelocationTask : ExperimentTask
     private float scaledPlayerDistance = 0;
     private float optimalDistance;
 
+    private bool debugOculusPosition = false;
+
     public override void startTask ()
 	{
 		TASK_START();
@@ -93,11 +95,28 @@ public class RelocationTask : ExperimentTask
         }
         else optimalDistance = Vector3.Distance(avatar.transform.position, current.transform.position);
 
+        Debug.Log("START");
+        Debug.Log("OVRPlayerController" + GameObject.Find("OVRPlayerController").transform.position);
+        Debug.Log("OVRCameraRig" + GameObject.Find("OVRCameraRig").transform.position);
+        Debug.Log("OVRCameraRig/TrackingSpace" + GameObject.Find("OVRCameraRig/TrackingSpace").transform.position);
+        Debug.Log("TrackingSpace/LeftEyeAnchor" + GameObject.Find("TrackingSpace/LeftEyeAnchor").transform.position);
+        Debug.Log("TrackingSpace/CenterEyeAnchor" + GameObject.Find("TrackingSpace/CenterEyeAnchor").transform.position);
+
     }
 
     public override bool updateTask ()
 	{
 		base.updateTask();
+
+        if (debugOculusPosition){
+            Debug.Log("UPDATE");
+            Debug.Log("OVRPlayerController" + GameObject.Find("OVRPlayerController").transform.position);
+            Debug.Log("OVRCameraRig" + GameObject.Find("OVRCameraRig").transform.position);
+            Debug.Log("OVRCameraRig/TrackingSpace" + GameObject.Find("OVRCameraRig/TrackingSpace").transform.position);
+            Debug.Log("TrackingSpace/LeftEyeAnchor" + GameObject.Find("TrackingSpace/LeftEyeAnchor").transform.position);
+            Debug.Log("TrackingSpace/CenterEyeAnchor" + GameObject.Find("TrackingSpace/CenterEyeAnchor").transform.position);
+
+        }
 
         if (skip)
         {
