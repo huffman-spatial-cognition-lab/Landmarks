@@ -442,7 +442,9 @@ public class Experiment : MonoBehaviour {
 
 
 	public void OnControllerColliderHit(GameObject hit)  {
+                Debug.Log("OnControllerColliderHit-Experiment.cs");
 		if (config.runMode != ConfigRunMode.PLAYBACK) {
+                    Debug.Log("OnControllerColliderHit-CollisionDetection.cs-NotPlayback");
 			tasks.OnControllerColliderHit(hit);
 		}
 	}

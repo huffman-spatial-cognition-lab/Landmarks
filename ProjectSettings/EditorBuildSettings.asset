@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Landmarks/Scenes/PTOexperiment/pto1.unity
     guid: d3b11150919694334b2e091334004348
+  - enabled: 0
+    path: Assets/Oculus/SampleFramework/Usage/Locomotion.unity
+    guid: 024cd9dcd49bd8f46a6bea03aa8a21bb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b98c5592fae8ebd47a894d2e710f87fc,
       type: 2}

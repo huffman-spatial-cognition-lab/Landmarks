@@ -24,13 +24,16 @@ public class CollisionDetection : MonoBehaviour {
 
 
 	void OnControllerColliderHit(ControllerColliderHit hit)  {
+        //Debug.Log("OnControllerColliderHit-CollisionDetection.cs");
 		if(hit.gameObject.tag == "Target") {
+                    Debug.Log("OnControllerColliderHit-CollisionDetection.cs-isTarget");
 			manager.OnControllerColliderHit(hit.gameObject);
 		}   
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("OnCollisionEnter-CollisionDetection.cs");
         if(collision.gameObject.tag == "Target")
         {
             manager.OnControllerColliderHit(collision.gameObject);
@@ -38,6 +41,7 @@ public class CollisionDetection : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
+        Debug.Log("OnTriggerEnter-CollisionDetection.cs");
         manager.OnControllerColliderHit(other.gameObject);
     }
     
