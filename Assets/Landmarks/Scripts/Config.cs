@@ -86,7 +86,7 @@ public class Config : MonoBehaviour{
             if (s_Instance == null) {
                 GameObject obj = new GameObject("Config");
                 s_Instance = obj.AddComponent(typeof (Config)) as Config;
-                Debug.Log ("Could not locate an Config object.  Config was Generated Automaticly.");
+                Debug.Log ("Could not locate an Config object.  Config was generated automatically.");
             }
 
             if (!s_Instance.initialized)

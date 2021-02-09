@@ -1,22 +1,12 @@
-﻿/*
-    LM Dummy
-       
-    Attached object holds task components that need to be effectively ignored 
-    by Tasklist but are required for the script. Thus the object this is 
-    attached to can be detected by Tasklist (won't throw error), but does nothing 
-    except start and end.   
-
-    Copyright (C) 2019 Michael J. Starrett
-
-    Navigate by StarrLite (Powered by LandMarks)
-    Human Spatial Cognition Laboratory
-    Department of Psychology - University of Arizona   
-*/
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+
+enum PointingTaskStage{
+    Orienting,
+    Pointing
+}
 
 public class LM_ObjectPlacement : ExperimentTask
 {
@@ -28,11 +18,14 @@ public class LM_ObjectPlacement : ExperimentTask
     public float markerFixedHeight;
     public float translationSpeed;
 
+    public Transform RightHand;
+
     // Private Variables
     
     private GameObject markerObject;
     private Vector3 markerLocation;
-    private bool oriented = false;
+    private PointingTaskStage stage = PointingTaskStage.Orienting;
+    private bool triggerWasPushed = false;
 
     public override void startTask()
     {
@@ -52,15 +45,32 @@ public class LM_ObjectPlacement : ExperimentTask
         
     }
 
-
     public override bool updateTask()
     {
-    
+        if (vrEnabled){
+            OVRInput.Update(); // required to track the Oculus input
+        }
+
+        bool vrInput = false;
+
+        // calculate vrInput (whether the trigger is being pressed is used as the input in this experiment)
+        if(!triggerWasPushed){
+            if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) >= 0.75f){ // right index finger on the trigger pushed beyond .75
+                triggerWasPushed = true;
+            } 
+        }else{
+            if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) <= 0.5f){ // right index finger on the trigger pushed less than .5
+                triggerWasPushed = false;
+                vrInput = true; // true for only one frame
+            } 
+        }
+
         // During the orienting stage
-        if (!oriented){
+        if (stage == PointingTaskStage.Orienting){
             
-            if ( Input.GetKeyDown(KeyCode.Return))
+            if ((!vrEnabled && Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput))
             {
+                
                 if (vrEnabled)
                 {
                     Debug.Log("todo--objectPlacement--VR");
@@ -75,16 +85,17 @@ public class LM_ObjectPlacement : ExperimentTask
                 markerLocation = manager.player.transform.position + avatar.GetComponentInChildren<Camera>().transform.forward * markerStartDistance;
                 markerLocation.y = markerFixedHeight;
                 markerObject = Instantiate(markerObjectTemplate, markerLocation, Quaternion.identity);
+                Debug.Log(markerLocation);
                 //markerObject.transform.localPosition = new Vector3(0,0, -markerStartDistance);    
                 //markerObject.transform.localEulerAngles = Vector3.zero;
 
-                // label them as oriented
-                oriented = true;
+                // move on to the next stage
+                stage = PointingTaskStage.Pointing;
             }
         }
 
         // During the pointing stage (after orienting)
-        else{ // if (oriented)
+        if (stage == PointingTaskStage.Pointing){
 
             // check for key updates
             // and move markerLocation accordingly
@@ -170,10 +181,12 @@ public class LM_ObjectPlacement : ExperimentTask
         }
 
         Destroy(markerObject);
+
         if(!vrEnabled){
             avatar.GetComponent<FirstPersonController>().enabled = true;
         }
-        oriented = false;
+
+        stage = PointingTaskStage.Orienting; // return to the original stage
     }
 
 }

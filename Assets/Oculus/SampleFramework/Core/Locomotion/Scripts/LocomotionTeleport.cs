@@ -284,7 +284,7 @@ public class LocomotionTeleport : MonoBehaviour
 	/// <summary>
 	/// AimCollisionTest is used by many of the aim handlers to standardize the testing of aiming beams. By choosing between the increasingly restrictive 
 	/// point, sphere and capsule tests, the aiming system can limit targeting to routes which are not physically blocked. For example, a sphere test 
-	/// is good for ensuring the player can't teleport through bars to get out of a jail cell. 
+	/// is good for ensuring the player can't teleport through bars to get out of a jail cell.
 	/// </summary>
 	/// <param name="start"></param>
 	/// <param name="end"></param>

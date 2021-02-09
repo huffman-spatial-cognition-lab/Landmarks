@@ -227,7 +227,6 @@ public class NavigationTask : ExperimentTask
         {
             float distToTarget = Vector3.Distance(playerLastPosition, destinations.currentObject().transform.position);
             if(distToTarget <= hiddenFromDistanceRadius){
-                Debug.Log(distToTarget);
                 destinations.currentObject().SetActive(true);
                 destinations.currentObject().GetComponent<MeshRenderer>().enabled = true;
             }

@@ -242,6 +242,8 @@ public class Experiment : MonoBehaviour {
 
 
         if (config.runMode == ConfigRunMode.NEW) {
+            Debug.Log("SINAN - config dblog creation");
+            Debug.Log(dataPath + logfile);
 			dblog = new dbLog(dataPath + logfile);
 		} else if (config.runMode == ConfigRunMode.RESUME) {
             dblog = new dbPlaybackLog(dataPath + logfile);
