@@ -135,7 +135,6 @@ public class LM_ObjectPlacement : ExperimentTask
 
                 // TODO update the line renderer properties based on hit data
                 _lineRenderer.gameObject.SetActive(true);
-                _lineRenderer.sharedMaterial.color = Color.green;
                 _lineRenderer.positionCount = 2;
                 _lineRenderer.SetPosition(0, startPoint);
                 _lineRenderer.SetPosition(0, endPoint);
