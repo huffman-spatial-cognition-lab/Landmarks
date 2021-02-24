@@ -12,6 +12,7 @@ public class LM_ObjectPlacement : ExperimentTask
 {
     [Header("Task-specific Properties")]
     public GameObject markerObjectTemplate;
+    public LineRenderer lineRendererTemplate;
     [Range(0.0f, 100.0f)]
     public float markerStartDistance;
     [Range(-1.0f, 3.0f)]
@@ -27,6 +28,8 @@ public class LM_ObjectPlacement : ExperimentTask
     private PointingTaskStage stage = PointingTaskStage.Orienting;
     private bool triggerWasPushed = false;
 
+    private LineRenderer _lineRenderer;
+
     public override void startTask()
     {
         TASK_START();
@@ -41,6 +44,10 @@ public class LM_ObjectPlacement : ExperimentTask
         base.startTask();
 
         // WRITE TASK STARTUP CODE HERE
+        
+        lineRendererTemplate.gameObject.SetActive(false);
+		_lineRenderer = Instantiate(lineRendererTemplate);
+
         hud.showEverything();
         
     }
@@ -64,6 +71,10 @@ public class LM_ObjectPlacement : ExperimentTask
                 vrInput = true; // true for only one frame
             } 
         }
+
+        Debug.Log(stage);
+        Debug.Log(vrInput);
+        Debug.Log(triggerWasPushed);
 
         // During the orienting stage
         if (stage == PointingTaskStage.Orienting){
@@ -103,7 +114,34 @@ public class LM_ObjectPlacement : ExperimentTask
 
             if (vrEnabled)
             {
-                Debug.Log("todo--objectPointing--VR");
+                int range = 100;
+                bool aimHit = false;
+		        Ray aimRay = new Ray(RightHand.position, RightHand.forward);
+                Vector3 startPoint = aimRay.origin;
+                Vector3 endPoint = aimRay.origin + aimRay.direction * range;
+                RaycastHit hitInfo;
+
+                Debug.Log(startPoint);
+
+                if(Physics.Raycast(startPoint, aimRay.direction, out hitInfo, range)){//, out hitInfo, range, QueryTriggerInteraction.Ignore)){
+                    endPoint = startPoint + aimRay.direction * hitInfo.distance;
+                    aimHit = true;
+                    Debug.Log(hitInfo);
+                    Debug.Log(hitInfo.point);
+                    Debug.Log(hitInfo.collider);
+                }
+
+                markerObject.transform.position = hitInfo.point;
+
+                // TODO update the line renderer properties based on hit data
+                _lineRenderer.gameObject.SetActive(true);
+                _lineRenderer.sharedMaterial.color = Color.green;
+                _lineRenderer.positionCount = 2;
+                _lineRenderer.SetPosition(0, startPoint);
+                _lineRenderer.SetPosition(0, endPoint);
+                
+
+               
             }
             else
             {

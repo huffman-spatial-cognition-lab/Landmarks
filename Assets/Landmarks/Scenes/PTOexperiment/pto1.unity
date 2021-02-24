@@ -1444,7 +1444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1484,7 +1484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1556,15 +1556,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 14300000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_Radius
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 14300000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_Height
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 14300000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_SlopeLimit
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 14300000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_Center.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 20131489337305086, guid: ce816f2e6abb0504092c23ed9b970dfd,
         type: 3}
@@ -1587,6 +1591,12 @@ Camera:
 --- !u!1 &562936116 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: ce816f2e6abb0504092c23ed9b970dfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 562936114}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &562936117 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4471613377008970, guid: ce816f2e6abb0504092c23ed9b970dfd,
     type: 3}
   m_PrefabInstance: {fileID: 562936114}
   m_PrefabAsset: {fileID: 0}
@@ -2786,10 +2796,12 @@ MonoBehaviour:
   triggerOnEnd: 0
   markerObjectTemplate: {fileID: 8845932247092423020, guid: 018acccbec7002b45a34990ccc1f81c4,
     type: 3}
+  lineRendererTemplate: {fileID: 2386382763588470407, guid: 60a804cf93f63274fb2403932a3552e2,
+    type: 3}
   markerStartDistance: 2
   markerFixedHeight: 0.66
   translationSpeed: 2
-  RightHand: {fileID: 0}
+  RightHand: {fileID: 562936117}
 --- !u!1 &1206326396
 GameObject:
   m_ObjectHideFlags: 0
@@ -3765,6 +3777,7 @@ GameObject:
   - component: {fileID: 1772511067}
   - component: {fileID: 1772511066}
   - component: {fileID: 1772511065}
+  - component: {fileID: 1772511064}
   m_Layer: 10
   m_Name: terrain
   m_TagString: Untagged
@@ -3772,6 +3785,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &1772511064
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772511063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1772511065
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3828,7 +3854,7 @@ Transform:
   m_GameObject: {fileID: 1772511063}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 0.01, z: 6.5}
+  m_LocalScale: {x: 4, y: 0.05, z: 6.5}
   m_Children: []
   m_Father: {fileID: 5308465570580963480}
   m_RootOrder: 2
