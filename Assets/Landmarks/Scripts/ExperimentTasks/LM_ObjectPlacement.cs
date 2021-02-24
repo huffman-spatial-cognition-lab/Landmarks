@@ -75,7 +75,6 @@ public class LM_ObjectPlacement : ExperimentTask
         Debug.Log(stage);
         Debug.Log(vrInput);
         Debug.Log(triggerWasPushed);
-        Debug.Log(OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger));
 
         // During the orienting stage
         if (stage == PointingTaskStage.Orienting){
