@@ -117,8 +117,8 @@ public class LM_ObjectPlacement : ExperimentTask
                 int range = 100;
                 bool aimHit = false;
 		        Ray aimRay = new Ray(RightHand.position, RightHand.forward);
-                Vector3 startPoint = aimRay.origin;
-                Vector3 endPoint = aimRay.origin + aimRay.direction * range;
+                Vector3 startPoint = RightHand.position;
+                Vector3 endPoint = startPoint + aimRay.direction * range;
                 RaycastHit hitInfo;
 
                 Debug.Log(startPoint);
@@ -133,13 +133,10 @@ public class LM_ObjectPlacement : ExperimentTask
 
                 markerObject.transform.position = hitInfo.point;
 
-                // TODO update the line renderer properties based on hit data
                 _lineRenderer.gameObject.SetActive(true);
                 _lineRenderer.positionCount = 2;
                 _lineRenderer.SetPosition(0, startPoint);
-                _lineRenderer.SetPosition(0, endPoint);
-                
-
+                _lineRenderer.SetPosition(1, endPoint);
                
             }
             else
