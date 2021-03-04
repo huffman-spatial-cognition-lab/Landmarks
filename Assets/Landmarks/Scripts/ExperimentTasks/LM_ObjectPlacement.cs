@@ -13,6 +13,8 @@ public class LM_ObjectPlacement : ExperimentTask
     [Header("Task-specific Properties")]
     public GameObject markerObjectTemplate;
     public LineRenderer lineRendererTemplate;
+    public GameObject handModelLeft;
+    public GameObject handModelRight;
     [Range(0.0f, 100.0f)]
     public float markerStartDistance;
     [Range(-1.0f, 3.0f)]
@@ -47,6 +49,9 @@ public class LM_ObjectPlacement : ExperimentTask
         
         lineRendererTemplate.gameObject.SetActive(false);
 		_lineRenderer = Instantiate(lineRendererTemplate);
+
+        handModelLeft.SetActive(true);
+        handModelRight.SetActive(true);
 
         hud.showEverything();
         
@@ -195,6 +200,9 @@ public class LM_ObjectPlacement : ExperimentTask
     public override void TASK_END()
     {
         base.endTask();
+
+        handModelLeft.SetActive(false);
+        handModelRight.SetActive(false);
 
         // --------------------------
         // Log data
