@@ -111,7 +111,7 @@ public class LM_ObjectPlacement : ExperimentTask
         }
 
         // During the pointing stage (after orienting)
-        if (stage == PointingTaskStage.Pointing){
+        else if (stage == PointingTaskStage.Pointing){
 
             // check for key updates
             // and move markerLocation accordingly
@@ -176,12 +176,10 @@ public class LM_ObjectPlacement : ExperimentTask
             }
 
             // submit the position
-            // todo: how to "Return" with the VR?
-            if ( Input.GetKeyDown(KeyCode.Return))
-                {
-                    Debug.Log("todo--objectPointing--logging");
-                    return true;
-                }
+            if ((!vrEnabled && Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput)){
+                Debug.Log("todo--objectPointing--logging");
+                return true;
+            }
         }
 
         return false;
@@ -201,9 +199,6 @@ public class LM_ObjectPlacement : ExperimentTask
     {
         base.endTask();
 
-        handModelLeft.SetActive(false);
-        handModelRight.SetActive(false);
-
         // --------------------------
         // Log data
         // --------------------------
@@ -222,13 +217,18 @@ public class LM_ObjectPlacement : ExperimentTask
             */
         }
 
+        // Object clean-up
         Destroy(markerObject);
+        Destroy(_lineRenderer);
+
+        handModelLeft.SetActive(false);
+        handModelRight.SetActive(false);
 
         if(!vrEnabled){
             avatar.GetComponent<FirstPersonController>().enabled = true;
         }
 
-        stage = PointingTaskStage.Orienting; // return to the original stage
+        stage = PointingTaskStage.Orienting; // reset stage to the original state.
     }
 
 }
