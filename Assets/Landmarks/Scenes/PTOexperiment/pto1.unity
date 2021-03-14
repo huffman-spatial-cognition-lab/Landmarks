@@ -2750,6 +2750,12 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &991673692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100012, guid: ce816f2e6abb0504092c23ed9b970dfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 562936114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1017110519
 GameObject:
   m_ObjectHideFlags: 0
@@ -4622,7 +4628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navLog: 0
-  player: {fileID: 1952382016}
+  player: {fileID: 991673692}
   camerarig: {fileID: 562936116}
 --- !u!114 &1952382021
 MonoBehaviour:
