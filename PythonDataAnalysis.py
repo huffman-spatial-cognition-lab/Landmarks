@@ -4,19 +4,19 @@ import matplotlib.pyplot as plt
 
 timestamps = np.empty((0,1))
 positions = np.empty((0,3))
+rotations = np.empty((0,3))
 with open("example.csv") as logfile:
     logreader = csv.reader(logfile, delimiter='\t')
     for row in logreader:
         if len(row) > 12:
             if row[1] == "Avatar: ":
                 time = int(row[0])
-
                 pos = [float(x) for x in row[4:7]]
-
                 rot = [float(x) for x in row[8:11]]
 
-                positions = np.append(positions, np.array([pos]),axis = 0)
                 timestamps = np.append(timestamps,  np.array(time))
+                positions = np.append(positions, np.array([pos]), axis = 0)
+                rotations = np.append(rotations, np.array([rot]), axis = 0)
 
                 print(time, pos, rot)
 
