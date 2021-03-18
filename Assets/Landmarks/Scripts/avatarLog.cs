@@ -35,7 +35,7 @@ public class avatarLog : MonoBehaviour {
             log.log("Avatar: \t" + avatar.name + "\t" +
                     "Position (xyz): \t" + cameraCon.position.x + "\t" + cameraCon.position.y + "\t" + cameraCon.position.z + "\t" +
                     "Rotation (xyz): \t" + cameraCon.eulerAngles.x + "\t" + cameraCon.eulerAngles.y + "\t" + cameraCon.eulerAngles.z + "\t" +
-                    "Camera   (xyz): \t" + cameraRig.eulerAngles.x + "\t" + cameraRig.eulerAngles.y + "\t" + cameraRig.eulerAngles.z + "\t"
+                    "Camera   (xyz): \t" + cameraCon.transform.forward.x + "\t" + cameraCon.transform.forward.y + "\t" + cameraCon.transform.forward.z + "\t"
                     , 1);
         }
 	}

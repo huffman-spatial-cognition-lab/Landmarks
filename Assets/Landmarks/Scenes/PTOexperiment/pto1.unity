@@ -4573,7 +4573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3cda9e69d0ee6c43b45ff2540a1e795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugLocomotion: 0
+  debugLocomotion: 1
   anch_ovrpc: {fileID: 1153343381}
   anch_camrig: {fileID: 1034745817}
   anch_trackspace: {fileID: 1385445747}
