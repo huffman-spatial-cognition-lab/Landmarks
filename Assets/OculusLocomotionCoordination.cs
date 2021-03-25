@@ -17,7 +17,7 @@ public class OculusLocomotionCoordination : MonoBehaviour
     public bool debugLocomotion = true;
 
     public GameObject anch_ovrpc;
-    public GameObject anch_camrig;
+    public GameObject anch_charcont;
     public GameObject anch_trackspace;
     public GameObject anch_centeri;
 
@@ -32,17 +32,18 @@ public class OculusLocomotionCoordination : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 CenterPosition = GameObject.Find("TrackingSpace/CenterEyeAnchor").transform.localPosition;
+        Vector3 CenterPosition = GameObject.Find("TrackingSpace/CenterEyeAnchor").transform.position;
         CharacterController cc = GameObject.Find("OVRPlayerController").GetComponent(typeof(CharacterController)) as CharacterController;
-        cc.center = CenterPosition;
-        
+        cc.center = new Vector3(CenterPosition.x, 0.2, CenterPosition.z);
+
         // ---------- DEBUGGING --------- //
         if(debugLocomotion){
-            if(debug > 100){
-                anch_ovrpc.transform.position = GameObject.Find("OVRPlayerController").transform.position;
-                anch_camrig.transform.position = GameObject.Find("OVRCameraRig").transform.position;
-                anch_trackspace.transform.position = GameObject.Find("TrackingSpace").transform.position;
-                anch_centeri.transform.position = GameObject.Find("TrackingSpace/CenterEyeAnchor").transform.position;
+            anch_ovrpc.transform.position = GameObject.Find("OVRPlayerController").transform.position;
+            anch_charcont.transform.position = new Vector3(CenterPosition.x, 0.2, CenterPosition.z);
+            anch_trackspace.transform.position = GameObject.Find("TrackingSpace").transform.position;
+            anch_centeri.transform.position = GameObject.Find("TrackingSpace/CenterEyeAnchor").transform.position +  GameObject.Find("TrackingSpace/CenterEyeAnchor").transform.forward * 0.5f;
+            if(debug > 50){
+                
 
                 Debug.Log("OVRPlayerController");
                 Debug.Log(GameObject.Find("OVRPlayerController").transform.rotation);

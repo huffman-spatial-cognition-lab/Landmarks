@@ -24,6 +24,9 @@ public class LM_ObjectPlacement : ExperimentTask
     public Transform RightHand;
 
     // Private Variables
+
+    private dbLog log;
+	private Experiment manager;
     
     private GameObject markerObject;
     private Vector3 markerLocation;
@@ -50,7 +53,10 @@ public class LM_ObjectPlacement : ExperimentTask
         lineRendererTemplate.gameObject.SetActive(false);
 		_lineRenderer = Instantiate(lineRendererTemplate);
 
-        handModelLeft.SetActive(true);
+        manager = experiment.GetComponent("Experiment") as Experiment;
+		log = manager.dblog;
+
+        handModelLeft.SetActive(false);
         handModelRight.SetActive(true);
 
         hud.showEverything();
@@ -89,7 +95,8 @@ public class LM_ObjectPlacement : ExperimentTask
                 
                 if (vrEnabled)
                 {
-                    Debug.Log("todo--objectPlacement--VR");
+                    // VR-specific actions should go here
+                    // Currently none.
                 }
                 else 
                 {
@@ -106,6 +113,9 @@ public class LM_ObjectPlacement : ExperimentTask
                 //markerObject.transform.localEulerAngles = Vector3.zero;
 
                 // move on to the next stage
+                if (trialLog.active){   
+                    log.log("OBJECT_PLACEMENT\tPLAYER_ORIENTED\tLOCATION:\t" + manager.player.transform.position.x + "\t" + manager.player.transform.position.y + "\t"+ manager.player.transform.position.z, 1);
+                }
                 stage = PointingTaskStage.Pointing;
             }
         }
@@ -116,14 +126,16 @@ public class LM_ObjectPlacement : ExperimentTask
             // check for key updates
             // and move markerLocation accordingly
             // and update the markerObject.Transform
+            Vector3 startPoint = new Vector3();
+            Vector3 endPoint = new Vector3();
 
             if (vrEnabled)
             {
                 int range = 100;
                 bool aimHit = false;
 		        Ray aimRay = new Ray(RightHand.position, RightHand.forward);
-                Vector3 startPoint = RightHand.position;
-                Vector3 endPoint = startPoint + aimRay.direction * range;
+                startPoint = RightHand.position;
+                endPoint = startPoint + aimRay.direction * range;
                 RaycastHit hitInfo;
 
                 Debug.Log(startPoint);
@@ -177,7 +189,10 @@ public class LM_ObjectPlacement : ExperimentTask
 
             // submit the position
             if ((!vrEnabled && Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput)){
-                Debug.Log("todo--objectPointing--logging");
+                if (trialLog.active){   
+                    log.log("OBJECT_PLACEMENT\tOBJECT_PLACED\tRAY_START:\t" + startPoint.x + "\t" + startPoint.y + "\t"+ startPoint.z + "\t"+
+                    "RAY_END:\t" + endPoint.x + "\t" + endPoint.y + "\t"+ endPoint.z, 1);
+                }
                 return true;
             }
         }
