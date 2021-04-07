@@ -106,7 +106,7 @@ public class RelocationTask : ExperimentTask
         Vector3 debug_to = new Vector3(alternate_to.x, 0.2f, alternate_to.y);
         Vector3 debug_from = new Vector3(alternate_from.x, 0.2f, alternate_from.y);
 
-        debug_to = debug_from + (debug_from - debug_to).normalized * alternateDistThreshold;
+        debug_to = debug_from + (debug_to - debug_from).normalized * alternateDistThreshold;
         
         _lineRenderer.gameObject.SetActive(true);
         _lineRenderer.positionCount = 2;
@@ -202,7 +202,7 @@ public class RelocationTask : ExperimentTask
 
 	public override bool OnControllerColliderHit(GameObject hit)
 	{
-                Debug.Log("OnControllerColliderHit-RelocationTask.cs");
+        Debug.Log("OnControllerColliderHit-RelocationTask.cs");
 		if (hit == current)
 		{
 			return true;
