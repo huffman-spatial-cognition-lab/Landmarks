@@ -34,12 +34,12 @@ public class OculusLocomotionCoordination : MonoBehaviour
     {
         Vector3 CenterPosition = GameObject.Find("TrackingSpace/CenterEyeAnchor").transform.position;
         CharacterController cc = GameObject.Find("OVRPlayerController").GetComponent(typeof(CharacterController)) as CharacterController;
-        cc.center = new Vector3(CenterPosition.x, 0.2, CenterPosition.z);
+        cc.center = new Vector3(CenterPosition.x, 0.2f, CenterPosition.z);
 
         // ---------- DEBUGGING --------- //
         if(debugLocomotion){
             anch_ovrpc.transform.position = GameObject.Find("OVRPlayerController").transform.position;
-            anch_charcont.transform.position = new Vector3(CenterPosition.x, 0.2, CenterPosition.z);
+            anch_charcont.transform.position = new Vector3(CenterPosition.x, 0.2f, CenterPosition.z);
             anch_trackspace.transform.position = GameObject.Find("TrackingSpace").transform.position;
             anch_centeri.transform.position = GameObject.Find("TrackingSpace/CenterEyeAnchor").transform.position +  GameObject.Find("TrackingSpace/CenterEyeAnchor").transform.forward * 0.5f;
             if(debug > 50){

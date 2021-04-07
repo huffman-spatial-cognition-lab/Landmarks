@@ -4384,6 +4384,8 @@ MonoBehaviour:
   triggerOnEnd: 0
   destinations: {fileID: 415114629}
   hideNonTargets: 0
+  lineRendererTemplate: {fileID: 2386382763588470407, guid: 60a804cf93f63274fb2403932a3552e2,
+    type: 3}
 --- !u!1 &1772511063
 GameObject:
   m_ObjectHideFlags: 0
@@ -8694,6 +8696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc52bd233bf6417e813a8500da44ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultText: 
 --- !u!1 &2940330906494142029
 GameObject:
   m_ObjectHideFlags: 0
@@ -14344,6 +14347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc52bd233bf6417e813a8500da44ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultText: 
 --- !u!23 &6353959495169184025
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ public class RelocationTask : ExperimentTask
 
     public bool hideNonTargets;
 
-
     // For logging output
     private float startTime;
     private Vector3 playerLastPosition;
@@ -19,6 +18,12 @@ public class RelocationTask : ExperimentTask
     private Vector3 scaledPlayerLastPosition;
     private float scaledPlayerDistance = 0;
     private float optimalDistance;
+
+    // for the alternate method checking if the task is over
+    private GameObject CenterEyeAnchor;
+    private float alternateDistThreshold = 0.4f;
+    private LineRenderer _lineRenderer;
+    public LineRenderer lineRendererTemplate;
 
     public override void startTask ()
 	{
@@ -44,22 +49,6 @@ public class RelocationTask : ExperimentTask
 
         hud.SecondsToShow = 0;
         hud.setMessage("Please relocate to the target");
-
-        // Handle if we're hiding all the non-targets
-        // MIGHT BE USEFUL FOR SHOWING/REMOVING BORDERS
-        /*
-        if (hideNonTargets)
-        {
-            foreach (GameObject item in destinations.objects)
-            {
-                if (item.name != destinations.currentObject().name)
-                {
-                    item.SetActive(false);
-                }
-                else item.SetActive(true);
-            }
-        }
-        */
 
         // make sure the target is visible
         //  destinations.currentObject().SetActive(true); 
@@ -93,6 +82,10 @@ public class RelocationTask : ExperimentTask
         }
         else optimalDistance = Vector3.Distance(avatar.transform.position, current.transform.position);
 
+        // store the CenterEyeAnchor so that we do not search for it every game loop (expensive)
+        CenterEyeAnchor = GameObject.Find("TrackingSpace/CenterEyeAnchor");
+        _lineRenderer = Instantiate(lineRendererTemplate);
+
     }
 
     public override bool updateTask ()
@@ -103,6 +96,26 @@ public class RelocationTask : ExperimentTask
         {
             //log.log("INFO    skip task    " + name,1 );
             return true;
+        }
+
+        // check whether we are close enough to the target to the end
+        // this is in alternate way of ending the current task when collision is buggy
+        Vector2 alternate_to = new Vector2(current.transform.position.x, current.transform.position.z);
+        Vector2 alternate_from = new Vector2(CenterEyeAnchor.transform.position.x, CenterEyeAnchor.transform.position.z);
+        
+        Vector3 debug_to = new Vector3(alternate_to.x, 0.2f, alternate_to.y);
+        Vector3 debug_from = new Vector3(alternate_from.x, 0.2f, alternate_from.y);
+
+        debug_to = debug_from + (debug_from - debug_to).normalized * alternateDistThreshold;
+        
+        _lineRenderer.gameObject.SetActive(true);
+        _lineRenderer.positionCount = 2;
+        _lineRenderer.SetPosition(0, debug_to);
+        _lineRenderer.SetPosition(1, debug_from);
+        
+        float alternateDist = Vector2.Distance(alternate_from, alternate_to);
+        if (alternateDist < alternateDistThreshold){
+            return true; // mark task as completed!
         }
 
         // Update the distance traveled
