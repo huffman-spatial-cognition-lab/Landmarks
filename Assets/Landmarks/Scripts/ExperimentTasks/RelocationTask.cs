@@ -21,7 +21,7 @@ public class RelocationTask : ExperimentTask
 
     // for the alternate method checking if the task is over
     private GameObject CenterEyeAnchor;
-    private float alternateDistThreshold = 0.4f;
+    private float alternateDistThreshold = 0.32f;
     private LineRenderer _lineRenderer;
     public LineRenderer lineRendererTemplate;
 
