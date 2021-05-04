@@ -6,8 +6,11 @@ using TMPro;
 public class RelocationTask : ExperimentTask
 {
     [Header("Task-specific Properties")]
-    public ObjectList destinations;
+    private Trial trialData;
+    private int numObjects;
+    private int currObjInd;
 	private GameObject current;
+    private bool completedCurrentObject;
 
     public bool hideNonTargets;
 
@@ -24,6 +27,9 @@ public class RelocationTask : ExperimentTask
     private float alternateDistThreshold = 0.32f;
     private LineRenderer _lineRenderer;
     public LineRenderer lineRendererTemplate;
+
+    // for creating relocation targets
+    public GameObject relocationTargetTemplate;
 
     public override void startTask ()
 	{
@@ -42,25 +48,25 @@ public class RelocationTask : ExperimentTask
             log.log("INFO    skip task    " + name, 1);
             return;
         }
-
         hud.showEverything();
-		current = destinations.currentObject();
-        // Debug.Log ("Find " + destinations.currentObject().name);
+
+        // load data from our ground-truth
+        trialData = GameObject.Find("TrialsTruth").GetComponent<pto_trialsTruth>().trialsTruth.trials[this.parentTask.repeatCount];
+        numObjects = trialData.expObjects.Count - 1; // minus 1 for the last object, which is for the pointing task.
+        currObjInd = 0;
+        completedCurrentObject = false;
+        relocateTargetStart();
+
 
         hud.SecondsToShow = 0;
         hud.setMessage("Please relocate to the target");
-
-        // make sure the target is visible
-        //  destinations.currentObject().SetActive(true); 
-        current.SetActive(true);
         
         try
         {
-            destinations.currentObject().GetComponent<MeshRenderer>().enabled = true;
+            current.GetComponent<MeshRenderer>().enabled = true;
         }
         catch (System.Exception ex)
         {
-
         }
 
         // startTime = Current time in seconds
@@ -98,6 +104,19 @@ public class RelocationTask : ExperimentTask
             return true;
         }
 
+        if (completedCurrentObject){
+            relocateTargetEnd();
+            Debug.Log(currObjInd);
+            Debug.Log(numObjects);
+            if(currObjInd == numObjects){ // are we done with all the objects? if so, move on from this task
+                Debug.Log("completed!");
+                return true;
+            }
+            relocateTargetStart();
+            completedCurrentObject = false;
+        }
+        completedCurrentObject = false;
+
         // check whether we are close enough to the target to the end
         // this is in alternate way of ending the current task when collision is buggy
         Vector2 alternate_to = new Vector2(current.transform.position.x, current.transform.position.z);
@@ -115,7 +134,7 @@ public class RelocationTask : ExperimentTask
         
         float alternateDist = Vector2.Distance(alternate_from, alternate_to);
         if (alternateDist < alternateDistThreshold){
-            return true; // mark task as completed!
+            completedCurrentObject = true; // move to the next object!
         }
 
         // Update the distance traveled
@@ -156,14 +175,6 @@ public class RelocationTask : ExperimentTask
 		avatarLog.navLog = false;
         if (isScaled) scaledAvatarLog.navLog = false;
 
-        // turn off the object so that it doesn't bother us in future trials
-        current.SetActive(false); 
-
-        if (canIncrementLists)
-		{
-			destinations.incrementCurrent();
-		}
-		current = destinations.currentObject();
 		hud.setMessage("");
 		hud.showScore = false;
 
@@ -179,10 +190,6 @@ public class RelocationTask : ExperimentTask
             perfDistance = scaledPlayerDistance;
         }
         else perfDistance = playerDistance;
-
-        var parent = this.parentTask;
-        var masterTask = parent;
-        while (!masterTask.gameObject.CompareTag("Task")) masterTask = masterTask.parentTask;
 
         var excessPath = perfDistance - optimalDistance;
         var navTime = Time.time - startTime;
@@ -200,19 +207,35 @@ public class RelocationTask : ExperimentTask
 
     }
 
+    private void relocateTargetStart(){
+        ExpObject currExpObj = trialData.expObjects[currObjInd];
+        current = InstantiateRelocationTarget(currExpObj.x, currExpObj.y);
+        current.SetActive(true);
+    }
+
+    private void relocateTargetEnd(){
+        current.SetActive(false);
+        current = null;
+        currObjInd++;
+    }
+
+    private GameObject InstantiateRelocationTarget(float x, float y){
+        GameObject go = Instantiate(relocationTargetTemplate);
+        go.transform.position = new Vector3(x, 0f, y);
+        return go;
+    }
+
 	public override bool OnControllerColliderHit(GameObject hit)
 	{
         Debug.Log("OnControllerColliderHit-RelocationTask.cs");
 		if (hit == current)
 		{
-			return true;
+			completedCurrentObject = true;
 		}
 
-        //Debug.Log(hit);
-        //Debug.Log(current);
 		if (hit.transform.parent == current.transform)
 		{
-			return true;
+			completedCurrentObject = true;
 		}
 		return false;
 	}

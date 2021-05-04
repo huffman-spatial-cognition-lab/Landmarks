@@ -14,7 +14,7 @@ which is always in sync with where the headset actually is.
 public class OculusLocomotionCoordination : MonoBehaviour
 {
 
-    public bool debugLocomotion = true;
+    public bool debugLocomotion = false;
 
     public GameObject anch_ovrpc;
     public GameObject anch_charcont;
