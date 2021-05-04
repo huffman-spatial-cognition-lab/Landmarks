@@ -38,12 +38,14 @@ public class pto_adjustBorder : ExperimentTask
 
         if(mode == adjustState.onCondition){
             int trialIndex = this.parentTask.repeatCount;
-            float borderIsOn = trialData.GetComponent<pto_generateStartGoalPairs>().masterTrialMatrix[this.parentTask.repeatCount][2];
-            if(borderIsOn == 1){
+            bool borderIsOn = trialData.GetComponent<pto_trialsTruth>().trialsTruth.trials[this.parentTask.repeatCount].boundaryVisible;
+            
+            if(borderIsOn){
                 newBorderActive = true;
             }else{
                 newBorderActive = false;
             }
+            
         }else if(mode == adjustState.off){
             newBorderActive = false;
         }

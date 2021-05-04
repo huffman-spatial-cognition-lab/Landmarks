@@ -429,7 +429,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 48458638}
-  - component: {fileID: 48458639}
   m_Layer: 0
   m_Name: TrialsTruth
   m_TagString: Untagged
@@ -451,49 +450,6 @@ Transform:
   m_Father: {fileID: 5308465571363977456}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &48458639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48458637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adec28e0f0ce35b4d86348e624210827, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 1
-  interval: 0
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  trialRepeatCount: 2
-  minimumWallDistance: 0.25
-  minimumTravelDistance: 1
-  minimumBetweenTrialDistance: 2
-  targetLocationParent: {fileID: 5308465572129788264}
-  startLocationParent: {fileID: 5308465570273599371}
-  targetObjectParent: {fileID: 5308465571431694794}
-  targetLocationTemplate: {fileID: 2027856776761814227, guid: 59315ac31601ec54e885fc16c185af50,
-    type: 3}
-  startLocationTemplate: {fileID: 475642739331577302, guid: b21774ad73a771e4fabd6f4c4478b623,
-    type: 3}
-  targetObjectTemplate: {fileID: 5387326638374018490, guid: d8860be3f78643749800d5e50b4778a9,
-    type: 3}
-  ground: {fileID: 1772511063}
 --- !u!4 &112308777 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd,
