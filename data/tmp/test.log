@@ -1,0 +1,466 @@
+63759822597463	EXPERIMENT:		SUBJECT:	default	START_SCENE	demo_SimplerSampler_3x3	START_CONDITION:	default	UI:	ViveRoomspace
+63759822597491	TASK_START	LM_Timeline	TaskList
+63759822597492	TASK_START	InitializeExperiment	TaskList
+63759822597492	TASK_START	UpdateTargetObjects	LM_UpdateTargetObjects
+63759822597514	TASK_END	UpdateTargetObjects	LM_UpdateTargetObjects	22
+63759822597515	TASK_START	AssignTargetColors	LM_TargetColorAssignments
+63759822597536	TASK_END	AssignTargetColors	LM_TargetColorAssignments	21
+63759822597537	TASK_START	PlaceTargets	TaskList
+63759822597537	TASK_START	ListTargetLocations	ObjectList
+63759822598017	TASK_END	ListTargetLocations	ObjectList	480
+63759822598017	TASK_START	ListTargets	ObjectList
+63759822598017	TASK_ADD	ListTargets	ObjectList	Cube	null
+63759822598017	TASK_ADD	ListTargets	ObjectList	Sphere	null
+63759822598028	TASK_END	ListTargets	ObjectList	11
+63759822598029	TASK_START	PopulateTargets	MoveObjects
+63759822598029	INFO	skip task	PopulateTargets
+63759822598037	TASK_END	PopulateTargets	MoveObjects	8
+63759822598037	LM_Output	TaskList
+TaskListName	RepetitionNumber	CatchFlag
+PlaceTargets1False
+63759822598037	TASK_END	PlaceTargets	TaskList	500
+63759822598038	TASK_START	ListNavigationStarts	ObjectList
+63759822598038	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation01	null
+63759822598043	TASK_END	ListNavigationStarts	ObjectList	5
+63759822598043	LM_Output	TaskList
+TaskListName	RepetitionNumber	CatchFlag
+InitializeExperiment1False
+63759822598043	TASK_END	InitializeExperiment	TaskList	551
+63759822598044	TASK_START	BeginMessage	InstructionsTask
+63759822604316	INPUT_EVENT    PlayerPressedActionButton    1
+63759822604316	TASK_END	BeginMessage	InstructionsTask	6272
+63759822604317	TASK_START	Tasks	TaskList
+63759822604317	TASK_START	TASK_NavigationTask	TaskList
+63759822604317	TASK_START	MovePlayerToSpawn	MoveSpawn
+63759822604318	TASK_POSITION	ViveRoomspaceController	MoveSpawn	(0.0, 0.1, 0.0)
+63759822604318	TASK_ROTATE	ViveRoomspaceController	MoveSpawn	(0.0, 0.0, 0.0)
+63759822604325	TASK_END	MovePlayerToSpawn	MoveSpawn	8
+63759822604326	TASK_START	ListNavigationTargets	ObjectList
+63759822604326	TASK_ADD	ListNavigationTargets	ObjectList	Sphere	null
+63759822604326	TASK_ADD	ListNavigationTargets	ObjectList	Cube	null
+63759822604336	TASK_END	ListNavigationTargets	ObjectList	10
+63759822604337	TASK_START	NavigationInstructions	InstructionsTask
+63759822605554	INPUT_EVENT    PlayerPressedActionButton    1
+63759822605554	TASK_END	NavigationInstructions	InstructionsTask	1217
+63759822605555	TASK_START	NavigationTrials	TaskList
+63759822605556	TASK_START	CueTarget	InstructionsTask
+63759822610558	TASK_END	CueTarget	InstructionsTask	5002
+63759822610559	TASK_START	Navigate	NavigationTask
+63759822610569	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6530347	0.6907919	0.008438841	Rotation (xyz): 	0	48.61619	0	Camera   (xyz): 	0	0	0	
+63759822610580	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6532328	0.6908008	0.008374662	Rotation (xyz): 	0	48.61552	0	Camera   (xyz): 	0	0	0	
+63759822610591	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6534243	0.6907948	0.008278058	Rotation (xyz): 	0	48.61018	0	Camera   (xyz): 	0	0	0	
+63759822610602	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6535631	0.6908015	0.008196221	Rotation (xyz): 	0	48.61536	0	Camera   (xyz): 	0	0	0	
+63759822610614	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6537211	0.690832	0.008052931	Rotation (xyz): 	0	48.62828	0	Camera   (xyz): 	0	0	0	
+63759822610625	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6539634	0.6907973	0.00793326	Rotation (xyz): 	0	48.6287	0	Camera   (xyz): 	0	0	0	
+63759822610636	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6541239	0.6908035	0.007859499	Rotation (xyz): 	0	48.64885	0	Camera   (xyz): 	0	0	0	
+63759822610647	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.654321	0.6908206	0.007740409	Rotation (xyz): 	0	48.66737	0	Camera   (xyz): 	0	0	0	
+63759822610647	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.654321	0.6908206	0.007740409	Rotation (xyz): 	0	48.66737	0	Camera   (xyz): 	0	0	0	
+63759822610658	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6544609	0.6909328	0.007535041	Rotation (xyz): 	0	48.6875	0	Camera   (xyz): 	0	0	0	
+63759822610670	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6545552	0.6908861	0.007422612	Rotation (xyz): 	0	48.71249	0	Camera   (xyz): 	0	0	0	
+63759822610681	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6547569	0.6909039	0.007356898	Rotation (xyz): 	0	48.74068	0	Camera   (xyz): 	0	0	0	
+63759822610692	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6549242	0.6908815	0.007320167	Rotation (xyz): 	0	48.75864	0	Camera   (xyz): 	0	0	0	
+63759822610703	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6550751	0.6908998	0.007231981	Rotation (xyz): 	0	48.78412	0	Camera   (xyz): 	0	0	0	
+63759822610714	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6552781	0.6909022	0.007162482	Rotation (xyz): 	0	48.80299	0	Camera   (xyz): 	0	0	0	
+63759822610726	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6554756	0.6908448	0.007136301	Rotation (xyz): 	0	48.84395	0	Camera   (xyz): 	0	0	0	
+63759822610737	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6555887	0.6908277	0.007114918	Rotation (xyz): 	0	48.86624	0	Camera   (xyz): 	0	0	0	
+63759822610748	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.655759	0.6907987	0.007092209	Rotation (xyz): 	0	48.88277	0	Camera   (xyz): 	0	0	0	
+63759822610759	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6557809	0.6908717	0.007096366	Rotation (xyz): 	0	48.90219	0	Camera   (xyz): 	0	0	0	
+63759822610770	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6559132	0.6908461	0.00709653	Rotation (xyz): 	0	48.91041	0	Camera   (xyz): 	0	0	0	
+63759822610781	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6560606	0.6908212	0.007123278	Rotation (xyz): 	0	48.91413	0	Camera   (xyz): 	0	0	0	
+63759822610792	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6563256	0.6906635	0.007137553	Rotation (xyz): 	0	48.91879	0	Camera   (xyz): 	0	0	0	
+63759822610803	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.656464	0.6906347	0.007156582	Rotation (xyz): 	0	48.92101	0	Camera   (xyz): 	0	0	0	
+63759822610814	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6565852	0.6905917	0.00714703	Rotation (xyz): 	0	48.92791	0	Camera   (xyz): 	0	0	0	
+63759822610825	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6565808	0.6906652	0.007148356	Rotation (xyz): 	0	48.93143	0	Camera   (xyz): 	0	0	0	
+63759822610836	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6567508	0.6906399	0.007133783	Rotation (xyz): 	0	48.94469	0	Camera   (xyz): 	0	0	0	
+63759822610848	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6569572	0.6906157	0.007117868	Rotation (xyz): 	0	48.96165	0	Camera   (xyz): 	0	0	0	
+63759822610859	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6572006	0.6905351	0.007045002	Rotation (xyz): 	0	48.9758	0	Camera   (xyz): 	0	0	0	
+63759822610870	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6574056	0.6905048	0.007000999	Rotation (xyz): 	0	48.9992	0	Camera   (xyz): 	0	0	0	
+63759822610882	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6576521	0.6904829	0.006903009	Rotation (xyz): 	0	48.99202	0	Camera   (xyz): 	0	0	0	
+63759822610892	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6579289	0.6904047	0.006834523	Rotation (xyz): 	0	48.99193	0	Camera   (xyz): 	0	0	0	
+63759822610904	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6582205	0.6903667	0.006824196	Rotation (xyz): 	0	49.00256	0	Camera   (xyz): 	0	0	0	
+63759822610915	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6585916	0.6903155	0.006761284	Rotation (xyz): 	0	49.01521	0	Camera   (xyz): 	0	0	0	
+63759822610926	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6588996	0.6903059	0.006720127	Rotation (xyz): 	0	49.01257	0	Camera   (xyz): 	0	0	0	
+63759822610937	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6592928	0.6901778	0.006666378	Rotation (xyz): 	0	49.01435	0	Camera   (xyz): 	0	0	0	
+63759822610948	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.659816	0.6900622	0.006636501	Rotation (xyz): 	0	49.0097	0	Camera   (xyz): 	0	0	0	
+63759822610960	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6604126	0.6899019	0.006566078	Rotation (xyz): 	0	49.00095	0	Camera   (xyz): 	0	0	0	
+63759822610971	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6609626	0.6896968	0.006543637	Rotation (xyz): 	0	48.99269	0	Camera   (xyz): 	0	0	0	
+63759822610982	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6616676	0.6894742	0.006543518	Rotation (xyz): 	0	49.00214	0	Camera   (xyz): 	0	0	0	
+63759822610993	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6624278	0.6891235	0.006627516	Rotation (xyz): 	0	48.98874	0	Camera   (xyz): 	0	0	0	
+63759822611004	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6632282	0.6888561	0.006653295	Rotation (xyz): 	0	48.99352	0	Camera   (xyz): 	0	0	0	
+63759822611016	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6642011	0.6884653	0.006661297	Rotation (xyz): 	0	48.9937	0	Camera   (xyz): 	0	0	0	
+63759822611027	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6650717	0.6881053	0.006681637	Rotation (xyz): 	0	49.00688	0	Camera   (xyz): 	0	0	0	
+63759822611038	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6661563	0.6876698	0.006722883	Rotation (xyz): 	0	49.02552	0	Camera   (xyz): 	0	0	0	
+63759822611049	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6675592	0.6870812	0.006774918	Rotation (xyz): 	0	49.06212	0	Camera   (xyz): 	0	0	0	
+63759822611061	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6689343	0.6865201	0.006807105	Rotation (xyz): 	0	49.10958	0	Camera   (xyz): 	0	0	0	
+63759822611072	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6705426	0.6859125	0.006761701	Rotation (xyz): 	0	49.19932	0	Camera   (xyz): 	0	0	0	
+63759822611083	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6723153	0.6852131	0.006604374	Rotation (xyz): 	0	49.33209	0	Camera   (xyz): 	0	0	0	
+63759822611094	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6742761	0.6844242	0.006516219	Rotation (xyz): 	0	49.47574	0	Camera   (xyz): 	0	0	0	
+63759822611105	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6764576	0.6836634	0.006254272	Rotation (xyz): 	0	49.70219	0	Camera   (xyz): 	0	0	0	
+63759822611116	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6787336	0.6828394	0.005866052	Rotation (xyz): 	0	49.94656	0	Camera   (xyz): 	0	0	0	
+63759822611128	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6811429	0.682003	0.005448149	Rotation (xyz): 	0	50.27671	0	Camera   (xyz): 	0	0	0	
+63759822611139	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6838156	0.6810991	0.004849003	Rotation (xyz): 	0	50.66506	0	Camera   (xyz): 	0	0	0	
+63759822611150	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6866697	0.6801669	0.004141227	Rotation (xyz): 	0	51.07156	0	Camera   (xyz): 	0	0	0	
+63759822611161	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6899402	0.6791053	0.003464506	Rotation (xyz): 	0	51.54514	0	Camera   (xyz): 	0	0	0	
+63759822611171	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6929364	0.6780763	0.002519608	Rotation (xyz): 	0	52.07819	0	Camera   (xyz): 	0	0	0	
+63759822611183	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6965483	0.6769765	0.001303018	Rotation (xyz): 	0	52.72836	0	Camera   (xyz): 	0	0	0	
+63759822611194	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6998947	0.6758842	5.097128E-06	Rotation (xyz): 	0	53.479	0	Camera   (xyz): 	0	0	0	
+63759822611205	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7033315	0.6748368	-0.001453905	Rotation (xyz): 	0	54.26515	0	Camera   (xyz): 	0	0	0	
+63759822611216	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7070822	0.67383	-0.003283962	Rotation (xyz): 	0	55.13221	0	Camera   (xyz): 	0	0	0	
+63759822611227	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7105874	0.6728703	-0.004955306	Rotation (xyz): 	0	55.98862	0	Camera   (xyz): 	0	0	0	
+63759822611239	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7142022	0.6720312	-0.006893097	Rotation (xyz): 	0	56.90157	0	Camera   (xyz): 	0	0	0	
+63759822611250	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7181271	0.6711521	-0.009047008	Rotation (xyz): 	0	57.81693	0	Camera   (xyz): 	0	0	0	
+63759822611261	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7216195	0.6703834	-0.01101951	Rotation (xyz): 	0	58.74646	0	Camera   (xyz): 	0	0	0	
+63759822611272	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7252018	0.669672	-0.0134322	Rotation (xyz): 	0	59.79037	0	Camera   (xyz): 	0	0	0	
+63759822611284	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7287362	0.6689848	-0.01622722	Rotation (xyz): 	0	60.9175	0	Camera   (xyz): 	0	0	0	
+63759822611295	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7322508	0.6682538	-0.0189499	Rotation (xyz): 	0	62.11506	0	Camera   (xyz): 	0	0	0	
+63759822611306	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7357404	0.6675627	-0.02206862	Rotation (xyz): 	0	63.49677	0	Camera   (xyz): 	0	0	0	
+63759822611317	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7390872	0.6668748	-0.02541842	Rotation (xyz): 	0	64.92546	0	Camera   (xyz): 	0	0	0	
+63759822611328	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7423996	0.6662468	-0.02895958	Rotation (xyz): 	0	66.55845	0	Camera   (xyz): 	0	0	0	
+63759822611340	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.745539	0.6656022	-0.03283529	Rotation (xyz): 	0	68.32374	0	Camera   (xyz): 	0	0	0	
+63759822611351	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7487888	0.6649486	-0.03688941	Rotation (xyz): 	0	70.0935	0	Camera   (xyz): 	0	0	0	
+63759822611362	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7517527	0.6644197	-0.04096892	Rotation (xyz): 	0	72.06857	0	Camera   (xyz): 	0	0	0	
+63759822611373	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7547484	0.6639151	-0.04531537	Rotation (xyz): 	0	74.04381	0	Camera   (xyz): 	0	0	0	
+63759822611384	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7570661	0.6634122	-0.05018055	Rotation (xyz): 	0	76.16783	0	Camera   (xyz): 	0	0	0	
+63759822611395	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7596536	0.6629375	-0.05477101	Rotation (xyz): 	0	78.33492	0	Camera   (xyz): 	0	0	0	
+63759822611407	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7618807	0.6624665	-0.05997162	Rotation (xyz): 	0	80.65743	0	Camera   (xyz): 	0	0	0	
+63759822611418	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7633224	0.661981	-0.06554717	Rotation (xyz): 	0	83.05737	0	Camera   (xyz): 	0	0	0	
+63759822611429	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7652459	0.6615307	-0.07103899	Rotation (xyz): 	0	85.49662	0	Camera   (xyz): 	0	0	0	
+63759822611440	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7667692	0.6611248	-0.07690752	Rotation (xyz): 	0	88.06822	0	Camera   (xyz): 	0	0	0	
+63759822611451	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7676712	0.6605667	-0.08308238	Rotation (xyz): 	0	90.68512	0	Camera   (xyz): 	0	0	0	
+63759822611462	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7688881	0.6601975	-0.089168	Rotation (xyz): 	0	93.33054	0	Camera   (xyz): 	0	0	0	
+63759822611473	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7687215	0.6599286	-0.09558257	Rotation (xyz): 	0	96.07561	0	Camera   (xyz): 	0	0	0	
+63759822611484	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7694572	0.65962	-0.1019286	Rotation (xyz): 	0	98.81119	0	Camera   (xyz): 	0	0	0	
+63759822611496	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7700521	0.6594068	-0.1079745	Rotation (xyz): 	0	101.5503	0	Camera   (xyz): 	0	0	0	
+63759822611507	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7696218	0.659434	-0.1146882	Rotation (xyz): 	0	104.3342	0	Camera   (xyz): 	0	0	0	
+63759822611518	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7698696	0.6591045	-0.1212124	Rotation (xyz): 	0	107.0926	0	Camera   (xyz): 	0	0	0	
+63759822611529	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7694236	0.6590413	-0.1274277	Rotation (xyz): 	0	109.8681	0	Camera   (xyz): 	0	0	0	
+63759822611540	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7693668	0.6593496	-0.1339858	Rotation (xyz): 	0	112.6363	0	Camera   (xyz): 	0	0	0	
+63759822611552	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7679304	0.6592513	-0.1407867	Rotation (xyz): 	0	115.4308	0	Camera   (xyz): 	0	0	0	
+63759822611563	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7666695	0.6593062	-0.1468404	Rotation (xyz): 	0	118.193	0	Camera   (xyz): 	0	0	0	
+63759822611574	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7653192	0.6596296	-0.1534666	Rotation (xyz): 	0	120.9602	0	Camera   (xyz): 	0	0	0	
+63759822611585	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7636579	0.6596714	-0.1600364	Rotation (xyz): 	0	123.7106	0	Camera   (xyz): 	0	0	0	
+63759822611596	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7613581	0.6597916	-0.1662271	Rotation (xyz): 	0	126.5109	0	Camera   (xyz): 	0	0	0	
+63759822611608	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7586883	0.6600796	-0.1727657	Rotation (xyz): 	0	129.3292	0	Camera   (xyz): 	0	0	0	
+63759822611619	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7565777	0.6599569	-0.1790209	Rotation (xyz): 	0	132.1584	0	Camera   (xyz): 	0	0	0	
+63759822611630	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7536136	0.6600922	-0.1850986	Rotation (xyz): 	0	134.9582	0	Camera   (xyz): 	0	0	0	
+63759822611641	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7496453	0.6603588	-0.1909812	Rotation (xyz): 	0	137.7258	0	Camera   (xyz): 	0	0	0	
+63759822611652	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7463183	0.6604573	-0.1967317	Rotation (xyz): 	0	140.3976	0	Camera   (xyz): 	0	0	0	
+63759822611664	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7424783	0.6605964	-0.2022035	Rotation (xyz): 	0	143.0052	0	Camera   (xyz): 	0	0	0	
+63759822611675	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7376055	0.6608036	-0.2071963	Rotation (xyz): 	0	145.5299	0	Camera   (xyz): 	0	0	0	
+63759822611686	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7341864	0.6607661	-0.2121044	Rotation (xyz): 	0	147.9944	0	Camera   (xyz): 	0	0	0	
+63759822611697	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7297871	0.6609417	-0.2166379	Rotation (xyz): 	0	150.3138	0	Camera   (xyz): 	0	0	0	
+63759822611708	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7249124	0.6611918	-0.2210096	Rotation (xyz): 	0	152.6217	0	Camera   (xyz): 	0	0	0	
+63759822611720	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7210221	0.6612419	-0.2246826	Rotation (xyz): 	0	154.6956	0	Camera   (xyz): 	0	0	0	
+63759822611731	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7163598	0.661519	-0.2285677	Rotation (xyz): 	0	156.6569	0	Camera   (xyz): 	0	0	0	
+63759822611742	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7112506	0.6618951	-0.2319844	Rotation (xyz): 	0	158.5684	0	Camera   (xyz): 	0	0	0	
+63759822611752	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7071993	0.662255	-0.2350025	Rotation (xyz): 	0	160.2926	0	Camera   (xyz): 	0	0	0	
+63759822611763	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7024029	0.6627849	-0.2384342	Rotation (xyz): 	0	161.9007	0	Camera   (xyz): 	0	0	0	
+63759822611775	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6967975	0.663337	-0.2411436	Rotation (xyz): 	0	163.4954	0	Camera   (xyz): 	0	0	0	
+63759822611786	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6925119	0.6639506	-0.2437512	Rotation (xyz): 	0	165.0526	0	Camera   (xyz): 	0	0	0	
+63759822611797	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.687571	0.6646926	-0.2466996	Rotation (xyz): 	0	166.6309	0	Camera   (xyz): 	0	0	0	
+63759822611808	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6819006	0.6656061	-0.2488251	Rotation (xyz): 	0	168.1568	0	Camera   (xyz): 	0	0	0	
+63759822611820	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6772615	0.6663742	-0.2511247	Rotation (xyz): 	0	169.726	0	Camera   (xyz): 	0	0	0	
+63759822611831	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6717533	0.6672486	-0.2537443	Rotation (xyz): 	0	171.2226	0	Camera   (xyz): 	0	0	0	
+63759822611842	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6659274	0.6681407	-0.2552387	Rotation (xyz): 	0	172.6419	0	Camera   (xyz): 	0	0	0	
+63759822611853	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6610511	0.668946	-0.2568593	Rotation (xyz): 	0	174.0134	0	Camera   (xyz): 	0	0	0	
+63759822611864	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6558366	0.6696593	-0.258357	Rotation (xyz): 	0	175.2154	0	Camera   (xyz): 	0	0	0	
+63759822611875	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6503904	0.6702752	-0.2593239	Rotation (xyz): 	0	176.3214	0	Camera   (xyz): 	0	0	0	
+63759822611887	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6462477	0.6706394	-0.2603371	Rotation (xyz): 	0	177.2986	0	Camera   (xyz): 	0	0	0	
+63759822611898	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.642073	0.6709947	-0.2614203	Rotation (xyz): 	0	178.0601	0	Camera   (xyz): 	0	0	0	
+63759822611909	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6371989	0.6712763	-0.2622373	Rotation (xyz): 	0	178.797	0	Camera   (xyz): 	0	0	0	
+63759822611920	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6338934	0.6712331	-0.2631308	Rotation (xyz): 	0	179.3491	0	Camera   (xyz): 	0	0	0	
+63759822611931	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6303431	0.6710991	-0.2644731	Rotation (xyz): 	0	179.6625	0	Camera   (xyz): 	0	0	0	
+63759822611943	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6267434	0.6709662	-0.2653166	Rotation (xyz): 	0	179.9725	0	Camera   (xyz): 	0	0	0	
+63759822611954	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6245207	0.6705071	-0.2663216	Rotation (xyz): 	0	180.0655	0	Camera   (xyz): 	0	0	0	
+63759822611965	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6220602	0.669977	-0.2675558	Rotation (xyz): 	0	180.083	0	Camera   (xyz): 	0	0	0	
+63759822611976	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.619411	0.6692858	-0.2684869	Rotation (xyz): 	0	179.9987	0	Camera   (xyz): 	0	0	0	
+63759822611987	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6181012	0.6684357	-0.2695598	Rotation (xyz): 	0	179.8786	0	Camera   (xyz): 	0	0	0	
+63759822611999	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6168129	0.6675799	-0.2708706	Rotation (xyz): 	0	179.625	0	Camera   (xyz): 	0	0	0	
+63759822612010	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6149365	0.6667208	-0.2719051	Rotation (xyz): 	0	179.3942	0	Camera   (xyz): 	0	0	0	
+63759822612021	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6144021	0.6657333	-0.2730501	Rotation (xyz): 	0	179.1866	0	Camera   (xyz): 	0	0	0	
+63759822612032	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.614046	0.664845	-0.2741179	Rotation (xyz): 	0	178.8703	0	Camera   (xyz): 	0	0	0	
+63759822612043	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6127628	0.6639882	-0.2752251	Rotation (xyz): 	0	178.5799	0	Camera   (xyz): 	0	0	0	
+63759822612055	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6127884	0.6630913	-0.2765504	Rotation (xyz): 	0	178.2075	0	Camera   (xyz): 	0	0	0	
+63759822612066	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6132417	0.662212	-0.2777794	Rotation (xyz): 	0	177.7668	0	Camera   (xyz): 	0	0	0	
+63759822612077	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6133269	0.6612867	-0.2790281	Rotation (xyz): 	0	177.2945	0	Camera   (xyz): 	0	0	0	
+63759822612088	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6149683	0.6601179	-0.2802041	Rotation (xyz): 	0	176.6848	0	Camera   (xyz): 	0	0	0	
+63759822612099	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6167408	0.6590744	-0.2810802	Rotation (xyz): 	0	175.9726	0	Camera   (xyz): 	0	0	0	
+63759822612111	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6182942	0.6579069	-0.2820667	Rotation (xyz): 	0	175.1165	0	Camera   (xyz): 	0	0	0	
+63759822612121	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6205896	0.6567193	-0.2830498	Rotation (xyz): 	0	174.0972	0	Camera   (xyz): 	0	0	0	
+63759822612132	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6235927	0.6555631	-0.2836382	Rotation (xyz): 	0	172.9741	0	Camera   (xyz): 	0	0	0	
+63759822612143	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.626495	0.6543101	-0.2843073	Rotation (xyz): 	0	171.646	0	Camera   (xyz): 	0	0	0	
+63759822612154	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6305084	0.6529536	-0.2848714	Rotation (xyz): 	0	170.188	0	Camera   (xyz): 	0	0	0	
+63759822612166	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6349499	0.6518829	-0.2851072	Rotation (xyz): 	0	168.6795	0	Camera   (xyz): 	0	0	0	
+63759822612177	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6389135	0.650666	-0.2854172	Rotation (xyz): 	0	167.1219	0	Camera   (xyz): 	0	0	0	
+63759822612188	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6430985	0.6494786	-0.2856605	Rotation (xyz): 	0	165.5417	0	Camera   (xyz): 	0	0	0	
+63759822612199	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6477351	0.6484861	-0.2856188	Rotation (xyz): 	0	163.898	0	Camera   (xyz): 	0	0	0	
+63759822612210	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6519281	0.6474602	-0.2855803	Rotation (xyz): 	0	162.2966	0	Camera   (xyz): 	0	0	0	
+63759822612222	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6557608	0.6465859	-0.2855505	Rotation (xyz): 	0	160.7086	0	Camera   (xyz): 	0	0	0	
+63759822612233	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6603904	0.645882	-0.2848711	Rotation (xyz): 	0	159.1928	0	Camera   (xyz): 	0	0	0	
+63759822612244	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6645712	0.6451336	-0.2846663	Rotation (xyz): 	0	157.7561	0	Camera   (xyz): 	0	0	0	
+63759822612255	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6682106	0.644542	-0.2843996	Rotation (xyz): 	0	156.4818	0	Camera   (xyz): 	0	0	0	
+63759822612266	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6720586	0.6440678	-0.2835587	Rotation (xyz): 	0	155.3998	0	Camera   (xyz): 	0	0	0	
+63759822612278	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6760932	0.6437023	-0.283149	Rotation (xyz): 	0	154.4179	0	Camera   (xyz): 	0	0	0	
+63759822612289	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6796322	0.6433004	-0.2826144	Rotation (xyz): 	0	153.5839	0	Camera   (xyz): 	0	0	0	
+63759822612300	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6833081	0.6429911	-0.2816271	Rotation (xyz): 	0	152.7053	0	Camera   (xyz): 	0	0	0	
+63759822612311	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6865728	0.6426499	-0.2809175	Rotation (xyz): 	0	151.8741	0	Camera   (xyz): 	0	0	0	
+63759822612322	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6892991	0.6423715	-0.2800722	Rotation (xyz): 	0	150.9902	0	Camera   (xyz): 	0	0	0	
+63759822612334	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6923359	0.6420613	-0.2788992	Rotation (xyz): 	0	150.089	0	Camera   (xyz): 	0	0	0	
+63759822612345	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6951305	0.6417592	-0.2780194	Rotation (xyz): 	0	149.2246	0	Camera   (xyz): 	0	0	0	
+63759822612356	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6978079	0.6414279	-0.2770438	Rotation (xyz): 	0	148.4597	0	Camera   (xyz): 	0	0	0	
+63759822612367	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.6999177	0.6411702	-0.2758315	Rotation (xyz): 	0	147.8207	0	Camera   (xyz): 	0	0	0	
+63759822612378	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7018107	0.6409565	-0.2750067	Rotation (xyz): 	0	147.3721	0	Camera   (xyz): 	0	0	0	
+63759822612390	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7034518	0.6407411	-0.2741635	Rotation (xyz): 	0	146.9496	0	Camera   (xyz): 	0	0	0	
+63759822612401	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7046829	0.6405689	-0.2731906	Rotation (xyz): 	0	146.7197	0	Camera   (xyz): 	0	0	0	
+63759822612412	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7058363	0.6404134	-0.2724624	Rotation (xyz): 	0	146.4937	0	Camera   (xyz): 	0	0	0	
+63759822612423	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.706678	0.6403337	-0.2716743	Rotation (xyz): 	0	146.3278	0	Camera   (xyz): 	0	0	0	
+63759822612434	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7073533	0.6401671	-0.2707485	Rotation (xyz): 	0	146.1374	0	Camera   (xyz): 	0	0	0	
+63759822612446	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7079687	0.6401605	-0.2701386	Rotation (xyz): 	0	145.9845	0	Camera   (xyz): 	0	0	0	
+63759822612457	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7088222	0.6401194	-0.2692823	Rotation (xyz): 	0	145.8758	0	Camera   (xyz): 	0	0	0	
+63759822612468	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7090456	0.6401045	-0.2687072	Rotation (xyz): 	0	145.8108	0	Camera   (xyz): 	0	0	0	
+63759822612479	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7090765	0.6402107	-0.2683916	Rotation (xyz): 	0	145.885	0	Camera   (xyz): 	0	0	0	
+63759822612490	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7088766	0.640399	-0.2680338	Rotation (xyz): 	0	146.0579	0	Camera   (xyz): 	0	0	0	
+63759822612501	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7084095	0.6403984	-0.2676461	Rotation (xyz): 	0	146.2496	0	Camera   (xyz): 	0	0	0	
+63759822612512	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7078933	0.6405461	-0.2675206	Rotation (xyz): 	0	146.5584	0	Camera   (xyz): 	0	0	0	
+63759822612523	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7077065	0.6406426	-0.267282	Rotation (xyz): 	0	146.8031	0	Camera   (xyz): 	0	0	0	
+63759822612534	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7071108	0.6407188	-0.2670759	Rotation (xyz): 	0	147.0668	0	Camera   (xyz): 	0	0	0	
+63759822612545	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7066368	0.6408405	-0.2670714	Rotation (xyz): 	0	147.2869	0	Camera   (xyz): 	0	0	0	
+63759822612557	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7063723	0.6409196	-0.2669044	Rotation (xyz): 	0	147.5022	0	Camera   (xyz): 	0	0	0	
+63759822612568	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7058271	0.6409966	-0.2667739	Rotation (xyz): 	0	147.6894	0	Camera   (xyz): 	0	0	0	
+63759822612579	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7051411	0.6410896	-0.2666871	Rotation (xyz): 	0	147.8644	0	Camera   (xyz): 	0	0	0	
+63759822612591	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7047005	0.641205	-0.2665294	Rotation (xyz): 	0	148.0195	0	Camera   (xyz): 	0	0	0	
+63759822612602	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.704154	0.6412283	-0.2664911	Rotation (xyz): 	0	148.1494	0	Camera   (xyz): 	0	0	0	
+63759822612613	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7035729	0.6413044	-0.2664206	Rotation (xyz): 	0	148.2818	0	Camera   (xyz): 	0	0	0	
+63759822612624	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7032921	0.6413809	-0.2662728	Rotation (xyz): 	0	148.3627	0	Camera   (xyz): 	0	0	0	
+63759822612635	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.702861	0.6414169	-0.2661674	Rotation (xyz): 	0	148.4569	0	Camera   (xyz): 	0	0	0	
+63759822612647	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7023906	0.6415002	-0.2661101	Rotation (xyz): 	0	148.5155	0	Camera   (xyz): 	0	0	0	
+63759822612658	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7026668	0.6414373	-0.2660256	Rotation (xyz): 	0	148.5605	0	Camera   (xyz): 	0	0	0	
+63759822612668	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7024865	0.6415063	-0.2659735	Rotation (xyz): 	0	148.6084	0	Camera   (xyz): 	0	0	0	
+63759822612680	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7022477	0.6415853	-0.2659759	Rotation (xyz): 	0	148.6634	0	Camera   (xyz): 	0	0	0	
+63759822612691	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7020211	0.6418021	-0.2659859	Rotation (xyz): 	0	148.6987	0	Camera   (xyz): 	0	0	0	
+63759822612702	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.701777	0.6418319	-0.2660146	Rotation (xyz): 	0	148.7675	0	Camera   (xyz): 	0	0	0	
+63759822612713	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7016723	0.6419389	-0.2661245	Rotation (xyz): 	0	148.851	0	Camera   (xyz): 	0	0	0	
+63759822612724	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7021863	0.6418755	-0.2660635	Rotation (xyz): 	0	148.9327	0	Camera   (xyz): 	0	0	0	
+63759822612736	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7021824	0.6419578	-0.266032	Rotation (xyz): 	0	148.9984	0	Camera   (xyz): 	0	0	0	
+63759822612747	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.702094	0.6420472	-0.2660505	Rotation (xyz): 	0	149.0535	0	Camera   (xyz): 	0	0	0	
+63759822612758	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7021283	0.6421722	-0.2660649	Rotation (xyz): 	0	149.0749	0	Camera   (xyz): 	0	0	0	
+63759822612758	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7021283	0.6421722	-0.2660649	Rotation (xyz): 	0	149.0749	0	Camera   (xyz): 	0	0	0	
+63759822612780	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7021803	0.6424035	-0.2659822	Rotation (xyz): 	0	149.0915	0	Camera   (xyz): 	0	0	0	
+63759822612781	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7021803	0.6424035	-0.2659822	Rotation (xyz): 	0	149.0915	0	Camera   (xyz): 	0	0	0	
+63759822612792	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7025952	0.6424419	-0.2658697	Rotation (xyz): 	0	149.087	0	Camera   (xyz): 	0	0	0	
+63759822612803	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.702739	0.6426	-0.2658997	Rotation (xyz): 	0	149.0704	0	Camera   (xyz): 	0	0	0	
+63759822612814	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7026954	0.6427347	-0.2658257	Rotation (xyz): 	0	149.0586	0	Camera   (xyz): 	0	0	0	
+63759822612825	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7028983	0.6428908	-0.2657557	Rotation (xyz): 	0	149.0134	0	Camera   (xyz): 	0	0	0	
+63759822612836	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7030336	0.6430693	-0.2656135	Rotation (xyz): 	0	148.9637	0	Camera   (xyz): 	0	0	0	
+63759822612848	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7030228	0.6432566	-0.265482	Rotation (xyz): 	0	148.9118	0	Camera   (xyz): 	0	0	0	
+63759822612858	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.703374	0.643428	-0.2652056	Rotation (xyz): 	0	148.8161	0	Camera   (xyz): 	0	0	0	
+63759822612870	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7035467	0.6436833	-0.2650146	Rotation (xyz): 	0	148.6841	0	Camera   (xyz): 	0	0	0	
+63759822612881	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7035374	0.643907	-0.2648796	Rotation (xyz): 	0	148.5821	0	Camera   (xyz): 	0	0	0	
+63759822612892	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7036373	0.6441621	-0.2646159	Rotation (xyz): 	0	148.4783	0	Camera   (xyz): 	0	0	0	
+63759822612903	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7035715	0.6443298	-0.2644311	Rotation (xyz): 	0	148.3812	0	Camera   (xyz): 	0	0	0	
+63759822612915	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7034758	0.6445248	-0.2642468	Rotation (xyz): 	0	148.2702	0	Camera   (xyz): 	0	0	0	
+63759822612926	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7039827	0.6445593	-0.2639495	Rotation (xyz): 	0	148.1742	0	Camera   (xyz): 	0	0	0	
+63759822612937	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7039656	0.644702	-0.263743	Rotation (xyz): 	0	148.0878	0	Camera   (xyz): 	0	0	0	
+63759822612948	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7037754	0.644838	-0.2635809	Rotation (xyz): 	0	147.9943	0	Camera   (xyz): 	0	0	0	
+63759822612959	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7034981	0.645098	-0.2634017	Rotation (xyz): 	0	147.9263	0	Camera   (xyz): 	0	0	0	
+63759822612970	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7033954	0.6452232	-0.2632657	Rotation (xyz): 	0	147.8722	0	Camera   (xyz): 	0	0	0	
+63759822612981	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7031997	0.6453128	-0.2632113	Rotation (xyz): 	0	147.8327	0	Camera   (xyz): 	0	0	0	
+63759822612992	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7036607	0.6452515	-0.262873	Rotation (xyz): 	0	147.8165	0	Camera   (xyz): 	0	0	0	
+63759822613004	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7035759	0.6453162	-0.2627325	Rotation (xyz): 	0	147.8289	0	Camera   (xyz): 	0	0	0	
+63759822613015	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7032561	0.64533	-0.2626149	Rotation (xyz): 	0	147.8376	0	Camera   (xyz): 	0	0	0	
+63759822613026	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7032515	0.645318	-0.2624993	Rotation (xyz): 	0	147.8469	0	Camera   (xyz): 	0	0	0	
+63759822613037	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7030584	0.6453043	-0.2624205	Rotation (xyz): 	0	147.8958	0	Camera   (xyz): 	0	0	0	
+63759822613048	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7028211	0.645312	-0.2623826	Rotation (xyz): 	0	147.9312	0	Camera   (xyz): 	0	0	0	
+63759822613060	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7027664	0.6453341	-0.2622268	Rotation (xyz): 	0	147.9956	0	Camera   (xyz): 	0	0	0	
+63759822613071	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7025572	0.6452982	-0.262165	Rotation (xyz): 	0	148.0423	0	Camera   (xyz): 	0	0	0	
+63759822613082	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7027619	0.6452469	-0.2621419	Rotation (xyz): 	0	148.0797	0	Camera   (xyz): 	0	0	0	
+63759822613093	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7028221	0.6452569	-0.2618867	Rotation (xyz): 	0	148.1386	0	Camera   (xyz): 	0	0	0	
+63759822613104	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7028466	0.6452997	-0.2618084	Rotation (xyz): 	0	148.1597	0	Camera   (xyz): 	0	0	0	
+63759822613116	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7030274	0.6452998	-0.2617342	Rotation (xyz): 	0	148.1542	0	Camera   (xyz): 	0	0	0	
+63759822613127	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7031427	0.6453534	-0.2615426	Rotation (xyz): 	0	148.1545	0	Camera   (xyz): 	0	0	0	
+63759822613138	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7031813	0.6453806	-0.2614171	Rotation (xyz): 	0	148.1575	0	Camera   (xyz): 	0	0	0	
+63759822613149	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7030738	0.6455	-0.2612541	Rotation (xyz): 	0	148.1171	0	Camera   (xyz): 	0	0	0	
+63759822613160	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7031721	0.6455802	-0.2611386	Rotation (xyz): 	0	148.0939	0	Camera   (xyz): 	0	0	0	
+63759822613172	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7034246	0.6457244	-0.2609219	Rotation (xyz): 	0	148.0245	0	Camera   (xyz): 	0	0	0	
+63759822613183	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.703936	0.6457697	-0.2606796	Rotation (xyz): 	0	147.96	0	Camera   (xyz): 	0	0	0	
+63759822613194	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7041998	0.6458979	-0.2603534	Rotation (xyz): 	0	147.8641	0	Camera   (xyz): 	0	0	0	
+63759822613205	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7045521	0.6460767	-0.2600362	Rotation (xyz): 	0	147.7599	0	Camera   (xyz): 	0	0	0	
+63759822613217	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7046339	0.6462924	-0.2597851	Rotation (xyz): 	0	147.6529	0	Camera   (xyz): 	0	0	0	
+63759822613228	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7049074	0.6464323	-0.2593945	Rotation (xyz): 	0	147.5375	0	Camera   (xyz): 	0	0	0	
+63759822613239	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7051701	0.6465568	-0.2590434	Rotation (xyz): 	0	147.4226	0	Camera   (xyz): 	0	0	0	
+63759822613250	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7056449	0.6466246	-0.2587058	Rotation (xyz): 	0	147.2961	0	Camera   (xyz): 	0	0	0	
+63759822613260	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7059163	0.6467367	-0.2583216	Rotation (xyz): 	0	147.1623	0	Camera   (xyz): 	0	0	0	
+63759822613272	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7061889	0.6468636	-0.2579374	Rotation (xyz): 	0	147.0289	0	Camera   (xyz): 	0	0	0	
+63759822613283	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7066444	0.6469591	-0.2575085	Rotation (xyz): 	0	146.8985	0	Camera   (xyz): 	0	0	0	
+63759822613294	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7069601	0.6471114	-0.2570775	Rotation (xyz): 	0	146.7532	0	Camera   (xyz): 	0	0	0	
+63759822613305	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7072696	0.6472606	-0.2566358	Rotation (xyz): 	0	146.5716	0	Camera   (xyz): 	0	0	0	
+63759822613316	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7075371	0.6474879	-0.2562123	Rotation (xyz): 	0	146.3668	0	Camera   (xyz): 	0	0	0	
+63759822613327	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.707917	0.6476654	-0.255761	Rotation (xyz): 	0	146.1702	0	Camera   (xyz): 	0	0	0	
+63759822613339	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7081193	0.6477765	-0.2553259	Rotation (xyz): 	0	145.9512	0	Camera   (xyz): 	0	0	0	
+63759822613350	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7086441	0.6479001	-0.2548387	Rotation (xyz): 	0	145.7453	0	Camera   (xyz): 	0	0	0	
+63759822613361	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.709051	0.648065	-0.2542434	Rotation (xyz): 	0	145.547	0	Camera   (xyz): 	0	0	0	
+63759822613372	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7094466	0.6482317	-0.2537304	Rotation (xyz): 	0	145.3425	0	Camera   (xyz): 	0	0	0	
+63759822613384	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7100347	0.6483161	-0.2531962	Rotation (xyz): 	0	145.1533	0	Camera   (xyz): 	0	0	0	
+63759822613395	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7104537	0.6484511	-0.2526476	Rotation (xyz): 	0	144.9528	0	Camera   (xyz): 	0	0	0	
+63759822613406	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7108926	0.648584	-0.2521287	Rotation (xyz): 	0	144.7597	0	Camera   (xyz): 	0	0	0	
+63759822613417	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7112137	0.6487867	-0.2517324	Rotation (xyz): 	0	144.5598	0	Camera   (xyz): 	0	0	0	
+63759822613428	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7116555	0.6489072	-0.2512477	Rotation (xyz): 	0	144.3636	0	Camera   (xyz): 	0	0	0	
+63759822613439	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7120395	0.6489916	-0.250821	Rotation (xyz): 	0	144.2097	0	Camera   (xyz): 	0	0	0	
+63759822613451	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7126411	0.6490121	-0.2504723	Rotation (xyz): 	0	144.0726	0	Camera   (xyz): 	0	0	0	
+63759822613462	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.713006	0.649058	-0.2501529	Rotation (xyz): 	0	143.9823	0	Camera   (xyz): 	0	0	0	
+63759822613473	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7133191	0.6490708	-0.249834	Rotation (xyz): 	0	143.9352	0	Camera   (xyz): 	0	0	0	
+63759822613484	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7138807	0.6490058	-0.2496039	Rotation (xyz): 	0	143.9197	0	Camera   (xyz): 	0	0	0	
+63759822613495	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7141559	0.6489887	-0.2493878	Rotation (xyz): 	0	143.897	0	Camera   (xyz): 	0	0	0	
+63759822613507	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7142744	0.6489289	-0.2491948	Rotation (xyz): 	0	143.8971	0	Camera   (xyz): 	0	0	0	
+63759822613518	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7144817	0.648937	-0.2490078	Rotation (xyz): 	0	143.9004	0	Camera   (xyz): 	0	0	0	
+63759822613529	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7147358	0.6488945	-0.2488504	Rotation (xyz): 	0	143.9005	0	Camera   (xyz): 	0	0	0	
+63759822613540	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.714806	0.6488519	-0.2487126	Rotation (xyz): 	0	143.9228	0	Camera   (xyz): 	0	0	0	
+63759822613551	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7153744	0.6487342	-0.2485431	Rotation (xyz): 	0	143.9357	0	Camera   (xyz): 	0	0	0	
+63759822613563	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7156855	0.6486966	-0.2483331	Rotation (xyz): 	0	143.9713	0	Camera   (xyz): 	0	0	0	
+63759822613574	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7159615	0.6486865	-0.248256	Rotation (xyz): 	0	143.9772	0	Camera   (xyz): 	0	0	0	
+63759822613585	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7162405	0.6486608	-0.2482009	Rotation (xyz): 	0	143.9867	0	Camera   (xyz): 	0	0	0	
+63759822613596	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.716453	0.6486287	-0.248133	Rotation (xyz): 	0	143.9523	0	Camera   (xyz): 	0	0	0	
+63759822613608	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7166663	0.6485891	-0.2480028	Rotation (xyz): 	0	143.9064	0	Camera   (xyz): 	0	0	0	
+63759822613618	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7168102	0.6485777	-0.2479105	Rotation (xyz): 	0	143.8349	0	Camera   (xyz): 	0	0	0	
+63759822613630	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7170428	0.6485368	-0.2477236	Rotation (xyz): 	0	143.7491	0	Camera   (xyz): 	0	0	0	
+63759822613640	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7170838	0.648446	-0.2476048	Rotation (xyz): 	0	143.6681	0	Camera   (xyz): 	0	0	0	
+63759822613651	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.717587	0.6483153	-0.247438	Rotation (xyz): 	0	143.5687	0	Camera   (xyz): 	0	0	0	
+63759822613662	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7177745	0.6482686	-0.2473339	Rotation (xyz): 	0	143.4784	0	Camera   (xyz): 	0	0	0	
+63759822613674	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7178833	0.6482385	-0.2472139	Rotation (xyz): 	0	143.3742	0	Camera   (xyz): 	0	0	0	
+63759822613685	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7180254	0.6482515	-0.2471341	Rotation (xyz): 	0	143.2487	0	Camera   (xyz): 	0	0	0	
+63759822613696	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7182438	0.6482022	-0.2469714	Rotation (xyz): 	0	143.1486	0	Camera   (xyz): 	0	0	0	
+63759822613707	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7183481	0.6481614	-0.246951	Rotation (xyz): 	0	143.03	0	Camera   (xyz): 	0	0	0	
+63759822613718	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7184787	0.6481197	-0.2468863	Rotation (xyz): 	0	142.9134	0	Camera   (xyz): 	0	0	0	
+63759822613730	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7185559	0.6480375	-0.2467563	Rotation (xyz): 	0	142.8406	0	Camera   (xyz): 	0	0	0	
+63759822613741	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7184029	0.6478932	-0.2467683	Rotation (xyz): 	0	142.7948	0	Camera   (xyz): 	0	0	0	
+63759822613752	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7186953	0.6477089	-0.246768	Rotation (xyz): 	0	142.7682	0	Camera   (xyz): 	0	0	0	
+63759822613763	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7186782	0.6476005	-0.2467232	Rotation (xyz): 	0	142.7902	0	Camera   (xyz): 	0	0	0	
+63759822613775	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7185408	0.6474642	-0.2468111	Rotation (xyz): 	0	142.8135	0	Camera   (xyz): 	0	0	0	
+63759822613786	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7182993	0.6474402	-0.2470359	Rotation (xyz): 	0	142.8435	0	Camera   (xyz): 	0	0	0	
+63759822613797	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7182267	0.6473311	-0.2472122	Rotation (xyz): 	0	142.8955	0	Camera   (xyz): 	0	0	0	
+63759822613808	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7182482	0.6472334	-0.247497	Rotation (xyz): 	0	142.9484	0	Camera   (xyz): 	0	0	0	
+63759822613819	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7184311	0.647047	-0.2477401	Rotation (xyz): 	0	143.0255	0	Camera   (xyz): 	0	0	0	
+63759822613830	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.718376	0.6469057	-0.2480742	Rotation (xyz): 	0	143.1249	0	Camera   (xyz): 	0	0	0	
+63759822613842	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7183019	0.6467631	-0.2484816	Rotation (xyz): 	0	143.2296	0	Camera   (xyz): 	0	0	0	
+63759822613853	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7185969	0.6465109	-0.2488826	Rotation (xyz): 	0	143.3591	0	Camera   (xyz): 	0	0	0	
+63759822613864	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7186062	0.6463475	-0.2494342	Rotation (xyz): 	0	143.4795	0	Camera   (xyz): 	0	0	0	
+63759822613875	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7186173	0.6461855	-0.2500728	Rotation (xyz): 	0	143.6246	0	Camera   (xyz): 	0	0	0	
+63759822613887	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7186794	0.6461368	-0.2507874	Rotation (xyz): 	0	143.7858	0	Camera   (xyz): 	0	0	0	
+63759822613898	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7189806	0.6460802	-0.2515012	Rotation (xyz): 	0	143.9606	0	Camera   (xyz): 	0	0	0	
+63759822613909	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7194101	0.646062	-0.2525137	Rotation (xyz): 	0	144.127	0	Camera   (xyz): 	0	0	0	
+63759822613920	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.720297	0.6459385	-0.2534853	Rotation (xyz): 	0	144.269	0	Camera   (xyz): 	0	0	0	
+63759822613931	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7209684	0.6459435	-0.2547339	Rotation (xyz): 	0	144.3874	0	Camera   (xyz): 	0	0	0	
+63759822613942	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.72162	0.6459656	-0.2559728	Rotation (xyz): 	0	144.4844	0	Camera   (xyz): 	0	0	0	
+63759822613954	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7226624	0.645943	-0.2573597	Rotation (xyz): 	0	144.5703	0	Camera   (xyz): 	0	0	0	
+63759822613965	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7236367	0.6458979	-0.258847	Rotation (xyz): 	0	144.6617	0	Camera   (xyz): 	0	0	0	
+63759822613976	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7245286	0.6458662	-0.2603695	Rotation (xyz): 	0	144.753	0	Camera   (xyz): 	0	0	0	
+63759822613987	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.725436	0.6458584	-0.2619253	Rotation (xyz): 	0	144.8543	0	Camera   (xyz): 	0	0	0	
+63759822613998	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7262928	0.6457896	-0.263611	Rotation (xyz): 	0	144.9449	0	Camera   (xyz): 	0	0	0	
+63759822614009	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7272407	0.6457235	-0.2653318	Rotation (xyz): 	0	145.0597	0	Camera   (xyz): 	0	0	0	
+63759822614020	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7287614	0.645492	-0.2669778	Rotation (xyz): 	0	145.1737	0	Camera   (xyz): 	0	0	0	
+63759822614031	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7298605	0.645377	-0.2687223	Rotation (xyz): 	0	145.2809	0	Camera   (xyz): 	0	0	0	
+63759822614042	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.730974	0.6452805	-0.2706358	Rotation (xyz): 	0	145.4304	0	Camera   (xyz): 	0	0	0	
+63759822614053	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7319775	0.6452453	-0.272501	Rotation (xyz): 	0	145.5665	0	Camera   (xyz): 	0	0	0	
+63759822614064	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7331188	0.6451567	-0.274293	Rotation (xyz): 	0	145.7217	0	Camera   (xyz): 	0	0	0	
+63759822614076	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7341244	0.6451216	-0.2761697	Rotation (xyz): 	0	145.8897	0	Camera   (xyz): 	0	0	0	
+63759822614087	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7354268	0.6449842	-0.2779706	Rotation (xyz): 	0	146.046	0	Camera   (xyz): 	0	0	0	
+63759822614098	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7364535	0.6449603	-0.2798211	Rotation (xyz): 	0	146.2254	0	Camera   (xyz): 	0	0	0	
+63759822614110	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7373952	0.6449996	-0.2817296	Rotation (xyz): 	0	146.3912	0	Camera   (xyz): 	0	0	0	
+63759822614121	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7385556	0.6450359	-0.2835796	Rotation (xyz): 	0	146.5816	0	Camera   (xyz): 	0	0	0	
+63759822614132	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7394636	0.6451572	-0.2854823	Rotation (xyz): 	0	146.8165	0	Camera   (xyz): 	0	0	0	
+63759822614143	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7401887	0.6452929	-0.2873351	Rotation (xyz): 	0	147.0425	0	Camera   (xyz): 	0	0	0	
+63759822614154	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7411525	0.6455076	-0.289158	Rotation (xyz): 	0	147.283	0	Camera   (xyz): 	0	0	0	
+63759822614166	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7420881	0.6457641	-0.2908548	Rotation (xyz): 	0	147.5241	0	Camera   (xyz): 	0	0	0	
+63759822614177	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.742966	0.6460639	-0.2925993	Rotation (xyz): 	0	147.7373	0	Camera   (xyz): 	0	0	0	
+63759822614188	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7439985	0.6463863	-0.2942251	Rotation (xyz): 	0	147.9658	0	Camera   (xyz): 	0	0	0	
+63759822614199	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7449925	0.6467078	-0.2957635	Rotation (xyz): 	0	148.1642	0	Camera   (xyz): 	0	0	0	
+63759822614210	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7458262	0.6470788	-0.2973534	Rotation (xyz): 	0	148.3726	0	Camera   (xyz): 	0	0	0	
+63759822614222	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7472427	0.6473948	-0.2988064	Rotation (xyz): 	0	148.5842	0	Camera   (xyz): 	0	0	0	
+63759822614233	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7484497	0.647861	-0.3002492	Rotation (xyz): 	0	148.7942	0	Camera   (xyz): 	0	0	0	
+63759822614244	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.749437	0.6483687	-0.3016642	Rotation (xyz): 	0	149.0089	0	Camera   (xyz): 	0	0	0	
+63759822614255	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7505445	0.6489362	-0.3030586	Rotation (xyz): 	0	149.1874	0	Camera   (xyz): 	0	0	0	
+63759822614266	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7519178	0.6495329	-0.3042084	Rotation (xyz): 	0	149.3937	0	Camera   (xyz): 	0	0	0	
+63759822614278	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7530253	0.6500965	-0.3053905	Rotation (xyz): 	0	149.5679	0	Camera   (xyz): 	0	0	0	
+63759822614288	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7546605	0.6505895	-0.3063371	Rotation (xyz): 	0	149.7484	0	Camera   (xyz): 	0	0	0	
+63759822614299	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.756144	0.6512444	-0.3070872	Rotation (xyz): 	0	149.8835	0	Camera   (xyz): 	0	0	0	
+63759822614310	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.757301	0.6518624	-0.3078883	Rotation (xyz): 	0	150.0154	0	Camera   (xyz): 	0	0	0	
+63759822614322	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7589478	0.6525539	-0.3084782	Rotation (xyz): 	0	150.1244	0	Camera   (xyz): 	0	0	0	
+63759822614332	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7604648	0.6533081	-0.3089946	Rotation (xyz): 	0	150.2476	0	Camera   (xyz): 	0	0	0	
+63759822614344	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7619056	0.6540942	-0.3095056	Rotation (xyz): 	0	150.3867	0	Camera   (xyz): 	0	0	0	
+63759822614355	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7636072	0.6548835	-0.3098565	Rotation (xyz): 	0	150.5222	0	Camera   (xyz): 	0	0	0	
+63759822614366	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7650747	0.6555683	-0.3102791	Rotation (xyz): 	0	150.6666	0	Camera   (xyz): 	0	0	0	
+63759822614378	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.766506	0.6562532	-0.3105609	Rotation (xyz): 	0	150.812	0	Camera   (xyz): 	0	0	0	
+63759822614389	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7684565	0.6567984	-0.3107027	Rotation (xyz): 	0	150.9784	0	Camera   (xyz): 	0	0	0	
+63759822614400	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7700853	0.6573671	-0.3110101	Rotation (xyz): 	0	151.1738	0	Camera   (xyz): 	0	0	0	
+63759822614411	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7715921	0.6578534	-0.3112456	Rotation (xyz): 	0	151.3554	0	Camera   (xyz): 	0	0	0	
+63759822614423	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7733133	0.6583133	-0.3114035	Rotation (xyz): 	0	151.5506	0	Camera   (xyz): 	0	0	0	
+63759822614434	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7750012	0.658655	-0.3114758	Rotation (xyz): 	0	151.7378	0	Camera   (xyz): 	0	0	0	
+63759822614446	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7765805	0.6588629	-0.3115577	Rotation (xyz): 	0	151.9261	0	Camera   (xyz): 	0	0	0	
+63759822614456	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7785321	0.6589669	-0.3115304	Rotation (xyz): 	0	152.116	0	Camera   (xyz): 	0	0	0	
+63759822614467	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7801874	0.6589487	-0.3114498	Rotation (xyz): 	0	152.3251	0	Camera   (xyz): 	0	0	0	
+63759822614478	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7817978	0.6589592	-0.3114164	Rotation (xyz): 	0	152.55	0	Camera   (xyz): 	0	0	0	
+63759822614489	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7837093	0.6588906	-0.3113156	Rotation (xyz): 	0	152.7707	0	Camera   (xyz): 	0	0	0	
+63759822614500	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7853401	0.6587138	-0.3113606	Rotation (xyz): 	0	153.0105	0	Camera   (xyz): 	0	0	0	
+63759822614512	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7868884	0.6585267	-0.3113219	Rotation (xyz): 	0	153.2366	0	Camera   (xyz): 	0	0	0	
+63759822614523	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7888193	0.6583151	-0.3113888	Rotation (xyz): 	0	153.4464	0	Camera   (xyz): 	0	0	0	
+63759822614534	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7906545	0.6580607	-0.3116353	Rotation (xyz): 	0	153.6233	0	Camera   (xyz): 	0	0	0	
+63759822614545	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7925174	0.6578308	-0.311961	Rotation (xyz): 	0	153.7819	0	Camera   (xyz): 	0	0	0	
+63759822614557	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7946249	0.657535	-0.312381	Rotation (xyz): 	0	153.9366	0	Camera   (xyz): 	0	0	0	
+63759822614568	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7966352	0.6572475	-0.3127783	Rotation (xyz): 	0	154.0616	0	Camera   (xyz): 	0	0	0	
+63759822614579	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.7985161	0.656959	-0.3132662	Rotation (xyz): 	0	154.1972	0	Camera   (xyz): 	0	0	0	
+63759822614590	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8006848	0.6565309	-0.3136992	Rotation (xyz): 	0	154.3018	0	Camera   (xyz): 	0	0	0	
+63759822614601	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.802526	0.6561661	-0.3141703	Rotation (xyz): 	0	154.4077	0	Camera   (xyz): 	0	0	0	
+63759822614612	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8042197	0.6558134	-0.3146346	Rotation (xyz): 	0	154.5264	0	Camera   (xyz): 	0	0	0	
+63759822614623	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8059726	0.655537	-0.3151489	Rotation (xyz): 	0	154.6578	0	Camera   (xyz): 	0	0	0	
+63759822614635	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.80775	0.6552795	-0.3157263	Rotation (xyz): 	0	154.8214	0	Camera   (xyz): 	0	0	0	
+63759822614646	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.809365	0.6550913	-0.316362	Rotation (xyz): 	0	154.9931	0	Camera   (xyz): 	0	0	0	
+63759822614657	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8113592	0.6548718	-0.3170223	Rotation (xyz): 	0	155.2151	0	Camera   (xyz): 	0	0	0	
+63759822614668	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8130251	0.6547586	-0.317889	Rotation (xyz): 	0	155.4518	0	Camera   (xyz): 	0	0	0	
+63759822614679	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8146789	0.6547557	-0.3188228	Rotation (xyz): 	0	155.7107	0	Camera   (xyz): 	0	0	0	
+63759822614691	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8165234	0.654798	-0.3198354	Rotation (xyz): 	0	155.9637	0	Camera   (xyz): 	0	0	0	
+63759822614702	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8184148	0.6549045	-0.3209548	Rotation (xyz): 	0	156.2389	0	Camera   (xyz): 	0	0	0	
+63759822614713	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8202457	0.654972	-0.3221055	Rotation (xyz): 	0	156.5392	0	Camera   (xyz): 	0	0	0	
+63759822614724	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8221397	0.6550822	-0.3232383	Rotation (xyz): 	0	156.8827	0	Camera   (xyz): 	0	0	0	
+63759822614735	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.823884	0.6551364	-0.3243953	Rotation (xyz): 	0	157.2021	0	Camera   (xyz): 	0	0	0	
+63759822614747	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8256329	0.6552228	-0.3255989	Rotation (xyz): 	0	157.5446	0	Camera   (xyz): 	0	0	0	
+63759822614758	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8276069	0.6553081	-0.3267613	Rotation (xyz): 	0	157.8591	0	Camera   (xyz): 	0	0	0	
+63759822614769	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8295524	0.6554335	-0.3280004	Rotation (xyz): 	0	158.1341	0	Camera   (xyz): 	0	0	0	
+63759822614780	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8314113	0.6555154	-0.3293153	Rotation (xyz): 	0	158.3719	0	Camera   (xyz): 	0	0	0	
+63759822614791	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8334844	0.6555498	-0.3306507	Rotation (xyz): 	0	158.5842	0	Camera   (xyz): 	0	0	0	
+63759822614802	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8355356	0.6556467	-0.3320494	Rotation (xyz): 	0	158.7497	0	Camera   (xyz): 	0	0	0	
+63759822614813	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8374235	0.6556844	-0.3335719	Rotation (xyz): 	0	158.8905	0	Camera   (xyz): 	0	0	0	
+63759822614824	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8392851	0.6557664	-0.3351389	Rotation (xyz): 	0	159.0308	0	Camera   (xyz): 	0	0	0	
+63759822614835	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8408971	0.655808	-0.3370051	Rotation (xyz): 	0	159.1254	0	Camera   (xyz): 	0	0	0	
+63759822614846	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8424985	0.6558564	-0.3387201	Rotation (xyz): 	0	159.208	0	Camera   (xyz): 	0	0	0	
+63759822614858	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8442296	0.655802	-0.3405731	Rotation (xyz): 	0	159.2965	0	Camera   (xyz): 	0	0	0	
+63759822614869	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8456318	0.655847	-0.3424212	Rotation (xyz): 	0	159.334	0	Camera   (xyz): 	0	0	0	
+63759822614880	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8468599	0.6558531	-0.34425	Rotation (xyz): 	0	159.3784	0	Camera   (xyz): 	0	0	0	
+63759822614880	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8468599	0.6558531	-0.34425	Rotation (xyz): 	0	159.3784	0	Camera   (xyz): 	0	0	0	
+63759822614891	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8479756	0.6558656	-0.3462659	Rotation (xyz): 	0	159.3843	0	Camera   (xyz): 	0	0	0	
+63759822614903	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8490538	0.6558511	-0.3482865	Rotation (xyz): 	0	159.4381	0	Camera   (xyz): 	0	0	0	
+63759822614914	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8499576	0.6558101	-0.3504181	Rotation (xyz): 	0	159.468	0	Camera   (xyz): 	0	0	0	
+63759822614925	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8508614	0.6557192	-0.3525663	Rotation (xyz): 	0	159.5438	0	Camera   (xyz): 	0	0	0	
+63759822614936	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8516931	0.6556903	-0.3546538	Rotation (xyz): 	0	159.6348	0	Camera   (xyz): 	0	0	0	
+63759822614947	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8523487	0.6556325	-0.35695	Rotation (xyz): 	0	159.7382	0	Camera   (xyz): 	0	0	0	
+63759822614958	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8530725	0.6555613	-0.3593094	Rotation (xyz): 	0	159.8522	0	Camera   (xyz): 	0	0	0	
+63759822614970	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8536178	0.6555398	-0.3617527	Rotation (xyz): 	0	159.963	0	Camera   (xyz): 	0	0	0	
+63759822614981	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.854085	0.6555319	-0.3643371	Rotation (xyz): 	0	160.0628	0	Camera   (xyz): 	0	0	0	
+63759822614992	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8546259	0.655537	-0.3669898	Rotation (xyz): 	0	160.1667	0	Camera   (xyz): 	0	0	0	
+63759822615003	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8550319	0.6555701	-0.3697534	Rotation (xyz): 	0	160.276	0	Camera   (xyz): 	0	0	0	
+63759822615014	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8554901	0.6556364	-0.3726638	Rotation (xyz): 	0	160.4053	0	Camera   (xyz): 	0	0	0	
+63759822615026	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8560478	0.6557112	-0.3756458	Rotation (xyz): 	0	160.5397	0	Camera   (xyz): 	0	0	0	
+63759822615037	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8565042	0.6559225	-0.3788413	Rotation (xyz): 	0	160.6601	0	Camera   (xyz): 	0	0	0	
+63759822615048	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8569902	0.6561084	-0.3821168	Rotation (xyz): 	0	160.7576	0	Camera   (xyz): 	0	0	0	
+63759822615059	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8576221	0.6562927	-0.385635	Rotation (xyz): 	0	160.8205	0	Camera   (xyz): 	0	0	0	
+63759822615070	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8581331	0.6565171	-0.3892499	Rotation (xyz): 	0	160.8884	0	Camera   (xyz): 	0	0	0	
+63759822615082	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8587963	0.6567568	-0.3930422	Rotation (xyz): 	0	160.942	0	Camera   (xyz): 	0	0	0	
+63759822615093	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8595519	0.657015	-0.397047	Rotation (xyz): 	0	160.9788	0	Camera   (xyz): 	0	0	0	
+63759822615104	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8602167	0.6571968	-0.4010587	Rotation (xyz): 	0	161.0036	0	Camera   (xyz): 	0	0	0	
+63759822615115	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8611802	0.6573617	-0.4052672	Rotation (xyz): 	0	161.0364	0	Camera   (xyz): 	0	0	0	
+63759822615126	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8625584	0.6574286	-0.4094808	Rotation (xyz): 	0	161.0067	0	Camera   (xyz): 	0	0	0	
+63759822615138	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8636537	0.6575605	-0.4139433	Rotation (xyz): 	0	161.0386	0	Camera   (xyz): 	0	0	0	
+63759822615149	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8646563	0.6575491	-0.4184248	Rotation (xyz): 	0	161.042	0	Camera   (xyz): 	0	0	0	
+63759822615160	Avatar: 	ViveRoomspaceController	Position (xyz): 	0.8658883	0.6575075	-0.4230656	Rotation (xyz): 	0	161.0589	0	Camera   (xyz): 	0	0	0	
+63759822615161	TASK_END	Navigate	NavigationTask	4602
+63759822615161	LM_OUTPUT	NavigationTask.cs	TASK_NavigationTask (TaskList)	Navigate
+Task	Block	Trial	TargetName	OptimalPath	ActualPath	
