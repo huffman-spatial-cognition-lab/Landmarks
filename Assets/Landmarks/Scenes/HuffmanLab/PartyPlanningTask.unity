@@ -153,6 +153,73 @@ Transform:
   m_Father: {fileID: 868073009}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &161658448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 161658450}
+  - component: {fileID: 161658449}
+  m_Layer: 0
+  m_Name: ListMapTestTargets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &161658449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161658448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7b965bfa25a4393bf115e4c0000ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 1
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  parentName: TargetObjects
+  parentObject: {fileID: 0}
+  current: 0
+  objects: []
+  EndListBehavior: 1
+  shuffle: 0
+  order: {fileID: 0}
+--- !u!4 &161658450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161658448}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 521146637}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &326318764
 Material:
   serializedVersion: 6
@@ -352,6 +419,230 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &427562371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 427562373}
+  - component: {fileID: 427562372}
+  m_Layer: 0
+  m_Name: ListMapTestPlaceholders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &427562372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427562371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7b965bfa25a4393bf115e4c0000ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 1
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  parentName: MapTestPlaceholders
+  parentObject: {fileID: 1638283590}
+  current: 0
+  objects: []
+  EndListBehavior: 1
+  shuffle: 1
+  order: {fileID: 0}
+--- !u!4 &427562373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427562371}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 521146637}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &521146636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521146637}
+  - component: {fileID: 521146638}
+  m_Layer: 0
+  m_Name: TASK_SelectItems
+  m_TagString: Task
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &521146637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521146636}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 161658450}
+  - {fileID: 1638283592}
+  - {fileID: 427562373}
+  - {fileID: 577468710}
+  - {fileID: 1608361412}
+  - {fileID: 2069608058}
+  - {fileID: 1745694611}
+  - {fileID: 1534163855}
+  - {fileID: 1677546209}
+  m_Father: {fileID: 1434858932}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &521146638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521146636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b72e5b9b995348e0a53c738244f788b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 1
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  skipConditions: []
+  tasks: []
+  objectsList: []
+  repeat: 1
+  overideRepeat: {fileID: 0}
+  repeatCount: 1
+  hideTargetsDuringTask: 0
+  currentTask: {fileID: 0}
+  catchTrialCount: 0
+  skipOnCatch: []
+  onlyOnCatch: []
+  noCatchOnFirstTrial: 1
+  catchTrials: 
+  catchFlag: 0
+  trialLogging: 0
+--- !u!1 &577468709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 577468710}
+  - component: {fileID: 577468711}
+  m_Layer: 0
+  m_Name: MapStudyInstructions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &577468710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577468709}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.36398518, y: -0.10111389, z: -0.26931548}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 521146637}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &577468711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577468709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2b24b10a1d6446ea483dff9d3e43da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 0
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  instruction: {fileID: 0}
+  message: {fileID: 4900000, guid: 875b8fd2b895f42029bee03759b94a4c, type: 3}
+  objects: {fileID: 0}
+  multiObjects: []
+  texts: {fileID: 0}
+  blackout: 1
+  text_color: {r: 1, g: 1, b: 1, a: 1}
+  instructionFont: {fileID: 0}
+  instructionSize: 12
+  actionButtonOn: 1
+  customButtonText: 
+  restrictMovement: 1
+  selfPaced: 1
 --- !u!1 &617367747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,6 +1651,90 @@ Transform:
   m_Father: {fileID: 868073012}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &976506899
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1434858932}
+    m_Modifications:
+    - target: {fileID: 526716851931109429, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 526716851931109429, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526716851931109429, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526716851931109429, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526716851931109429, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 526716851931109429, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526716851931109429, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526716851931109429, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526716851931109429, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526716851931109429, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526716851931109429, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668381732265589425, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668381732265589425, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: snapToTargetProximity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880537170829252615, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: skip
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115200545215876391, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: m_Name
+      value: TASK_Mappit
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5c8be5fe547f4ab68b340a860a90b82, type: 3}
 --- !u!1 &1155273992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,7 +2356,7 @@ PrefabInstance:
     - target: {fileID: 6279364624764035789, guid: 4e09813be04144d928219cb9abe866cf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6279364624764035789, guid: 4e09813be04144d928219cb9abe866cf,
         type: 3}
@@ -2041,6 +2416,75 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 128724126685394496, guid: 4e09813be04144d928219cb9abe866cf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4e09813be04144d928219cb9abe866cf, type: 3}
+--- !u!1 &1534163854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1534163855}
+  - component: {fileID: 1534163856}
+  m_Layer: 0
+  m_Name: MapTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1534163855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534163854}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 521146637}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1534163856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534163854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8479faebfd118a34baf00805df999107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 1
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  targetList: {fileID: 161658449}
+  copyObjects: {fileID: 2069608056}
+  numTargsToSelect: 10
+  timeLimit: 0
+  flattenMap: 1
+  snapToTargetProximity: 0
+  buttonText: Finished selecting items
+  hudTextOffset: {x: 0, y: 0, z: 25}
+  numSelectedItems: 0
 --- !u!1 &1540131662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,6 +2816,198 @@ CapsuleCollider:
   m_Height: 2.0000005
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1608361411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608361412}
+  - component: {fileID: 1608361413}
+  m_Layer: 0
+  m_Name: MapStudy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1608361412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608361411}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 521146637}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1608361413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608361411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799d1c0f0793749768c094e1c23f1e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 0
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  timeLimit: 0
+  flattenMap: 1
+  hudTextOffset: {x: 10, y: 0, z: 0}
+  baselineScaling: {x: 0, y: 0, z: 0}
+  buttonText: Start Test
+--- !u!1 &1638283590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1638283592}
+  - component: {fileID: 1638283591}
+  m_Layer: 0
+  m_Name: MapTestPlaceholders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1638283591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638283590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f217fbf12a6c498dacc190bd049668d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 1
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  targetObjectList: {fileID: 161658449}
+  placeholderSpacing: 10
+--- !u!4 &1638283592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638283590}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 521146637}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1677546208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1677546209}
+  - component: {fileID: 1677546210}
+  m_Layer: 0
+  m_Name: ScoreMapTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1677546209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677546208}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 521146637}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1677546210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677546208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8075a32f5e4b4e18830f1dd8b3dce24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 1
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  copyObjects: {fileID: 2069608056}
+  distanceErrorTolerance: 7
+  percentCorrectCriterion: 100
+  message: {fileID: 4900000, guid: 3e82b2819585f4a69abbc5b3f4bce65e, type: 3}
+  blackout: 1
 --- !u!1 &1699087898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,6 +3038,79 @@ Transform:
   m_Father: {fileID: 868073012}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1745694610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1745694611}
+  - component: {fileID: 1745694612}
+  m_Layer: 0
+  m_Name: MapTestInstructions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1745694611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745694610}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 521146637}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1745694612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745694610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2b24b10a1d6446ea483dff9d3e43da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 0
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  instruction: {fileID: 0}
+  message: {fileID: 4900000, guid: e6b6fabc213de4a019c8b2fc1741ea41, type: 3}
+  objects: {fileID: 0}
+  multiObjects: []
+  texts: {fileID: 0}
+  blackout: 1
+  text_color: {r: 1, g: 1, b: 1, a: 1}
+  instructionFont: {fileID: 0}
+  instructionSize: 12
+  actionButtonOn: 1
+  customButtonText: 
+  restrictMovement: 1
+  selfPaced: 1
 --- !u!1 &1772511063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,7 +3216,7 @@ PrefabInstance:
     - target: {fileID: 170528091735560576, guid: 41e6964e688bb468db8869f849e9dfe9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 170528091735560576, guid: 41e6964e688bb468db8869f849e9dfe9,
         type: 3}
@@ -2702,3 +3411,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025370137}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2069608056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2069608058}
+  - component: {fileID: 2069608057}
+  m_Layer: 0
+  m_Name: CopyObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2069608057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069608056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39451a2267774864b5514cd834834a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 0
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  sourcesParent: {fileID: 161658449}
+  destinationsParent: {fileID: 427562372}
+  setOriginalInactive: 1
+  randomlyRotateCopy: 0
+--- !u!4 &2069608058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069608056}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.01, z: 1}
+  m_Children: []
+  m_Father: {fileID: 521146637}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
