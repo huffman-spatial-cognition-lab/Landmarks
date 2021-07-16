@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 161658450}
   - component: {fileID: 161658449}
   m_Layer: 0
-  m_Name: ListMapTestTargets
+  m_Name: ListItemSelectionTargets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 427562373}
   - component: {fileID: 427562372}
   m_Layer: 0
-  m_Name: ListMapTestPlaceholders
+  m_Name: ListItemSelectionPlaceholders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,8 +465,8 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  parentName: MapTestPlaceholders
-  parentObject: {fileID: 1638283590}
+  parentName: ItemSelectionPlaceholders
+  parentObject: {fileID: 0}
   current: 0
   objects: []
   EndListBehavior: 1
@@ -2351,7 +2351,7 @@ GameObject:
   - component: {fileID: 1534163855}
   - component: {fileID: 1534163856}
   m_Layer: 0
-  m_Name: MapTest
+  m_Name: ItemSelection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2751,7 +2751,7 @@ GameObject:
   - component: {fileID: 1638283592}
   - component: {fileID: 1638283591}
   m_Layer: 0
-  m_Name: MapTestPlaceholders
+  m_Name: ItemSelectionPlaceholders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2843,7 +2843,7 @@ GameObject:
   - component: {fileID: 1745694611}
   - component: {fileID: 1745694612}
   m_Layer: 0
-  m_Name: MapTestInstructions
+  m_Name: ItemSelectionInstructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
