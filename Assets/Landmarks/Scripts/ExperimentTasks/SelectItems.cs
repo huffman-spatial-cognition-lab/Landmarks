@@ -411,7 +411,7 @@ public class SelectItems : ExperimentTask
 	private int Check()
 	{
 		int items_in_place = 0;
-		targetInBoundsList = new bool[4];
+		targetInBoundsList = new bool[copyObjects.transform.childCount];
 		//targetSelected = false;
 		//Pos = activeTarget.transform.position; // cant figure out how to get the poisition of target
 		int counter = 0;
