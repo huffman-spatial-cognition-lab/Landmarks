@@ -24,6 +24,8 @@ public class SelectItems : ExperimentTask
 
 	private GameObject targetObjects; // should be the game object called TargetObjects under Environment game object
 
+	private bool[] targetInBoundsList;
+
 	private GameObject activeTarget; // This is the container we will use for whichever object is currently being clicked and dragged
 	private bool targetActive = false; // Are we currently manipulating a targetobject?
 	private Vector3 previousTargetPos; // save the position when a target was clicked so users can undo the current move
@@ -387,6 +389,14 @@ public class SelectItems : ExperimentTask
 		// reactivate the original objects
 		targetObjects = copyObjects.GetComponent<CopyChildObjects>().sourcesParent.parentObject; // should be the game object called TargetObjects under Environment game object
 		targetObjects.SetActive(true);
+
+		// DJH - testing if our list worked
+		// TO DO: Detroy game objects here if they are not true!
+		Debug.Log("here is our list:");
+		foreach (bool target_i in targetInBoundsList)
+		{
+			Debug.Log(target_i);
+		}
 	}
 
 	void HideStoreName()
@@ -401,8 +411,10 @@ public class SelectItems : ExperimentTask
 	private int Check()
 	{
 		int items_in_place = 0;
+		targetInBoundsList = new bool[4];
 		//targetSelected = false;
 		//Pos = activeTarget.transform.position; // cant figure out how to get the poisition of target
+		int counter = 0;
 		foreach (Transform child in copyObjects.transform)
 		{
 			Debug.Log(child.gameObject.transform.position.x);
@@ -412,11 +424,11 @@ public class SelectItems : ExperimentTask
 			child.gameObject.transform.position.z > minZ &&
 			child.gameObject.transform.position.z < maxZ)
 			{
-				//targetSelected = true;
-				//activeTarget = selectedTarget;
 				items_in_place++;
-				//Debug.Log("check function is working");
+				targetInBoundsList[counter] = true;
+				Debug.Log("check function is working");
 			}
+			counter++;
 		}
 		return items_in_place;
 	}
