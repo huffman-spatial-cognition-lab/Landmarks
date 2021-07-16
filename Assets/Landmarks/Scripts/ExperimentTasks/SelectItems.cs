@@ -22,6 +22,8 @@ public class SelectItems : ExperimentTask
 	public string buttonText = "Finished selecting items";
 	//public string buttonText = "Get Score";
 
+	private GameObject targetObjects; // should be the game object called TargetObjects under Environment game object
+
 	private GameObject activeTarget; // This is the container we will use for whichever object is currently being clicked and dragged
 	private bool targetActive = false; // Are we currently manipulating a targetobject?
 	private Vector3 previousTargetPos; // save the position when a target was clicked so users can undo the current move
@@ -380,6 +382,11 @@ public class SelectItems : ExperimentTask
 		{
 			Destroy(child.gameObject);
 		}
+
+		// DJH - Also activate the original objects
+		// reactivate the original objects
+		targetObjects = copyObjects.GetComponent<CopyChildObjects>().sourcesParent.parentObject; // should be the game object called TargetObjects under Environment game object
+		targetObjects.SetActive(true);
 	}
 
 	void HideStoreName()
