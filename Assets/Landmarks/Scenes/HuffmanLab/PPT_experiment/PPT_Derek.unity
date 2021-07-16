@@ -1341,6 +1341,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 328441400270694664, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 524091995081147292, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
         type: 3}
       propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.size
