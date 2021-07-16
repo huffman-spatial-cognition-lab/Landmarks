@@ -397,6 +397,18 @@ public class SelectItems : ExperimentTask
 		{
 			Debug.Log(target_i);
 		}
+
+		// DJH - Destroy game objects that they did not select
+		int counter = 0;
+		foreach (Transform child in targetObjects.transform)
+		{
+			if (targetInBoundsList[counter] == false) 
+			{ 
+				Destroy(child.gameObject);
+			}
+			counter++;
+		}
+	
 	}
 
 	void HideStoreName()
