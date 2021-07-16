@@ -1647,6 +1647,11 @@ PrefabInstance:
       propertyPath: snapToTargetProximity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3370795000131312321, guid: e5c8be5fe547f4ab68b340a860a90b82,
+        type: 3}
+      propertyPath: message
+      value: 
+      objectReference: {fileID: 4900000, guid: 81c77272e275bd34e818290b3e5cb31c, type: 3}
     - target: {fileID: 5880537170829252615, guid: e5c8be5fe547f4ab68b340a860a90b82,
         type: 3}
       propertyPath: skip
