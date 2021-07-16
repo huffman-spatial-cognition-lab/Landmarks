@@ -517,8 +517,6 @@ Transform:
   - {fileID: 161658450}
   - {fileID: 1638283592}
   - {fileID: 427562373}
-  - {fileID: 577468710}
-  - {fileID: 1608361412}
   - {fileID: 2069608058}
   - {fileID: 1745694611}
   - {fileID: 1534163855}
@@ -569,79 +567,6 @@ MonoBehaviour:
   catchTrials: 
   catchFlag: 0
   trialLogging: 0
---- !u!1 &577468709
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 577468710}
-  - component: {fileID: 577468711}
-  m_Layer: 0
-  m_Name: MapStudyInstructions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &577468710
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577468709}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.36398518, y: -0.10111389, z: -0.26931548}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 521146637}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &577468711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577468709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2b24b10a1d6446ea483dff9d3e43da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 0
-  interval: 0
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  instruction: {fileID: 0}
-  message: {fileID: 4900000, guid: 875b8fd2b895f42029bee03759b94a4c, type: 3}
-  objects: {fileID: 0}
-  multiObjects: []
-  texts: {fileID: 0}
-  blackout: 1
-  text_color: {r: 1, g: 1, b: 1, a: 1}
-  instructionFont: {fileID: 0}
-  instructionSize: 12
-  actionButtonOn: 1
-  customButtonText: 
-  restrictMovement: 1
-  selfPaced: 1
 --- !u!1 &617367747
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,7 +2369,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 521146637}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1534163856
 MonoBehaviour:
@@ -2815,71 +2740,6 @@ CapsuleCollider:
   m_Height: 2.0000005
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1608361411
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1608361412}
-  - component: {fileID: 1608361413}
-  m_Layer: 0
-  m_Name: MapStudy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1608361412
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608361411}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 521146637}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1608361413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608361411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 799d1c0f0793749768c094e1c23f1e34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 0
-  interval: 0
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  timeLimit: 0
-  flattenMap: 1
-  hudTextOffset: {x: 10, y: 0, z: 0}
-  baselineScaling: {x: 0, y: 0, z: 0}
-  buttonText: Start Test
 --- !u!1 &1638283590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3001,7 +2861,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 521146637}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1745694612
 MonoBehaviour:
@@ -3407,5 +3267,5 @@ Transform:
   m_LocalScale: {x: 1, y: 0.01, z: 1}
   m_Children: []
   m_Father: {fileID: 521146637}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
