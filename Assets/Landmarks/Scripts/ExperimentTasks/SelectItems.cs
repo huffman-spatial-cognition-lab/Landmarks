@@ -11,7 +11,7 @@ public class SelectItems : ExperimentTask
 
 	public ObjectList targetList;
 	public GameObject copyObjects;
-	public int numTargsToSelect = 10;
+	public int numTargsToSelect = 4;
 	[Tooltip("In seconds; 0 = unlimited time")]
 	public int timeLimit = 0;
 	public bool flattenMap = true;
@@ -296,7 +296,7 @@ public class SelectItems : ExperimentTask
 			int num_selected = Check();
 			Debug.Log("There are this many items in the correct location:");
 			Debug.Log(num_selected);
-			if (num_selected == 4)
+			if (num_selected == numTargsToSelect)
 			{
 				//CompleteTask();
 				return true;

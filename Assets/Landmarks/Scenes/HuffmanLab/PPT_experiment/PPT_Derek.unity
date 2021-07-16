@@ -1647,11 +1647,6 @@ PrefabInstance:
       propertyPath: snapToTargetProximity
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3370795000131312321, guid: e5c8be5fe547f4ab68b340a860a90b82,
-        type: 3}
-      propertyPath: message
-      value: 
-      objectReference: {fileID: 4900000, guid: 81c77272e275bd34e818290b3e5cb31c, type: 3}
     - target: {fileID: 5880537170829252615, guid: e5c8be5fe547f4ab68b340a860a90b82,
         type: 3}
       propertyPath: skip
@@ -2407,7 +2402,7 @@ MonoBehaviour:
   triggerOnEnd: 0
   targetList: {fileID: 161658449}
   copyObjects: {fileID: 2069608056}
-  numTargsToSelect: 10
+  numTargsToSelect: 4
   timeLimit: 0
   flattenMap: 1
   snapToTargetProximity: 0
@@ -2898,7 +2893,7 @@ MonoBehaviour:
   triggerOnStart: 0
   triggerOnEnd: 0
   instruction: {fileID: 0}
-  message: {fileID: 4900000, guid: e6b6fabc213de4a019c8b2fc1741ea41, type: 3}
+  message: {fileID: 4900000, guid: 81c77272e275bd34e818290b3e5cb31c, type: 3}
   objects: {fileID: 0}
   multiObjects: []
   texts: {fileID: 0}
