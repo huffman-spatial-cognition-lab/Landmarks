@@ -11,6 +11,9 @@ public class LM_CreatePlaceHolders : ExperimentTask
     public ObjectList targetObjectList;
     public float placeholderSpacing = 10.0f;
 
+    // DJH - adding functionality for offset
+    public string overheadCameraName = "OverheadCamera";
+
     private GameObject placeholder;
 
     public override void startTask()
@@ -35,11 +38,20 @@ public class LM_CreatePlaceHolders : ExperimentTask
             return;
         }
 
+        // DJH - Adding functionality for offset
+        Vector3 overheadCameraTransform = GameObject.Find(overheadCameraName).transform.position;
+        float offsetX = overheadCameraTransform.x;
+        float offsetZ = overheadCameraTransform.z;
+
         for (int i = 0; i < targetObjectList.objects.Count; i++)
         {
             placeholder = new GameObject("PlaceHolder");
             placeholder.transform.parent = transform;
-            placeholder.transform.localPosition = new Vector3(0.0f, 0.0f, -1 * i * placeholderSpacing);
+            // DJH - Adding functionality for offset
+            // Prev:
+            //placeholder.transform.localPosition = new Vector3(0.0f, 0.0f, -1 * i * placeholderSpacing);
+            // Updated: 
+            placeholder.transform.localPosition = new Vector3(offsetX + 0.0f, 0.0f, offsetZ + (-1 * i * placeholderSpacing));
         }
     }
 
