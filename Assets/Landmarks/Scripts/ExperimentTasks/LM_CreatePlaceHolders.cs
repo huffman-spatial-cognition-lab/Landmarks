@@ -51,7 +51,7 @@ public class LM_CreatePlaceHolders : ExperimentTask
             // Prev:
             //placeholder.transform.localPosition = new Vector3(0.0f, 0.0f, -1 * i * placeholderSpacing);
             // Updated: 
-            placeholder.transform.localPosition = new Vector3(offsetX + 0.0f, 0.0f, offsetZ + (-1 * i * placeholderSpacing));
+            placeholder.transform.localPosition = new Vector3(offsetX, 0.0f, offsetZ + (-1 * i * placeholderSpacing));
         }
     }
 

@@ -39,10 +39,10 @@ public class SelectItems : ExperimentTask
 	private float taskDuration;
 
 	//new variables for select tasks
-	private float minX = 0f;
-	private float maxX = 100f;
-	private float minZ = 0f;
-	private float maxZ = 100f;
+	private float minX = 1010f;
+	private float maxX = 1025f;
+	private float minZ = 975f;
+	private float maxZ = 1025f;
 	private bool targetSelected = false;
 	private GameObject selectedTarget;
 	public int numSelectedItems = 0;
