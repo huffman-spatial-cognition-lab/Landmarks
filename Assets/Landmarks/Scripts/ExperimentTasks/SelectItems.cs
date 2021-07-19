@@ -1,4 +1,13 @@
-﻿using System.Collections;
+﻿/*
+    This class will run the SelectItems task.
+
+    Initial starting point: 
+        MapTestTask.cs (by Michael J. Starrett and Jared D. Stokes)
+
+    Written by Derek J. Huffman (Summer 2021).
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
