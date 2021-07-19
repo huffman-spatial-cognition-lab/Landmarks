@@ -276,11 +276,6 @@ public class SelectItems : ExperimentTask
 			// INPUT NAME: MapTest_RotateCW
 			if (Input.GetButtonDown("MapTest_RotateCW")) activeTarget.transform.Rotate(0.0f, 90.0f, 0.0f, Space.World);
 
-			//THIS WAS THE BUGGY BIT: *************************
-			//if (Input.GetButtonDown("Finished selecting items"))
-			//{
-			//	CompleteTask();
-			//}
 		}
 
 		// -----------------------------------------
@@ -306,7 +301,6 @@ public class SelectItems : ExperimentTask
 			Debug.Log(num_selected);
 			if (num_selected == numTargsToSelect)
 			{
-				//CompleteTask();
 				return true;
 			} else
             {
@@ -333,7 +327,6 @@ public class SelectItems : ExperimentTask
 	{
 		base.endTask();
 
-		// log data
 		// Log data
 		trialLog.AddData(transform.name + "_testTime", taskDuration.ToString());
 
@@ -403,14 +396,6 @@ public class SelectItems : ExperimentTask
 		targetObjects = copyObjects.GetComponent<CopyChildObjects>().sourcesParent.parentObject; // should be the game object called TargetObjects under Environment game object
 		targetObjects.SetActive(true);
 
-		// DJH - testing if our list worked
-		// TO DO: Detroy game objects here if they are not true!
-		Debug.Log("here is our list:");
-		foreach (bool target_i in targetInBoundsList)
-		{
-			Debug.Log(target_i);
-		}
-
 		// DJH - Destroy game objects that they did not select
 		int counter = 0;
 		foreach (Transform child in targetObjects.transform)
@@ -437,8 +422,6 @@ public class SelectItems : ExperimentTask
 	{
 		int items_in_place = 0;
 		targetInBoundsList = new bool[copyObjects.transform.childCount];
-		//targetSelected = false;
-		//Pos = activeTarget.transform.position; // cant figure out how to get the poisition of target
 		int counter = 0;
 		foreach (Transform child in copyObjects.transform)
 		{
@@ -458,23 +441,6 @@ public class SelectItems : ExperimentTask
 		return items_in_place;
 	}
 
-	//void CompleteTask()
-	//{
-	//	if (numSelectedItems == numTargsToSelect)
-	//	{
-	//		if (targetSelected = true)
-	//		{
-	//			if (!arrayItems.Contains(selectedTarget))
-	//			{
-	//				arrayItems.Add(selectedTarget);
-	//			}
-	//		}
-	//	}
-	//	else
-	//	{
-	//		Debug.Log("You must select 10 items.");
-	//	}
-	//}
 
 	// Calculate the planar distance between placement and targets (i.e., ignore the y-axis height of the copies)
 	private float vector2DDistance(Vector3 v1, Vector3 v2)
