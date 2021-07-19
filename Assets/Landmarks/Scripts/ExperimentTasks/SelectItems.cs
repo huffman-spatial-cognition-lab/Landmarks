@@ -37,7 +37,7 @@ public class SelectItems : ExperimentTask
 	private float startTime;
 	private float taskDuration;
 
-	//new variables for select tasks
+	// DJH - new variables for select tasks
 	public int numTargsToSelect = 4;  // total number of targets you want participants to select
 	public float timeShowInBoundsMessage = 2.5f;  // the amount of time (seconds) to show in bounds message
 	private float buttonPressTime;
@@ -291,15 +291,13 @@ public class SelectItems : ExperimentTask
 		else if (hud.actionButtonClicked == true)
 		{
 			hud.actionButtonClicked = false;
-			int num_selected = Check();
-			Debug.Log("There are this many items in the correct location:");
-			Debug.Log(num_selected);
-			if (num_selected == numTargsToSelect)
+			int numSelected = Check();
+			if (numSelected == numTargsToSelect)
 			{
 				return true;
 			} else
             {
-				hud.setMessage("You selected " + num_selected + " items, but you need to select " + numTargsToSelect);
+				hud.setMessage("You selected " + numSelected + " items, but you need to select " + numTargsToSelect);
 				hud.hudPanel.SetActive(true);
 				hud.ForceShowMessage();
 				Vector3 hudPosForItemsMessage = new Vector3(envCenterX + offsetX, 1, envCenterZ + offsetZ);
@@ -415,7 +413,7 @@ public class SelectItems : ExperimentTask
 
 	private int Check()
 	{
-		int items_in_place = 0;
+		int itemsInPlace = 0;
 		targetInBoundsList = new bool[copyObjects.transform.childCount];
 		int counter = 0;
 		foreach (Transform child in copyObjects.transform)
@@ -427,13 +425,13 @@ public class SelectItems : ExperimentTask
 			child.gameObject.transform.position.z > minZ &&
 			child.gameObject.transform.position.z < maxZ)
 			{
-				items_in_place++;
+				itemsInPlace++;
 				targetInBoundsList[counter] = true;
 				Debug.Log("check function is working");
 			}
 			counter++;
 		}
-		return items_in_place;
+		return itemsInPlace;
 	}
 
 
