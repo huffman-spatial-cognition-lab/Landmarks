@@ -38,22 +38,17 @@ public class SelectItems : ExperimentTask
 	private float taskDuration;
 
 	//new variables for select tasks
-	public int numTargsToSelect = 4;
-	public float timeShowInBoundsMessage = 2.5f;
+	public int numTargsToSelect = 4;  // total number of targets you want participants to select
+	public float timeShowInBoundsMessage = 2.5f;  // the amount of time (seconds) to show in bounds message
 	private float buttonPressTime;
-	public float envCenterX = 0.0f;
-	public float envCenterZ = 0.0f;
-	public float offsetX = 0.0f;
-	public float offsetZ = 0.0f;
-	private float minX = 1010f;
-	private float maxX = 1025f;
-	private float minZ = 975f;
-	private float maxZ = 1025f;
-	private bool targetSelected = false;
-	private GameObject selectedTarget;
-	public int numSelectedItems = 0;
-	private Vector3 Pos;
-	List<GameObject> arrayItems = new List<GameObject>();
+	public float envCenterX = 0.0f;  // the center of the SelectItems part of your environment
+	public float envCenterZ = 0.0f;  // same as above, but for the Z dimension
+	public float offsetX = 0.0f;  // if you want an offset for showing the message for number of items in bounds
+	public float offsetZ = 0.0f;  // same as above, but for the Z dimension
+	private float minX = 1010f;  // the maximum X value
+	private float maxX = 1025f;  // the minumum X value
+	private float minZ = 975f;  // the maximum Z value
+	private float maxZ = 1025f;  // the minumum Z value
 
 	public override void startTask()
 	{
@@ -449,20 +444,3 @@ public class SelectItems : ExperimentTask
 	}
 }
 
-
-//}
-//if (Pos.x > minX &&
-//Pos.x < maxX &&
-//Pos.z > minZ &&
-//Pos.z < maxZ)
-//{
-//activeTarget = selectedTarget;
-//targetSelected = true;
-//numSelectedItems = +1;
-//Debug.Log("check function is working");
-//}
-
-//if(targetSelected = false)
-//{
-//  gameObject.SetActive(false);
-//}
