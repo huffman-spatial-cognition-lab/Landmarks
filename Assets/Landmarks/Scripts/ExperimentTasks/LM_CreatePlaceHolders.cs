@@ -12,7 +12,8 @@ public class LM_CreatePlaceHolders : ExperimentTask
     public float placeholderSpacing = 10.0f;
 
     // DJH - adding functionality for offset
-    public string overheadCameraName = "OverheadCamera";
+    public float offsetX = 0.0f;
+    public float offsetZ = 0.0f;
 
     private GameObject placeholder;
 
@@ -37,11 +38,6 @@ public class LM_CreatePlaceHolders : ExperimentTask
         {
             return;
         }
-
-        // DJH - Adding functionality for offset
-        Vector3 overheadCameraTransform = GameObject.Find(overheadCameraName).transform.position;
-        float offsetX = overheadCameraTransform.x;
-        float offsetZ = overheadCameraTransform.z;
 
         for (int i = 0; i < targetObjectList.objects.Count; i++)
         {
