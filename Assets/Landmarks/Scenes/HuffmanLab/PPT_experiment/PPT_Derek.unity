@@ -3867,5 +3867,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: TASK_SelectItems
       objectReference: {fileID: 0}
+    - target: {fileID: 8145560311705280779, guid: ea590a551bbb4ad4d9605cb3551bbb6d,
+        type: 3}
+      propertyPath: offsetX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145560311705280779, guid: ea590a551bbb4ad4d9605cb3551bbb6d,
+        type: 3}
+      propertyPath: offsetZ
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145560311705280779, guid: ea590a551bbb4ad4d9605cb3551bbb6d,
+        type: 3}
+      propertyPath: envCenterX
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145560311705280779, guid: ea590a551bbb4ad4d9605cb3551bbb6d,
+        type: 3}
+      propertyPath: envCenterZ
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145560312337261532, guid: ea590a551bbb4ad4d9605cb3551bbb6d,
+        type: 3}
+      propertyPath: offsetX
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145560312337261532, guid: ea590a551bbb4ad4d9605cb3551bbb6d,
+        type: 3}
+      propertyPath: offsetZ
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea590a551bbb4ad4d9605cb3551bbb6d, type: 3}

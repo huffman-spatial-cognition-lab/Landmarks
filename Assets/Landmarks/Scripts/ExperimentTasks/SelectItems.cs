@@ -11,7 +11,6 @@ public class SelectItems : ExperimentTask
 
 	public ObjectList targetList;
 	public GameObject copyObjects;
-	public int numTargsToSelect = 4;
 	[Tooltip("In seconds; 0 = unlimited time")]
 	public int timeLimit = 0;
 	public bool flattenMap = true;
@@ -39,8 +38,13 @@ public class SelectItems : ExperimentTask
 	private float taskDuration;
 
 	//new variables for select tasks
+	public int numTargsToSelect = 4;
 	public float timeShowInBoundsMessage = 2.5f;
 	private float buttonPressTime;
+	public float envCenterX = 0.0f;
+	public float envCenterZ = 0.0f;
+	public float offsetX = 0.0f;
+	public float offsetZ = 0.0f;
 	private float minX = 1010f;
 	private float maxX = 1025f;
 	private float minZ = 975f;
@@ -213,7 +217,7 @@ public class SelectItems : ExperimentTask
 			{
 				activeTarget.transform.position = ray.GetPoint(distance);
 			}
-			//HideStoreName();
+			HideStoreName();
 
 			log.log("Moving :\t" + activeTarget.name +
 					"\tPosition (xyz): \t" + activeTarget.transform.position.x + "\t" + activeTarget.transform.position.y + "\t" + activeTarget.transform.position.z +
@@ -306,11 +310,11 @@ public class SelectItems : ExperimentTask
 				return true;
 			} else
             {
-				Debug.Log("You chose:");
-				hud.setMessage("You did not select the correct number of items");
+				hud.setMessage("You selected " + num_selected + " items, but you need to select " + numTargsToSelect);
 				hud.hudPanel.SetActive(true);
 				hud.ForceShowMessage();
-				hud.hudPanel.transform.position = new Vector3(1000, 1, 1000);
+				Vector3 hudPosForItemsMessage = new Vector3(envCenterX + offsetX, 1, envCenterZ + offsetZ);
+				hud.hudPanel.transform.position = Camera.main.WorldToScreenPoint(hudPosForItemsMessage);
 				buttonPressTime = Time.time;
 			}
 		}
