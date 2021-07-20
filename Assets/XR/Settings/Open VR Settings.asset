@@ -14,18 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier:
   PromptToUpgradePackage: 1
   PromptToUpgradePreviewPackages: 1
-<<<<<<< HEAD
-  SkipPromptForVersion: 
+  SkipPromptForVersion:
   StereoRenderingMode: 0
   InitializationType: 1
-  EditorAppKey: application.generated.unity.nbsl.exe
+  EditorAppKey: application.generated.unity.landmarks.exe
   ActionManifestFileRelativeFilePath: StreamingAssets\SteamVR\actions.json
-=======
   SkipPromptForVersion:
   StereoRenderingMode: 1
   InitializationType: 1
   EditorAppKey: application.generated.unity.nbsl.exe
   ActionManifestFileRelativeFilePath: StreamingAssets/SteamVR/actions.json
->>>>>>> 27f7bab3d35db8edbabe2311a41d5e6abb15fe46
+=======
+>>>>>>> upstream/ppt_exp
   MirrorView: 1
   HasCopiedDefaults: 0

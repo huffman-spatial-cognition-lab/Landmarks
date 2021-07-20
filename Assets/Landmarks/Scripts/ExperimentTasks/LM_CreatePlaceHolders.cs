@@ -11,6 +11,10 @@ public class LM_CreatePlaceHolders : ExperimentTask
     public ObjectList targetObjectList;
     public float placeholderSpacing = 10.0f;
 
+    // DJH - adding functionality for offset
+    public float offsetX = 0.0f;
+    public float offsetZ = 0.0f;
+
     private GameObject placeholder;
 
     public override void startTask()
@@ -39,7 +43,11 @@ public class LM_CreatePlaceHolders : ExperimentTask
         {
             placeholder = new GameObject("PlaceHolder");
             placeholder.transform.parent = transform;
-            placeholder.transform.localPosition = new Vector3(0.0f, 0.0f, -1 * i * placeholderSpacing);
+            // DJH - Adding functionality for offset
+            // Prev:
+            //placeholder.transform.localPosition = new Vector3(0.0f, 0.0f, -1 * i * placeholderSpacing);
+            // Updated: 
+            placeholder.transform.localPosition = new Vector3(offsetX, 0.0f, offsetZ + (-1 * i * placeholderSpacing));
         }
     }
 

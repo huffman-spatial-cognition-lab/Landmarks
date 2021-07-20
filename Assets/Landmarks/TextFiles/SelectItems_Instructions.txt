@@ -1,0 +1,14 @@
+SELECT ITEMS
+
+Your task is to select items that you would like
+to collect as you "run" errands. You can select
+items by moving them into the selected area of
+the environment.
+
+There is no time limit, so please take your time 
+to think about which objects you really want to 
+gather later in the experiment.
+
+When you are confident that you have selected the
+items that you would like to retrieve, then press
+the button to complete the task.
