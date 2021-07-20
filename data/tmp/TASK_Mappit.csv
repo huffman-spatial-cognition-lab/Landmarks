@@ -1,0 +1,3 @@
+task	block	trial	MapStudy_studyTime	MapTest_testTime	ScoreMapTest_correct	ScoreMapTest_possible	ScoreMapTest_percentage	ScoreMapTest_criterion	
+TASK_Mappit	1	1	2.692384	11.66071	1	4	25	100	
+TASK_Mappit	1	2	4.346073	11.57604	4	4	100	100	

@@ -1,10 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MapTestTask : ExperimentTask {
+public class OrderItems : ExperimentTask {
 
     [Header("Task-specific Properties")]
 
@@ -18,7 +18,7 @@ public class MapTestTask : ExperimentTask {
 	[TextArea]
 	//public string buttonText = "Get Score";
 
-	private GameObject activeTarget; // This is the container we will use for whichever object is currently being clicked and dragged
+	public GameObject activeTarget; // This is the container we will use for whichever object is currently being clicked and dragged
 	private bool targetActive = false; // Are we currently manipulating a targetobject?
 	private Vector3 previousTargetPos; // save the position when a target was clicked so users can undo the current move
 	private Vector3 previousTargetRot; // save the rotation when a target was clicked so users can undo the current rotate
@@ -30,7 +30,7 @@ public class MapTestTask : ExperimentTask {
 	private float startTime;
 	private float taskDuration;
 
-  //new variables for select tasks
+  //new variables for order tasks
   float minX = 0;
   float maxX = 100;
   float minZ =0;
@@ -41,6 +41,11 @@ public class MapTestTask : ExperimentTask {
   public int numSelectedItems = 0;
   private Vector3 Pos;
   List<GameObject> arrayItems = new List<GameObject>();
+  List<GameObject> orderItems = new List<GameObject>();
+
+  public TextMeshProUGUI countText;
+  private int count;
+
 
 	public override void startTask ()
 	{
@@ -56,6 +61,7 @@ public class MapTestTask : ExperimentTask {
 		base.startTask();
 
 		startTime = Time.time;
+
 
 		// Modify the HUD display for the map task
 		hud.setMessage("");
@@ -90,6 +96,9 @@ public class MapTestTask : ExperimentTask {
 		hud.actionButton.SetActive(true);
         hud.actionButton.GetComponent<Button>().onClick.AddListener(hud.OnActionClick);
 
+    count = 0;
+    orderItems = new List<GameObject>();
+
 	}
 
 
@@ -104,6 +113,7 @@ public class MapTestTask : ExperimentTask {
 		{
 			return true;
 		}
+
 
 		// ------------------------------------------------------------
 		// Handle mouse input for hovering over and selecting objects
@@ -146,6 +156,11 @@ public class MapTestTask : ExperimentTask {
 					// Container for active store
 					targetActive = true;
 					activeTarget = hit.transform.gameObject;
+          Order();
+
+
+
+
 					// Record previos position so the current move can be cancelled
 					previousTargetPos = activeTarget.transform.position;
 					previousTargetRot = activeTarget.transform.eulerAngles;
@@ -189,6 +204,7 @@ public class MapTestTask : ExperimentTask {
 			HideStoreName ();
 		}
 
+
 		// -----------------------------------------
 		// Manipulate the currently active store
 		// -----------------------------------------
@@ -209,7 +225,6 @@ public class MapTestTask : ExperimentTask {
 
             // BEHAVIOR: left click released (e.g., drop the store where it is)
             if (Input.GetMouseButtonUp(0)){
-                //Check();
                 // Get position/rotation of nearest target location (if snapping assist is turned on)
                 if (snapToTargetProximity > 0.0f)
                 {
@@ -257,12 +272,6 @@ public class MapTestTask : ExperimentTask {
 			// INPUT NAME: MapTest_RotateCW
 			if (Input.GetButtonDown("MapTest_RotateCW")) activeTarget.transform.Rotate(0.0f, 90.0f, 0.0f, Space.World);
 
-    // if (Input.GetButtonDown("Finished_Selecting_Items"))
-      //  {
-        //  CompleteTask();
-      //  }
-      }
-
 		// -----------------------------------------
 		// Handle debug button behavior (kill task)
 		// -----------------------------------------
@@ -270,6 +279,7 @@ public class MapTestTask : ExperimentTask {
 		{
 			return KillCurrent ();
 		}
+
 
 		// -----------------------------------------
 		// Handle action button behavior
@@ -282,13 +292,11 @@ public class MapTestTask : ExperimentTask {
 		{
 
 			hud.actionButtonClicked = false;
-      Check();
-      CompleteTask();
 			return true;
 		}
-    return false;
+  }
+  return false;
 }
-
 
 
 	public override void endTask()
@@ -299,7 +307,7 @@ public class MapTestTask : ExperimentTask {
 
 	public override void TASK_END()
 	{
-		base.endTask();
+    base.endTask();
 
 		// log data
 		// Log data
@@ -365,45 +373,48 @@ public class MapTestTask : ExperimentTask {
 		hud.hudPanel.transform.position = new Vector3(99999,99999,99999);
 	}
 
-  int Check()
-  {
-    int numSelectedItems =0;
-    targetSelected = false;
-    //Pos = activeTarget.transform.position; // cant figure out how to get the poisition of target
-    foreach(Transform child in targetList.parentObject.transform)
-    {
-      if(child.gameObject.transform.position.x > minX &&
-      child.gameObject.transform.position.x < maxX &&
-      child.gameObject.transform.position.z > minZ &&
-      child.gameObject.transform.position.z < maxZ)
-      {
-        Debug.Log(child.gameObject.transform.position);
-        targetSelected = true;
-        activeTarget = selectedTarget;
-        numSelectedItems += 1;
-        Debug.Log("check function is running");
-        Debug.Log(numSelectedItems);
-      }
-  }
-  return (numSelectedItems);
-}
 
-  public void CompleteTask()
+  public void Order()
   {
-      Debug.Log("clicked button!!");
-    if (numSelectedItems == 10)
-    {
-      if(targetSelected = true)
+    int listLen;
+    listLen= orderItems.Count;
+    Debug.Log(listLen);
+
+      if (listLen < 8)
       {
-        if (!arrayItems.Contains(selectedTarget))
-        {
-          arrayItems.Add(selectedTarget);
-        }
-      }
+          orderItems.Add(activeTarget);
+          Debug.Log("Order is running");
+          activeTarget.active = false;
+          Debug.Log(listLen + "objects in the list");
+
+          for(int i =0; i < 1; i++)
+          {
+            count = count + 1;
+            countText.text = count.ToString() + ". " + orderItems[i].name;
+            if (count == 8)
+            {
+              countText.text = "You have ordered all 8 items. Please continue on to the next task.";
+              Debug.Log("Finished");
+              SeeList();
+            }
+          }
     }
-    else
+  }
+
+  void SeeList()
+  {
+    foreach(var item in orderItems)
     {
-      Debug.Log("You must select 10 items.");
+      Debug.Log(item.ToString());
+    }
+  }
+
+  void SetCountText()
+  {
+    countText.text = "You have selected " + count.ToString();
+    if (count == 10)
+    {
+      Debug.Log("Finished");
     }
   }
 
@@ -412,22 +423,4 @@ public class MapTestTask : ExperimentTask {
     {
         return (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(v1.x - v2.x), 2f) + Mathf.Pow(Mathf.Abs(v1.z - v2.z), 2f)));
     }
-  }
-
-
-//}
-//if (Pos.x > minX &&
-//Pos.x < maxX &&
-//Pos.z > minZ &&
-//Pos.z < maxZ)
-//{
-  //activeTarget = selectedTarget;
-  //targetSelected = true;
-  //numSelectedItems = +1;
-  //Debug.Log("check function is working");
-//}
-
-//if(targetSelected = false)
-//{
-//  gameObject.SetActive(false);
-//}
+}
