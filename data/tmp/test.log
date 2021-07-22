@@ -1,0 +1,887 @@
+63762560934957	EXPERIMENT:		SUBJECT:	default	START_SCENE	PPT_Derek	START_CONDITION:	default	UI:	KeyboardMouse
+63762560935141	TASK_START	LM_Timeline	TaskList
+63762560935142	TASK_START	InitializeExperiment	TaskList
+63762560935144	TASK_START	UpdateTargetObjects	LM_UpdateTargetObjects
+63762560935202	TASK_END	UpdateTargetObjects	LM_UpdateTargetObjects	58
+63762560935206	TASK_START	AssignTargetColors	LM_TargetColorAssignments
+63762560935284	TASK_END	AssignTargetColors	LM_TargetColorAssignments	78
+63762560935284	TASK_START	PlaceTargets	TaskList
+63762560935286	TASK_START	ListTargetLocations	ObjectList
+63762560935286	TASK_ADD	ListTargetLocations	ObjectList	Target01	null
+63762560935286	TASK_ADD	ListTargetLocations	ObjectList	Target02	null
+63762560935286	TASK_ADD	ListTargetLocations	ObjectList	Target03	null
+63762560935286	TASK_ADD	ListTargetLocations	ObjectList	Target04	null
+63762560935286	TASK_ADD	ListTargetLocations	ObjectList	Target05	null
+63762560935286	TASK_ADD	ListTargetLocations	ObjectList	Target06	null
+63762560935985	TASK_END	ListTargetLocations	ObjectList	699
+63762560935986	TASK_START	ListTargets	ObjectList
+63762560935986	TASK_ADD	ListTargets	ObjectList	Bike Shop	null
+63762560935986	TASK_ADD	ListTargets	ObjectList	Green Cylinder	null
+63762560935986	TASK_ADD	ListTargets	ObjectList	Orange Cube	null
+63762560935986	TASK_ADD	ListTargets	ObjectList	Red Sphere	null
+63762560935986	TASK_ADD	ListTargets	ObjectList	Blue Capsule	null
+63762560935986	TASK_ADD	ListTargets	ObjectList	Library	null
+63762560936025	TASK_END	ListTargets	ObjectList	39
+63762560936029	TASK_START	PopulateTargets	MoveObjects
+63762560936034	TARGET INFORMATION ----------------------------------------
+63762560936034	Target01: 	Bike Shop	Position: 	-20.6	0	-17.20001	Rotation: 	0	0	0
+63762560936035	Target02: 	Green Cylinder	Position: 	19	1	-17.84705	Rotation: 	0	0	0
+63762560936035	Target03: 	Orange Cube	Position: 	17.64706	1	18.70001	Rotation: 	0	0	0
+63762560936035	Target04: 	Red Sphere	Position: 	-18.6	1	18.70001	Rotation: 	0	0	0
+63762560936035	Target05: 	Blue Capsule	Position: 	-21.68	1	6.76001	Rotation: 	90	0	0
+63762560936035	Target06: 	Library	Position: 	0.01	0	-13.03998	Rotation: 	0	0	0
+63762560936035	-----------------------------------------------------------/
+63762560936043	TASK_END	PopulateTargets	MoveObjects	14
+63762560936043	LM_Output	TaskList
+TaskListName	RepetitionNumber	CatchFlag
+PlaceTargets1False
+63762560936044	TASK_END	PlaceTargets	TaskList	760
+63762560936045	TASK_START	ListNavigationStarts	ObjectList
+63762560936045	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation01	null
+63762560936045	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation03	null
+63762560936045	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation02	null
+63762560936054	TASK_END	ListNavigationStarts	ObjectList	9
+63762560936054	LM_Output	TaskList
+TaskListName	RepetitionNumber	CatchFlag
+InitializeExperiment1False
+63762560936054	TASK_END	InitializeExperiment	TaskList	912
+63762560936056	TASK_START	BeginMessage	InstructionsTask
+63762560938159	INPUT_EVENT    PlayerPressedActionButton    1
+63762560938160	TASK_END	BeginMessage	InstructionsTask	2104
+63762560938160	TASK_START	Tasks	TaskList
+63762560938161	TASK_START	LearnTargets	TaskList
+63762560938169	TASK_END	LearnTargets	TaskList	8
+63762560938170	TASK_START	TASK_SelectItems	TaskList
+63762560938171	TASK_START	ListItemSelectionTargets	ObjectList
+63762560938171	TASK_ADD	ListItemSelectionTargets	ObjectList	Red Sphere	null
+63762560938171	TASK_ADD	ListItemSelectionTargets	ObjectList	Blue Capsule	null
+63762560938171	TASK_ADD	ListItemSelectionTargets	ObjectList	Green Cylinder	null
+63762560938171	TASK_ADD	ListItemSelectionTargets	ObjectList	Orange Cube	null
+63762560938171	TASK_ADD	ListItemSelectionTargets	ObjectList	Bike Shop	null
+63762560938171	TASK_ADD	ListItemSelectionTargets	ObjectList	Library	null
+63762560938181	TASK_END	ListItemSelectionTargets	ObjectList	10
+63762560938183	TASK_START	ItemSelectionPlaceholders	LM_CreatePlaceHolders
+63762560938193	TASK_END	ItemSelectionPlaceholders	LM_CreatePlaceHolders	10
+63762560938193	TASK_START	ListItemSelectionPlaceholders	ObjectList
+63762560938193	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63762560938193	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63762560938193	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63762560938193	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63762560938193	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63762560938193	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63762560938198	TASK_END	ListItemSelectionPlaceholders	ObjectList	5
+63762560938204	TASK_START	CopyObjects	CopyChildObjects
+63762560938216	TASK_END	CopyObjects	CopyChildObjects	12
+63762560938219	TASK_START	ItemSelectionInstructions	InstructionsTask
+63762560938772	INPUT_EVENT    PlayerPressedActionButton    1
+63762560938772	TASK_END	ItemSelectionInstructions	InstructionsTask	553
+63762560938776	TASK_START	ItemSelection	SelectItems
+63762560940094	Mouseover 	Blue Capsule
+63762560940104	Mouseover 	Blue Capsule
+63762560940172	Mouseover 	Library
+63762560940182	Mouseover 	Library
+63762560940198	Mouseover 	Library
+63762560940211	Mouseover 	Library
+63762560940220	Mouseover 	Library
+63762560940234	Mouseover 	Library
+63762560940244	Mouseover 	Library
+63762560940257	Mouseover 	Library
+63762560940267	Mouseover 	Library
+63762560940360	Mouseover 	Library
+63762560940365	Mouseover 	Library
+63762560940380	Mouseover 	Library
+63762560940393	Mouseover 	Library
+63762560940404	Mouseover 	Library
+63762560940417	Mouseover 	Library
+63762560940427	Mouseover 	Library
+63762560940440	Mouseover 	Library
+63762560940453	Mouseover 	Library
+63762560940459	Mouseover 	Library
+63762560940472	Mouseover 	Library
+63762560940483	Mouseover 	Library
+63762560940489	Mouseover 	Library
+63762560940505	Mouseover 	Library
+63762560940516	Mouseover 	Library
+63762560940523	Mouseover 	Library
+63762560940538	Mouseover 	Library
+63762560940548	Mouseover 	Library
+63762560940561	Mouseover 	Library
+63762560940565	Mouseover 	Library
+63762560940581	Mouseover 	Library
+63762560940592	Mouseover 	Library
+63762560940599	Mouseover 	Library
+63762560940612	Mouseover 	Library
+63762560940617	Mouseover 	Library
+63762560940633	Mouseover 	Library
+63762560940637	Mouseover 	Library
+63762560940652	Mouseover 	Library
+63762560940663	Mouseover 	Library
+63762560940671	Mouseover 	Library
+63762560940682	Mouseover 	Library
+63762560940691	Mouseover 	Library
+63762560940705	Mouseover 	Library
+63762560940706	Moving :	Library	Position (xyz): 	998.679	0.1999969	989.7493	Rotation (xyz): 	0	0	0
+63762560940717	Mouseover 	Library
+63762560940717	Moving :	Library	Position (xyz): 	998.679	0.1999969	989.7493	Rotation (xyz): 	0	0	0
+63762560940727	Mouseover 	Library
+63762560940727	Moving :	Library	Position (xyz): 	998.679	0.1999969	989.7493	Rotation (xyz): 	0	0	0
+63762560940736	Mouseover 	Library
+63762560940736	Moving :	Library	Position (xyz): 	998.679	0.1999969	989.7493	Rotation (xyz): 	0	0	0
+63762560940749	Mouseover 	Library
+63762560940749	Moving :	Library	Position (xyz): 	998.679	0.1999969	989.7493	Rotation (xyz): 	0	0	0
+63762560940753	Mouseover 	Library
+63762560940753	Moving :	Library	Position (xyz): 	998.679	0.1999969	989.7493	Rotation (xyz): 	0	0	0
+63762560940767	Mouseover 	Library
+63762560940767	Moving :	Library	Position (xyz): 	998.679	0.1999969	989.7493	Rotation (xyz): 	0	0	0
+63762560940773	Mouseover 	Library
+63762560940773	Moving :	Library	Position (xyz): 	998.679	0.1999969	989.7493	Rotation (xyz): 	0	0	0
+63762560940787	Mouseover 	Library
+63762560940787	Moving :	Library	Position (xyz): 	998.679	0.1999969	989.7493	Rotation (xyz): 	0	0	0
+63762560940793	Mouseover 	Library
+63762560940793	Moving :	Library	Position (xyz): 	998.679	0.1999969	989.7493	Rotation (xyz): 	0	0	0
+63762560940811	Mouseover 	Library
+63762560940811	Moving :	Library	Position (xyz): 	998.9513	0.1999969	989.7493	Rotation (xyz): 	0	0	0
+63762560940821	Mouseover 	Library
+63762560940821	Moving :	Library	Position (xyz): 	999.3604	0.1999969	990.0217	Rotation (xyz): 	0	0	0
+63762560940833	Mouseover 	Library
+63762560940833	Moving :	Library	Position (xyz): 	1000.656	0.1999969	990.7382	Rotation (xyz): 	0	0	0
+63762560940837	Mouseover 	Library
+63762560940837	Moving :	Library	Position (xyz): 	1001.337	0.1999969	991.2828	Rotation (xyz): 	0	0	0
+63762560940855	Mouseover 	Library
+63762560940855	Moving :	Library	Position (xyz): 	1002.326	0.1999969	991.8627	Rotation (xyz): 	0	0	0
+63762560940864	Mouseover 	Library
+63762560940865	Moving :	Library	Position (xyz): 	1004.303	0.1999969	993.1239	Rotation (xyz): 	0	0	0
+63762560940877	Mouseover 	Library
+63762560940877	Moving :	Library	Position (xyz): 	1005.155	0.1999969	993.6685	Rotation (xyz): 	0	0	0
+63762560940886	Mouseover 	Library
+63762560940886	Moving :	Library	Position (xyz): 	1006.825	0.1999969	995.1005	Rotation (xyz): 	0	0	0
+63762560940895	Mouseover 	Library
+63762560940896	Moving :	Library	Position (xyz): 	1007.677	0.1999969	995.6451	Rotation (xyz): 	0	0	0
+63762560940910	Mouseover 	Library
+63762560940910	Moving :	Library	Position (xyz): 	1007.949	0.1999969	995.9185	Rotation (xyz): 	0	0	0
+63762560940922	Mouseover 	Library
+63762560940922	Moving :	Library	Position (xyz): 	1009.211	0.1999969	996.9063	Rotation (xyz): 	0	0	0
+63762560940934	Mouseover 	Library
+63762560940934	Moving :	Library	Position (xyz): 	1009.79	0.1999969	997.3495	Rotation (xyz): 	0	0	0
+63762560940945	Mouseover 	Library
+63762560940945	Moving :	Library	Position (xyz): 	1010.778	0.1999969	998.1675	Rotation (xyz): 	0	0	0
+63762560940952	Mouseover 	Library
+63762560940954	Moving :	Library	Position (xyz): 	1011.187	0.1999969	998.474	Rotation (xyz): 	0	0	0
+63762560940965	Mouseover 	Library
+63762560940965	Moving :	Library	Position (xyz): 	1011.324	0.1999969	998.7474	Rotation (xyz): 	0	0	0
+63762560940978	Mouseover 	Library
+63762560940978	Moving :	Library	Position (xyz): 	1012.039	0.1999969	999.4287	Rotation (xyz): 	0	0	0
+63762560940989	Mouseover 	Library
+63762560940989	Moving :	Library	Position (xyz): 	1012.312	0.1999969	999.5995	Rotation (xyz): 	0	0	0
+63762560941000	Mouseover 	Library
+63762560941000	Moving :	Library	Position (xyz): 	1012.585	0.1999969	1000.009	Rotation (xyz): 	0	0	0
+63762560941006	Mouseover 	Library
+63762560941006	Moving :	Library	Position (xyz): 	1012.755	0.1999969	1000.281	Rotation (xyz): 	0	0	0
+63762560941022	Mouseover 	Library
+63762560941022	Moving :	Library	Position (xyz): 	1013.028	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560941033	Mouseover 	Library
+63762560941033	Moving :	Library	Position (xyz): 	1013.301	0.1999969	1000.861	Rotation (xyz): 	0	0	0
+63762560941044	Mouseover 	Library
+63762560941044	Moving :	Library	Position (xyz): 	1013.573	0.1999969	1001.27	Rotation (xyz): 	0	0	0
+63762560941054	Mouseover 	Library
+63762560941054	Moving :	Library	Position (xyz): 	1013.573	0.1999969	1001.27	Rotation (xyz): 	0	0	0
+63762560941065	Mouseover 	Library
+63762560941065	Moving :	Library	Position (xyz): 	1013.71	0.1999969	1001.542	Rotation (xyz): 	0	0	0
+63762560941077	Mouseover 	Library
+63762560941077	Moving :	Library	Position (xyz): 	1013.71	0.1999969	1001.713	Rotation (xyz): 	0	0	0
+63762560941089	Mouseover 	Library
+63762560941089	Moving :	Library	Position (xyz): 	1013.88	0.1999969	1001.713	Rotation (xyz): 	0	0	0
+63762560941094	Mouseover 	Library
+63762560941094	Moving :	Library	Position (xyz): 	1013.88	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941110	Mouseover 	Library
+63762560941110	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941119	Mouseover 	Library
+63762560941119	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941125	Mouseover 	Library
+63762560941125	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941140	Mouseover 	Library
+63762560941141	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941145	Mouseover 	Library
+63762560941145	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941161	Mouseover 	Library
+63762560941161	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941172	Mouseover 	Library
+63762560941172	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941179	Mouseover 	Library
+63762560941179	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941191	Mouseover 	Library
+63762560941191	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941198	Mouseover 	Library
+63762560941198	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941212	Mouseover 	Library
+63762560941212	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941217	Mouseover 	Library
+63762560941217	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941232	Mouseover 	Library
+63762560941232	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941237	Mouseover 	Library
+63762560941237	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941252	Mouseover 	Library
+63762560941252	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941264	Mouseover 	Library
+63762560941264	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941271	Mouseover 	Library
+63762560941271	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941283	Mouseover 	Library
+63762560941283	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941290	Mouseover 	Library
+63762560941290	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941303	Mouseover 	Library
+63762560941303	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941309	Mouseover 	Library
+63762560941309	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941323	Mouseover 	Library
+63762560941323	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941329	Mouseover 	Library
+63762560941329	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941343	Mouseover 	Library
+63762560941343	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941349	Mouseover 	Library
+63762560941349	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941363	Mouseover 	Library
+63762560941363	Moving :	Library	Position (xyz): 	1014.016	0.1999969	1001.849	Rotation (xyz): 	0	0	0
+63762560941369	Mouseover 	Library
+63762560941373	Mouseover 	Library
+63762560941388	Mouseover 	Library
+63762560941399	Mouseover 	Library
+63762560941410	Mouseover 	Library
+63762560941423	Mouseover 	Library
+63762560941429	Mouseover 	Library
+63762560941444	Mouseover 	Library
+63762560941720	Mouseover 	Green Cylinder
+63762560941732	Mouseover 	Green Cylinder
+63762560941738	Mouseover 	Green Cylinder
+63762560941752	Mouseover 	Green Cylinder
+63762560941763	Mouseover 	Green Cylinder
+63762560941776	Mouseover 	Green Cylinder
+63762560941787	Mouseover 	Green Cylinder
+63762560941800	Mouseover 	Green Cylinder
+63762560941812	Mouseover 	Green Cylinder
+63762560941818	Mouseover 	Green Cylinder
+63762560941832	Mouseover 	Green Cylinder
+63762560941842	Mouseover 	Green Cylinder
+63762560941852	Mouseover 	Green Cylinder
+63762560941863	Mouseover 	Green Cylinder
+63762560941876	Mouseover 	Green Cylinder
+63762560941883	Mouseover 	Green Cylinder
+63762560941898	Mouseover 	Green Cylinder
+63762560941910	Mouseover 	Green Cylinder
+63762560941923	Mouseover 	Green Cylinder
+63762560941939	Mouseover 	Green Cylinder
+63762560941947	Mouseover 	Green Cylinder
+63762560941953	Mouseover 	Green Cylinder
+63762560941967	Mouseover 	Green Cylinder
+63762560941973	Mouseover 	Green Cylinder
+63762560941987	Mouseover 	Green Cylinder
+63762560941993	Mouseover 	Green Cylinder
+63762560942007	Mouseover 	Green Cylinder
+63762560942020	Mouseover 	Green Cylinder
+63762560942025	Mouseover 	Green Cylinder
+63762560942039	Mouseover 	Green Cylinder
+63762560942045	Mouseover 	Green Cylinder
+63762560942059	Mouseover 	Green Cylinder
+63762560942060	Moving :	Green Cylinder	Position (xyz): 	1001.201	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560942072	Mouseover 	Green Cylinder
+63762560942072	Moving :	Green Cylinder	Position (xyz): 	1001.201	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560942078	Mouseover 	Green Cylinder
+63762560942079	Moving :	Green Cylinder	Position (xyz): 	1001.201	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560942092	Mouseover 	Green Cylinder
+63762560942092	Moving :	Green Cylinder	Position (xyz): 	1001.201	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560942103	Mouseover 	Green Cylinder
+63762560942103	Moving :	Green Cylinder	Position (xyz): 	1001.201	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560942112	Mouseover 	Green Cylinder
+63762560942112	Moving :	Green Cylinder	Position (xyz): 	1001.201	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560942122	Mouseover 	Green Cylinder
+63762560942123	Moving :	Green Cylinder	Position (xyz): 	1001.201	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560942130	Mouseover 	Green Cylinder
+63762560942130	Moving :	Green Cylinder	Position (xyz): 	1001.201	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560942145	Mouseover 	Green Cylinder
+63762560942145	Moving :	Green Cylinder	Position (xyz): 	1001.201	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560942156	Mouseover 	Green Cylinder
+63762560942156	Moving :	Green Cylinder	Position (xyz): 	1001.474	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560942161	Mouseover 	Green Cylinder
+63762560942161	Moving :	Green Cylinder	Position (xyz): 	1001.61	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560942178	Mouseover 	Green Cylinder
+63762560942178	Moving :	Green Cylinder	Position (xyz): 	1001.917	0.1999969	1000.144	Rotation (xyz): 	0	0	0
+63762560942189	Mouseover 	Green Cylinder
+63762560942189	Moving :	Green Cylinder	Position (xyz): 	1003.041	0.1999969	999.5995	Rotation (xyz): 	0	0	0
+63762560942201	Moving :	Green Cylinder	Position (xyz): 	1004.712	0.1999969	998.6107	Rotation (xyz): 	0	0	0
+63762560942207	Moving :	Green Cylinder	Position (xyz): 	1004.712	0.1999969	998.6107	Rotation (xyz): 	0	0	0
+63762560942222	Mouseover 	Green Cylinder
+63762560942222	Moving :	Green Cylinder	Position (xyz): 	1007.097	0.1999969	997.1797	Rotation (xyz): 	0	0	0
+63762560942233	Mouseover 	Green Cylinder
+63762560942233	Moving :	Green Cylinder	Position (xyz): 	1009.517	0.1999969	995.7819	Rotation (xyz): 	0	0	0
+63762560942237	Moving :	Green Cylinder	Position (xyz): 	1011.052	0.1999969	994.7941	Rotation (xyz): 	0	0	0
+63762560942254	Mouseover 	Green Cylinder
+63762560942254	Moving :	Green Cylinder	Position (xyz): 	1013.71	0.1999969	993.5328	Rotation (xyz): 	0	0	0
+63762560942265	Moving :	Green Cylinder	Position (xyz): 	1015.277	0.1999969	992.6807	Rotation (xyz): 	0	0	0
+63762560942276	Mouseover 	Green Cylinder
+63762560942276	Moving :	Green Cylinder	Position (xyz): 	1017.391	0.1999969	991.726	Rotation (xyz): 	0	0	0
+63762560942281	Mouseover 	Green Cylinder
+63762560942281	Moving :	Green Cylinder	Position (xyz): 	1017.8	0.1999969	991.5551	Rotation (xyz): 	0	0	0
+63762560942298	Mouseover 	Green Cylinder
+63762560942298	Moving :	Green Cylinder	Position (xyz): 	1018.788	0.1999969	991.1472	Rotation (xyz): 	0	0	0
+63762560942310	Mouseover 	Green Cylinder
+63762560942310	Moving :	Green Cylinder	Position (xyz): 	1019.64	0.1999969	990.8738	Rotation (xyz): 	0	0	0
+63762560942321	Mouseover 	Green Cylinder
+63762560942321	Moving :	Green Cylinder	Position (xyz): 	1019.913	0.1999969	990.7382	Rotation (xyz): 	0	0	0
+63762560942326	Mouseover 	Green Cylinder
+63762560942327	Moving :	Green Cylinder	Position (xyz): 	1020.049	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942342	Mouseover 	Green Cylinder
+63762560942343	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942354	Mouseover 	Green Cylinder
+63762560942354	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942363	Mouseover 	Green Cylinder
+63762560942363	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942370	Mouseover 	Green Cylinder
+63762560942370	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942383	Mouseover 	Green Cylinder
+63762560942383	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942390	Mouseover 	Green Cylinder
+63762560942390	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942402	Mouseover 	Green Cylinder
+63762560942403	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942415	Mouseover 	Green Cylinder
+63762560942416	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942423	Mouseover 	Green Cylinder
+63762560942423	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942435	Mouseover 	Green Cylinder
+63762560942436	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942441	Mouseover 	Green Cylinder
+63762560942441	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942456	Mouseover 	Green Cylinder
+63762560942456	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942461	Mouseover 	Green Cylinder
+63762560942461	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942477	Mouseover 	Green Cylinder
+63762560942477	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942481	Mouseover 	Green Cylinder
+63762560942481	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942496	Mouseover 	Green Cylinder
+63762560942496	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942501	Mouseover 	Green Cylinder
+63762560942501	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942516	Mouseover 	Green Cylinder
+63762560942516	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942521	Mouseover 	Green Cylinder
+63762560942521	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942535	Mouseover 	Green Cylinder
+63762560942535	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942541	Mouseover 	Green Cylinder
+63762560942541	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942555	Mouseover 	Green Cylinder
+63762560942556	Moving :	Green Cylinder	Position (xyz): 	1020.185	0.1999969	990.5673	Rotation (xyz): 	0	0	0
+63762560942566	Mouseover 	Green Cylinder
+63762560942577	Mouseover 	Green Cylinder
+63762560942587	Mouseover 	Green Cylinder
+63762560942593	Mouseover 	Green Cylinder
+63762560942608	Mouseover 	Green Cylinder
+63762560942619	Mouseover 	Green Cylinder
+63762560942625	Mouseover 	Green Cylinder
+63762560942641	Mouseover 	Green Cylinder
+63762560942651	Mouseover 	Green Cylinder
+63762560942942	Mouseover 	Blue Capsule
+63762560942955	Mouseover 	Blue Capsule
+63762560942968	Mouseover 	Blue Capsule
+63762560942979	Mouseover 	Blue Capsule
+63762560942993	Mouseover 	Blue Capsule
+63762560943003	Mouseover 	Blue Capsule
+63762560943082	Mouseover 	Blue Capsule
+63762560943085	Mouseover 	Blue Capsule
+63762560943096	Mouseover 	Blue Capsule
+63762560943112	Mouseover 	Blue Capsule
+63762560943122	Mouseover 	Blue Capsule
+63762560943134	Mouseover 	Blue Capsule
+63762560943147	Mouseover 	Blue Capsule
+63762560943159	Mouseover 	Blue Capsule
+63762560943172	Mouseover 	Blue Capsule
+63762560943183	Mouseover 	Blue Capsule
+63762560943190	Mouseover 	Blue Capsule
+63762560943203	Mouseover 	Blue Capsule
+63762560943215	Mouseover 	Blue Capsule
+63762560943222	Mouseover 	Blue Capsule
+63762560943231	Mouseover 	Blue Capsule
+63762560943241	Mouseover 	Blue Capsule
+63762560943256	Mouseover 	Blue Capsule
+63762560943261	Mouseover 	Blue Capsule
+63762560943269	Mouseover 	Blue Capsule
+63762560943279	Mouseover 	Blue Capsule
+63762560943290	Mouseover 	Blue Capsule
+63762560943303	Mouseover 	Blue Capsule
+63762560943303	Moving :	Blue Capsule	Position (xyz): 	1000.213	0.1999969	978.5023	Rotation (xyz): 	90	0	0
+63762560943315	Mouseover 	Blue Capsule
+63762560943315	Moving :	Blue Capsule	Position (xyz): 	1000.213	0.1999969	978.5023	Rotation (xyz): 	90	0	0
+63762560943321	Mouseover 	Blue Capsule
+63762560943321	Moving :	Blue Capsule	Position (xyz): 	1000.213	0.1999969	978.5023	Rotation (xyz): 	90	0	0
+63762560943339	Mouseover 	Blue Capsule
+63762560943339	Moving :	Blue Capsule	Position (xyz): 	1000.213	0.1999969	978.5023	Rotation (xyz): 	90	0	0
+63762560943346	Mouseover 	Blue Capsule
+63762560943346	Moving :	Blue Capsule	Position (xyz): 	1000.213	0.1999969	978.5023	Rotation (xyz): 	90	0	0
+63762560943354	Mouseover 	Blue Capsule
+63762560943354	Moving :	Blue Capsule	Position (xyz): 	1000.213	0.1999969	978.5023	Rotation (xyz): 	90	0	0
+63762560943365	Mouseover 	Blue Capsule
+63762560943365	Moving :	Blue Capsule	Position (xyz): 	1000.213	0.1999969	978.5023	Rotation (xyz): 	90	0	0
+63762560943380	Mouseover 	Blue Capsule
+63762560943380	Moving :	Blue Capsule	Position (xyz): 	1000.349	0.1999969	978.5023	Rotation (xyz): 	90	0	0
+63762560943385	Mouseover 	Blue Capsule
+63762560943385	Moving :	Blue Capsule	Position (xyz): 	1000.656	0.1999969	978.5023	Rotation (xyz): 	90	0	0
+63762560943396	Mouseover 	Blue Capsule
+63762560943396	Moving :	Blue Capsule	Position (xyz): 	1001.201	0.1999969	978.6379	Rotation (xyz): 	90	0	0
+63762560943411	Mouseover 	Blue Capsule
+63762560943411	Moving :	Blue Capsule	Position (xyz): 	1002.326	0.1999969	978.7746	Rotation (xyz): 	90	0	0
+63762560943423	Mouseover 	Blue Capsule
+63762560943423	Moving :	Blue Capsule	Position (xyz): 	1003.041	0.1999969	978.9113	Rotation (xyz): 	90	0	0
+63762560943436	Moving :	Blue Capsule	Position (xyz): 	1005.836	0.1999969	979.6268	Rotation (xyz): 	90	0	0
+63762560943449	Moving :	Blue Capsule	Position (xyz): 	1009.211	0.1999969	980.1714	Rotation (xyz): 	90	0	0
+63762560943459	Moving :	Blue Capsule	Position (xyz): 	1009.926	0.1999969	980.3081	Rotation (xyz): 	90	0	0
+63762560943473	Mouseover 	Blue Capsule
+63762560943473	Moving :	Blue Capsule	Position (xyz): 	1011.187	0.1999969	980.5804	Rotation (xyz): 	90	0	0
+63762560943483	Moving :	Blue Capsule	Position (xyz): 	1012.755	0.1999969	980.8879	Rotation (xyz): 	90	0	0
+63762560943492	Mouseover 	Blue Capsule
+63762560943492	Moving :	Blue Capsule	Position (xyz): 	1013.437	0.1999969	981.0236	Rotation (xyz): 	90	0	0
+63762560943505	Mouseover 	Blue Capsule
+63762560943505	Moving :	Blue Capsule	Position (xyz): 	1014.425	0.1999969	981.1603	Rotation (xyz): 	90	0	0
+63762560943516	Mouseover 	Blue Capsule
+63762560943516	Moving :	Blue Capsule	Position (xyz): 	1014.834	0.1999969	981.1603	Rotation (xyz): 	90	0	0
+63762560943522	Mouseover 	Blue Capsule
+63762560943522	Moving :	Blue Capsule	Position (xyz): 	1015.142	0.1999969	981.297	Rotation (xyz): 	90	0	0
+63762560943537	Mouseover 	Blue Capsule
+63762560943537	Moving :	Blue Capsule	Position (xyz): 	1015.277	0.1999969	981.2969	Rotation (xyz): 	90	0	0
+63762560943549	Mouseover 	Blue Capsule
+63762560943549	Moving :	Blue Capsule	Position (xyz): 	1015.686	0.1999969	981.297	Rotation (xyz): 	90	0	0
+63762560943561	Mouseover 	Blue Capsule
+63762560943561	Moving :	Blue Capsule	Position (xyz): 	1015.96	0.1999969	981.2969	Rotation (xyz): 	90	0	0
+63762560943573	Mouseover 	Blue Capsule
+63762560943573	Moving :	Blue Capsule	Position (xyz): 	1016.402	0.1999969	981.4326	Rotation (xyz): 	90	0	0
+63762560943584	Mouseover 	Blue Capsule
+63762560943584	Moving :	Blue Capsule	Position (xyz): 	1016.538	0.1999969	981.4326	Rotation (xyz): 	90	0	0
+63762560943590	Mouseover 	Blue Capsule
+63762560943590	Moving :	Blue Capsule	Position (xyz): 	1016.675	0.1999969	981.4326	Rotation (xyz): 	90	0	0
+63762560943602	Mouseover 	Blue Capsule
+63762560943602	Moving :	Blue Capsule	Position (xyz): 	1017.084	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943613	Mouseover 	Blue Capsule
+63762560943613	Moving :	Blue Capsule	Position (xyz): 	1017.254	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943630	Mouseover 	Blue Capsule
+63762560943630	Moving :	Blue Capsule	Position (xyz): 	1017.663	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943640	Mouseover 	Blue Capsule
+63762560943640	Moving :	Blue Capsule	Position (xyz): 	1017.8	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943652	Mouseover 	Blue Capsule
+63762560943652	Moving :	Blue Capsule	Position (xyz): 	1018.209	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943658	Mouseover 	Blue Capsule
+63762560943658	Moving :	Blue Capsule	Position (xyz): 	1018.379	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943674	Mouseover 	Blue Capsule
+63762560943674	Moving :	Blue Capsule	Position (xyz): 	1018.515	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943683	Mouseover 	Blue Capsule
+63762560943683	Moving :	Blue Capsule	Position (xyz): 	1018.515	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943692	Mouseover 	Blue Capsule
+63762560943692	Moving :	Blue Capsule	Position (xyz): 	1018.652	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943703	Mouseover 	Blue Capsule
+63762560943703	Moving :	Blue Capsule	Position (xyz): 	1018.652	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943715	Mouseover 	Blue Capsule
+63762560943715	Moving :	Blue Capsule	Position (xyz): 	1018.652	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943721	Mouseover 	Blue Capsule
+63762560943721	Moving :	Blue Capsule	Position (xyz): 	1018.652	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943731	Mouseover 	Blue Capsule
+63762560943731	Moving :	Blue Capsule	Position (xyz): 	1018.652	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943742	Mouseover 	Blue Capsule
+63762560943742	Moving :	Blue Capsule	Position (xyz): 	1018.652	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943757	Mouseover 	Blue Capsule
+63762560943757	Moving :	Blue Capsule	Position (xyz): 	1018.652	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943766	Mouseover 	Blue Capsule
+63762560943766	Moving :	Blue Capsule	Position (xyz): 	1018.652	0.1999969	981.5693	Rotation (xyz): 	90	0	0
+63762560943774	Mouseover 	Blue Capsule
+63762560943786	Mouseover 	Blue Capsule
+63762560943800	Mouseover 	Blue Capsule
+63762560943807	Mouseover 	Blue Capsule
+63762560943820	Mouseover 	Blue Capsule
+63762560943825	Mouseover 	Blue Capsule
+63762560943839	Mouseover 	Blue Capsule
+63762560943845	Mouseover 	Blue Capsule
+63762560943860	Mouseover 	Blue Capsule
+63762560943872	Mouseover 	Blue Capsule
+63762560943878	Mouseover 	Blue Capsule
+63762560943892	Mouseover 	Blue Capsule
+63762560944008	Mouseover 	Orange Cube
+63762560944015	Mouseover 	Orange Cube
+63762560944025	Mouseover 	Orange Cube
+63762560944041	Mouseover 	Orange Cube
+63762560944052	Mouseover 	Orange Cube
+63762560944064	Mouseover 	Orange Cube
+63762560944076	Mouseover 	Orange Cube
+63762560944089	Mouseover 	Orange Cube
+63762560944093	Mouseover 	Orange Cube
+63762560944106	Mouseover 	Orange Cube
+63762560944121	Mouseover 	Orange Cube
+63762560944126	Mouseover 	Orange Cube
+63762560944140	Mouseover 	Orange Cube
+63762560944152	Mouseover 	Orange Cube
+63762560944163	Mouseover 	Orange Cube
+63762560944176	Mouseover 	Orange Cube
+63762560944188	Mouseover 	Orange Cube
+63762560944193	Mouseover 	Orange Cube
+63762560944208	Mouseover 	Orange Cube
+63762560944220	Mouseover 	Orange Cube
+63762560944233	Mouseover 	Orange Cube
+63762560944244	Mouseover 	Orange Cube
+63762560944257	Mouseover 	Orange Cube
+63762560944261	Mouseover 	Orange Cube
+63762560944275	Mouseover 	Orange Cube
+63762560944287	Mouseover 	Orange Cube
+63762560944293	Mouseover 	Orange Cube
+63762560944307	Mouseover 	Orange Cube
+63762560944320	Mouseover 	Orange Cube
+63762560944325	Mouseover 	Orange Cube
+63762560944342	Mouseover 	Orange Cube
+63762560944352	Mouseover 	Orange Cube
+63762560944357	Mouseover 	Orange Cube
+63762560944372	Mouseover 	Orange Cube
+63762560944383	Mouseover 	Orange Cube
+63762560944389	Mouseover 	Orange Cube
+63762560944403	Mouseover 	Orange Cube
+63762560944416	Mouseover 	Orange Cube
+63762560944421	Mouseover 	Orange Cube
+63762560944435	Mouseover 	Orange Cube
+63762560944441	Mouseover 	Orange Cube
+63762560944457	Mouseover 	Orange Cube
+63762560944461	Mouseover 	Orange Cube
+63762560944476	Mouseover 	Orange Cube
+63762560944477	Moving :	Orange Cube	Position (xyz): 	999.6678	0.1999969	970.3222	Rotation (xyz): 	0	0	0
+63762560944489	Mouseover 	Orange Cube
+63762560944489	Moving :	Orange Cube	Position (xyz): 	999.6678	0.1999969	970.3222	Rotation (xyz): 	0	0	0
+63762560944493	Mouseover 	Orange Cube
+63762560944493	Moving :	Orange Cube	Position (xyz): 	999.6678	0.1999969	970.3222	Rotation (xyz): 	0	0	0
+63762560944507	Mouseover 	Orange Cube
+63762560944507	Moving :	Orange Cube	Position (xyz): 	999.6678	0.1999969	970.3222	Rotation (xyz): 	0	0	0
+63762560944520	Mouseover 	Orange Cube
+63762560944520	Moving :	Orange Cube	Position (xyz): 	999.6678	0.1999969	970.3222	Rotation (xyz): 	0	0	0
+63762560944528	Mouseover 	Orange Cube
+63762560944528	Moving :	Orange Cube	Position (xyz): 	999.6678	0.1999969	970.3222	Rotation (xyz): 	0	0	0
+63762560944541	Mouseover 	Orange Cube
+63762560944541	Moving :	Orange Cube	Position (xyz): 	999.6678	0.1999969	971.4468	Rotation (xyz): 	0	0	0
+63762560944553	Mouseover 	Orange Cube
+63762560944553	Moving :	Orange Cube	Position (xyz): 	999.6678	0.1999969	971.8899	Rotation (xyz): 	0	0	0
+63762560944557	Mouseover 	Orange Cube
+63762560944557	Moving :	Orange Cube	Position (xyz): 	999.6678	0.1999969	972.299	Rotation (xyz): 	0	0	0
+63762560944572	Mouseover 	Orange Cube
+63762560944572	Moving :	Orange Cube	Position (xyz): 	1000.077	0.1999969	973.6957	Rotation (xyz): 	0	0	0
+63762560944585	Moving :	Orange Cube	Position (xyz): 	1000.928	0.1999969	975.8091	Rotation (xyz): 	0	0	0
+63762560944597	Moving :	Orange Cube	Position (xyz): 	1002.054	0.1999969	978.6379	Rotation (xyz): 	0	0	0
+63762560944601	Moving :	Orange Cube	Position (xyz): 	1003.45	0.1999969	981.8758	Rotation (xyz): 	0	0	0
+63762560944618	Moving :	Orange Cube	Position (xyz): 	1005.155	0.1999969	985.5226	Rotation (xyz): 	0	0	0
+63762560944629	Moving :	Orange Cube	Position (xyz): 	1007.54	0.1999969	990.4306	Rotation (xyz): 	0	0	0
+63762560944641	Moving :	Orange Cube	Position (xyz): 	1009.074	0.1999969	994.2484	Rotation (xyz): 	0	0	0
+63762560944646	Moving :	Orange Cube	Position (xyz): 	1009.074	0.1999969	994.2484	Rotation (xyz): 	0	0	0
+63762560944661	Moving :	Orange Cube	Position (xyz): 	1009.926	0.1999969	996.634	Rotation (xyz): 	0	0	0
+63762560944673	Mouseover 	Orange Cube
+63762560944673	Moving :	Orange Cube	Position (xyz): 	1010.335	0.1999969	997.6229	Rotation (xyz): 	0	0	0
+63762560944678	Mouseover 	Orange Cube
+63762560944678	Moving :	Orange Cube	Position (xyz): 	1010.472	0.1999969	997.8952	Rotation (xyz): 	0	0	0
+63762560944703	Mouseover 	Library
+63762560944703	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944711	Mouseover 	Library
+63762560944711	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944723	Mouseover 	Library
+63762560944723	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944730	Mouseover 	Library
+63762560944730	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944743	Mouseover 	Library
+63762560944743	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944749	Mouseover 	Library
+63762560944749	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944763	Mouseover 	Library
+63762560944763	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944775	Mouseover 	Library
+63762560944776	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944783	Mouseover 	Library
+63762560944784	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944796	Mouseover 	Library
+63762560944796	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944801	Mouseover 	Library
+63762560944801	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944816	Mouseover 	Library
+63762560944816	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944821	Mouseover 	Library
+63762560944821	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944836	Mouseover 	Library
+63762560944836	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944841	Mouseover 	Library
+63762560944841	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944856	Mouseover 	Library
+63762560944856	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944861	Mouseover 	Library
+63762560944861	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	998.883	Rotation (xyz): 	0	0	0
+63762560944877	Mouseover 	Library
+63762560944877	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	999.7352	Rotation (xyz): 	0	0	0
+63762560944889	Mouseover 	Library
+63762560944890	Moving :	Orange Cube	Position (xyz): 	1010.778	0.1999969	1000.418	Rotation (xyz): 	0	0	0
+63762560944893	Mouseover 	Library
+63762560944893	Moving :	Orange Cube	Position (xyz): 	1010.915	0.1999969	1001.405	Rotation (xyz): 	0	0	0
+63762560944908	Moving :	Orange Cube	Position (xyz): 	1012.039	0.1999969	1005.223	Rotation (xyz): 	0	0	0
+63762560944921	Moving :	Orange Cube	Position (xyz): 	1012.892	0.1999969	1007.029	Rotation (xyz): 	0	0	0
+63762560944926	Moving :	Orange Cube	Position (xyz): 	1013.301	0.1999969	1008.018	Rotation (xyz): 	0	0	0
+63762560944941	Moving :	Orange Cube	Position (xyz): 	1015.005	0.1999969	1011.256	Rotation (xyz): 	0	0	0
+63762560944953	Mouseover 	Orange Cube
+63762560944953	Moving :	Orange Cube	Position (xyz): 	1015.414	0.1999969	1011.835	Rotation (xyz): 	0	0	0
+63762560944958	Mouseover 	Orange Cube
+63762560944958	Moving :	Orange Cube	Position (xyz): 	1016.129	0.1999969	1012.96	Rotation (xyz): 	0	0	0
+63762560944973	Mouseover 	Orange Cube
+63762560944973	Moving :	Orange Cube	Position (xyz): 	1016.811	0.1999969	1014.221	Rotation (xyz): 	0	0	0
+63762560944983	Mouseover 	Orange Cube
+63762560944983	Moving :	Orange Cube	Position (xyz): 	1017.254	0.1999969	1014.766	Rotation (xyz): 	0	0	0
+63762560944992	Mouseover 	Orange Cube
+63762560944993	Moving :	Orange Cube	Position (xyz): 	1017.527	0.1999969	1015.209	Rotation (xyz): 	0	0	0
+63762560945004	Mouseover 	Orange Cube
+63762560945004	Moving :	Orange Cube	Position (xyz): 	1017.936	0.1999969	1015.755	Rotation (xyz): 	0	0	0
+63762560945018	Mouseover 	Orange Cube
+63762560945018	Moving :	Orange Cube	Position (xyz): 	1018.072	0.1999969	1016.027	Rotation (xyz): 	0	0	0
+63762560945029	Mouseover 	Orange Cube
+63762560945029	Moving :	Orange Cube	Position (xyz): 	1018.209	0.1999969	1016.198	Rotation (xyz): 	0	0	0
+63762560945041	Mouseover 	Orange Cube
+63762560945041	Moving :	Orange Cube	Position (xyz): 	1018.209	0.1999969	1016.198	Rotation (xyz): 	0	0	0
+63762560945046	Mouseover 	Orange Cube
+63762560945046	Moving :	Orange Cube	Position (xyz): 	1018.379	0.1999969	1016.334	Rotation (xyz): 	0	0	0
+63762560945061	Mouseover 	Orange Cube
+63762560945061	Moving :	Orange Cube	Position (xyz): 	1018.379	0.1999969	1016.334	Rotation (xyz): 	0	0	0
+63762560945073	Mouseover 	Orange Cube
+63762560945073	Moving :	Orange Cube	Position (xyz): 	1018.379	0.1999969	1016.334	Rotation (xyz): 	0	0	0
+63762560945078	Mouseover 	Orange Cube
+63762560945078	Moving :	Orange Cube	Position (xyz): 	1018.379	0.1999969	1016.47	Rotation (xyz): 	0	0	0
+63762560945093	Mouseover 	Orange Cube
+63762560945093	Moving :	Orange Cube	Position (xyz): 	1018.379	0.1999969	1016.607	Rotation (xyz): 	0	0	0
+63762560945105	Mouseover 	Orange Cube
+63762560945105	Moving :	Orange Cube	Position (xyz): 	1018.379	0.1999969	1016.607	Rotation (xyz): 	0	0	0
+63762560945116	Mouseover 	Orange Cube
+63762560945116	Moving :	Orange Cube	Position (xyz): 	1018.379	0.1999969	1016.743	Rotation (xyz): 	0	0	0
+63762560945129	Mouseover 	Orange Cube
+63762560945129	Moving :	Orange Cube	Position (xyz): 	1018.379	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945134	Mouseover 	Orange Cube
+63762560945134	Moving :	Orange Cube	Position (xyz): 	1018.379	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945150	Mouseover 	Orange Cube
+63762560945150	Moving :	Orange Cube	Position (xyz): 	1018.379	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945159	Mouseover 	Orange Cube
+63762560945159	Moving :	Orange Cube	Position (xyz): 	1018.379	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945166	Mouseover 	Orange Cube
+63762560945166	Moving :	Orange Cube	Position (xyz): 	1018.515	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945180	Mouseover 	Orange Cube
+63762560945180	Moving :	Orange Cube	Position (xyz): 	1018.515	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945192	Mouseover 	Orange Cube
+63762560945192	Moving :	Orange Cube	Position (xyz): 	1018.515	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945200	Mouseover 	Orange Cube
+63762560945200	Moving :	Orange Cube	Position (xyz): 	1018.515	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945211	Mouseover 	Orange Cube
+63762560945212	Moving :	Orange Cube	Position (xyz): 	1018.515	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945217	Mouseover 	Orange Cube
+63762560945217	Moving :	Orange Cube	Position (xyz): 	1018.515	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945232	Mouseover 	Orange Cube
+63762560945232	Moving :	Orange Cube	Position (xyz): 	1018.515	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945238	Mouseover 	Orange Cube
+63762560945238	Moving :	Orange Cube	Position (xyz): 	1018.515	0.1999969	1016.879	Rotation (xyz): 	0	0	0
+63762560945250	Mouseover 	Orange Cube
+63762560945257	Mouseover 	Orange Cube
+63762560945272	Mouseover 	Orange Cube
+63762560945282	Mouseover 	Orange Cube
+63762560945295	Mouseover 	Orange Cube
+63762560945307	Mouseover 	Orange Cube
+63762560945315	Mouseover 	Orange Cube
+63762560945327	Mouseover 	Orange Cube
+63762560945336	Mouseover 	Orange Cube
+63762560945347	Mouseover 	Orange Cube
+63762560945354	Mouseover 	Orange Cube
+63762560945367	Mouseover 	Orange Cube
+63762560945373	Mouseover 	Orange Cube
+63762560945388	Mouseover 	Orange Cube
+63762560945400	Mouseover 	Orange Cube
+63762560945430	Mouseover 	Library
+63762560946232	TASK_END	ItemSelection	SelectItems	7456
+63762560946234	LM_Output	TaskList
+TaskListName	RepetitionNumber	CatchFlag
+TASK_SelectItems1False
+63762560946234	TASK_END	TASK_SelectItems	TaskList	8064
+63762560946234	TASK_START	TASK_NavigationTask	TaskList
+63762560946236	TASK_START	MovePlayerToSpawn	MoveSpawn
+63762560946237	TASK_POSITION	KeyboardMouseController	MoveSpawn	(0.0, 0.0, 8.0)
+63762560946238	TASK_ROTATE	KeyboardMouseController	MoveSpawn	(0.0, 37.9, 0.0)
+63762560946252	TASK_END	MovePlayerToSpawn	MoveSpawn	16
+63762560946253	TASK_START	ListNavigationTargets	ObjectList
+63762560946253	TASK_ADD	ListNavigationTargets	ObjectList	Blue Capsule	null
+63762560946253	TASK_ADD	ListNavigationTargets	ObjectList	Library	null
+63762560946253	TASK_ADD	ListNavigationTargets	ObjectList	Green Cylinder	null
+63762560946253	TASK_ADD	ListNavigationTargets	ObjectList	Orange Cube	null
+63762560946260	TASK_END	ListNavigationTargets	ObjectList	6
+63762560946261	TASK_START	NavigationInstructions	InstructionsTask
+63762560947285	INPUT_EVENT    PlayerPressedActionButton    1
+63762560947285	TASK_END	NavigationInstructions	InstructionsTask	1024
+63762560947287	TASK_START	NavigationTrials	TaskList
+63762560947288	TASK_START	CueTarget	InstructionsTask
+63762560952290	TASK_END	CueTarget	InstructionsTask	5002
+63762560952301	TASK_START	Navigate	NavigationTask
+63762560952310	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952334	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952349	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952373	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952389	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952414	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952434	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952449	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952470	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952489	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952514	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952529	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952553	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952573	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952589	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952609	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952629	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952650	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952674	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952694	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952714	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952734	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952753	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952774	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952794	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952814	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952829	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952853	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952874	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952894	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952914	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952930	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952954	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.6	0	Camera   (xyz): 	9.200074	37.60001	-2.162249E-07	
+63762560952970	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.65	0	Camera   (xyz): 	9.100075	36.65	0	
+63762560952994	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	34.3	0	Camera   (xyz): 	8.150075	34.3	0	
+63762560953010	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	31.35001	0	Camera   (xyz): 	6.800077	31.35001	1.074778E-07	
+63762560953034	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	26.6	0	Camera   (xyz): 	4.500078	26.6	1.070517E-07	
+63762560953050	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	23.8	0	Camera   (xyz): 	3.200078	23.8	0	
+63762560953074	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	22.3	0	Camera   (xyz): 	2.650077	22.3	-5.341798E-08	
+63762560953090	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.8	0	Camera   (xyz): 	2.500077	21.8	0	
+63762560953114	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.500077	21.3	0	
+63762560953130	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953153	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953170	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953193	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953210	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953234	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953249	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953274	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953289	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953318	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953334	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953349	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953369	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	21.3	0	Camera   (xyz): 	2.550077	21.3	-5.341375E-08	
+63762560953394	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	20.7	0	Camera   (xyz): 	2.550077	20.7	-5.341375E-08	
+63762560953410	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	20.05	0	Camera   (xyz): 	2.550077	20.05	2.670687E-08	
+63762560953430	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	19.05	0	Camera   (xyz): 	2.650077	19.05	-2.670899E-08	
+63762560953454	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	15.65	0	Camera   (xyz): 	2.900077	15.65	0	
+63762560953482	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	13.6	0	Camera   (xyz): 	3.250078	13.6	0	
+63762560953498	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	12.5	0	Camera   (xyz): 	3.550077	12.5	0	
+63762560953514	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11.7	0	Camera   (xyz): 	3.900077	11.7	0	
+63762560953530	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11.45	0	Camera   (xyz): 	4.050077	11.45	-2.674722E-08	
+63762560953550	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11.25	0	Camera   (xyz): 	4.200078	11.25	0	
+63762560953569	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11.15	0	Camera   (xyz): 	4.300078	11.15	-2.675574E-08	
+63762560953598	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11.15	0	Camera   (xyz): 	4.350078	11.15	0	
+63762560953613	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11.15	0	Camera   (xyz): 	4.350078	11.15	0	
+63762560953630	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11.1	0	Camera   (xyz): 	4.350077	11.1	-2.675751E-08	
+63762560953650	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11.1	0	Camera   (xyz): 	4.350077	11.1	-2.675751E-08	
+63762560953673	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11.05	0	Camera   (xyz): 	4.350078	11.05	2.67575E-08	
+63762560953690	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11.05	0	Camera   (xyz): 	4.350078	11.05	2.67575E-08	
+63762560953714	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11	0	Camera   (xyz): 	4.250078	11	0	
+63762560953729	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.95	0	Camera   (xyz): 	4.200078	10.95	0	
+63762560953750	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.95	0	Camera   (xyz): 	4.150079	10.95	0	
+63762560953774	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.95	0	Camera   (xyz): 	4.050078	10.95	0	
+63762560953793	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.9	0	Camera   (xyz): 	3.950078	10.9	0	
+63762560953818	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.9	0	Camera   (xyz): 	3.950078	10.9	0	
+63762560953834	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.9	0	Camera   (xyz): 	3.900079	10.9	0	
+63762560953850	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.9	0	Camera   (xyz): 	3.900079	10.9	0	
+63762560953874	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.9	0	Camera   (xyz): 	3.900079	10.9	0	
+63762560953890	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.9	0	Camera   (xyz): 	3.900079	10.9	0	
+63762560953914	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.85	0	Camera   (xyz): 	3.900078	10.85	-2.674236E-08	
+63762560953930	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.8	0	Camera   (xyz): 	3.900079	10.8	0	
+63762560953954	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.7	0	Camera   (xyz): 	3.900079	10.7	0	
+63762560953970	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.6	0	Camera   (xyz): 	3.900079	10.6	0	
+63762560953994	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.4	0	Camera   (xyz): 	3.850079	10.4	0	
+63762560954010	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.3	0	Camera   (xyz): 	3.850079	10.3	0	
+63762560954034	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.15	0	Camera   (xyz): 	3.800079	10.15	2.673922E-08	
+63762560954050	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10.1	0	Camera   (xyz): 	3.800079	10.1	5.347843E-08	
+63762560954074	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	10	0	Camera   (xyz): 	3.700078	10	0	
+63762560954090	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.950003	0	Camera   (xyz): 	3.650079	9.950002	0	
+63762560954113	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.850003	0	Camera   (xyz): 	3.600079	9.850002	-2.673318E-08	
+63762560954129	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.800003	0	Camera   (xyz): 	3.550079	9.800002	0	
+63762560954154	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.700003	0	Camera   (xyz): 	3.400079	9.700003	2.672748E-08	
+63762560954170	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.600002	0	Camera   (xyz): 	3.350079	9.600002	2.67261E-08	
+63762560954190	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.550003	0	Camera   (xyz): 	3.250079	9.550003	2.672341E-08	
+63762560954214	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.400003	0	Camera   (xyz): 	3.100079	9.400002	-2.671953E-08	
+63762560954234	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.350003	0	Camera   (xyz): 	3.050079	9.350004	0	
+63762560954250	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.350003	0	Camera   (xyz): 	3.000079	9.350003	0	
+63762560954274	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.350003	0	Camera   (xyz): 	3.000079	9.350003	0	
+63762560954290	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.450003	0	Camera   (xyz): 	2.950079	9.450003	0	
+63762560954310	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	9.800002	0	Camera   (xyz): 	2.800079	9.800002	0	
+63762560954334	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	11.25	0	Camera   (xyz): 	2.200079	11.25	-1.335005E-08	
+63762560954354	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	12.8	0	Camera   (xyz): 	1.800079	12.8	0	
+63762560954370	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	16.45	0	Camera   (xyz): 	1.350079	16.45	0	
+63762560954393	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	23.3	0	Camera   (xyz): 	1.400079	23.3	2.668839E-08	
+63762560954409	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	27.90001	0	Camera   (xyz): 	2.000079	27.9	0	
+63762560954434	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	33.40001	0	Camera   (xyz): 	2.950078	33.40001	0	
+63762560954450	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37	0	Camera   (xyz): 	3.800079	37.00001	0	
+63762560954474	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.2	0	Camera   (xyz): 	4.30008	39.2	2.140459E-07	
+63762560954490	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.95	0	Camera   (xyz): 	4.450079	39.95	-1.070444E-07	
+63762560954510	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.95	0	Camera   (xyz): 	4.450079	39.95	-1.070444E-07	
+63762560954533	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.95	0	Camera   (xyz): 	4.450079	39.95	-1.070444E-07	
+63762560954553	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.95	0	Camera   (xyz): 	4.450079	39.95	-1.070444E-07	
+63762560954569	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.95	0	Camera   (xyz): 	4.450079	39.95	-1.070444E-07	
+63762560954590	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.95	0	Camera   (xyz): 	4.450079	39.95	-1.070444E-07	
+63762560954609	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.95	0	Camera   (xyz): 	4.450079	39.95	-1.070444E-07	
+63762560954629	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.95	0	Camera   (xyz): 	4.450079	39.95	-1.070444E-07	
+63762560954653	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.95	0	Camera   (xyz): 	4.450079	39.95	-1.070444E-07	
+63762560954669	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.95	0	Camera   (xyz): 	4.450079	39.95	-1.070444E-07	
+63762560954691	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.9	0	Camera   (xyz): 	4.550079	39.9	-1.070591E-07	
+63762560954714	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.25	0	Camera   (xyz): 	5.700078	39.25	2.14504E-07	
+63762560954730	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	38.7	0	Camera   (xyz): 	6.550079	38.7	0	
+63762560954755	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.84999	0	Camera   (xyz): 	8.000078	37.85	0	
+63762560954770	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.3	0	Camera   (xyz): 	9.05008	37.3	2.16134E-07	
+63762560954789	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.8	0	Camera   (xyz): 	9.85008	36.8	2.166369E-07	
+63762560954813	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560954833	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560954854	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560954869	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560954893	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560954913	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560954929	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560954950	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560954970	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560954989	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560955013	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560955029	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	10.35008	36.5	2.169739E-07	
+63762560955054	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.5	0	Camera   (xyz): 	9.950082	36.5	2.167029E-07	
+63762560955075	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	36.84999	0	Camera   (xyz): 	8.90008	36.84999	2.160447E-07	
+63762560955091	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	37.24999	0	Camera   (xyz): 	8.000078	37.24999	2.155411E-07	
+63762560955115	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	38.59999	0	Camera   (xyz): 	5.500079	38.59999	0	
+63762560955130	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.74999	0	Camera   (xyz): 	3.400078	39.74999	0	
+63762560955154	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	40.19999	0	Camera   (xyz): 	2.550079	40.19999	5.341375E-08	
+63762560955171	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	40.54999	0	Camera   (xyz): 	1.800078	40.54999	0	
+63762560955195	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	40.64999	0	Camera   (xyz): 	1.350078	40.64999	0	
+63762560955211	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	40.69999	0	Camera   (xyz): 	1.200078	40.69999	2.668628E-08	
+63762560955234	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	40.69999	0	Camera   (xyz): 	1.100078	40.69999	0	
+63762560955254	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	40.69999	0	Camera   (xyz): 	1.050078	40.69999	0	
+63762560955275	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	40.69999	0	Camera   (xyz): 	1.000078	40.69999	2.668449E-08	
+63762560955291	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	40.64999	0	Camera   (xyz): 	1.000078	40.64999	2.668449E-08	
+63762560955315	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	40.49999	0	Camera   (xyz): 	0.8500781	40.49998	-2.668336E-08	
+63762560955330	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	40.34999	0	Camera   (xyz): 	0.8000783	40.34999	0	
+63762560955354	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	40.14999	0	Camera   (xyz): 	0.6500782	40.14999	1.334107E-08	
+63762560955370	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.99999	0	Camera   (xyz): 	0.6000783	39.99999	0	
+63762560955394	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.84999	0	Camera   (xyz): 	0.5500782	39.84999	0	
+63762560955411	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.79999	0	Camera   (xyz): 	0.5500783	39.79999	-1.334083E-08	
+63762560955435	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.74999	0	Camera   (xyz): 	0.5500783	39.74999	0	
+63762560955451	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.69999	0	Camera   (xyz): 	0.5000782	39.69999	-1.334072E-08	
+63762560955474	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.64999	0	Camera   (xyz): 	0.4000783	39.64999	0	
+63762560955490	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.59998	0	Camera   (xyz): 	0.3000782	39.59999	6.670198E-09	
+63762560955515	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.54998	0	Camera   (xyz): 	0.1500782	39.54998	3.335064E-09	
+63762560955531	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.49999	0	Camera   (xyz): 	0.05007816	39.49998	-1.667527E-09	
+63762560955554	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.44999	0	Camera   (xyz): 	7.815434E-05	39.44999	-1.628444E-12	
+63762560955570	Avatar: 	KeyboardMouseController	Position (xyz): 	0	-0.06994992	8	Rotation (xyz): 	0	39.39998	0	Camera   (xyz): 	7.815434E-05	39.39998	0	
+63762560955589	Avatar: 	KeyboardMouseController	Position (xyz):
