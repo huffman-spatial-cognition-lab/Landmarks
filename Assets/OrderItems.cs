@@ -37,7 +37,7 @@ public class OrderItems : ExperimentTask {
   float maxZ =100;
   private bool targetSelected = false;
   private GameObject selectedTarget;
-  public string buttonText = "Finished Selecting Items";
+  public string buttonText = "Finished";
   public int numSelectedItems = 0;
   private Vector3 Pos;
   List<GameObject> arrayItems = new List<GameObject>();
@@ -390,12 +390,14 @@ public class OrderItems : ExperimentTask {
           for(int i =0; i < 1; i++)
           {
             count = count + 1;
-            countText.text = count.ToString() + ". " + orderItems[i].name;
+            //countText.text = count.ToString() + ". " + orderItems[i].name;
+            hud.setMessage(count + ". " + orderItems[i].name);
             if (count == 8)
             {
-              countText.text = "You have ordered all 8 items. Please continue on to the next task.";
+              //countText.text = "You have ordered all 8 items. Please continue on to the next task.";
+              hud.setMessage("You have ordered all 8 items. Please continue on to the next task.");
               Debug.Log("Finished");
-              SeeList();
+            //  SeeList();
             }
           }
     }
