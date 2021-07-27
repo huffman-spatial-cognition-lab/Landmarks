@@ -72,3 +72,6 @@ crashlytics-build.properties
 
 # Remove the data/tmp files (to avoid the constant changes)
 data/tmp/*
+
+#ignore mac files
+.data/tmp/test.log

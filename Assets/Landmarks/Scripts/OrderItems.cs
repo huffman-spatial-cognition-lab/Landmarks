@@ -45,6 +45,7 @@ public class OrderItems : ExperimentTask {
 
   public TextMeshProUGUI countText;
   private int count;
+  private int e;
 
 
 	public override void startTask ()
@@ -97,6 +98,7 @@ public class OrderItems : ExperimentTask {
         hud.actionButton.GetComponent<Button>().onClick.AddListener(hud.OnActionClick);
 
     count = 0;
+    e = -1;
     orderItems = new List<GameObject>();
 
 	}
@@ -309,6 +311,8 @@ public class OrderItems : ExperimentTask {
 	{
     base.endTask();
 
+    countText.text = " ";
+
 		// log data
 		// Log data
 		trialLog.AddData(transform.name + "_testTime", taskDuration.ToString());
@@ -380,7 +384,7 @@ public class OrderItems : ExperimentTask {
     listLen= orderItems.Count;
     Debug.Log(listLen);
 
-      if (listLen < 8)
+      if (listLen < 4)
       {
           orderItems.Add(activeTarget);
           Debug.Log("Order is running");
@@ -390,12 +394,13 @@ public class OrderItems : ExperimentTask {
           for(int i =0; i < 1; i++)
           {
             count = count + 1;
-            //countText.text = count.ToString() + ". " + orderItems[i].name;
-            hud.setMessage(count + ". " + orderItems[i].name);
-            if (count == 8)
+            e = e +1;
+            countText.text = count.ToString() + ". " + orderItems[e].name;
+            //hud.setMessage(count + ". " + orderItems[i].name);
+            if (count == 4)
             {
-              //countText.text = "You have ordered all 8 items. Please continue on to the next task.";
-              hud.setMessage("You have ordered all 8 items. Please continue on to the next task.");
+              countText.text = "You have ordered all 4 items. Please continue on to the next task.";
+              //hud.setMessage("You have ordered all 8 items. Please continue on to the next task.");
               Debug.Log("Finished");
             //  SeeList();
             }
