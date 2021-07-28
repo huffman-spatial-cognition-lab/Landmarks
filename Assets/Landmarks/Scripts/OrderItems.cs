@@ -273,6 +273,7 @@ public class OrderItems : ExperimentTask {
 			// BEHAVIOR: Rotate active drag object 90 degrees CW
 			// INPUT NAME: MapTest_RotateCW
 			if (Input.GetButtonDown("MapTest_RotateCW")) activeTarget.transform.Rotate(0.0f, 90.0f, 0.0f, Space.World);
+    }
 
 		// -----------------------------------------
 		// Handle debug button behavior (kill task)
@@ -296,7 +297,7 @@ public class OrderItems : ExperimentTask {
 			hud.actionButtonClicked = false;
 			return true;
 		}
-  }
+  //}
   return false;
 }
 
