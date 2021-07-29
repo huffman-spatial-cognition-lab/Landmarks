@@ -1,7 +1,7 @@
 ﻿/*
     This class will run the SelectItems task.
 
-    Initial starting point: 
+    Initial starting point:
         MapTestTask.cs (by Michael J. Starrett and Jared D. Stokes)
 
     Written by Derek J. Huffman (Summer 2021).
@@ -26,7 +26,7 @@ public class SelectItems : ExperimentTask
 	//public bool highlightAssist = false; // MJS - Removing Target Highlights for ease of use (requires additional environment configuration)
 	//public GameObject mapTestHighlights; // MJS - Removing Target Highlights for ease of use (requires additional environment configuration)
 	public float snapToTargetProximity = 0.0f; // leave at 0.0f to have snapping off. Otherwise this will be the straight line distance within a target users must be to snap object to target position/location
-	[TextArea] 
+	[TextArea]
 	public string buttonText = "Finished selecting items";
 	//public string buttonText = "Get Score";
 
@@ -377,7 +377,7 @@ public class SelectItems : ExperimentTask
 
 		// MJS - Removing Target Highlights for ease of use (requires additional environment configuration)
 		//// Turn off the maptarget highlights (to show where stores should be located
-		//if (highlightAssist == true) 
+		//if (highlightAssist == true)
 		//{
 		//	mapTestHighlights.SetActive (false);
 		//}
@@ -402,13 +402,13 @@ public class SelectItems : ExperimentTask
 		int counter = 0;
 		foreach (Transform child in targetObjects.transform)
 		{
-			if (targetInBoundsList[counter] == false) 
-			{ 
+			if (targetInBoundsList[counter] == false)
+			{
 				Destroy(child.gameObject);
 			}
 			counter++;
 		}
-	
+
 	}
 
 	void HideStoreName()
@@ -450,4 +450,3 @@ public class SelectItems : ExperimentTask
 		return (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(v1.x - v2.x), 2f) + Mathf.Pow(Mathf.Abs(v1.z - v2.z), 2f)));
 	}
 }
-
