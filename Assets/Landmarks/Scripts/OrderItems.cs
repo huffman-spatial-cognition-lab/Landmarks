@@ -313,6 +313,8 @@ public class OrderItems : ExperimentTask {
     base.endTask();
 
     countText.text = " ";
+    GameObject [] navOrder = orderItems.ToArray();
+
 
 		// log data
 		// Log data
@@ -403,7 +405,7 @@ public class OrderItems : ExperimentTask {
               countText.text = "You have ordered all 4 items. Please continue on to the next task.";
               //hud.setMessage("You have ordered all 8 items. Please continue on to the next task.");
               Debug.Log("Finished");
-            //  SeeList();
+              SeeList();
             }
           }
     }

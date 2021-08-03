@@ -101,7 +101,7 @@ public class SelectItems : ExperimentTask
 			// Flatten out environment buildings so stores are clearly visible
 			GameObject.FindWithTag("Environment").transform.localScale = new Vector3(baselineScaling.x, 0.01F, baselineScaling.z);
 			//Flatten out the copied target stores
-			GameObject.Find("CopyObjects").transform.localScale = new Vector3(baselineScaling.x, 0.01f, baselineScaling.z);
+			//GameObject.Find("CopyObjects").transform.localScale = new Vector3(baselineScaling.x, 0.01f, baselineScaling.z);
 		}
 
 		// Change text and turn on the map action button
