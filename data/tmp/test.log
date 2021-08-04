@@ -1,1043 +1,238 @@
-63763531004779	EXPERIMENT:		SUBJECT:	default	START_SCENE	PPT_Sophia1	START_CONDITION:	default	UI:	KeyboardMouse
-63763531005022	TASK_START	LM_Timeline	TaskList
-63763531005022	TASK_START	InitializeExperiment	TaskList
-63763531005023	TASK_START	UpdateTargetObjects	LM_UpdateTargetObjects
-63763531005086	TASK_END	UpdateTargetObjects	LM_UpdateTargetObjects	63
-63763531005089	TASK_START	AssignTargetColors	LM_TargetColorAssignments
-63763531005233	TASK_END	AssignTargetColors	LM_TargetColorAssignments	144
-63763531005234	TASK_START	PlaceTargets	TaskList
-63763531005235	TASK_START	ListTargetLocations	ObjectList
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target01	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target02	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target03	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target04	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target05	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target06	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target07	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target08	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target09	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target10	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target11	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target12	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target13	null
-63763531005236	TASK_ADD	ListTargetLocations	ObjectList	Target14	null
-63763531006219	TASK_END	ListTargetLocations	ObjectList	984
-63763531006220	TASK_START	ListTargets	ObjectList
-63763531006220	TASK_ADD	ListTargets	ObjectList	Orange Cube	null
-63763531006220	TASK_ADD	ListTargets	ObjectList	Fries	null
-63763531006220	TASK_ADD	ListTargets	ObjectList	HotDog	null
-63763531006220	TASK_ADD	ListTargets	ObjectList	Red Sphere	null
-63763531006220	TASK_ADD	ListTargets	ObjectList	Tacos	null
-63763531006220	TASK_ADD	ListTargets	ObjectList	Burger	null
-63763531006220	TASK_ADD	ListTargets	ObjectList	Pizza	null
-63763531006220	TASK_ADD	ListTargets	ObjectList	Blue Capsule	null
-63763531006220	TASK_ADD	ListTargets	ObjectList	PREFAB_Hat_Party	null
-63763531006220	TASK_ADD	ListTargets	ObjectList	Chips_Bag	null
-63763531006220	TASK_ADD	ListTargets	ObjectList	IceCream_Cone	null
-63763531006220	TASK_ADD	ListTargets	ObjectList	Skateboard	null
-63763531006221	TASK_ADD	ListTargets	ObjectList	Scooter	null
-63763531006221	TASK_ADD	ListTargets	ObjectList	Bicycle	null
-63763531006221	TASK_ADD	ListTargets	ObjectList	Wine_Bottle	null
-63763531006221	TASK_ADD	ListTargets	ObjectList	Green Cylinder	null
-63763531006221	TASK_ADD	ListTargets	ObjectList	Soccer Ball	null
-63763531006325	TASK_END	ListTargets	ObjectList	105
-63763531006328	TASK_START	PopulateTargets	MoveObjects
-63763531006334	TARGET INFORMATION ----------------------------------------
-63763531006334	Target01: 	Orange Cube	Position: 	6	1	16.96002	Rotation: 	0	0	0
-63763531006334	Target02: 	Fries	Position: 	3.18	1	10	Rotation: 	0	0	0
-63763531006334	Target03: 	HotDog	Position: 	10	1	10	Rotation: 	0	0	0
-63763531006334	Target04: 	Red Sphere	Position: 	10	1	10	Rotation: 	0	0	0
-63763531006334	Target05: 	Tacos	Position: 	10	1	10	Rotation: 	0	0	0
-63763531006334	Target06: 	Burger	Position: 	10	1	10	Rotation: 	0	0	0
-63763531006334	Target07: 	Pizza	Position: 	10	1	10	Rotation: 	0	0	0
-63763531006334	Target08: 	Blue Capsule	Position: 	10	1	10	Rotation: 	90	0	0
-63763531006334	Target09: 	PREFAB_Hat_Party	Position: 	10	1	10	Rotation: 	0	0	0
-63763531006334	Target10: 	Chips_Bag	Position: 	10	1	10	Rotation: 	0	0	0
-63763531006334	Target11: 	IceCream_Cone	Position: 	10	1	10	Rotation: 	0	0	0
-63763531006334	Target12: 	Skateboard	Position: 	10	1	10	Rotation: 	0	0	0
-63763531006334	Target13: 	Scooter	Position: 	10	1	10	Rotation: 	0	0	0
-63763531006334	Target14: 	Bicycle	Position: 	10	1	10	Rotation: 	0	0	0
-63763531006334	-----------------------------------------------------------/
-63763531006350	TASK_END	PopulateTargets	MoveObjects	22
-63763531006351	LM_Output	TaskList
+63763602405605	EXPERIMENT:		SUBJECT:	default	START_SCENE	PPT_Sophia1	START_CONDITION:	default	UI:	KeyboardMouse
+63763602405769	TASK_START	LM_Timeline	TaskList
+63763602405770	TASK_START	InitializeExperiment	TaskList
+63763602405771	TASK_START	UpdateTargetObjects	LM_UpdateTargetObjects
+63763602405811	TASK_END	UpdateTargetObjects	LM_UpdateTargetObjects	40
+63763602405813	TASK_START	AssignTargetColors	LM_TargetColorAssignments
+63763602405940	TASK_END	AssignTargetColors	LM_TargetColorAssignments	127
+63763602405941	TASK_START	PlaceTargets	TaskList
+63763602405943	TASK_START	ListTargetLocations	ObjectList
+63763602405943	TASK_ADD	ListTargetLocations	ObjectList	Target01	null
+63763602405943	TASK_ADD	ListTargetLocations	ObjectList	Target02	null
+63763602405943	TASK_ADD	ListTargetLocations	ObjectList	Target03	null
+63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target04	null
+63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target05	null
+63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target06	null
+63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target07	null
+63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target08	null
+63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target09	null
+63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target10	null
+63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target11	null
+63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target12	null
+63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target13	null
+63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target14	null
+63763602407392	TASK_END	ListTargetLocations	ObjectList	1449
+63763602407394	TASK_START	ListTargets	ObjectList
+63763602407394	TASK_ADD	ListTargets	ObjectList	Scooter	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Pizza	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	HotDog	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Blue Capsule	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Fries	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Orange Cube	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Chips_Bag	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Green Cylinder	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Tacos	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Wine_Bottle	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	IceCream_Cone	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Bicycle	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Soccer Ball	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Red Sphere	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	PREFAB_Hat_Party	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Skateboard	null
+63763602407394	TASK_ADD	ListTargets	ObjectList	Burger	null
+63763602407469	TASK_END	ListTargets	ObjectList	75
+63763602407472	TASK_START	PopulateTargets	MoveObjects
+63763602407475	TARGET INFORMATION ----------------------------------------
+63763602407475	Target01: 	Scooter	Position: 	-20.6	1	7.099976	Rotation: 	0	0	0
+63763602407475	Target02: 	Pizza	Position: 	-20.9	1	-12.09998	Rotation: 	0	0	0
+63763602407475	Target03: 	HotDog	Position: 	10	1	10	Rotation: 	0	0	0
+63763602407475	Target04: 	Blue Capsule	Position: 	-14.3	1	-9.799988	Rotation: 	90	0	0
+63763602407475	Target05: 	Fries	Position: 	-14.6	1	-0.2000122	Rotation: 	0	0	0
+63763602407475	Target06: 	Orange Cube	Position: 	-7.4	1	18.70001	Rotation: 	0	0	0
+63763602407475	Target07: 	Chips_Bag	Position: 	-6.5	1	1.799988	Rotation: 	0	90	0
+63763602407475	Target08: 	Green Cylinder	Position: 	-5.8	1	-17.90002	Rotation: 	0	0	0
+63763602407475	Target09: 	Tacos	Position: 	1.2	1	-17	Rotation: 	0	0	0
+63763602407475	Target10: 	Wine_Bottle	Position: 	18.9	1	-19.09998	Rotation: 	0	0	0
+63763602407475	Target11: 	IceCream_Cone	Position: 	19.4	1	17.90002	Rotation: 	0	0	0
+63763602407475	Target12: 	Bicycle	Position: 	14.6	1	0.9000244	Rotation: 	0	0	0
+63763602407475	Target13: 	Soccer Ball	Position: 	3.2	1	-5.599976	Rotation: 	0	0	0
+63763602407475	Target14: 	Red Sphere	Position: 	-21.1	1	-16.17999	Rotation: 	0	0	0
+63763602407475	-----------------------------------------------------------/
+63763602407492	TASK_END	PopulateTargets	MoveObjects	20
+63763602407493	LM_Output	TaskList
 TaskListName	RepetitionNumber	CatchFlag
 PlaceTargets1False
-63763531006351	TASK_END	PlaceTargets	TaskList	1118
-63763531006352	TASK_START	ListNavigationStarts	ObjectList
-63763531006352	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation03	null
-63763531006352	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation01	null
-63763531006352	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation02	null
-63763531006362	TASK_END	ListNavigationStarts	ObjectList	10
-63763531006362	LM_Output	TaskList
+63763602407493	TASK_END	PlaceTargets	TaskList	1552
+63763602407494	TASK_START	ListNavigationStarts	ObjectList
+63763602407494	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation03	null
+63763602407494	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation02	null
+63763602407494	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation01	null
+63763602407503	TASK_END	ListNavigationStarts	ObjectList	9
+63763602407503	LM_Output	TaskList
 TaskListName	RepetitionNumber	CatchFlag
 InitializeExperiment1False
-63763531006362	TASK_END	InitializeExperiment	TaskList	1340
-63763531006365	TASK_START	BeginMessage	InstructionsTask
-63763531011055	INPUT_EVENT    PlayerPressedActionButton    1
-63763531011056	TASK_END	BeginMessage	InstructionsTask	4691
-63763531011057	TASK_START	Tasks	TaskList
-63763531011058	TASK_START	TASK_SelectItems	TaskList
-63763531011059	TASK_START	ListItemSelectionTargets	ObjectList
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	Red Sphere	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	Blue Capsule	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	Orange Cube	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	PREFAB_Hat_Party	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	Burger	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	Fries	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	Tacos	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	Pizza	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	IceCream_Cone	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	HotDog	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	Chips_Bag	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	Bicycle	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	Skateboard	null
-63763531011059	TASK_ADD	ListItemSelectionTargets	ObjectList	Scooter	null
-63763531011067	TASK_END	ListItemSelectionTargets	ObjectList	8
-63763531011068	TASK_START	ItemSelectionPlaceholders	LM_CreatePlaceHolders
-63763531011073	TASK_END	ItemSelectionPlaceholders	LM_CreatePlaceHolders	5
-63763531011074	TASK_START	ListItemSelectionPlaceholders	ObjectList
-63763531011074	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011074	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011074	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011074	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011074	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011075	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011075	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011075	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011075	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011075	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011075	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011075	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011075	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011075	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763531011084	TASK_END	ListItemSelectionPlaceholders	ObjectList	10
-63763531011088	TASK_START	CopyObjects	CopyChildObjects
-63763531011098	TASK_END	CopyObjects	CopyChildObjects	10
-63763531011099	TASK_START	ItemSelectionInstructions	InstructionsTask
-63763531011770	INPUT_EVENT    PlayerPressedActionButton    1
-63763531011770	TASK_END	ItemSelectionInstructions	InstructionsTask	671
-63763531011771	TASK_START	ItemSelection	SelectItems
-63763531013544	Mouseover 	Blue Capsule
-63763531016128	Mouseover 	Burger
-63763531016143	Mouseover 	Burger
-63763531016555	Mouseover 	Burger
-63763531016570	Mouseover 	Burger
-63763531016585	Mouseover 	Burger
-63763531016589	Mouseover 	Burger
-63763531016614	Mouseover 	Burger
-63763531016623	Mouseover 	Burger
-63763531016629	Mouseover 	Burger
-63763531016638	Mouseover 	Burger
-63763531016654	Mouseover 	Burger
-63763531016662	Mouseover 	Burger
-63763531016669	Mouseover 	Burger
-63763531016673	Mouseover 	Burger
-63763531016691	Mouseover 	Burger
-63763531016697	Mouseover 	Burger
-63763531016706	Mouseover 	Burger
-63763531016713	Mouseover 	Burger
-63763531016726	Mouseover 	Burger
-63763531016739	Mouseover 	Burger
-63763531016751	Mouseover 	Burger
-63763531016758	Mouseover 	Burger
-63763531016773	Mouseover 	Burger
-63763531016784	Mouseover 	Burger
-63763531016793	Mouseover 	Burger
-63763531016804	Mouseover 	Burger
-63763531016815	Mouseover 	Burger
-63763531016830	Mouseover 	Burger
-63763531016839	Mouseover 	Burger
-63763531016848	Mouseover 	Burger
-63763531016859	Mouseover 	Burger
-63763531016870	Mouseover 	Burger
-63763531016877	Mouseover 	Burger
-63763531016893	Mouseover 	Burger
-63763531016902	Mouseover 	Burger
-63763531016909	Mouseover 	Burger
-63763531016917	Mouseover 	Burger
-63763531016925	Mouseover 	Burger
-63763531016935	Mouseover 	Burger
-63763531016941	Mouseover 	Burger
-63763531016950	Mouseover 	Burger
-63763531016957	Mouseover 	Burger
-63763531016967	Mouseover 	Burger
-63763531016977	Mouseover 	Burger
-63763531016988	Mouseover 	Burger
-63763531017000	Mouseover 	Burger
-63763531017018	Mouseover 	Burger
-63763531017027	Mouseover 	Burger
-63763531017033	Mouseover 	Burger
-63763531017042	Mouseover 	Burger
-63763531017054	Mouseover 	Burger
-63763531017067	Mouseover 	Burger
-63763531017075	Mouseover 	Burger
-63763531017087	Mouseover 	Burger
-63763531017095	Mouseover 	Burger
-63763531017789	Mouseover 	Burger
-63763531017794	Mouseover 	Burger
-63763531017806	Mouseover 	Burger
-63763531018564	Mouseover 	IceCream_Cone
-63763531018575	Mouseover 	IceCream_Cone
-63763531018587	Mouseover 	IceCream_Cone
-63763531018595	Mouseover 	IceCream_Cone
-63763531018608	Mouseover 	IceCream_Cone
-63763531018619	Mouseover 	IceCream_Cone
-63763531018630	Mouseover 	IceCream_Cone
-63763531018639	Mouseover 	IceCream_Cone
-63763531018647	Mouseover 	IceCream_Cone
-63763531018660	Mouseover 	IceCream_Cone
-63763531018666	Mouseover 	IceCream_Cone
-63763531018673	Mouseover 	IceCream_Cone
-63763531018684	Mouseover 	IceCream_Cone
-63763531018696	Mouseover 	IceCream_Cone
-63763531018707	Mouseover 	IceCream_Cone
-63763531018714	Mouseover 	IceCream_Cone
-63763531018721	Mouseover 	IceCream_Cone
-63763531018729	Mouseover 	IceCream_Cone
-63763531018743	Mouseover 	IceCream_Cone
-63763531018750	Mouseover 	IceCream_Cone
-63763531018757	Mouseover 	IceCream_Cone
-63763531018767	Mouseover 	IceCream_Cone
-63763531018777	Mouseover 	IceCream_Cone
-63763531018785	Mouseover 	IceCream_Cone
-63763531018789	Mouseover 	IceCream_Cone
-63763531018803	Mouseover 	IceCream_Cone
-63763531018809	Mouseover 	IceCream_Cone
-63763531018823	Mouseover 	IceCream_Cone
-63763531018834	Mouseover 	IceCream_Cone
-63763531018842	Mouseover 	IceCream_Cone
-63763531018850	Mouseover 	IceCream_Cone
-63763531018857	Mouseover 	IceCream_Cone
-63763531018861	Mouseover 	IceCream_Cone
-63763531018870	Mouseover 	IceCream_Cone
-63763531018883	Mouseover 	IceCream_Cone
-63763531018895	Mouseover 	IceCream_Cone
-63763531018903	Mouseover 	IceCream_Cone
-63763531018909	Mouseover 	IceCream_Cone
-63763531018923	Mouseover 	IceCream_Cone
-63763531018929	Mouseover 	IceCream_Cone
-63763531018943	Mouseover 	IceCream_Cone
-63763531018954	Mouseover 	IceCream_Cone
-63763531018963	Mouseover 	IceCream_Cone
-63763531019034	Mouseover 	Blue Capsule
-63763531019042	Mouseover 	Blue Capsule
-63763531019050	Mouseover 	Blue Capsule
-63763531019065	Mouseover 	Blue Capsule
-63763531019075	Mouseover 	Blue Capsule
-63763531019087	Mouseover 	Blue Capsule
-63763531019093	Mouseover 	Blue Capsule
-63763531019107	Mouseover 	Blue Capsule
-63763531019118	Mouseover 	Blue Capsule
-63763531019126	Mouseover 	Blue Capsule
-63763531019139	Mouseover 	Blue Capsule
-63763531019148	Mouseover 	Blue Capsule
-63763531019160	Mouseover 	Blue Capsule
-63763531019171	Mouseover 	Blue Capsule
-63763531019179	Mouseover 	Blue Capsule
-63763531019191	Mouseover 	Blue Capsule
-63763531019203	Mouseover 	Blue Capsule
-63763531019209	Mouseover 	Blue Capsule
-63763531019223	Mouseover 	Blue Capsule
-63763531019229	Mouseover 	Blue Capsule
-63763531019244	Mouseover 	Blue Capsule
-63763531019251	Mouseover 	Blue Capsule
-63763531019257	Mouseover 	Blue Capsule
-63763531019262	Mouseover 	Blue Capsule
-63763531019278	Mouseover 	Blue Capsule
-63763531019285	Mouseover 	Blue Capsule
-63763531019289	Mouseover 	Blue Capsule
-63763531019302	Mouseover 	Blue Capsule
-63763531019310	Mouseover 	Blue Capsule
-63763531019330	Mouseover 	Blue Capsule
-63763531019338	Mouseover 	Blue Capsule
-63763531019347	Mouseover 	Blue Capsule
-63763531019353	Mouseover 	Blue Capsule
-63763531019362	Mouseover 	Blue Capsule
-63763531019374	Mouseover 	Blue Capsule
-63763531019383	Mouseover 	Blue Capsule
-63763531019393	Mouseover 	Blue Capsule
-63763531019397	Mouseover 	Blue Capsule
-63763531019415	Mouseover 	Blue Capsule
-63763531019423	Mouseover 	Blue Capsule
-63763531019434	Mouseover 	Blue Capsule
-63763531019443	Mouseover 	Blue Capsule
-63763531019449	Mouseover 	Blue Capsule
-63763531019457	Mouseover 	Blue Capsule
-63763531019467	Mouseover 	Blue Capsule
-63763531019477	Mouseover 	Blue Capsule
-63763531019486	Mouseover 	Blue Capsule
-63763531019498	Mouseover 	Blue Capsule
-63763531019505	Mouseover 	Blue Capsule
-63763531019509	Mouseover 	Blue Capsule
-63763531019523	Mouseover 	Blue Capsule
-63763531019529	Mouseover 	Blue Capsule
-63763531019583	Mouseover 	PREFAB_Hat_Party
-63763531019589	Mouseover 	PREFAB_Hat_Party
-63763531019609	Mouseover 	PREFAB_Hat_Party
-63763531019619	Mouseover 	PREFAB_Hat_Party
-63763531019626	Mouseover 	PREFAB_Hat_Party
-63763531019634	Mouseover 	PREFAB_Hat_Party
-63763531019642	Mouseover 	PREFAB_Hat_Party
-63763531019651	Mouseover 	PREFAB_Hat_Party
-63763531019667	Mouseover 	PREFAB_Hat_Party
-63763531019673	Mouseover 	PREFAB_Hat_Party
-63763531019687	Mouseover 	PREFAB_Hat_Party
-63763531019698	Mouseover 	PREFAB_Hat_Party
-63763531019705	Mouseover 	PREFAB_Hat_Party
-63763531019709	Mouseover 	PREFAB_Hat_Party
-63763531019723	Mouseover 	PREFAB_Hat_Party
-63763531019739	Mouseover 	PREFAB_Hat_Party
-63763531019750	Mouseover 	PREFAB_Hat_Party
-63763531019757	Mouseover 	PREFAB_Hat_Party
-63763531019776	Mouseover 	PREFAB_Hat_Party
-63763531019787	Mouseover 	PREFAB_Hat_Party
-63763531019793	Mouseover 	PREFAB_Hat_Party
-63763531019802	Mouseover 	PREFAB_Hat_Party
-63763531019810	Mouseover 	PREFAB_Hat_Party
-63763531019819	Mouseover 	PREFAB_Hat_Party
-63763531019834	Mouseover 	PREFAB_Hat_Party
-63763531019837	Mouseover 	PREFAB_Hat_Party
-63763531019845	Mouseover 	PREFAB_Hat_Party
-63763531019853	Mouseover 	PREFAB_Hat_Party
-63763531019866	Mouseover 	PREFAB_Hat_Party
-63763531019873	Mouseover 	PREFAB_Hat_Party
-63763531019883	Mouseover 	PREFAB_Hat_Party
-63763531019893	Mouseover 	PREFAB_Hat_Party
-63763531019908	Mouseover 	PREFAB_Hat_Party
-63763531019918	Mouseover 	PREFAB_Hat_Party
-63763531019926	Mouseover 	PREFAB_Hat_Party
-63763531019944	Mouseover 	PREFAB_Hat_Party
-63763531019949	Mouseover 	PREFAB_Hat_Party
-63763531019957	Mouseover 	PREFAB_Hat_Party
-63763531019973	Mouseover 	PREFAB_Hat_Party
-63763531019997	Mouseover 	Bicycle
-63763531020012	Mouseover 	Bicycle
-63763531020031	Mouseover 	Bicycle
-63763531020038	Mouseover 	Bicycle
-63763531020051	Mouseover 	Bicycle
-63763531020059	Mouseover 	Bicycle
-63763531020072	Mouseover 	Bicycle
-63763531020078	Mouseover 	Bicycle
-63763531020086	Mouseover 	Bicycle
-63763531020093	Mouseover 	Bicycle
-63763531020107	Mouseover 	Bicycle
-63763531020117	Mouseover 	Bicycle
-63763531020323	Mouseover 	Bicycle
-63763531020329	Mouseover 	Bicycle
-63763531020338	Mouseover 	Bicycle
-63763531020347	Mouseover 	Bicycle
-63763531020357	Mouseover 	Bicycle
-63763531023418	Mouseover 	Chips_Bag
-63763531023426	Mouseover 	Chips_Bag
-63763531023444	Mouseover 	Chips_Bag
-63763531023449	Mouseover 	Chips_Bag
-63763531023457	Mouseover 	Chips_Bag
-63763531023467	Mouseover 	Chips_Bag
-63763531023473	Mouseover 	Chips_Bag
-63763531023477	Mouseover 	Chips_Bag
-63763531023491	Mouseover 	Chips_Bag
-63763531023503	Mouseover 	Chips_Bag
-63763531023509	Mouseover 	Chips_Bag
-63763531023523	Mouseover 	Chips_Bag
-63763531023535	Mouseover 	Chips_Bag
-63763531023542	Mouseover 	Chips_Bag
-63763531023555	Mouseover 	Chips_Bag
-63763531023572	Mouseover 	Chips_Bag
-63763531023583	Mouseover 	Chips_Bag
-63763531023589	Mouseover 	Chips_Bag
-63763531023608	Mouseover 	Chips_Bag
-63763531023621	Mouseover 	Chips_Bag
-63763531023631	Mouseover 	Chips_Bag
-63763531023638	Mouseover 	Chips_Bag
-63763531023646	Mouseover 	Chips_Bag
-63763531023653	Mouseover 	Chips_Bag
-63763531023664	Mouseover 	Chips_Bag
-63763531023669	Mouseover 	Chips_Bag
-63763531023673	Mouseover 	Chips_Bag
-63763531023699	Mouseover 	Chips_Bag
-63763531023711	Mouseover 	Chips_Bag
-63763531023718	Mouseover 	Chips_Bag
-63763531023728	Mouseover 	Chips_Bag
-63763531023738	Mouseover 	Chips_Bag
-63763531023749	Mouseover 	Chips_Bag
-63763531023754	Mouseover 	Chips_Bag
-63763531023768	Mouseover 	Chips_Bag
-63763531023774	Mouseover 	Chips_Bag
-63763531023787	Mouseover 	Chips_Bag
-63763531023793	Mouseover 	Chips_Bag
-63763531023803	Mouseover 	Chips_Bag
-63763531023815	Mouseover 	Chips_Bag
-63763531023824	Mouseover 	Chips_Bag
-63763531023834	Mouseover 	Chips_Bag
-63763531023842	Mouseover 	Chips_Bag
-63763531023850	Mouseover 	Chips_Bag
-63763531023857	Mouseover 	Chips_Bag
-63763531023866	Mouseover 	Chips_Bag
-63763531023877	Mouseover 	Chips_Bag
-63763531023885	Mouseover 	Chips_Bag
-63763531023893	Mouseover 	Chips_Bag
-63763531023901	Mouseover 	Chips_Bag
-63763531023909	Mouseover 	Chips_Bag
-63763531023922	Mouseover 	Chips_Bag
-63763531023930	Mouseover 	Chips_Bag
-63763531023938	Mouseover 	Chips_Bag
-63763531023946	Mouseover 	Chips_Bag
-63763531023953	Mouseover 	Chips_Bag
-63763531023962	Mouseover 	Chips_Bag
-63763531023973	Mouseover 	Chips_Bag
-63763531023977	Mouseover 	Chips_Bag
-63763531023994	Mouseover 	Chips_Bag
-63763531024006	Mouseover 	Chips_Bag
-63763531024014	Mouseover 	Chips_Bag
-63763531024027	Mouseover 	Chips_Bag
-63763531024035	Mouseover 	Chips_Bag
-63763531024049	Mouseover 	Chips_Bag
-63763531024053	Mouseover 	Chips_Bag
-63763531024062	Mouseover 	Chips_Bag
-63763531024074	Mouseover 	Chips_Bag
-63763531024082	Mouseover 	Chips_Bag
-63763531024089	Mouseover 	Chips_Bag
-63763531024099	Mouseover 	Chips_Bag
-63763531024110	Mouseover 	Chips_Bag
-63763531024126	Mouseover 	Chips_Bag
-63763531024129	Mouseover 	Chips_Bag
-63763531024138	Mouseover 	Chips_Bag
-63763531024147	Mouseover 	Chips_Bag
-63763531024153	Mouseover 	Chips_Bag
-63763531024163	Mouseover 	Chips_Bag
-63763531024169	Mouseover 	Chips_Bag
-63763531024179	Mouseover 	Chips_Bag
-63763531024195	Mouseover 	Chips_Bag
-63763531024213	Mouseover 	Chips_Bag
-63763531024219	Mouseover 	Chips_Bag
-63763531024344	Mouseover 	Scooter
-63763531024349	Mouseover 	Scooter
-63763531024370	Mouseover 	Scooter
-63763531024387	Mouseover 	Scooter
-63763531024397	Mouseover 	Scooter
-63763531024407	Mouseover 	Scooter
-63763531024413	Mouseover 	Scooter
-63763531024422	Mouseover 	Scooter
-63763531024430	Mouseover 	Scooter
-63763531024446	Mouseover 	Scooter
-63763531024496	Mouseover 	Scooter
-63763531024503	Mouseover 	Scooter
-63763531024510	Mouseover 	Scooter
-63763531024524	Mouseover 	Scooter
-63763531024534	Mouseover 	Scooter
-63763531024542	Mouseover 	Scooter
-63763531024550	Mouseover 	Scooter
-63763531024557	Mouseover 	Scooter
-63763531024569	Mouseover 	Scooter
-63763531024579	Mouseover 	Scooter
-63763531024585	Mouseover 	Scooter
-63763531024595	Mouseover 	Scooter
-63763531024602	Mouseover 	Scooter
-63763531024614	Mouseover 	Scooter
-63763531024622	Mouseover 	Scooter
-63763531024629	Mouseover 	Scooter
-63763531024644	Mouseover 	Scooter
-63763531024649	Mouseover 	Scooter
-63763531024662	Mouseover 	Scooter
-63763531024670	Mouseover 	Scooter
-63763531024677	Mouseover 	Scooter
-63763531024692	Mouseover 	Scooter
-63763531024703	Mouseover 	Scooter
-63763531024709	Mouseover 	Scooter
-63763531024725	Mouseover 	Scooter
-63763531024735	Mouseover 	Scooter
-63763531024747	Mouseover 	Scooter
-63763531024754	Mouseover 	Scooter
-63763531024763	Mouseover 	Scooter
-63763531024776	Mouseover 	Scooter
-63763531024787	Mouseover 	Scooter
-63763531024794	Mouseover 	Scooter
-63763531024802	Mouseover 	Scooter
-63763531024809	Mouseover 	Scooter
-63763531024819	Mouseover 	Scooter
-63763531024831	Mouseover 	Scooter
-63763531024837	Mouseover 	Scooter
-63763531024843	Mouseover 	Scooter
-63763531024854	Mouseover 	Scooter
-63763531024862	Mouseover 	Scooter
-63763531024873	Mouseover 	Scooter
-63763531024894	Mouseover 	Scooter
-63763531024905	Mouseover 	Scooter
-63763531024918	Mouseover 	Scooter
-63763531024927	Mouseover 	Scooter
-63763531024943	Mouseover 	Scooter
-63763531024950	Mouseover 	Scooter
-63763531024958	Mouseover 	Scooter
-63763531024967	Mouseover 	Scooter
-63763531024973	Mouseover 	Scooter
-63763531024987	Mouseover 	Scooter
-63763531024995	Mouseover 	Scooter
-63763531025003	Mouseover 	Scooter
-63763531025010	Mouseover 	Scooter
-63763531025033	Mouseover 	Scooter
-63763531025045	Mouseover 	Scooter
-63763531025055	Mouseover 	Scooter
-63763531025067	Mouseover 	Scooter
-63763531025078	Mouseover 	Scooter
-63763531025109	Mouseover 	Scooter
-63763531025114	Mouseover 	Scooter
-63763531025124	Mouseover 	Scooter
-63763531025131	Mouseover 	Scooter
-63763531025141	Mouseover 	Scooter
-63763531025152	Mouseover 	Scooter
-63763531025163	Mouseover 	Scooter
-63763531025174	Mouseover 	Scooter
-63763531025183	Mouseover 	Scooter
-63763531025189	Mouseover 	Scooter
-63763531025203	Mouseover 	Scooter
-63763531025210	Mouseover 	Scooter
-63763531025223	Mouseover 	Scooter
-63763531025236	Mouseover 	Scooter
-63763531025245	Mouseover 	Scooter
-63763531025254	Mouseover 	Scooter
-63763531025264	Mouseover 	Scooter
-63763531025278	Mouseover 	Scooter
-63763531025287	Mouseover 	Scooter
-63763531025293	Mouseover 	Scooter
-63763531025302	Mouseover 	Scooter
-63763531025311	Mouseover 	Scooter
-63763531025317	Mouseover 	Scooter
-63763531025331	Mouseover 	Scooter
-63763531025337	Mouseover 	Scooter
-63763531025342	Mouseover 	Scooter
-63763531025355	Mouseover 	Scooter
-63763531025366	Mouseover 	Scooter
-63763531025374	Mouseover 	Scooter
-63763531025387	Mouseover 	Scooter
-63763531025393	Mouseover 	Scooter
-63763531025403	Mouseover 	Scooter
-63763531025419	Mouseover 	Scooter
-63763531025427	Mouseover 	Scooter
-63763531025439	Mouseover 	Scooter
-63763531025451	Mouseover 	Scooter
-63763531025458	Mouseover 	Scooter
-63763531025474	Mouseover 	Scooter
-63763531025487	Mouseover 	Scooter
-63763531025499	Mouseover 	Scooter
-63763531025506	Mouseover 	Scooter
-63763531025509	Mouseover 	Scooter
-63763531025536	Mouseover 	Scooter
-63763531025544	Mouseover 	Scooter
-63763531025559	Mouseover 	Scooter
-63763531025574	Mouseover 	Scooter
-63763531025584	Mouseover 	Scooter
-63763531025589	Mouseover 	Scooter
-63763531025600	Mouseover 	Scooter
-63763531025614	Mouseover 	Scooter
-63763531025629	Mouseover 	Scooter
-63763531025636	Mouseover 	Scooter
-63763531025648	Mouseover 	Scooter
-63763531025654	Mouseover 	Scooter
-63763531025669	Mouseover 	Scooter
-63763531025674	Mouseover 	Scooter
-63763531025692	Mouseover 	Scooter
-63763531025703	Mouseover 	Scooter
-63763531025710	Mouseover 	Scooter
-63763531025717	Mouseover 	Scooter
-63763531025736	Mouseover 	Scooter
-63763531025743	Mouseover 	Scooter
-63763531025754	Mouseover 	Scooter
-63763531025764	Mouseover 	Scooter
-63763531025773	Mouseover 	Scooter
-63763531025788	Mouseover 	Scooter
-63763531025794	Mouseover 	Scooter
-63763531025807	Mouseover 	Scooter
-63763531025819	Mouseover 	Scooter
-63763531025831	Mouseover 	Scooter
-63763531025838	Mouseover 	Scooter
-63763531025852	Mouseover 	Scooter
-63763531025860	Mouseover 	Scooter
-63763531025871	Mouseover 	Scooter
-63763531025877	Mouseover 	Scooter
-63763531025893	Mouseover 	Scooter
-63763531025903	Mouseover 	Scooter
-63763531025915	Mouseover 	Scooter
-63763531025923	Mouseover 	Scooter
-63763531025930	Mouseover 	Scooter
-63763531025943	Mouseover 	Scooter
-63763531025950	Mouseover 	Scooter
-63763531025964	Mouseover 	Scooter
-63763531025973	Mouseover 	Scooter
-63763531026215	Mouseover 	Scooter
-63763531026222	Mouseover 	Scooter
-63763531026235	Mouseover 	Scooter
-63763531026244	Mouseover 	Scooter
-63763531026254	Mouseover 	Scooter
-63763531026262	Mouseover 	Scooter
-63763531026656	Mouseover 	Fries
-63763531026679	Mouseover 	Fries
-63763531026695	Mouseover 	Fries
-63763531026718	Mouseover 	Fries
-63763531026728	Mouseover 	Fries
-63763531026752	Mouseover 	Fries
-63763531026790	Mouseover 	Fries
-63763531026813	Mouseover 	Fries
-63763531026824	Mouseover 	Fries
-63763531026851	Mouseover 	Fries
-63763531026863	Mouseover 	Fries
-63763531026871	Mouseover 	Fries
-63763531026891	Mouseover 	Fries
-63763531026904	Mouseover 	Fries
-63763531026919	Mouseover 	Fries
-63763531026936	Mouseover 	Fries
-63763531026941	Mouseover 	Fries
-63763531026949	Mouseover 	Fries
-63763531026958	Mouseover 	Fries
-63763531026979	Mouseover 	Fries
-63763531027126	Mouseover 	Orange Cube
-63763531027134	Mouseover 	Orange Cube
-63763531027143	Mouseover 	Orange Cube
-63763531027156	Mouseover 	Orange Cube
-63763531027171	Mouseover 	Orange Cube
-63763531027184	Mouseover 	Orange Cube
-63763531027189	Mouseover 	Orange Cube
-63763531027198	Mouseover 	Orange Cube
-63763531027205	Mouseover 	Orange Cube
-63763531027219	Mouseover 	Orange Cube
-63763531027230	Mouseover 	Orange Cube
-63763531027239	Mouseover 	Orange Cube
-63763531027251	Mouseover 	Orange Cube
-63763531027258	Mouseover 	Orange Cube
-63763531027268	Mouseover 	Orange Cube
-63763531027277	Mouseover 	Orange Cube
-63763531027288	Mouseover 	Orange Cube
-63763531027308	Mouseover 	Orange Cube
-63763531027316	Mouseover 	Orange Cube
-63763531027323	Mouseover 	Orange Cube
-63763531027334	Mouseover 	Orange Cube
-63763531027342	Mouseover 	Orange Cube
-63763531027354	Mouseover 	Orange Cube
-63763531027362	Mouseover 	Orange Cube
-63763531027369	Mouseover 	Orange Cube
-63763531027373	Mouseover 	Orange Cube
-63763531027387	Mouseover 	Orange Cube
-63763531027393	Mouseover 	Orange Cube
-63763531027403	Mouseover 	Orange Cube
-63763531027420	Mouseover 	Orange Cube
-63763531027439	Mouseover 	Orange Cube
-63763531027447	Mouseover 	Orange Cube
-63763531027453	Mouseover 	Orange Cube
-63763531027457	Mouseover 	Orange Cube
-63763531027468	Mouseover 	Orange Cube
-63763531027477	Mouseover 	Orange Cube
-63763531027493	Mouseover 	Orange Cube
-63763531027501	Mouseover 	Orange Cube
-63763531027510	Mouseover 	Orange Cube
-63763531027523	Mouseover 	Orange Cube
-63763531027529	Mouseover 	Orange Cube
-63763531027538	Mouseover 	Orange Cube
-63763531027541	Mouseover 	Orange Cube
-63763531027550	Mouseover 	Orange Cube
-63763531027557	Mouseover 	Orange Cube
-63763531027575	Mouseover 	Orange Cube
-63763531027587	Mouseover 	Orange Cube
-63763531027594	Mouseover 	Orange Cube
-63763531027607	Mouseover 	Orange Cube
-63763531027619	Mouseover 	Orange Cube
-63763531027626	Mouseover 	Orange Cube
-63763531027639	Mouseover 	Orange Cube
-63763531027652	Mouseover 	Orange Cube
-63763531027665	Mouseover 	Orange Cube
-63763531027674	Mouseover 	Orange Cube
-63763531027685	Mouseover 	Orange Cube
-63763531027784	Mouseover 	Skateboard
-63763531027789	Mouseover 	Skateboard
-63763531027799	Mouseover 	Skateboard
-63763531027811	Mouseover 	Skateboard
-63763531027819	Mouseover 	Skateboard
-63763531027835	Mouseover 	Skateboard
-63763531027842	Mouseover 	Skateboard
-63763531027855	Mouseover 	Skateboard
-63763531027867	Mouseover 	Skateboard
-63763531027875	Mouseover 	Skateboard
-63763531027892	Mouseover 	Skateboard
-63763531027899	Mouseover 	Skateboard
-63763531027907	Mouseover 	Skateboard
-63763531027920	Mouseover 	Skateboard
-63763531027926	Mouseover 	Skateboard
-63763531027940	Mouseover 	Skateboard
-63763531027950	Mouseover 	Skateboard
-63763531027958	Mouseover 	Skateboard
-63763531027968	Mouseover 	Skateboard
-63763531027978	Mouseover 	Skateboard
-63763531027992	Mouseover 	Skateboard
-63763531028003	Mouseover 	Skateboard
-63763531028010	Mouseover 	Skateboard
-63763531028028	Mouseover 	Skateboard
-63763531028039	Mouseover 	Skateboard
-63763531028047	Mouseover 	Skateboard
-63763531028053	Mouseover 	Skateboard
-63763531028058	Mouseover 	Skateboard
-63763531028071	Mouseover 	Skateboard
-63763531028083	Mouseover 	Skateboard
-63763531028089	Mouseover 	Skateboard
-63763531028103	Mouseover 	Skateboard
-63763531028115	Mouseover 	Skateboard
-63763531028122	Mouseover 	Skateboard
-63763531028135	Mouseover 	Skateboard
-63763531028146	Mouseover 	Skateboard
-63763531028159	Mouseover 	Skateboard
-63763531028172	Mouseover 	Skateboard
-63763531028186	Mouseover 	Skateboard
-63763531028197	Mouseover 	Skateboard
-63763531028203	Mouseover 	Skateboard
-63763531028210	Mouseover 	Skateboard
-63763531028218	Mouseover 	Skateboard
-63763531028234	Mouseover 	Skateboard
-63763531028244	Mouseover 	Skateboard
-63763531028250	Mouseover 	Skateboard
-63763531028258	Mouseover 	Skateboard
-63763531028268	Mouseover 	Skateboard
-63763531028278	Mouseover 	Skateboard
-63763531028285	Mouseover 	Skateboard
-63763531028289	Mouseover 	Skateboard
-63763531028400	Mouseover 	Skateboard
-63763531028411	Mouseover 	Skateboard
-63763531028420	Mouseover 	Skateboard
-63763531028426	Mouseover 	Skateboard
-63763531028437	Mouseover 	Skateboard
-63763531028446	Mouseover 	Skateboard
-63763531028472	Mouseover 	Skateboard
-63763531028506	Mouseover 	Skateboard
-63763531028532	Mouseover 	Skateboard
-63763531028547	Mouseover 	Skateboard
-63763531028562	Mouseover 	Skateboard
-63763531028578	Mouseover 	Skateboard
-63763531028590	Mouseover 	Skateboard
-63763531028601	Mouseover 	Skateboard
-63763531028873	Mouseover 	HotDog
-63763531028877	Mouseover 	HotDog
-63763531028897	Mouseover 	HotDog
-63763531028907	Mouseover 	HotDog
-63763531028919	Mouseover 	HotDog
-63763531028931	Mouseover 	HotDog
-63763531028937	Mouseover 	HotDog
-63763531028945	Mouseover 	HotDog
-63763531028954	Mouseover 	HotDog
-63763531028971	Mouseover 	HotDog
-63763531029287	Mouseover 	HotDog
-63763531029294	Mouseover 	HotDog
-63763531029306	Mouseover 	HotDog
-63763531029324	Mouseover 	HotDog
-63763531029335	Mouseover 	HotDog
-63763531029342	Mouseover 	HotDog
-63763531029354	Mouseover 	HotDog
-63763531029367	Mouseover 	HotDog
-63763531029373	Mouseover 	HotDog
-63763531029377	Mouseover 	HotDog
-63763531029386	Mouseover 	HotDog
-63763531029393	Mouseover 	HotDog
-63763531029403	Mouseover 	HotDog
-63763531029419	Mouseover 	HotDog
-63763531029427	Mouseover 	HotDog
-63763531029439	Mouseover 	HotDog
-63763531029447	Mouseover 	HotDog
-63763531029453	Mouseover 	HotDog
-63763531029458	Mouseover 	HotDog
-63763531029471	Mouseover 	HotDog
-63763531029479	Mouseover 	HotDog
-63763531029496	Mouseover 	HotDog
-63763531029509	Mouseover 	HotDog
-63763531029522	Mouseover 	HotDog
-63763531029530	Mouseover 	HotDog
-63763531029538	Mouseover 	HotDog
-63763531029542	Mouseover 	HotDog
-63763531029568	Mouseover 	HotDog
-63763531029576	Mouseover 	HotDog
-63763531029588	Mouseover 	HotDog
-63763531029600	Mouseover 	HotDog
-63763531029612	Mouseover 	HotDog
-63763531029617	Mouseover 	HotDog
-63763531029633	Mouseover 	HotDog
-63763531029641	Mouseover 	HotDog
-63763531029672	Mouseover 	HotDog
-63763531029686	Mouseover 	HotDog
-63763531029698	Mouseover 	HotDog
-63763531029706	Mouseover 	HotDog
-63763531029714	Mouseover 	HotDog
-63763531029726	Mouseover 	HotDog
-63763531029735	Mouseover 	HotDog
-63763531029744	Mouseover 	HotDog
-63763531029754	Mouseover 	HotDog
-63763531029762	Mouseover 	HotDog
-63763531029769	Mouseover 	HotDog
-63763531029778	Mouseover 	HotDog
-63763531029786	Mouseover 	HotDog
-63763531029789	Mouseover 	HotDog
-63763531029802	Mouseover 	HotDog
-63763531029809	Mouseover 	HotDog
-63763531029829	Mouseover 	HotDog
-63763531029838	Mouseover 	HotDog
-63763531029847	Mouseover 	HotDog
-63763531029854	Mouseover 	HotDog
-63763531029867	Mouseover 	HotDog
-63763531029874	Mouseover 	HotDog
-63763531029914	Mouseover 	HotDog
-63763531029917	Mouseover 	HotDog
-63763531029926	Mouseover 	HotDog
-63763531029943	Mouseover 	HotDog
-63763531029949	Mouseover 	HotDog
-63763531029958	Mouseover 	HotDog
-63763531029967	Mouseover 	HotDog
-63763531029977	Mouseover 	HotDog
-63763531029987	Mouseover 	HotDog
-63763531029993	Mouseover 	HotDog
-63763531030002	Mouseover 	HotDog
-63763531030010	Mouseover 	HotDog
-63763531030024	Mouseover 	HotDog
-63763531030037	Mouseover 	HotDog
-63763531030051	Mouseover 	HotDog
-63763531030059	Mouseover 	HotDog
-63763531030067	Mouseover 	HotDog
-63763531030073	Mouseover 	HotDog
-63763531030087	Mouseover 	HotDog
-63763531030094	Mouseover 	HotDog
-63763531030107	Mouseover 	HotDog
-63763531030118	Mouseover 	HotDog
-63763531030126	Mouseover 	HotDog
-63763531030134	Mouseover 	HotDog
-63763531030142	Mouseover 	HotDog
-63763531030150	Mouseover 	HotDog
-63763531030167	Mouseover 	HotDog
-63763531030175	Mouseover 	HotDog
-63763531030185	Mouseover 	HotDog
-63763531030189	Mouseover 	HotDog
-63763531030229	Mouseover 	HotDog
-63763531030233	Mouseover 	HotDog
-63763531030244	Mouseover 	HotDog
-63763531030249	Mouseover 	HotDog
-63763531030258	Mouseover 	HotDog
-63763531030267	Mouseover 	HotDog
-63763531030274	Mouseover 	HotDog
-63763531030282	Mouseover 	HotDog
-63763531030293	Mouseover 	HotDog
-63763531030303	Mouseover 	HotDog
-63763531030311	Mouseover 	HotDog
-63763531030322	Mouseover 	HotDog
-63763531030331	Mouseover 	HotDog
-63763531030338	Mouseover 	HotDog
-63763531030346	Mouseover 	HotDog
-63763531030358	Mouseover 	HotDog
-63763531030367	Mouseover 	HotDog
-63763531030374	Mouseover 	HotDog
-63763531030383	Mouseover 	HotDog
-63763531030389	Mouseover 	HotDog
-63763531030403	Mouseover 	HotDog
-63763531030420	Mouseover 	HotDog
-63763531030426	Mouseover 	HotDog
-63763531030439	Mouseover 	HotDog
-63763531030447	Mouseover 	HotDog
-63763531030456	Mouseover 	HotDog
-63763531030463	Mouseover 	HotDog
-63763531030474	Mouseover 	HotDog
-63763531030484	Mouseover 	HotDog
-63763531030489	Mouseover 	HotDog
-63763531030498	Mouseover 	HotDog
-63763531030506	Mouseover 	HotDog
-63763531030515	Mouseover 	HotDog
-63763531030526	Mouseover 	HotDog
-63763531030533	Mouseover 	HotDog
-63763531030551	Mouseover 	HotDog
-63763531030562	Mouseover 	HotDog
-63763531030570	Mouseover 	HotDog
-63763531030583	Mouseover 	HotDog
-63763531030590	Mouseover 	HotDog
-63763531030600	Mouseover 	HotDog
-63763531030611	Mouseover 	HotDog
-63763531030624	Mouseover 	HotDog
-63763531030631	Mouseover 	HotDog
-63763531030856	Mouseover 	Red Sphere
-63763531030868	Mouseover 	Red Sphere
-63763531030874	Mouseover 	Red Sphere
-63763531030884	Mouseover 	Red Sphere
-63763531030894	Mouseover 	Red Sphere
-63763531030908	Mouseover 	Red Sphere
-63763531030913	Mouseover 	Red Sphere
-63763531030922	Mouseover 	Red Sphere
-63763531030931	Mouseover 	Red Sphere
-63763531030943	Mouseover 	Red Sphere
-63763531030951	Mouseover 	Red Sphere
-63763531030963	Mouseover 	Red Sphere
-63763531030969	Mouseover 	Red Sphere
-63763531030984	Mouseover 	Red Sphere
-63763531030991	Mouseover 	Red Sphere
-63763531031002	Mouseover 	Red Sphere
-63763531031010	Mouseover 	Red Sphere
-63763531031023	Mouseover 	Red Sphere
-63763531031035	Mouseover 	Red Sphere
-63763531031050	Mouseover 	Red Sphere
-63763531031060	Mouseover 	Red Sphere
-63763531031072	Mouseover 	Red Sphere
-63763531031085	Mouseover 	Red Sphere
-63763531031089	Mouseover 	Red Sphere
-63763531031098	Mouseover 	Red Sphere
-63763531031111	Mouseover 	Red Sphere
-63763531031118	Mouseover 	Red Sphere
-63763531031126	Mouseover 	Red Sphere
-63763531031139	Mouseover 	Red Sphere
-63763531031145	Mouseover 	Red Sphere
-63763531031154	Mouseover 	Red Sphere
-63763531031169	Mouseover 	Red Sphere
-63763531031173	Mouseover 	Red Sphere
-63763531031184	Mouseover 	Red Sphere
-63763531031199	Mouseover 	Red Sphere
-63763531031206	Mouseover 	Red Sphere
-63763531031209	Mouseover 	Red Sphere
-63763531031218	Mouseover 	Red Sphere
-63763531031226	Mouseover 	Red Sphere
-63763531031239	Mouseover 	Red Sphere
-63763531031255	Mouseover 	Red Sphere
-63763531031264	Mouseover 	Red Sphere
-63763531031275	Mouseover 	Red Sphere
-63763531031287	Mouseover 	Red Sphere
-63763531031294	Mouseover 	Red Sphere
-63763531031307	Mouseover 	Red Sphere
-63763531031320	Mouseover 	Red Sphere
-63763531031333	Mouseover 	Red Sphere
-63763531031338	Mouseover 	Red Sphere
-63763531031352	Mouseover 	Red Sphere
-63763531031359	Mouseover 	Red Sphere
-63763531031371	Mouseover 	Red Sphere
-63763531031378	Mouseover 	Red Sphere
-63763531031391	Mouseover 	Red Sphere
-63763531031403	Mouseover 	Red Sphere
-63763531031413	Mouseover 	Red Sphere
-63763531031418	Mouseover 	Red Sphere
-63763531031427	Mouseover 	Red Sphere
-63763531031445	Mouseover 	Red Sphere
-63763531031449	Mouseover 	Red Sphere
-63763531031458	Mouseover 	Red Sphere
-63763531031468	Mouseover 	Red Sphere
-63763531031478	Mouseover 	Red Sphere
-63763531031492	Mouseover 	Red Sphere
-63763531031498	Mouseover 	Red Sphere
-63763531031506	Mouseover 	Red Sphere
-63763531031509	Mouseover 	Red Sphere
-63763531031523	Mouseover 	Red Sphere
-63763531031534	Mouseover 	Red Sphere
-63763531031537	Mouseover 	Red Sphere
-63763531031551	Mouseover 	Red Sphere
-63763531031557	Mouseover 	Red Sphere
-63763531031570	Mouseover 	Red Sphere
-63763531031588	Mouseover 	Red Sphere
-63763531031594	Mouseover 	Red Sphere
-63763531031607	Mouseover 	Red Sphere
-63763531031613	Mouseover 	Red Sphere
-63763531031622	Mouseover 	Red Sphere
-63763531031625	Mouseover 	Red Sphere
-63763531031634	Mouseover 	Red Sphere
-63763531031642	Mouseover 	Red Sphere
-63763531031658	Mouseover 	Red Sphere
-63763531031671	Mouseover 	Red Sphere
-63763531031678	Mouseover 	Red Sphere
-63763531031691	Mouseover 	Red Sphere
-63763531031697	Mouseover 	Red Sphere
-63763531031706	Mouseover 	Red Sphere
-63763531031715	Mouseover 	Red Sphere
-63763531031726	Mouseover 	Red Sphere
-63763531031735	Mouseover 	Red Sphere
-63763531031749	Mouseover 	Red Sphere
-63763531031759	Mouseover 	Red Sphere
-63763531031769	Mouseover 	Red Sphere
-63763531031775	Mouseover 	Red Sphere
-63763531031787	Mouseover 	Red Sphere
-63763531035475	Mouseover 	Red Sphere
-63763531035488	Mouseover 	Red Sphere
-63763531035498	Mouseover 	Red Sphere
-63763531035502	Mouseover 	Red Sphere
-63763531035510	Mouseover 	Red Sphere
-63763531048978	Mouseover 	Chips_Bag
-63763531052489	Mouseover 	Scooter
-63763531052500	Mouseover 	Scooter
-63763531052515	Mouseover 	Scooter
-63763531052528	Mouseover 	Scooter
-63763531052536	Mouseover 	Scooter
-63763531052549	Mouseover 	Scooter
-63763531052554	Mouseover 	Scooter
-63763531052570	Mouseover 	Scooter
-63763531052581	Mouseover 	Scooter
-63763531052591	Mouseover 	Scooter
-63763531052611	Mouseover 	Scooter
-63763531052623	Mouseover 	Scooter
-63763531052647	Mouseover 	Scooter
-63763531052661	Mouseover 	Scooter
-63763531052669	Mouseover 	Scooter
-63763531052693	Mouseover 	Scooter
-63763531053600	Mouseover 	Chips_Bag
-63763531053620	Mouseover 	Chips_Bag
-63763531055478	Mouseover 	Bicycle
-63763531055488	Mouseover 	Bicycle
-63763531055518	Mouseover 	Bicycle
-63763531055532	Mouseover 	Bicycle
-63763531055541	Mouseover 	Bicycle
-63763531055553	Mouseover 	Bicycle
-63763531055561	Mouseover 	Bicycle
-63763531055579	Mouseover 	Bicycle
-63763531055591	Mouseover 	Bicycle
-63763531055605	Mouseover 	Bicycle
-63763531055643	Mouseover 	Bicycle
-63763531055786	Mouseover 	Bicycle
-63763531055798	Mouseover 	Bicycle
-63763531055811	Mouseover 	Bicycle
-63763531055830	Mouseover 	Bicycle
-63763531055839	Mouseover 	Bicycle
-63763531055855	Mouseover 	Bicycle
-63763531055865	Mouseover 	Bicycle
-63763531055871	Mouseover 	Bicycle
-63763531055887	Mouseover 	Bicycle
-63763531055898	Mouseover 	Bicycle
-63763531055903	Mouseover 	Bicycle
-63763531055918	Mouseover 	Bicycle
-63763531055936	Mouseover 	Bicycle
-63763531055947	Mouseover 	Bicycle
-63763531055958	Mouseover 	Bicycle
-63763531055972	Mouseover 	Bicycle
-63763531055979	Mouseover 	Bicycle
-63763531055984	Mouseover 	Bicycle
-63763531055990	Mouseover 	Bicycle
-63763531055999	Mouseover 	Bicycle
-63763531056040	Mouseover 	Bicycle
-63763531056053	Mouseover 	Bicycle
-63763531056064	Mouseover 	Bicycle
-63763531056072	Mouseover 	Bicycle
-63763531056085	Mouseover 	Bicycle
-63763531057829	Mouseover 	Red Sphere
-63763531057840	Mouseover 	Red Sphere
-63763531057854	Mouseover 	Red Sphere
-63763531057859	Mouseover 	Red Sphere
-63763531057875	Mouseover 	Red Sphere
-63763531057889	Mouseover 	Red Sphere
-63763531057899	Mouseover 	Red Sphere
-63763531057907	Mouseover 	Red Sphere
-63763531057917	Mouseover 	Red Sphere
-63763531057923	Mouseover 	Red Sphere
-63763531057971	Mouseover 	Red Sphere
-63763531057974	Mouseover 	Red Sphere
-63763531057988	Mouseover 	Red Sphere
-63763531057994	Mouseover 	Red Sphere
-63763531058003	Mouseover 	Red Sphere
-63763531058014	Mouseover 	Red Sphere
-63763531058023	Mouseover 	Red Sphere
-63763531058038	Mouseover 	Red Sphere
-63763531058056	Mouseover 	Red Sphere
-63763531058080	Mouseover 	Red Sphere
-63763531058119	Mouseover 	Red Sphere
-63763531058123	Mouseover 	Red Sphere
-63763531058140	Mouseover 	Red Sphere
-63763531058156	Mouseover 	Red Sphere
-63763531058200	Mouseover 	Red Sphere
-63763531058214	Mouseover 	Red Sphere
-63763531058224	Mouseover 	Red Sphere
-63763531058252	Mouseover 	Red Sphere
-63763531058259	Mouseover 	Red Sphere
-63763531058368	Mouseover 	Red Sphere
-63763531058434	Mouseover 	Red Sphere
-63763531058451	Mouseover 	Red Sphere
-63763531058471	Mouseover 	Red Sphere
-63763531058475	Mouseover 	Red Sphere
-63763
+63763602407503	TASK_END	InitializeExperiment	TaskList	1733
+63763602407506	TASK_START	BeginMessage	InstructionsTask
+63763602409404	INPUT_EVENT    PlayerPressedActionButton    1
+63763602409404	TASK_END	BeginMessage	InstructionsTask	1898
+63763602409405	TASK_START	Tasks	TaskList
+63763602409405	TASK_START	TASK_SelectItems	TaskList
+63763602409406	TASK_START	ListItemSelectionTargets	ObjectList
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Red Sphere	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Blue Capsule	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Green Cylinder	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Orange Cube	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Soccer Ball	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Fries	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Tacos	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Pizza	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Wine_Bottle	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	IceCream_Cone	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	HotDog	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Chips_Bag	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Bicycle	null
+63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Scooter	null
+63763602409414	TASK_END	ListItemSelectionTargets	ObjectList	8
+63763602409418	TASK_START	ItemSelectionPlaceholders	LM_CreatePlaceHolders
+63763602409429	TASK_END	ItemSelectionPlaceholders	LM_CreatePlaceHolders	12
+63763602409430	TASK_START	ListItemSelectionPlaceholders	ObjectList
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63763602409439	TASK_END	ListItemSelectionPlaceholders	ObjectList	9
+63763602409455	TASK_START	CopyObjects	CopyChildObjects
+63763602409474	TASK_END	CopyObjects	CopyChildObjects	19
+63763602409475	TASK_START	ItemSelectionInstructions	InstructionsTask
+63763602410010	INPUT_EVENT    PlayerPressedActionButton    1
+63763602410010	TASK_END	ItemSelectionInstructions	InstructionsTask	535
+63763602410016	TASK_START	ItemSelection	SelectItems
+63763602421047	Mouseover 	Bicycle
+63763602421059	Mouseover 	Bicycle
+63763602421075	Mouseover 	Bicycle
+63763602421101	Mouseover 	Bicycle
+63763602421109	Mouseover 	Bicycle
+63763602421126	Mouseover 	Bicycle
+63763602421139	Mouseover 	Bicycle
+63763602421149	Mouseover 	Bicycle
+63763602421164	Mouseover 	Bicycle
+63763602421177	Mouseover 	Bicycle
+63763602421184	Mouseover 	Bicycle
+63763602421198	Mouseover 	Bicycle
+63763602421208	Mouseover 	Bicycle
+63763602421218	Mouseover 	Bicycle
+63763602421230	Mouseover 	Bicycle
+63763602421242	Mouseover 	Bicycle
+63763602421254	Mouseover 	Bicycle
+63763602421274	Mouseover 	Bicycle
+63763602421287	Mouseover 	Bicycle
+63763602421316	Mouseover 	Bicycle
+63763602421389	Mouseover 	Bicycle
+63763602421427	Mouseover 	Bicycle
+63763602421457	Mouseover 	Bicycle
+63763602421464	Mouseover 	Bicycle
+63763602421489	Mouseover 	Bicycle
+63763602421503	Mouseover 	Bicycle
+63763602421524	Mouseover 	Bicycle
+63763602421537	Mouseover 	Bicycle
+63763602421551	Mouseover 	Bicycle
+63763602421561	Mouseover 	Bicycle
+63763602421582	Mouseover 	Bicycle
+63763602421592	Mouseover 	Bicycle
+63763602421608	Mouseover 	Bicycle
+63763602421642	Mouseover 	Bicycle
+63763602421661	Mouseover 	Bicycle
+63763602421668	Mouseover 	Bicycle
+63763602421689	Mouseover 	Bicycle
+63763602421702	Mouseover 	Bicycle
+63763602421728	Mouseover 	Bicycle
+63763602421740	Mouseover 	Bicycle
+63763602421748	Mouseover 	Bicycle
+63763602421763	Mouseover 	Bicycle
+63763602421778	Mouseover 	Bicycle
+63763602421795	Mouseover 	Bicycle
+63763602421810	Mouseover 	Bicycle
+63763602421820	Mouseover 	Bicycle
+63763602421843	Mouseover 	Bicycle
+63763602421870	Mouseover 	Bicycle
+63763602421926	Mouseover 	Bicycle
+63763602421969	Mouseover 	Bicycle
+63763602421988	Mouseover 	Bicycle
+63763602421997	Mouseover 	Bicycle
+63763602422029	Mouseover 	Bicycle
+63763602422043	Mouseover 	Bicycle
+63763602422053	Mouseover 	Bicycle
+63763602422070	Mouseover 	Bicycle
+63763602422096	Mouseover 	Bicycle
+63763602422106	Mouseover 	Bicycle
+63763602422123	Mouseover 	Bicycle
+63763602422136	Mouseover 	Bicycle
+63763602422163	Mouseover 	Bicycle
+63763602422187	Mouseover 	Bicycle
+63763602422192	Mouseover 	Bicycle
+63763602422204	Mouseover 	Bicycle
+63763602422218	Mouseover 	Bicycle
+63763602422229	Mouseover 	Bicycle
+63763602422247	Mouseover 	Bicycle
+63763602422264	Mouseover 	Bicycle
+63763602422276	Mouseover 	Orange Cube
+63763602426886	Mouseover 	Orange Cube
+63763602426903	Mouseover 	Bicycle
+63763602426920	Mouseover 	Bicycle
+63763602426929	Mouseover 	Bicycle
+63763602426949	Mouseover 	Bicycle
+63763602426962	Mouseover 	Bicycle
+63763602426977	Mouseover 	Bicycle
+63763602426986	Mouseover 	Bicycle
+63763602426999	Mouseover 	Bicycle
+63763602427010	Mouseover 	Bicycle
+63763602429768	Mouseover 	Scooter
+63763602429775	Mouseover 	Scooter
+63763602520403	Mouseover 	Soccer Ball
+63763602520425	Mouseover 	Soccer Ball
+63763602520574	Mouseover 	Blue Capsule
+63763602520622	Mouseover 	Blue Capsule
+63763602521050	Mouseover 	Blue Capsule
+63763602521081	Mouseover 	Blue Capsule
+63763602521100	Mouseover 	Blue Capsule
+63763602521114	Mouseover 	Blue Capsule
+63763602521139	Mouseover 	Blue Capsule
+63763602521164	Mouseover 	Blue Capsule
+63763602521210	Mouseover 	Blue Capsule
+63763602521215	Mouseover 	Blue Capsule
+63763602521233	Mouseover 	Blue Capsule
+63763602521258	Mouseover 	Blue Capsule
+63763602521281	Mouseover 	Blue Capsule
+63763602521306	Mouseover 	Blue Capsule
+63763602521320	Mouseover 	Blue Capsule
+63763602521342	Mouseover 	Blue Capsule
+63763602521354	Mouseover 	Blue Capsule
+63763602521366	Mouseover 	Blue Capsule
+63763602521387	Mouseover 	Blue Capsule
+63763602521419	Mouseover 	Blue Capsule
+63763602521432	Mouseover 	Blue Capsule
+63763602521461	Mouseover 	Blue Capsule
+63763602521509	Mouseover 	Blue Capsule
+63763602521530	Mouseover 	Blue Capsule
+63763602521556	Mouseover 	Blue Capsule
+63763602521568	Mouseover 	Blue Capsule
+63763602521586	Mouseover 	Blue Capsule
+63763602521602	Mouseover 	Blue Capsule
+63763602521631	Mouseover 	Blue Capsule
+63763602521650	Mouseover 	Blue Capsule
+63763602521659	Mouseover 	Blue Capsule
+63763602521696	Mouseover 	Blue Capsule
+63763602521717	Mouseover 	Blue Capsule
+63763602521725	Mouseover 	Blue Capsule
+63763602521743	Mouseover 	Blue Capsule
+63763602521768	Mouseover 	Bl

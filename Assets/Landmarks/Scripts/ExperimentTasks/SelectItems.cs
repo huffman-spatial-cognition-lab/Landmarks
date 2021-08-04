@@ -56,7 +56,7 @@ public class SelectItems : ExperimentTask
 	public float offsetZ = 0.0f;  // same as above, but for the Z dimension
 	private float minX = 1010f;  // the maximum X value
 	private float maxX = 1025f;  // the minumum X value
-	private float minZ = 975f;  // the maximum Z value
+	private float minZ = 955f;  // the maximum Z value
 	private float maxZ = 1025f;  // the minumum Z value
 
 	public override void startTask()
@@ -101,7 +101,7 @@ public class SelectItems : ExperimentTask
 			// Flatten out environment buildings so stores are clearly visible
 			GameObject.FindWithTag("Environment").transform.localScale = new Vector3(baselineScaling.x, 0.01F, baselineScaling.z);
 			//Flatten out the copied target stores
-			//GameObject.Find("CopyObjects").transform.localScale = new Vector3(baselineScaling.x, 0.01f, baselineScaling.z);
+			GameObject.Find("CopyObjects").transform.localScale = new Vector3(baselineScaling.x, 0.01f, baselineScaling.z);
 		}
 
 		// Change text and turn on the map action button

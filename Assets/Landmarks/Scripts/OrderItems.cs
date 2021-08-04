@@ -40,12 +40,13 @@ public class OrderItems : ExperimentTask {
   public string buttonText = "Finished";
   public int numSelectedItems = 0;
   private Vector3 Pos;
-  List<GameObject> arrayItems = new List<GameObject>();
+  //List<GameObject> arrayItems = new List<GameObject>();
   List<GameObject> orderItems = new List<GameObject>();
 
   public TextMeshProUGUI countText;
   private int count;
   private int e;
+  public GameObject OrderedTargets;
 
 
 	public override void startTask ()
@@ -408,8 +409,27 @@ public class OrderItems : ExperimentTask {
               SeeList();
             }
           }
+          //for (int i =0; i < 1; i++)
+          //{
+            //orderItems[i].name = nameOrder;
+            //TargetObjects.nameOrder.transform.SetSiblingIndex(i);
+          //}
+          foreach(GameObject activeTarget in orderItems)
+          {
+            OrderedTargets = GameObject.Find("OrderedTargets");
+            OrderedTargets.Add(activeTarget);
+          }
     }
   }
+
+  //for targetobj i in targets
+//  int counter = 0
+//    for order obj j in order_list
+//      if(targetobj i.name == order obj)
+//        counter ++ =counter
+
+
+
 
   void SeeList()
   {
@@ -427,6 +447,7 @@ public class OrderItems : ExperimentTask {
       Debug.Log("Finished");
     }
   }
+
 
     // Calculate the planar distance between placement and targets (i.e., ignore the y-axis height of the copies)
     private float vector2DDistance(Vector3 v1, Vector3 v2)

@@ -82,17 +82,17 @@ public class LM_CreatePlaceHolders : ExperimentTask
         // Updated:
         if(i <= 4)
         {
-          placeholder.transform.localPosition = new Vector3(offsetX, 0.0f, offsetZ + (-1 * i * placeholderSpacing));
+          placeholder.transform.localPosition = new Vector3(offsetX, 1.5f, offsetZ + (-1 * i * placeholderSpacing));
 
         }
         else if(i >= 5 &&
         i <= 9)
         {
-          placeholder.transform.localPosition = new Vector3(offsetX2, 0.0f, offsetZ2 + (-1 * i * placeholderSpacing));
+          placeholder.transform.localPosition = new Vector3(offsetX2, 1.5f, offsetZ2 + (-1 * i * placeholderSpacing));
         }
         else if(i >= 9)
         {
-          placeholder.transform.localPosition = new Vector3(offsetX3, 0.0f, offsetZ3 + (-1 * i * placeholderSpacing));
+          placeholder.transform.localPosition = new Vector3(offsetX3, 1.5f, offsetZ3 + (-1 * i * placeholderSpacing));
 
         }
 
