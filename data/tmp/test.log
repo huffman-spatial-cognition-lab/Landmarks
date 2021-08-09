@@ -1,238 +1,769 @@
-63763602405605	EXPERIMENT:		SUBJECT:	default	START_SCENE	PPT_Sophia1	START_CONDITION:	default	UI:	KeyboardMouse
-63763602405769	TASK_START	LM_Timeline	TaskList
-63763602405770	TASK_START	InitializeExperiment	TaskList
-63763602405771	TASK_START	UpdateTargetObjects	LM_UpdateTargetObjects
-63763602405811	TASK_END	UpdateTargetObjects	LM_UpdateTargetObjects	40
-63763602405813	TASK_START	AssignTargetColors	LM_TargetColorAssignments
-63763602405940	TASK_END	AssignTargetColors	LM_TargetColorAssignments	127
-63763602405941	TASK_START	PlaceTargets	TaskList
-63763602405943	TASK_START	ListTargetLocations	ObjectList
-63763602405943	TASK_ADD	ListTargetLocations	ObjectList	Target01	null
-63763602405943	TASK_ADD	ListTargetLocations	ObjectList	Target02	null
-63763602405943	TASK_ADD	ListTargetLocations	ObjectList	Target03	null
-63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target04	null
-63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target05	null
-63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target06	null
-63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target07	null
-63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target08	null
-63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target09	null
-63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target10	null
-63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target11	null
-63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target12	null
-63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target13	null
-63763602405944	TASK_ADD	ListTargetLocations	ObjectList	Target14	null
-63763602407392	TASK_END	ListTargetLocations	ObjectList	1449
-63763602407394	TASK_START	ListTargets	ObjectList
-63763602407394	TASK_ADD	ListTargets	ObjectList	Scooter	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Pizza	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	HotDog	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Blue Capsule	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Fries	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Orange Cube	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Chips_Bag	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Green Cylinder	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Tacos	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Wine_Bottle	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	IceCream_Cone	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Bicycle	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Soccer Ball	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Red Sphere	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	PREFAB_Hat_Party	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Skateboard	null
-63763602407394	TASK_ADD	ListTargets	ObjectList	Burger	null
-63763602407469	TASK_END	ListTargets	ObjectList	75
-63763602407472	TASK_START	PopulateTargets	MoveObjects
-63763602407475	TARGET INFORMATION ----------------------------------------
-63763602407475	Target01: 	Scooter	Position: 	-20.6	1	7.099976	Rotation: 	0	0	0
-63763602407475	Target02: 	Pizza	Position: 	-20.9	1	-12.09998	Rotation: 	0	0	0
-63763602407475	Target03: 	HotDog	Position: 	10	1	10	Rotation: 	0	0	0
-63763602407475	Target04: 	Blue Capsule	Position: 	-14.3	1	-9.799988	Rotation: 	90	0	0
-63763602407475	Target05: 	Fries	Position: 	-14.6	1	-0.2000122	Rotation: 	0	0	0
-63763602407475	Target06: 	Orange Cube	Position: 	-7.4	1	18.70001	Rotation: 	0	0	0
-63763602407475	Target07: 	Chips_Bag	Position: 	-6.5	1	1.799988	Rotation: 	0	90	0
-63763602407475	Target08: 	Green Cylinder	Position: 	-5.8	1	-17.90002	Rotation: 	0	0	0
-63763602407475	Target09: 	Tacos	Position: 	1.2	1	-17	Rotation: 	0	0	0
-63763602407475	Target10: 	Wine_Bottle	Position: 	18.9	1	-19.09998	Rotation: 	0	0	0
-63763602407475	Target11: 	IceCream_Cone	Position: 	19.4	1	17.90002	Rotation: 	0	0	0
-63763602407475	Target12: 	Bicycle	Position: 	14.6	1	0.9000244	Rotation: 	0	0	0
-63763602407475	Target13: 	Soccer Ball	Position: 	3.2	1	-5.599976	Rotation: 	0	0	0
-63763602407475	Target14: 	Red Sphere	Position: 	-21.1	1	-16.17999	Rotation: 	0	0	0
-63763602407475	-----------------------------------------------------------/
-63763602407492	TASK_END	PopulateTargets	MoveObjects	20
-63763602407493	LM_Output	TaskList
+63764118665087	EXPERIMENT:		SUBJECT:	default	START_SCENE	PPT_Sophia1	START_CONDITION:	default	UI:	KeyboardMouse
+63764118665260	TASK_START	LM_Timeline	TaskList
+63764118665260	TASK_START	InitializeExperiment	TaskList
+63764118665261	TASK_START	UpdateTargetObjects	LM_UpdateTargetObjects
+63764118665340	TASK_END	UpdateTargetObjects	LM_UpdateTargetObjects	79
+63764118665343	TASK_START	AssignTargetColors	LM_TargetColorAssignments
+63764118665489	TASK_END	AssignTargetColors	LM_TargetColorAssignments	146
+63764118665489	TASK_START	PlaceTargets	TaskList
+63764118665491	TASK_START	ListTargetLocations	ObjectList
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target01	null
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target02	null
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target03	null
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target04	null
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target05	null
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target06	null
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target07	null
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target08	null
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target09	null
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target10	null
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target11	null
+63764118665491	TASK_ADD	ListTargetLocations	ObjectList	Target12	null
+63764118665492	TASK_ADD	ListTargetLocations	ObjectList	Target13	null
+63764118665492	TASK_ADD	ListTargetLocations	ObjectList	Target14	null
+63764118667266	TASK_END	ListTargetLocations	ObjectList	1775
+63764118667268	TASK_START	ListTargets	ObjectList
+63764118667268	TASK_ADD	ListTargets	ObjectList	Soccer Ball	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Fries	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Green Cylinder	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Red Sphere	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Orange Cube	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Wine_Bottle	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Blue Capsule	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Tacos	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Skateboard	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Burger	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	PREFAB_Hat_Party	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Pizza	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Bicycle	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Scooter	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	Chips_Bag	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	IceCream_Cone	null
+63764118667268	TASK_ADD	ListTargets	ObjectList	HotDog	null
+63764118667320	TASK_END	ListTargets	ObjectList	52
+63764118667323	TASK_START	PopulateTargets	MoveObjects
+63764118667327	TARGET INFORMATION ----------------------------------------
+63764118667328	Target01: 	Soccer Ball	Position: 	-20.6	1	7.099976	Rotation: 	0	0	0
+63764118667328	Target02: 	Fries	Position: 	-20.9	1	-12.09998	Rotation: 	0	0	0
+63764118667328	Target03: 	Green Cylinder	Position: 	10	1	10	Rotation: 	0	0	0
+63764118667328	Target04: 	Red Sphere	Position: 	-14.3	1	-9.799988	Rotation: 	0	0	0
+63764118667328	Target05: 	Orange Cube	Position: 	-14.6	1	-0.2000122	Rotation: 	0	0	0
+63764118667328	Target06: 	Wine_Bottle	Position: 	-7.4	1	18.70001	Rotation: 	0	0	0
+63764118667329	Target07: 	Blue Capsule	Position: 	-6.5	1	1.799988	Rotation: 	90	0	0
+63764118667329	Target08: 	Tacos	Position: 	-5.8	1	-17.90002	Rotation: 	0	0	0
+63764118667329	Target09: 	Skateboard	Position: 	1.2	1	-17	Rotation: 	0	0	0
+63764118667329	Target10: 	Burger	Position: 	18.9	1	-19.09998	Rotation: 	0	0	0
+63764118667329	Target11: 	PREFAB_Hat_Party	Position: 	19.4	1	17.90002	Rotation: 	0	0	0
+63764118667329	Target12: 	Pizza	Position: 	14.6	1	0.9000244	Rotation: 	0	0	0
+63764118667329	Target13: 	Bicycle	Position: 	3.2	1	-5.599976	Rotation: 	0	0	0
+63764118667329	Target14: 	Scooter	Position: 	-21.1	1	-16.17999	Rotation: 	0	0	0
+63764118667329	-----------------------------------------------------------/
+63764118667342	TASK_END	PopulateTargets	MoveObjects	19
+63764118667343	LM_Output	TaskList
 TaskListName	RepetitionNumber	CatchFlag
 PlaceTargets1False
-63763602407493	TASK_END	PlaceTargets	TaskList	1552
-63763602407494	TASK_START	ListNavigationStarts	ObjectList
-63763602407494	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation03	null
-63763602407494	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation02	null
-63763602407494	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation01	null
-63763602407503	TASK_END	ListNavigationStarts	ObjectList	9
-63763602407503	LM_Output	TaskList
+63764118667343	TASK_END	PlaceTargets	TaskList	1854
+63764118667344	TASK_START	ListNavigationStarts	ObjectList
+63764118667344	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation02	null
+63764118667344	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation01	null
+63764118667344	TASK_ADD	ListNavigationStarts	ObjectList	StartLocation03	null
+63764118667354	TASK_END	ListNavigationStarts	ObjectList	10
+63764118667354	LM_Output	TaskList
 TaskListName	RepetitionNumber	CatchFlag
 InitializeExperiment1False
-63763602407503	TASK_END	InitializeExperiment	TaskList	1733
-63763602407506	TASK_START	BeginMessage	InstructionsTask
-63763602409404	INPUT_EVENT    PlayerPressedActionButton    1
-63763602409404	TASK_END	BeginMessage	InstructionsTask	1898
-63763602409405	TASK_START	Tasks	TaskList
-63763602409405	TASK_START	TASK_SelectItems	TaskList
-63763602409406	TASK_START	ListItemSelectionTargets	ObjectList
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Red Sphere	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Blue Capsule	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Green Cylinder	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Orange Cube	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Soccer Ball	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Fries	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Tacos	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Pizza	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Wine_Bottle	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	IceCream_Cone	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	HotDog	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Chips_Bag	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Bicycle	null
-63763602409406	TASK_ADD	ListItemSelectionTargets	ObjectList	Scooter	null
-63763602409414	TASK_END	ListItemSelectionTargets	ObjectList	8
-63763602409418	TASK_START	ItemSelectionPlaceholders	LM_CreatePlaceHolders
-63763602409429	TASK_END	ItemSelectionPlaceholders	LM_CreatePlaceHolders	12
-63763602409430	TASK_START	ListItemSelectionPlaceholders	ObjectList
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409430	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
-63763602409439	TASK_END	ListItemSelectionPlaceholders	ObjectList	9
-63763602409455	TASK_START	CopyObjects	CopyChildObjects
-63763602409474	TASK_END	CopyObjects	CopyChildObjects	19
-63763602409475	TASK_START	ItemSelectionInstructions	InstructionsTask
-63763602410010	INPUT_EVENT    PlayerPressedActionButton    1
-63763602410010	TASK_END	ItemSelectionInstructions	InstructionsTask	535
-63763602410016	TASK_START	ItemSelection	SelectItems
-63763602421047	Mouseover 	Bicycle
-63763602421059	Mouseover 	Bicycle
-63763602421075	Mouseover 	Bicycle
-63763602421101	Mouseover 	Bicycle
-63763602421109	Mouseover 	Bicycle
-63763602421126	Mouseover 	Bicycle
-63763602421139	Mouseover 	Bicycle
-63763602421149	Mouseover 	Bicycle
-63763602421164	Mouseover 	Bicycle
-63763602421177	Mouseover 	Bicycle
-63763602421184	Mouseover 	Bicycle
-63763602421198	Mouseover 	Bicycle
-63763602421208	Mouseover 	Bicycle
-63763602421218	Mouseover 	Bicycle
-63763602421230	Mouseover 	Bicycle
-63763602421242	Mouseover 	Bicycle
-63763602421254	Mouseover 	Bicycle
-63763602421274	Mouseover 	Bicycle
-63763602421287	Mouseover 	Bicycle
-63763602421316	Mouseover 	Bicycle
-63763602421389	Mouseover 	Bicycle
-63763602421427	Mouseover 	Bicycle
-63763602421457	Mouseover 	Bicycle
-63763602421464	Mouseover 	Bicycle
-63763602421489	Mouseover 	Bicycle
-63763602421503	Mouseover 	Bicycle
-63763602421524	Mouseover 	Bicycle
-63763602421537	Mouseover 	Bicycle
-63763602421551	Mouseover 	Bicycle
-63763602421561	Mouseover 	Bicycle
-63763602421582	Mouseover 	Bicycle
-63763602421592	Mouseover 	Bicycle
-63763602421608	Mouseover 	Bicycle
-63763602421642	Mouseover 	Bicycle
-63763602421661	Mouseover 	Bicycle
-63763602421668	Mouseover 	Bicycle
-63763602421689	Mouseover 	Bicycle
-63763602421702	Mouseover 	Bicycle
-63763602421728	Mouseover 	Bicycle
-63763602421740	Mouseover 	Bicycle
-63763602421748	Mouseover 	Bicycle
-63763602421763	Mouseover 	Bicycle
-63763602421778	Mouseover 	Bicycle
-63763602421795	Mouseover 	Bicycle
-63763602421810	Mouseover 	Bicycle
-63763602421820	Mouseover 	Bicycle
-63763602421843	Mouseover 	Bicycle
-63763602421870	Mouseover 	Bicycle
-63763602421926	Mouseover 	Bicycle
-63763602421969	Mouseover 	Bicycle
-63763602421988	Mouseover 	Bicycle
-63763602421997	Mouseover 	Bicycle
-63763602422029	Mouseover 	Bicycle
-63763602422043	Mouseover 	Bicycle
-63763602422053	Mouseover 	Bicycle
-63763602422070	Mouseover 	Bicycle
-63763602422096	Mouseover 	Bicycle
-63763602422106	Mouseover 	Bicycle
-63763602422123	Mouseover 	Bicycle
-63763602422136	Mouseover 	Bicycle
-63763602422163	Mouseover 	Bicycle
-63763602422187	Mouseover 	Bicycle
-63763602422192	Mouseover 	Bicycle
-63763602422204	Mouseover 	Bicycle
-63763602422218	Mouseover 	Bicycle
-63763602422229	Mouseover 	Bicycle
-63763602422247	Mouseover 	Bicycle
-63763602422264	Mouseover 	Bicycle
-63763602422276	Mouseover 	Orange Cube
-63763602426886	Mouseover 	Orange Cube
-63763602426903	Mouseover 	Bicycle
-63763602426920	Mouseover 	Bicycle
-63763602426929	Mouseover 	Bicycle
-63763602426949	Mouseover 	Bicycle
-63763602426962	Mouseover 	Bicycle
-63763602426977	Mouseover 	Bicycle
-63763602426986	Mouseover 	Bicycle
-63763602426999	Mouseover 	Bicycle
-63763602427010	Mouseover 	Bicycle
-63763602429768	Mouseover 	Scooter
-63763602429775	Mouseover 	Scooter
-63763602520403	Mouseover 	Soccer Ball
-63763602520425	Mouseover 	Soccer Ball
-63763602520574	Mouseover 	Blue Capsule
-63763602520622	Mouseover 	Blue Capsule
-63763602521050	Mouseover 	Blue Capsule
-63763602521081	Mouseover 	Blue Capsule
-63763602521100	Mouseover 	Blue Capsule
-63763602521114	Mouseover 	Blue Capsule
-63763602521139	Mouseover 	Blue Capsule
-63763602521164	Mouseover 	Blue Capsule
-63763602521210	Mouseover 	Blue Capsule
-63763602521215	Mouseover 	Blue Capsule
-63763602521233	Mouseover 	Blue Capsule
-63763602521258	Mouseover 	Blue Capsule
-63763602521281	Mouseover 	Blue Capsule
-63763602521306	Mouseover 	Blue Capsule
-63763602521320	Mouseover 	Blue Capsule
-63763602521342	Mouseover 	Blue Capsule
-63763602521354	Mouseover 	Blue Capsule
-63763602521366	Mouseover 	Blue Capsule
-63763602521387	Mouseover 	Blue Capsule
-63763602521419	Mouseover 	Blue Capsule
-63763602521432	Mouseover 	Blue Capsule
-63763602521461	Mouseover 	Blue Capsule
-63763602521509	Mouseover 	Blue Capsule
-63763602521530	Mouseover 	Blue Capsule
-63763602521556	Mouseover 	Blue Capsule
-63763602521568	Mouseover 	Blue Capsule
-63763602521586	Mouseover 	Blue Capsule
-63763602521602	Mouseover 	Blue Capsule
-63763602521631	Mouseover 	Blue Capsule
-63763602521650	Mouseover 	Blue Capsule
-63763602521659	Mouseover 	Blue Capsule
-63763602521696	Mouseover 	Blue Capsule
-63763602521717	Mouseover 	Blue Capsule
-63763602521725	Mouseover 	Blue Capsule
-63763602521743	Mouseover 	Blue Capsule
-63763602521768	Mouseover 	Bl
+63764118667354	TASK_END	InitializeExperiment	TaskList	2094
+63764118667357	TASK_START	BeginMessage	InstructionsTask
+63764118670195	INPUT_EVENT    PlayerPressedActionButton    1
+63764118670196	TASK_END	BeginMessage	InstructionsTask	2839
+63764118670197	TASK_START	Tasks	TaskList
+63764118670197	TASK_START	TASK_SelectItems	TaskList
+63764118670200	TASK_START	ListItemSelectionTargets	ObjectList
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Red Sphere	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Blue Capsule	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Green Cylinder	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Orange Cube	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	PREFAB_Hat_Party	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Soccer Ball	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Burger	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Fries	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Tacos	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Pizza	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Wine_Bottle	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Bicycle	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Skateboard	null
+63764118670200	TASK_ADD	ListItemSelectionTargets	ObjectList	Scooter	null
+63764118670206	TASK_END	ListItemSelectionTargets	ObjectList	6
+63764118670210	TASK_START	ItemSelectionPlaceholders	LM_CreatePlaceHolders
+63764118670222	TASK_END	ItemSelectionPlaceholders	LM_CreatePlaceHolders	12
+63764118670223	TASK_START	ListItemSelectionPlaceholders	ObjectList
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670223	TASK_ADD	ListItemSelectionPlaceholders	ObjectList	PlaceHolder	null
+63764118670233	TASK_END	ListItemSelectionPlaceholders	ObjectList	9
+63764118670235	TASK_START	CopyObjects	CopyChildObjects
+63764118670262	TASK_END	CopyObjects	CopyChildObjects	27
+63764118670263	TASK_START	ItemSelectionInstructions	InstructionsTask
+63764118670998	INPUT_EVENT    PlayerPressedActionButton    1
+63764118670998	TASK_END	ItemSelectionInstructions	InstructionsTask	735
+63764118671001	TASK_START	ItemSelection	SelectItems
+63764118671489	Mouseover 	Orange Cube
+63764118671497	Mouseover 	Orange Cube
+63764118671915	Mouseover 	Soccer Ball
+63764118671959	Mouseover 	Bicycle
+63764118671967	Mouseover 	Bicycle
+63764118671978	Mouseover 	Bicycle
+63764118671989	Mouseover 	Bicycle
+63764118672011	Mouseover 	Bicycle
+63764118672016	Mouseover 	Bicycle
+63764118672034	Mouseover 	Bicycle
+63764118672048	Mouseover 	Bicycle
+63764118672069	Mouseover 	Bicycle
+63764118672099	Mouseover 	Bicycle
+63764118672136	Mouseover 	Bicycle
+63764118672151	Mouseover 	Bicycle
+63764118672192	Mouseover 	Bicycle
+63764118672213	Mouseover 	Bicycle
+63764118672223	Mouseover 	Bicycle
+63764118672245	Mouseover 	Bicycle
+63764118672257	Mouseover 	Bicycle
+63764118672270	Mouseover 	Bicycle
+63764118672283	Mouseover 	Bicycle
+63764118672300	Mouseover 	Bicycle
+63764118672316	Mouseover 	Bicycle
+63764118672331	Mouseover 	Bicycle
+63764118672336	Mouseover 	Bicycle
+63764118672351	Mouseover 	Bicycle
+63764118672360	Mouseover 	Bicycle
+63764118672385	Mouseover 	Bicycle
+63764118672395	Mouseover 	Bicycle
+63764118672418	Mouseover 	Bicycle
+63764118672427	Mouseover 	Bicycle
+63764118672448	Mouseover 	Bicycle
+63764118672469	Mouseover 	Bicycle
+63764118672481	Mouseover 	Bicycle
+63764118672506	Mouseover 	Bicycle
+63764118672530	Mouseover 	Bicycle
+63764118672538	Mouseover 	Bicycle
+63764118672559	Mouseover 	Bicycle
+63764118672574	Mouseover 	Bicycle
+63764118672588	Mouseover 	Bicycle
+63764118672604	Mouseover 	Bicycle
+63764118672606	Moving :	Bicycle	Position (xyz): 	1008.017	0.2000008	994.0656	Rotation (xyz): 	0	0	0
+63764118672646	Mouseover 	Bicycle
+63764118672646	Moving :	Bicycle	Position (xyz): 	1008.017	0.2000008	994.0656	Rotation (xyz): 	0	0	0
+63764118672660	Mouseover 	Bicycle
+63764118672660	Moving :	Bicycle	Position (xyz): 	1008.017	0.2000008	994.0656	Rotation (xyz): 	0	0	0
+63764118672685	Mouseover 	Bicycle
+63764118672686	Moving :	Bicycle	Position (xyz): 	1008.017	0.2000008	994.0656	Rotation (xyz): 	0	0	0
+63764118672700	Mouseover 	Bicycle
+63764118672700	Moving :	Bicycle	Position (xyz): 	1008.017	0.2000008	994.0656	Rotation (xyz): 	0	0	0
+63764118672704	Mouseover 	Bicycle
+63764118672704	Moving :	Bicycle	Position (xyz): 	1008.017	0.2000008	994.0656	Rotation (xyz): 	0	0	0
+63764118672717	Mouseover 	Bicycle
+63764118672717	Moving :	Bicycle	Position (xyz): 	1008.017	0.2000008	994.0656	Rotation (xyz): 	0	0	0
+63764118672745	Mouseover 	Bicycle
+63764118672745	Moving :	Bicycle	Position (xyz): 	1008.017	0.2000008	994.0656	Rotation (xyz): 	0	0	0
+63764118672758	Mouseover 	Bicycle
+63764118672758	Moving :	Bicycle	Position (xyz): 	1008.461	0.2000008	994.1666	Rotation (xyz): 	0	0	0
+63764118672773	Mouseover 	Bicycle
+63764118672773	Moving :	Bicycle	Position (xyz): 	1008.887	0.2000008	994.2688	Rotation (xyz): 	0	0	0
+63764118672785	Mouseover 	Bicycle
+63764118672785	Moving :	Bicycle	Position (xyz): 	1009.784	0.2000008	994.4781	Rotation (xyz): 	0	0	0
+63764118672798	Moving :	Bicycle	Position (xyz): 	1010.682	0.2000008	994.6934	Rotation (xyz): 	0	0	0
+63764118672813	Moving :	Bicycle	Position (xyz): 	1011.166	0.2000008	994.8036	Rotation (xyz): 	0	0	0
+63764118672829	Moving :	Bicycle	Position (xyz): 	1011.881	0.2000008	995.0901	Rotation (xyz): 	0	0	0
+63764118672854	Moving :	Bicycle	Position (xyz): 	1012.843	0.2000008	995.419	Rotation (xyz): 	0	0	0
+63764118672865	Moving :	Bicycle	Position (xyz): 	1012.843	0.2000008	995.419	Rotation (xyz): 	0	0	0
+63764118672878	Moving :	Bicycle	Position (xyz): 	1013.1	0.2000008	995.4785	Rotation (xyz): 	0	0	0
+63764118672890	Moving :	Bicycle	Position (xyz): 	1013.1	0.2000008	995.4785	Rotation (xyz): 	0	0	0
+63764118672901	Moving :	Bicycle	Position (xyz): 	1013.335	0.2000008	995.6361	Rotation (xyz): 	0	0	0
+63764118672915	Moving :	Bicycle	Position (xyz): 	1013.597	0.2000008	995.6969	Rotation (xyz): 	0	0	0
+63764118672930	Moving :	Bicycle	Position (xyz): 	1013.597	0.2000008	995.6969	Rotation (xyz): 	0	0	0
+63764118672937	Moving :	Bicycle	Position (xyz): 	1013.86	0.2000008	995.7581	Rotation (xyz): 	0	0	0
+63764118672959	Moving :	Bicycle	Position (xyz): 	1014.368	0.2000008	995.9805	Rotation (xyz): 	0	0	0
+63764118672973	Moving :	Bicycle	Position (xyz): 	1014.368	0.2000008	995.9805	Rotation (xyz): 	0	0	0
+63764118672984	Moving :	Bicycle	Position (xyz): 	1014.885	0.2000008	996.1075	Rotation (xyz): 	0	0	0
+63764118673002	Moving :	Bicycle	Position (xyz): 	1015.158	0.2000008	996.1716	Rotation (xyz): 	0	0	0
+63764118673009	Moving :	Bicycle	Position (xyz): 	1015.434	0.2000008	996.2362	Rotation (xyz): 	0	0	0
+63764118673023	Moving :	Bicycle	Position (xyz): 	1015.434	0.2000008	996.2362	Rotation (xyz): 	0	0	0
+63764118673037	Moving :	Bicycle	Position (xyz): 	1015.434	0.2000008	996.2362	Rotation (xyz): 	0	0	0
+63764118673051	Moving :	Bicycle	Position (xyz): 	1015.434	0.2000008	996.2362	Rotation (xyz): 	0	0	0
+63764118673070	Moving :	Bicycle	Position (xyz): 	1015.434	0.2000008	996.2362	Rotation (xyz): 	0	0	0
+63764118673078	Moving :	Bicycle	Position (xyz): 	1015.434	0.2000008	996.2362	Rotation (xyz): 	0	0	0
+63764118673090	Moving :	Bicycle	Position (xyz): 	1015.434	0.2000008	996.2362	Rotation (xyz): 	0	0	0
+63764118673106	Moving :	Bicycle	Position (xyz): 	1015.687	0.2000008	996.2015	Rotation (xyz): 	0	0	0
+63764118673116	Moving :	Bicycle	Position (xyz): 	1015.687	0.2000008	996.2015	Rotation (xyz): 	0	0	0
+63764118673129	Mouseover 	Bicycle
+63764118673129	Moving :	Bicycle	Position (xyz): 	1015.968	0.2000008	996.1655	Rotation (xyz): 	0	0	0
+63764118673138	Mouseover 	Bicycle
+63764118673138	Moving :	Bicycle	Position (xyz): 	1015.968	0.2000008	996.1655	Rotation (xyz): 	0	0	0
+63764118673146	Mouseover 	Bicycle
+63764118673146	Moving :	Bicycle	Position (xyz): 	1015.968	0.2000008	996.1655	Rotation (xyz): 	0	0	0
+63764118673160	Mouseover 	Bicycle
+63764118673171	Mouseover 	Bicycle
+63764118673176	Mouseover 	Bicycle
+63764118673191	Mouseover 	Bicycle
+63764118673202	Mouseover 	Bicycle
+63764118673218	Mouseover 	Bicycle
+63764118673231	Mouseover 	Bicycle
+63764118673237	Mouseover 	Bicycle
+63764118673252	Mouseover 	Bicycle
+63764118673262	Mouseover 	Bicycle
+63764118673277	Mouseover 	Bicycle
+63764118673290	Mouseover 	Bicycle
+63764118673297	Mouseover 	Bicycle
+63764118673313	Mouseover 	Bicycle
+63764118673322	Mouseover 	Bicycle
+63764118673397	Mouseover 	PREFAB_Hat_Party
+63764118673410	Mouseover 	PREFAB_Hat_Party
+63764118673417	Mouseover 	PREFAB_Hat_Party
+63764118673431	Mouseover 	PREFAB_Hat_Party
+63764118673451	Mouseover 	PREFAB_Hat_Party
+63764118673457	Mouseover 	PREFAB_Hat_Party
+63764118673476	Mouseover 	PREFAB_Hat_Party
+63764118673490	Mouseover 	PREFAB_Hat_Party
+63764118673497	Mouseover 	PREFAB_Hat_Party
+63764118673515	Mouseover 	PREFAB_Hat_Party
+63764118673529	Mouseover 	PREFAB_Hat_Party
+63764118673549	Mouseover 	PREFAB_Hat_Party
+63764118673560	Mouseover 	PREFAB_Hat_Party
+63764118673577	Mouseover 	PREFAB_Hat_Party
+63764118673587	Mouseover 	PREFAB_Hat_Party
+63764118673601	Mouseover 	PREFAB_Hat_Party
+63764118673614	Mouseover 	PREFAB_Hat_Party
+63764118673628	Mouseover 	PREFAB_Hat_Party
+63764118673632	Mouseover 	PREFAB_Hat_Party
+63764118673655	Mouseover 	PREFAB_Hat_Party
+63764118673669	Mouseover 	PREFAB_Hat_Party
+63764118673687	Mouseover 	PREFAB_Hat_Party
+63764118673697	Mouseover 	PREFAB_Hat_Party
+63764118673708	Mouseover 	PREFAB_Hat_Party
+63764118673719	Mouseover 	PREFAB_Hat_Party
+63764118673735	Mouseover 	PREFAB_Hat_Party
+63764118673746	Mouseover 	PREFAB_Hat_Party
+63764118673767	Mouseover 	PREFAB_Hat_Party
+63764118673777	Mouseover 	PREFAB_Hat_Party
+63764118673786	Mouseover 	PREFAB_Hat_Party
+63764118673806	Mouseover 	PREFAB_Hat_Party
+63764118673817	Mouseover 	PREFAB_Hat_Party
+63764118673827	Mouseover 	PREFAB_Hat_Party
+63764118673845	Mouseover 	PREFAB_Hat_Party
+63764118673845	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673859	Mouseover 	Soccer Ball
+63764118673859	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673866	Mouseover 	Soccer Ball
+63764118673866	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673883	Mouseover 	Soccer Ball
+63764118673883	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673896	Mouseover 	Soccer Ball
+63764118673896	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673906	Mouseover 	Soccer Ball
+63764118673906	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673912	Mouseover 	Soccer Ball
+63764118673912	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673932	Mouseover 	Soccer Ball
+63764118673932	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673946	Mouseover 	Soccer Ball
+63764118673946	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673959	Mouseover 	Soccer Ball
+63764118673959	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673965	Mouseover 	Soccer Ball
+63764118673967	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673982	Mouseover 	Soccer Ball
+63764118673982	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118673996	Mouseover 	Soccer Ball
+63764118673996	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118674009	Mouseover 	Soccer Ball
+63764118674009	Moving :	PREFAB_Hat_Party	Position (xyz): 	1004.813	0.2000008	979.7435	Rotation (xyz): 	0	0	0
+63764118674023	Mouseover 	Soccer Ball
+63764118674023	Moving :	PREFAB_Hat_Party	Position (xyz): 	1005.189	0.2000008	979.8262	Rotation (xyz): 	0	0	0
+63764118674037	Mouseover 	Soccer Ball
+63764118674037	Moving :	PREFAB_Hat_Party	Position (xyz): 	1006.371	0.2000008	980.2568	Rotation (xyz): 	0	0	0
+63764118674054	Mouseover 	Soccer Ball
+63764118674054	Moving :	PREFAB_Hat_Party	Position (xyz): 	1007.194	0.2000008	980.722	Rotation (xyz): 	0	0	0
+63764118674068	Mouseover 	PREFAB_Hat_Party
+63764118674068	Moving :	PREFAB_Hat_Party	Position (xyz): 	1008.238	0.2000008	981.2048	Rotation (xyz): 	0	0	0
+63764118674072	Mouseover 	PREFAB_Hat_Party
+63764118674072	Moving :	PREFAB_Hat_Party	Position (xyz): 	1008.461	0.2000008	981.2985	Rotation (xyz): 	0	0	0
+63764118674095	Mouseover 	PREFAB_Hat_Party
+63764118674095	Moving :	PREFAB_Hat_Party	Position (xyz): 	1009.32	0.2000008	981.5909	Rotation (xyz): 	0	0	0
+63764118674113	Mouseover 	PREFAB_Hat_Party
+63764118674113	Moving :	PREFAB_Hat_Party	Position (xyz): 	1009.994	0.2000008	981.7926	Rotation (xyz): 	0	0	0
+63764118674124	Mouseover 	PREFAB_Hat_Party
+63764118674124	Moving :	PREFAB_Hat_Party	Position (xyz): 	1010.467	0.2000008	982.0153	Rotation (xyz): 	0	0	0
+63764118674140	Mouseover 	PREFAB_Hat_Party
+63764118674140	Moving :	PREFAB_Hat_Party	Position (xyz): 	1011.166	0.2000008	982.2255	Rotation (xyz): 	0	0	0
+63764118674155	Mouseover 	PREFAB_Hat_Party
+63764118674155	Moving :	PREFAB_Hat_Party	Position (xyz): 	1011.632	0.2000008	982.3364	Rotation (xyz): 	0	0	0
+63764118674186	Mouseover 	PREFAB_Hat_Party
+63764118674187	Moving :	PREFAB_Hat_Party	Position (xyz): 	1012.612	0.2000008	982.4686	Rotation (xyz): 	0	0	0
+63764118674209	Moving :	PREFAB_Hat_Party	Position (xyz): 	1013.597	0.2000008	982.6048	Rotation (xyz): 	0	0	0
+63764118674219	Moving :	PREFAB_Hat_Party	Position (xyz): 	1013.597	0.2000008	982.6048	Rotation (xyz): 	0	0	0
+63764118674225	Moving :	PREFAB_Hat_Party	Position (xyz): 	1014.368	0.2000008	982.7338	Rotation (xyz): 	0	0	0
+63764118674240	Moving :	PREFAB_Hat_Party	Position (xyz): 	1014.637	0.2000008	982.7446	Rotation (xyz): 	0	0	0
+63764118674253	Moving :	PREFAB_Hat_Party	Position (xyz): 	1015.434	0.2000008	982.9032	Rotation (xyz): 	0	0	0
+63764118674265	Moving :	PREFAB_Hat_Party	Position (xyz): 	1015.687	0.2000008	983.0151	Rotation (xyz): 	0	0	0
+63764118674278	Mouseover 	PREFAB_Hat_Party
+63764118674278	Moving :	PREFAB_Hat_Party	Position (xyz): 	1016.509	0.2000008	983.1541	Rotation (xyz): 	0	0	0
+63764118674289	Mouseover 	PREFAB_Hat_Party
+63764118674289	Moving :	PREFAB_Hat_Party	Position (xyz): 	1016.796	0.2000008	983.1669	Rotation (xyz): 	0	0	0
+63764118674299	Mouseover 	PREFAB_Hat_Party
+63764118674300	Moving :	PREFAB_Hat_Party	Position (xyz): 	1017.352	0.2000008	983.2964	Rotation (xyz): 	0	0	0
+63764118674313	Mouseover 	PREFAB_Hat_Party
+63764118674313	Moving :	PREFAB_Hat_Party	Position (xyz): 	1017.942	0.2000008	983.4272	Rotation (xyz): 	0	0	0
+63764118674318	Mouseover 	PREFAB_Hat_Party
+63764118674318	Moving :	PREFAB_Hat_Party	Position (xyz): 	1017.942	0.2000008	983.4272	Rotation (xyz): 	0	0	0
+63764118674337	Mouseover 	PREFAB_Hat_Party
+63764118674337	Moving :	PREFAB_Hat_Party	Position (xyz): 	1018.216	0.2000008	983.4415	Rotation (xyz): 	0	0	0
+63764118674359	Mouseover 	PREFAB_Hat_Party
+63764118674359	Moving :	PREFAB_Hat_Party	Position (xyz): 	1018.216	0.2000008	983.5463	Rotation (xyz): 	0	0	0
+63764118674380	Mouseover 	PREFAB_Hat_Party
+63764118674380	Moving :	PREFAB_Hat_Party	Position (xyz): 	1018.216	0.2000008	983.5463	Rotation (xyz): 	0	0	0
+63764118674392	Mouseover 	PREFAB_Hat_Party
+63764118674392	Moving :	PREFAB_Hat_Party	Position (xyz): 	1018.516	0.2000008	983.5612	Rotation (xyz): 	0	0	0
+63764118674403	Mouseover 	PREFAB_Hat_Party
+63764118674403	Moving :	PREFAB_Hat_Party	Position (xyz): 	1018.516	0.2000008	983.5612	Rotation (xyz): 	0	0	0
+63764118674443	Mouseover 	PREFAB_Hat_Party
+63764118674451	Mouseover 	PREFAB_Hat_Party
+63764118674465	Mouseover 	PREFAB_Hat_Party
+63764118674472	Mouseover 	PREFAB_Hat_Party
+63764118674491	Mouseover 	PREFAB_Hat_Party
+63764118674499	Mouseover 	PREFAB_Hat_Party
+63764118674511	Mouseover 	PREFAB_Hat_Party
+63764118674533	Mouseover 	PREFAB_Hat_Party
+63764118674605	Mouseover 	Soccer Ball
+63764118674621	Mouseover 	Soccer Ball
+63764118674637	Mouseover 	Soccer Ball
+63764118674644	Mouseover 	Soccer Ball
+63764118674663	Mouseover 	Soccer Ball
+63764118674676	Mouseover 	Soccer Ball
+63764118674693	Mouseover 	Soccer Ball
+63764118674706	Mouseover 	Soccer Ball
+63764118674724	Mouseover 	Soccer Ball
+63764118674736	Mouseover 	Soccer Ball
+63764118674751	Mouseover 	Soccer Ball
+63764118674764	Mouseover 	Soccer Ball
+63764118674777	Mouseover 	Soccer Ball
+63764118674793	Mouseover 	Soccer Ball
+63764118674810	Mouseover 	Soccer Ball
+63764118674902	Mouseover 	Soccer Ball
+63764118674923	Mouseover 	Soccer Ball
+63764118674946	Mouseover 	Soccer Ball
+63764118674983	Mouseover 	Soccer Ball
+63764118675003	Mouseover 	Soccer Ball
+63764118675003	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675019	Mouseover 	Soccer Ball
+63764118675019	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675024	Mouseover 	Soccer Ball
+63764118675024	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675039	Mouseover 	Soccer Ball
+63764118675039	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675051	Mouseover 	Soccer Ball
+63764118675051	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675066	Mouseover 	Soccer Ball
+63764118675068	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675081	Mouseover 	Soccer Ball
+63764118675081	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675092	Mouseover 	Soccer Ball
+63764118675092	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675108	Mouseover 	Soccer Ball
+63764118675108	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675112	Mouseover 	Soccer Ball
+63764118675112	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675127	Mouseover 	Soccer Ball
+63764118675127	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675137	Mouseover 	Soccer Ball
+63764118675138	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675153	Mouseover 	Soccer Ball
+63764118675154	Moving :	Soccer Ball	Position (xyz): 	1001.936	0.2000008	979.4963	Rotation (xyz): 	0	0	0
+63764118675165	Mouseover 	Soccer Ball
+63764118675165	Moving :	Soccer Ball	Position (xyz): 	1002.095	0.2000008	979.4946	Rotation (xyz): 	0	0	0
+63764118675179	Mouseover 	Soccer Ball
+63764118675179	Moving :	Soccer Ball	Position (xyz): 	1002.964	0.2000008	979.3232	Rotation (xyz): 	0	0	0
+63764118675191	Mouseover 	Soccer Ball
+63764118675191	Moving :	Soccer Ball	Position (xyz): 	1003.504	0.2000008	979.1512	Rotation (xyz): 	0	0	0
+63764118675198	Mouseover 	Soccer Ball
+63764118675199	Moving :	Soccer Ball	Position (xyz): 	1004.813	0.2000008	978.6043	Rotation (xyz): 	0	0	0
+63764118675214	Mouseover 	Soccer Ball
+63764118675214	Moving :	Soccer Ball	Position (xyz): 	1005.592	0.2000008	978.3286	Rotation (xyz): 	0	0	0
+63764118675229	Mouseover 	Soccer Ball
+63764118675230	Moving :	Soccer Ball	Position (xyz): 	1007.194	0.2000008	977.7318	Rotation (xyz): 	0	0	0
+63764118675244	Mouseover 	Soccer Ball
+63764118675244	Moving :	Soccer Ball	Position (xyz): 	1009.784	0.2000008	976.8746	Rotation (xyz): 	0	0	0
+63764118675258	Mouseover 	Soccer Ball
+63764118675258	Moving :	Soccer Ball	Position (xyz): 	1010.682	0.2000008	976.4326	Rotation (xyz): 	0	0	0
+63764118675270	Mouseover 	Soccer Ball
+63764118675270	Moving :	Soccer Ball	Position (xyz): 	1011.386	0.2000008	976.204	Rotation (xyz): 	0	0	0
+63764118675279	Mouseover 	Soccer Ball
+63764118675280	Moving :	Soccer Ball	Position (xyz): 	1012.357	0.2000008	975.859	Rotation (xyz): 	0	0	0
+63764118675293	Moving :	Soccer Ball	Position (xyz): 	1013.1	0.2000008	975.5934	Rotation (xyz): 	0	0	0
+63764118675305	Moving :	Soccer Ball	Position (xyz): 	1013.86	0.2000008	975.2479	Rotation (xyz): 	0	0	0
+63764118675317	Moving :	Soccer Ball	Position (xyz): 	1014.101	0.2000008	975.1307	Rotation (xyz): 	0	0	0
+63764118675320	Moving :	Soccer Ball	Position (xyz): 	1014.368	0.2000008	975.0133	Rotation (xyz): 	0	0	0
+63764118675336	Moving :	Soccer Ball	Position (xyz): 	1014.885	0.2000008	974.7742	Rotation (xyz): 	0	0	0
+63764118675348	Moving :	Soccer Ball	Position (xyz): 	1015.158	0.2000008	974.629	Rotation (xyz): 	0	0	0
+63764118675359	Moving :	Soccer Ball	Position (xyz): 	1015.434	0.2000008	974.507	Rotation (xyz): 	0	0	0
+63764118675365	Moving :	Soccer Ball	Position (xyz): 	1015.687	0.2000008	974.384	Rotation (xyz): 	0	0	0
+63764118675381	Mouseover 	Soccer Ball
+63764118675381	Moving :	Soccer Ball	Position (xyz): 	1015.968	0.2000008	974.3613	Rotation (xyz): 	0	0	0
+63764118675392	Mouseover 	Soccer Ball
+63764118675392	Moving :	Soccer Ball	Position (xyz): 	1015.968	0.2000008	974.2607	Rotation (xyz): 	0	0	0
+63764118675396	Mouseover 	Soccer Ball
+63764118675397	Moving :	Soccer Ball	Position (xyz): 	1016.509	0.2000008	974.1118	Rotation (xyz): 	0	0	0
+63764118675411	Mouseover 	Soccer Ball
+63764118675411	Moving :	Soccer Ball	Position (xyz): 	1016.796	0.2000008	974.0878	Rotation (xyz): 	0	0	0
+63764118675424	Mouseover 	Soccer Ball
+63764118675424	Moving :	Soccer Ball	Position (xyz): 	1017.086	0.2000008	973.9614	Rotation (xyz): 	0	0	0
+63764118675437	Mouseover 	Soccer Ball
+63764118675437	Moving :	Soccer Ball	Position (xyz): 	1017.086	0.2000008	973.8584	Rotation (xyz): 	0	0	0
+63764118675449	Mouseover 	Soccer Ball
+63764118675449	Moving :	Soccer Ball	Position (xyz): 	1017.352	0.2000008	973.8331	Rotation (xyz): 	0	0	0
+63764118675459	Mouseover 	Soccer Ball
+63764118675460	Moving :	Soccer Ball	Position (xyz): 	1017.352	0.2000008	973.7296	Rotation (xyz): 	0	0	0
+63764118675472	Mouseover 	Soccer Ball
+63764118675472	Moving :	Soccer Ball	Position (xyz): 	1017.352	0.2000008	973.7296	Rotation (xyz): 	0	0	0
+63764118675483	Mouseover 	Soccer Ball
+63764118675484	Moving :	Soccer Ball	Position (xyz): 	1017.352	0.2000008	973.7296	Rotation (xyz): 	0	0	0
+63764118675502	Mouseover 	Soccer Ball
+63764118675502	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675516	Mouseover 	Soccer Ball
+63764118675516	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675520	Mouseover 	Soccer Ball
+63764118675521	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675533	Mouseover 	Soccer Ball
+63764118675534	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675549	Mouseover 	Soccer Ball
+63764118675549	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675559	Mouseover 	Soccer Ball
+63764118675559	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675572	Mouseover 	Soccer Ball
+63764118675572	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675582	Mouseover 	Soccer Ball
+63764118675582	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675588	Mouseover 	Soccer Ball
+63764118675589	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675603	Mouseover 	Soccer Ball
+63764118675603	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675614	Mouseover 	Soccer Ball
+63764118675614	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675631	Mouseover 	Soccer Ball
+63764118675631	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675637	Mouseover 	Soccer Ball
+63764118675637	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675654	Mouseover 	Soccer Ball
+63764118675654	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675663	Mouseover 	Soccer Ball
+63764118675663	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675677	Mouseover 	Soccer Ball
+63764118675677	Moving :	Soccer Ball	Position (xyz): 	1017.646	0.2000008	973.7037	Rotation (xyz): 	0	0	0
+63764118675685	Mouseover 	Soccer Ball
+63764118675685	Moving :	Soccer Ball	Position (xyz): 	1017.942	0.2000008	973.6777	Rotation (xyz): 	0	0	0
+63764118675700	Mouseover 	Soccer Ball
+63764118675700	Moving :	Soccer Ball	Position (xyz): 	1018.216	0.2000008	973.6512	Rotation (xyz): 	0	0	0
+63764118675716	Mouseover 	Soccer Ball
+63764118675716	Moving :	Soccer Ball	Position (xyz): 	1018.82	0.2000008	973.5979	Rotation (xyz): 	0	0	0
+63764118675735	Mouseover 	Soccer Ball
+63764118675736	Moving :	Soccer Ball	Position (xyz): 	1019.41	0.2000008	973.5436	Rotation (xyz): 	0	0	0
+63764118675751	Mouseover 	Soccer Ball
+63764118675751	Moving :	Soccer Ball	Position (xyz): 	1019.695	0.2000008	973.5162	Rotation (xyz): 	0	0	0
+63764118675763	Mouseover 	Soccer Ball
+63764118675763	Moving :	Soccer Ball	Position (xyz): 	1019.695	0.2000008	973.5162	Rotation (xyz): 	0	0	0
+63764118675768	Mouseover 	Soccer Ball
+63764118675768	Moving :	Soccer Ball	Position (xyz): 	1019.695	0.2000008	973.5162	Rotation (xyz): 	0	0	0
+63764118675781	Mouseover 	Soccer Ball
+63764118675781	Moving :	Soccer Ball	Position (xyz): 	1019.695	0.2000008	973.3833	Rotation (xyz): 	0	0	0
+63764118675796	Mouseover 	Soccer Ball
+63764118675796	Moving :	Soccer Ball	Position (xyz): 	1019.695	0.2000008	973.3833	Rotation (xyz): 	0	0	0
+63764118675806	Mouseover 	Soccer Ball
+63764118675807	Moving :	Soccer Ball	Position (xyz): 	1019.695	0.2000008	973.3833	Rotation (xyz): 	0	0	0
+63764118675819	Mouseover 	Soccer Ball
+63764118675819	Moving :	Soccer Ball	Position (xyz): 	1019.695	0.2000008	973.3833	Rotation (xyz): 	0	0	0
+63764118675832	Mouseover 	Soccer Ball
+63764118675846	Mouseover 	Soccer Ball
+63764118675858	Mouseover 	Soccer Ball
+63764118675871	Mouseover 	Soccer Ball
+63764118675883	Mouseover 	Soccer Ball
+63764118675897	Mouseover 	Soccer Ball
+63764118675910	Mouseover 	Soccer Ball
+63764118675919	Mouseover 	Soccer Ball
+63764118675932	Mouseover 	Soccer Ball
+63764118675941	Mouseover 	Soccer Ball
+63764118675951	Mouseover 	Soccer Ball
+63764118675962	Mouseover 	Soccer Ball
+63764118675975	Mouseover 	Soccer Ball
+63764118675980	Mouseover 	Soccer Ball
+63764118675996	Mouseover 	Soccer Ball
+63764118676391	Mouseover 	Skateboard
+63764118676409	Mouseover 	Skateboard
+63764118676428	Mouseover 	Skateboard
+63764118676446	Mouseover 	Skateboard
+63764118676454	Mouseover 	Skateboard
+63764118676469	Mouseover 	Skateboard
+63764118676486	Mouseover 	Skateboard
+63764118676498	Mouseover 	Skateboard
+63764118676517	Mouseover 	Skateboard
+63764118676533	Mouseover 	Skateboard
+63764118676543	Mouseover 	Skateboard
+63764118676560	Mouseover 	Skateboard
+63764118676578	Mouseover 	Skateboard
+63764118676593	Mouseover 	Skateboard
+63764118676606	Mouseover 	Skateboard
+63764118676630	Mouseover 	Skateboard
+63764118676645	Mouseover 	Skateboard
+63764118676658	Mouseover 	Skateboard
+63764118676666	Mouseover 	Skateboard
+63764118676683	Mouseover 	Skateboard
+63764118676699	Mouseover 	Skateboard
+63764118676712	Mouseover 	Skateboard
+63764118676716	Mouseover 	Skateboard
+63764118676748	Mouseover 	Skateboard
+63764118676753	Mouseover 	Skateboard
+63764118676774	Mouseover 	Skateboard
+63764118676774	Moving :	Skateboard	Position (xyz): 	981.5635	0.2000008	968.4247	Rotation (xyz): 	0	0	0
+63764118676788	Mouseover 	Skateboard
+63764118676788	Moving :	Skateboard	Position (xyz): 	981.5635	0.2000008	968.4247	Rotation (xyz): 	0	0	0
+63764118676794	Mouseover 	Skateboard
+63764118676794	Moving :	Skateboard	Position (xyz): 	981.5635	0.2000008	968.4247	Rotation (xyz): 	0	0	0
+63764118676812	Mouseover 	Skateboard
+63764118676812	Moving :	Skateboard	Position (xyz): 	981.5635	0.2000008	968.4247	Rotation (xyz): 	0	0	0
+63764118676822	Mouseover 	Skateboard
+63764118676822	Moving :	Skateboard	Position (xyz): 	981.5635	0.2000008	968.4247	Rotation (xyz): 	0	0	0
+63764118676839	Mouseover 	Skateboard
+63764118676839	Moving :	Skateboard	Position (xyz): 	981.5635	0.2000008	968.4247	Rotation (xyz): 	0	0	0
+63764118676856	Mouseover 	Skateboard
+63764118676856	Moving :	Skateboard	Position (xyz): 	981.5635	0.2000008	968.4247	Rotation (xyz): 	0	0	0
+63764118676872	Mouseover 	Skateboard
+63764118676872	Moving :	Skateboard	Position (xyz): 	981.5635	0.2000008	968.4247	Rotation (xyz): 	0	0	0
+63764118676886	Mouseover 	Skateboard
+63764118676886	Moving :	Skateboard	Position (xyz): 	981.5635	0.2000008	968.4247	Rotation (xyz): 	0	0	0
+63764118676901	Mouseover 	Skateboard
+63764118676901	Moving :	Skateboard	Position (xyz): 	981.5635	0.2000008	968.4247	Rotation (xyz): 	0	0	0
+63764118676918	Mouseover 	Skateboard
+63764118676918	Moving :	Skateboard	Position (xyz): 	981.8922	0.2000008	968.3588	Rotation (xyz): 	0	0	0
+63764118676927	Mouseover 	Skateboard
+63764118676927	Moving :	Skateboard	Position (xyz): 	982.0949	0.2000008	968.3517	Rotation (xyz): 	0	0	0
+63764118676946	Mouseover 	Skateboard
+63764118676946	Moving :	Skateboard	Position (xyz): 	982.447	0.2000008	968.3352	Rotation (xyz): 	0	0	0
+63764118676965	Mouseover 	Skateboard
+63764118676965	Moving :	Skateboard	Position (xyz): 	984.7347	0.2000008	967.8903	Rotation (xyz): 	0	0	0
+63764118677000	Moving :	Skateboard	Position (xyz): 	989.0593	0.2000008	966.7537	Rotation (xyz): 	0	0	0
+63764118677016	Moving :	Skateboard	Position (xyz): 	993.432	0.2000008	965.329	Rotation (xyz): 	0	0	0
+63764118677040	Moving :	Skateboard	Position (xyz): 	1000.437	0.2000008	963.05	Rotation (xyz): 	0	0	0
+63764118677061	Mouseover 	Skateboard
+63764118677061	Moving :	Skateboard	Position (xyz): 	1004.442	0.2000008	961.6616	Rotation (xyz): 	0	0	0
+63764118677071	Mouseover 	Skateboard
+63764118677071	Moving :	Skateboard	Position (xyz): 	1005.592	0.2000008	961.2007	Rotation (xyz): 	0	0	0
+63764118677080	Mouseover 	Skateboard
+63764118677080	Moving :	Skateboard	Position (xyz): 	1006.58	0.2000008	960.8741	Rotation (xyz): 	0	0	0
+63764118677117	Mouseover 	Skateboard
+63764118677117	Moving :	Skateboard	Position (xyz): 	1008.461	0.2000008	960.1669	Rotation (xyz): 	0	0	0
+63764118677136	Mouseover 	Skateboard
+63764118677136	Moving :	Skateboard	Position (xyz): 	1008.662	0.2000008	960.0956	Rotation (xyz): 	0	0	0
+63764118677158	Mouseover 	Skateboard
+63764118677158	Moving :	Skateboard	Position (xyz): 	1008.662	0.2000008	960.2757	Rotation (xyz): 	0	0	0
+63764118677183	Mouseover 	Skateboard
+63764118677183	Moving :	Skateboard	Position (xyz): 	1009.115	0.2000008	960.4052	Rotation (xyz): 	0	0	0
+63764118677256	Moving :	Skateboard	Position (xyz): 	1012.843	0.2000008	961.3923	Rotation (xyz): 	0	0	0
+63764118677268	Moving :	Skateboard	Position (xyz): 	1013.335	0.2000008	961.5629	Rotation (xyz): 	0	0	0
+63764118677287	Moving :	Skateboard	Position (xyz): 	1014.637	0.2000008	961.7932	Rotation (xyz): 	0	0	0
+63764118677313	Mouseover 	Skateboard
+63764118677313	Moving :	Skateboard	Position (xyz): 	1016.249	0.2000008	961.8834	Rotation (xyz): 	0	0	0
+63764118677331	Mouseover 	Skateboard
+63764118677332	Moving :	Skateboard	Position (xyz): 	1017.646	0.2000008	961.9494	Rotation (xyz): 	0	0	0
+63764118677344	Mouseover 	Skateboard
+63764118677345	Moving :	Skateboard	Position (xyz): 	1018.216	0.2000008	962.0074	Rotation (xyz): 	0	0	0
+63764118677362	Mouseover 	Skateboard
+63764118677362	Moving :	Skateboard	Position (xyz): 	1018.516	0.2000008	961.9323	Rotation (xyz): 	0	0	0
+63764118677377	Mouseover 	Skateboard
+63764118677377	Moving :	Skateboard	Position (xyz): 	1018.82	0.2000008	961.962	Rotation (xyz): 	0	0	0
+63764118677447	Mouseover 	Skateboard
+63764118677447	Moving :	Skateboard	Position (xyz): 	1019.41	0.2000008	961.9146	Rotation (xyz): 	0	0	0
+63764118677460	Mouseover 	Skateboard
+63764118677461	Moving :	Skateboard	Position (xyz): 	1019.41	0.2000008	961.9146	Rotation (xyz): 	0	0	0
+63764118677470	Mouseover 	Skateboard
+63764118677470	Moving :	Skateboard	Position (xyz): 	1019.41	0.2000008	961.9146	Rotation (xyz): 	0	0	0
+63764118677482	Mouseover 	Skateboard
+63764118677482	Moving :	Skateboard	Position (xyz): 	1019.41	0.2000008	961.9146	Rotation (xyz): 	0	0	0
+63764118677491	Mouseover 	Skateboard
+63764118677491	Moving :	Skateboard	Position (xyz): 	1019.41	0.2000008	961.9146	Rotation (xyz): 	0	0	0
+63764118677512	Mouseover 	Skateboard
+63764118677512	Moving :	Skateboard	Position (xyz): 	1019.41	0.2000008	961.9146	Rotation (xyz): 	0	0	0
+63764118677535	Mouseover 	Skateboard
+63764118677535	Moving :	Skateboard	Position (xyz): 	1019.41	0.2000008	961.9146	Rotation (xyz): 	0	0	0
+63764118677540	Mouseover 	Skateboard
+63764118677556	Mouseover 	Skateboard
+63764118677575	Mouseover 	Skateboard
+63764118677586	Mouseover 	Skateboard
+63764118677599	Mouseover 	Skateboard
+63764118677610	Mouseover 	Skateboard
+63764118677616	Mouseover 	Skateboard
+63764118677631	Mouseover 	Skateboard
+63764118677649	Mouseover 	Skateboard
+63764118677658	Mouseover 	Skateboard
+63764118677664	Mouseover 	Skateboard
+63764118677679	Mouseover 	Skateboard
+63764118677692	Mouseover 	Skateboard
+63764118677696	Mouseover 	Skateboard
+63764118678243	TASK_END	ItemSelection	SelectItems	7242
+63764118678246	LM_Output	TaskList
+TaskListName	RepetitionNumber	CatchFlag
+TASK_SelectItems1False
+63764118678246	TASK_END	TASK_SelectItems	TaskList	8049
+63764118678249	TASK_START	TASK_OrderItems 	TaskList
+63764118678252	TASK_START	MovePlayerToSpawn	MoveSpawn
+63764118678254	TASK_POSITION	KeyboardMouseController	MoveSpawn	(-10.0, 0.0, 8.0)
+63764118678254	TASK_ROTATE	KeyboardMouseController	MoveSpawn	(0.0, 28.4, 0.0)
+63764118678276	TASK_END	MovePlayerToSpawn	MoveSpawn	24
+63764118678277	TASK_START	ListOrderItemsTargets	ObjectList
+63764118678277	TASK_ADD	ListOrderItemsTargets	ObjectList	PREFAB_Hat_Party	null
+63764118678277	TASK_ADD	ListOrderItemsTargets	ObjectList	Soccer Ball	null
+63764118678277	TASK_ADD	ListOrderItemsTargets	ObjectList	Bicycle	null
+63764118678277	TASK_ADD	ListOrderItemsTargets	ObjectList	Skateboard	null
+63764118678281	TASK_END	ListOrderItemsTargets	ObjectList	4
+63764118678283	TASK_START	OrderItemsPlaceholders	LM_CreatePlaceHolders
+63764118678295	TASK_END	OrderItemsPlaceholders	LM_CreatePlaceHolders	12
+63764118678297	TASK_START	ListOrderItemstPlaceholders	ObjectList
+63764118678297	TASK_ADD	ListOrderItemstPlaceholders	ObjectList	PlaceHolder	null
+63764118678297	TASK_ADD	ListOrderItemstPlaceholders	ObjectList	PlaceHolder	null
+63764118678297	TASK_ADD	ListOrderItemstPlaceholders	ObjectList	PlaceHolder	null
+63764118678297	TASK_ADD	ListOrderItemstPlaceholders	ObjectList	PlaceHolder	null
+63764118678306	TASK_END	ListOrderItemstPlaceholders	ObjectList	9
+63764118678307	TASK_START	CopyObjects(order)	CopyChildObjects
+63764118678312	TASK_END	CopyObjects(order)	CopyChildObjects	5
+63764118678313	TASK_START	OrderItemsInstructions	InstructionsTask
+63764118679612	INPUT_EVENT    PlayerPressedActionButton    1
+63764118679612	TASK_END	OrderItemsInstructions	InstructionsTask	1299
+63764118679617	TASK_START	OrderItems	OrderItems
+63764118679912	Mouseover 	Bicycle
+63764118679919	Mouseover 	Bicycle
+63764118679931	Mouseover 	Bicycle
+63764118679942	Mouseover 	Bicycle
+63764118679950	Mouseover 	Bicycle
+63764118679965	Mouseover 	Bicycle
+63764118679975	Mouseover 	Bicycle
+63764118679982	Mouseover 	Bicycle
+63764118679995	Mouseover 	Bicycle
+63764118680002	Mouseover 	Bicycle
+63764118680014	Mouseover 	Bicycle
+63764118680021	Mouseover 	Bicycle
+63764118680043	Mouseover 	Bicycle
+63764118680058	Mouseover 	Bicycle
+63764118680067	Mouseover 	Bicycle
+63764118680083	Mouseover 	Bicycle
+63764118680099	Mouseover 	Bicycle
+63764118680107	Mouseover 	Bicycle
+63764118680125	Mouseover 	Bicycle
+63764118680140	Mouseover 	Bicycle
+63764118680153	Mouseover 	Bicycle
+63764118680162	Mouseover 	Bicycle
+63764118680176	Mouseover 	Bicycle
+63764118680186	Mouseover 	Bicycle
+63764118680193	Mouseover 	Bicycle
+63764118680206	Mouseover 	Bicycle
+63764118680219	Mouseover 	Bicycle
+63764118680224	Mouseover 	Bicycle
+63764118680240	Mouseover 	Bicycle
+63764118680250	Mouseover 	Bicycle
+63764118680256	Mouseover 	Bicycle
+63764118680271	Mouseover 	Bicycle
+63764118680285	Mouseover 	Bicycle
+63764118680302	Mouseover 	Bicycle
+63764118680318	Mouseover 	Bicycle
+63764118680333	Mouseover 	Bicycle
+63764118680344	Mouseover 	Bicycle
+63764118680361	Mouseover 	Bicycle
+63764118680373	Mouseover 	Bicycle
+63764118680383	Mouseover 	Bicycle
+63764118680396	Mouseover 	Bicycle
+63764118680414	Mouseover 	Bicycle
+63764118680417	Moving :	Bicycle	Position (xyz): 	1008.461	0.2000008	968.3185	Rotation (xyz): 	0	0	0
+63764118680685	Mouseover 	Skateboard
+63764118680700	Mouseover 	Skateboard
+63764118680715	Mouseover 	Skateboard
+63764118680723	Mouseover 	Skateboard
+63764118680738	Mouseover 	Skateboard
+63764118680746	Mouseover 	Skateboard
+63764118680759	Mouseover 	Skateboard
+63764118680766	Mouseover 	Skateboard
+63764118680779	Mouseover 	Skateboard
+63764118680791	Mouseover 	Skateboard
+63764118680797	Mouseover 	Skateboard
+63764118680811	Mouseover 	Skateboard
+63764118680823	Mouseover 	Skateboard
+63764118680830	Mouseover 	Skateboard
+63764118680842	Mouseover 	Skateboard
+63764118680850	Mouseover 	Skateboard
+63764118680861	Mouseover 	Skateboard
+63764118680871	Mouseover 	Skateboard
+63764118680882	Mouseover 	Skateboard
+63764118680899	Mouseover 	Skateboard
+63764118680906	Mouseover 	Skateboard
+63764118680922	Mouseover 	Skateboard
+63764118680933	Mouseover 	Skateboard
+63764118680940	Mouseover 	Skateboard
+63764118680953	Mouseover 	Skateboard
+63764118680976	Mouseover 	Skateboard
+63764118680986	Mouseover 	Skateboard
+63764118681006	Mouseover 	Skateboard
+63764118681019	Mouseover 	Skateboard
+63764118681021	Moving :	Skateboard	Position (xyz): 	1004.813	0.2000008	981.7474	Rotation (xyz): 	0	0	0
+63764118681040	Moving :	Skateboard	Position (xyz): 	1004.813	0.2000008	981.7474	Rotation (xyz): 	0	0	0
+63764118681258	Mouseover 	PREFAB_Hat_Party
+63764118681272	Mouseover 	PREFAB_Hat_Party
+63764118681283	Mouseover 	PREFAB_Hat_Party
+63764118681289	Mouseover 	PREFAB_Hat_Party
+63764118681302	Mouseover 	PREFAB_Hat_Party
+63764118681315	Mouseover 	PREFAB_Hat_Party
+63764118681320	Mouseover 	PREFAB_Hat_Party
+63764118681335	Mouseover 	PREFAB_Hat_Party
+63764118681348	Mouseover 	PREFAB_Hat_Party
+63764118681354	Mouseover 	PREFAB_Hat_Party
+63764118681365	Mouseover 	PREFAB_Hat_Party
+63764118681374	Mouseover 	PREFAB_Hat_Party
+63764118681385	Mouseover 	PREFAB_Hat_Party
+63764118681393	Mouseover 	PREFAB_Hat_Party
+63764118681405	Mouseover 	PREFAB_Hat_Party
+63764118681413	Mouseover 	PREFAB_Hat_Party
+63764118681425	Mouseover 	PREFAB_Hat_Party
+63764118681434	Mouseover 	PREFAB_Hat_Party
+63764118681446	Mouseover 	PREFAB_Hat_Party
+63764118681461	Mouseover 	PREFAB_Hat_Party
+63764118681473	Mouseover 	PREFAB_Hat_Party
+63764118681486	Mouseover 	PREFAB_Hat_Party
+63764118681496	Mouseover 	PREFAB_Hat_Party
+63764118681514	Mouseover 	PREFAB_Hat_Party
+63764118681516	Moving :	PREFAB_Hat_Party	Position (xyz): 	1007.602	0.2000008	992.3279	Rotation (xyz): 	0	0	0
+63764118681528	Moving :	PREFAB_Hat_Party	Position (xyz): 	1007.602	0.2000008	992.3279	Rotation (xyz): 	0	0	0
+63764118681792	Mouseover 	Soccer Ball
+63764118681799	Mouseover 	Soccer Ball
+63764118681821	Mouseover 	Soccer Ball
+63764118681831	Mouseover 	Soccer Ball
+63764118681850	Mouseover 	Soccer Ball
+63764118681864	Mouseover 	Soccer Ball
+63764118681879	Mouseover 	Soccer Ball
+63764118681894	Mouseover 	Soccer Ball
+63764118681910	Mouseover 	Soccer Ball
+63764118681916	Mouseover 	Soccer Ball
+63764118681931	Mouseover 	Soccer Ball
+63764118681942	Mouseover 	Soccer Ball
+63764118681957	Mouseover 	Soccer Ball
+63764118681960	Mouseover 	Soccer Ball
+63764118681983	Mouseover 	Soccer Ball
+63764118681996	Mouseover 	Soccer Ball
+63764118682000	Mouseover 	Soccer Ball
+63764118682017	Mouseover 	Soccer Ball
+63764118682025	Mouseover 	Soccer Ball
+63764118682047	Mouseover 	Soccer Ball
+63764118682050	Moving :	Soccer Ball	Position (xyz): 	1002.617	0.2000008	999.6636	Rotation (xyz): 	0	0	0
+63764118682062	Moving :	Soccer Ball	Position (xyz): 

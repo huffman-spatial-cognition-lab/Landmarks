@@ -40,13 +40,16 @@ public class OrderItems : ExperimentTask {
   public string buttonText = "Finished";
   public int numSelectedItems = 0;
   private Vector3 Pos;
-  //List<GameObject> arrayItems = new List<GameObject>();
+
   List<GameObject> orderItems = new List<GameObject>();
+  List<GameObject> orderedList = new List<GameObject>();
+  ObjectOrder order;
 
   public TextMeshProUGUI countText;
   private int count;
   private int e;
-  public GameObject OrderedTargets;
+  //public GameObject OrderedTargets;
+  private GameObject Targets;
 
 
 	public override void startTask ()
@@ -63,6 +66,9 @@ public class OrderItems : ExperimentTask {
 		base.startTask();
 
 		startTime = Time.time;
+
+    GameObject Targets = GameObject.FindGameObjectWithTag("TargetObjects");
+
 
 
 		// Modify the HUD display for the map task
@@ -314,7 +320,15 @@ public class OrderItems : ExperimentTask {
     base.endTask();
 
     countText.text = " ";
-    GameObject [] navOrder = orderItems.ToArray();
+    // Trying to get the objectorder List to work with the orderItems Task
+    //ObjectOrder order = Targets.GetComponent<ObjectOrder>();
+    //GetComponent<ObjectOrder>().order = orderedList;
+    //orderItems = order;
+    //foreach(GameObject activeTarget in orderItems)
+      //{
+        //orderedList.Add(activeTarget);
+      //}
+  //  GameObject [] navOrder = orderItems.ToArray();
 
 
 		// log data
@@ -414,10 +428,10 @@ public class OrderItems : ExperimentTask {
             //orderItems[i].name = nameOrder;
             //TargetObjects.nameOrder.transform.SetSiblingIndex(i);
           //}
-          foreach(GameObject activeTarget in orderItems)
+        //  foreach(GameObject activeTarget in orderItems)
           {
-            OrderedTargets = GameObject.Find("OrderedTargets");
-            OrderedTargets.Add(activeTarget);
+          //  OrderedTargets = GameObject.Find("OrderedTargets");
+            //OrderedTargets.Add(activeTarget);
           }
     }
   }
