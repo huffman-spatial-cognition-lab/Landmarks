@@ -1,3 +1,7 @@
+# Python Jupyter Notebook Artifacts
+*/__pycache__/*
+*/.ipynb_checkpoints/*
+
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
