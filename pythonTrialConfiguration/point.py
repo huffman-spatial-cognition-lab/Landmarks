@@ -1,3 +1,5 @@
+import random
+
 class Point():
     '''
     convenience point class that provides functions such as distance, creating within random circle or distance, etc.
