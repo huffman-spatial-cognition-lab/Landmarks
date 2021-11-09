@@ -27,18 +27,18 @@ public class ObjectList : ExperimentTask {
     public string parentName = "";
 	public GameObject parentObject;
 	public int current = 0;
-	
+
 	public List<GameObject> objects;
-	public EndListMode EndListBehavior; 
+	public EndListMode EndListBehavior;
 	public bool shuffle;
 	public GameObject order;
-    	
+
 	public override void startTask () {
         //ViewObject.startObjects.current = 0;
         //current = 0;
 
         // If parentObject is left blank and parentName is not, use parentName to get parentObject
-        if (parentObject == null && parentName != "") 
+        if (parentObject == null && parentName != "")
         {
             parentObject = GameObject.Find(parentName);
         }
@@ -55,50 +55,50 @@ public class ObjectList : ExperimentTask {
 			i++;
 		}
 
-	
+
 
 		if (order ) {
 			// Deal with specific ordering
 			ObjectOrder ordered = order.GetComponent("ObjectOrder") as ObjectOrder;
-		
+
 			if (ordered) {
 				Debug.Log("ordered");
 				Debug.Log(ordered.order.Count);
-				
+
 				if (ordered.order.Count > 0) {
 					objs = ordered.order.ToArray();
 				}
 			}
 		}
-			
+
 		if ( shuffle ) {
-			Experiment.Shuffle(objs);			
-			
+			Experiment.Shuffle(objs);
+
 		}
-		
+
 		TASK_START();
-		
-		
-			 
-		foreach (GameObject obj in objs) {	             
+
+
+
+		foreach (GameObject obj in objs) {
         	objects.Add(obj);
 			log.log("TASK_ADD	" + name  + "\t" + this.GetType().Name + "\t" + obj.name  + "\t" + "null",1 );
 		}
-		
-	}	
-	
+
+	}
+
 	public override void TASK_ADD(GameObject go, string txt) {
 		objects.Add(go);
 	}
-	
+
 	public override void TASK_START()
 	{
-		base.startTask();		
+		base.startTask();
 		if (!manager) Start();
 
 		objects = new List<GameObject>();
 	}
-	
+
 	public override bool updateTask () {
 	    return true;
 	}
@@ -106,11 +106,11 @@ public class ObjectList : ExperimentTask {
 		//current = 0;
 		TASK_END();
 	}
-	
+
 	public override void TASK_END() {
 		base.endTask();
 	}
-	
+
 	public GameObject currentObject() {
 		if (current >= objects.Count) {
 			return null;
@@ -119,7 +119,7 @@ public class ObjectList : ExperimentTask {
 			return objects[current];
 		}
 	}
-	
+
 	public  void incrementCurrent() {
 		current++;
 		if (current >= objects.Count && EndListBehavior == EndListMode.Loop) {

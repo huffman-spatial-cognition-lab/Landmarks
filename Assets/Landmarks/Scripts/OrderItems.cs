@@ -41,7 +41,7 @@ public class OrderItems : ExperimentTask {
   public int numSelectedItems = 0;
   private Vector3 Pos;
 
-  List<GameObject> orderItems = new List<GameObject>();
+  public List<GameObject> orderItems = new List<GameObject>();
   List<GameObject> orderedList = new List<GameObject>();
   ObjectOrder order;
 
@@ -50,6 +50,7 @@ public class OrderItems : ExperimentTask {
   private int e;
   //public GameObject OrderedTargets;
   private GameObject Targets;
+  ObjectList tmp;
 
 
 	public override void startTask ()
@@ -67,7 +68,7 @@ public class OrderItems : ExperimentTask {
 
 		startTime = Time.time;
 
-    GameObject Targets = GameObject.FindGameObjectWithTag("TargetObjects");
+    //GameObject Targets = GameObject.FindGameObjectWithTag("TargetObjects");
 
 
 
@@ -107,6 +108,11 @@ public class OrderItems : ExperimentTask {
     count = 0;
     e = -1;
     orderItems = new List<GameObject>();
+
+    //set up order of list
+    tmp = GameObject.Find("ListNavigationTargets").GetComponent<ObjectList>();
+    tmp.shuffle= false;
+    tmp.objects.Clear();
 
 	}
 
@@ -165,7 +171,9 @@ public class OrderItems : ExperimentTask {
 					// Container for active store
 					targetActive = true;
 					activeTarget = hit.transform.gameObject;
-          Order();
+          //Order();
+          tmp.objects.Add(activeTarget);
+
 
 
 
@@ -319,7 +327,7 @@ public class OrderItems : ExperimentTask {
 	{
     base.endTask();
 
-    countText.text = " ";
+    //countText.text = " ";
     // Trying to get the objectorder List to work with the orderItems Task
     //ObjectOrder order = Targets.GetComponent<ObjectOrder>();
     //GetComponent<ObjectOrder>().order = orderedList;
@@ -384,6 +392,9 @@ public class OrderItems : ExperimentTask {
         //{
         //	mapTestHighlights.SetActive (false);
         //}
+        Debug.Log(tmp.objects);
+        SeeList();
+
     }
 
     void HideStoreName()
@@ -396,45 +407,47 @@ public class OrderItems : ExperimentTask {
 	}
 
 
-  public void Order()
-  {
-    int listLen;
-    listLen= orderItems.Count;
-    Debug.Log(listLen);
+  //public void Order()
+  //{
+    //int listLen;
+    //listLen= orderItems.Count;
+    //Debug.Log(listLen);
 
-      if (listLen < 4)
-      {
-          orderItems.Add(activeTarget);
-          Debug.Log("Order is running");
-          activeTarget.active = false;
-          Debug.Log(listLen + "objects in the list");
+      //if (listLen < 4)
+      //{
+          //tmp.objects.Add(activeTarget);
+          //activeTarget.transform.position = new Vector3(1,1,1);
+          //orderItems.Add(activeTarget);
+          //Debug.Log("Order is running");
+          //activeTarget.active = false;
+          //Debug.Log(listLen + "objects in the list");
 
-          for(int i =0; i < 1; i++)
-          {
-            count = count + 1;
-            e = e +1;
-            countText.text = count.ToString() + ". " + orderItems[e].name;
+        //  for(int i =0; i < 1; i++)
+        //  {
+          //  count = count + 1;
+          //  e = e +1;
+          //  countText.text = count.ToString() + ". " + tmp.objects[e].name;
             //hud.setMessage(count + ". " + orderItems[i].name);
-            if (count == 4)
-            {
-              countText.text = "You have ordered all 4 items. Please continue on to the next task.";
+          //  if (count == 4)
+          //  {
+            //  countText.text = "You have ordered all 4 items. Please continue on to the next task.";
               //hud.setMessage("You have ordered all 8 items. Please continue on to the next task.");
-              Debug.Log("Finished");
-              SeeList();
-            }
-          }
+              //Debug.Log("Finished");
+              //SeeList();
+          //  }
+        //  }
           //for (int i =0; i < 1; i++)
           //{
             //orderItems[i].name = nameOrder;
             //TargetObjects.nameOrder.transform.SetSiblingIndex(i);
           //}
         //  foreach(GameObject activeTarget in orderItems)
-          {
+        //  {
           //  OrderedTargets = GameObject.Find("OrderedTargets");
             //OrderedTargets.Add(activeTarget);
-          }
-    }
-  }
+      //    }
+    //}
+  //}
 
   //for targetobj i in targets
 //  int counter = 0
@@ -447,7 +460,7 @@ public class OrderItems : ExperimentTask {
 
   void SeeList()
   {
-    foreach(var item in orderItems)
+    foreach(var item in tmp.objects)
     {
       Debug.Log(item.ToString());
     }
