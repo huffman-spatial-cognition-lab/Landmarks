@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1836017, g: 0.22910815, b: 0.30537516, a: 1}
+  m_IndirectSpecularColor: {r: 0.18360132, g: 0.22910744, b: 0.30537397, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -199,11 +199,21 @@ PrefabInstance:
         type: 3}
       propertyPath: order
       value: 
-      objectReference: {fileID: 648889921}
+      objectReference: {fileID: 1081704528}
     - target: {fileID: 8475965484490080533, guid: 4e09813be04144d928219cb9abe866cf,
         type: 3}
       propertyPath: shuffle
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475965484490080533, guid: 4e09813be04144d928219cb9abe866cf,
+        type: 3}
+      propertyPath: parentName
+      value: TargetObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475965484490080533, guid: 4e09813be04144d928219cb9abe866cf,
+        type: 3}
+      propertyPath: parentObject
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8858853117279871311, guid: 4e09813be04144d928219cb9abe866cf,
         type: 3}
@@ -1236,12 +1246,6 @@ Transform:
   m_Father: {fileID: 868073012}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &648889921 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6283590481920638031, guid: 4e09813be04144d928219cb9abe866cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 63404745}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &662413035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2852,23 +2856,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 868073007}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1081704529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081704528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8509a5b06975d4dca993aa3fcb89e22e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &1093238156 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000011448446114, guid: 8155176e03f33f44884efb0dd767197c,

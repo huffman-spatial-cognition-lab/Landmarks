@@ -25,6 +25,8 @@ public class OrderItems : ExperimentTask {
 	// allow for user input to shift the store labels during the map task (to allow viewing store and text clearly);
 	public Vector3 hudTextOffset; // Text will be centered over an object. This allows users to move that to a desireable distance in order to keep the object visible when the name is shown
 
+	private ObjectOrder ordered;
+
 	private Vector3 baselineScaling;
 
 	private float startTime;
@@ -114,6 +116,15 @@ public class OrderItems : ExperimentTask {
     tmp.shuffle= false;
     tmp.objects.Clear();
 
+
+        // MJS - Add an object order to the Target Objects, which we will impose for navigation
+		//		if it does not exist
+        if (manager.targetObjects.GetComponent<ObjectOrder>() == null)
+        {
+			manager.targetObjects.AddComponent<ObjectOrder>(); // make it
+		}
+		ordered = manager.targetObjects.GetComponent<ObjectOrder>();
+		Debug.Log(ordered.gameObject.name);
 	}
 
 
@@ -392,6 +403,7 @@ public class OrderItems : ExperimentTask {
         //{
         //	mapTestHighlights.SetActive (false);
         //}
+		ordered.order = tmp.objects;
         Debug.Log(tmp.objects);
         SeeList();
 
@@ -463,7 +475,9 @@ public class OrderItems : ExperimentTask {
     foreach(var item in tmp.objects)
     {
       Debug.Log(item.ToString());
-    }
+			
+
+	}
   }
 
   void SetCountText()
