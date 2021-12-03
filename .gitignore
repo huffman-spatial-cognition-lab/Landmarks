@@ -74,4 +74,4 @@ crashlytics-build.properties
 data/tmp/*
 
 #ignore mac files
-./data/tmp/test.log
+data/tmp/test.log
