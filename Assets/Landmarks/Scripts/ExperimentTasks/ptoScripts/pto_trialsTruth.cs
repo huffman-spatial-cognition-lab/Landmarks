@@ -11,7 +11,9 @@ public class pto_trialsTruth : ExperimentTask
 {
     [Header("Task-specific Properties")]
 
-    public TrialsData trialsTruth;
+    public AllTrials allTrials;
+    public int currentParticipantNo = 0;
+    public Trials trialsTruth;
 
     public override void startTask()
     {
@@ -25,20 +27,21 @@ public class pto_trialsTruth : ExperimentTask
         base.startTask();
 
         // WRITE TASK STARTUP CODE HERE
-        trialsTruth = ImportFromJSON("json/test");
+        allTrials = ImportFromJSON("json/dynamic");
+
+        trialsTruth = allTrials.allTrials[currentParticipantNo];
         Debug.Log("imported trials data from JSON!");
         Debug.Log(trialsTruth);
     }
 
-    public static TrialsData ImportFromJSON(string path)
+    public static AllTrials ImportFromJSON(string path)
     {
         TextAsset jsonStringAsset = Resources.Load<TextAsset>(path);
         string jsonString = jsonStringAsset.text;
 
-        return JsonUtility.FromJson<TrialsData>(jsonString);
+        return JsonUtility.FromJson<AllTrials>(jsonString);
     }
-
-
+    
     public override bool updateTask()
     {
         return true;
@@ -64,8 +67,15 @@ public class pto_trialsTruth : ExperimentTask
 
 }
 
+
 [Serializable]
-public class TrialsData
+public class AllTrials
+{
+public List<Trials> allTrials;
+}
+
+[Serializable]
+public class Trials
 {
 public List<Trial> trials;
 }
@@ -74,12 +84,13 @@ public List<Trial> trials;
 public class Trial
 {
 public bool boundaryVisible;
-public List<ExpObject> expObjects;
+public List<TargetObject> targetObjects;
 }
 
 [Serializable]
-public class ExpObject
+public class TargetObject
 {
 public float x;
 public float y;
+public string repr;
 }

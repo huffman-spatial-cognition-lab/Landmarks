@@ -52,7 +52,7 @@ public class RelocationTask : ExperimentTask
 
         // load data from our ground-truth
         trialData = GameObject.Find("TrialsTruth").GetComponent<pto_trialsTruth>().trialsTruth.trials[this.parentTask.repeatCount];
-        numObjects = trialData.expObjects.Count - 1; // minus 1 for the last object, which is for the pointing task.
+        numObjects = trialData.targetObjects.Count - 1; // minus 1 for the last object, which is for the pointing task.
         currObjInd = 0;
         completedCurrentObject = false;
         relocateTargetStart();
@@ -208,8 +208,8 @@ public class RelocationTask : ExperimentTask
     }
 
     private void relocateTargetStart(){
-        ExpObject currExpObj = trialData.expObjects[currObjInd];
-        current = InstantiateRelocationTarget(currExpObj.x, currExpObj.y);
+        TargetObject currTgtObj = trialData.targetObjects[currObjInd];
+        current = InstantiateRelocationTarget(currTgtObj.x, currTgtObj.y);
         current.SetActive(true);
     }
 
