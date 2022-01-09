@@ -209,6 +209,8 @@ public class RelocationTask : ExperimentTask
 
     private void relocateTargetStart(){
         TargetObject currTgtObj = trialData.targetObjects[currObjInd];
+        Debug.Log("instantiating target in current.");
+        Debug.Log(currObjInd);
         current = InstantiateRelocationTarget(currTgtObj.x, currTgtObj.y);
         current.SetActive(true);
     }
