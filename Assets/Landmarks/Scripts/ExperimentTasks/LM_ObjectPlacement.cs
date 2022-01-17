@@ -10,6 +10,12 @@ enum PointingTaskStage{
 
 public class LM_ObjectPlacement : ExperimentTask
 {
+
+    private Trial trialData;
+    private int numObjects;
+    private int currObjInd;
+	private GameObject currentPlacementObject;
+
     [Header("Task-specific Properties")]
     public GameObject markerObjectTemplate;
     public LineRenderer lineRendererTemplate;
@@ -49,6 +55,11 @@ public class LM_ObjectPlacement : ExperimentTask
         base.startTask();
 
         // WRITE TASK STARTUP CODE HERE
+
+        // load data from our ground-truth
+        trialData = GameObject.Find("TrialsTruth").GetComponent<pto_trialsTruth>().trialsTruth.trials[this.parentTask.repeatCount];
+        numObjects = trialData.targetObjects.Count - 1; // minus 1 for the last object, which is for the pointing task.
+        currObjInd = 0;
         
         lineRendererTemplate.gameObject.SetActive(false);
 		_lineRenderer = Instantiate(lineRendererTemplate);
@@ -109,6 +120,7 @@ public class LM_ObjectPlacement : ExperimentTask
                 markerLocation.y = markerFixedHeight;
                 markerObject = Instantiate(markerObjectTemplate, markerLocation, Quaternion.identity);
                 Debug.Log(markerLocation);
+                initializeObjectForPlacement();
                 //markerObject.transform.localPosition = new Vector3(0,0, -markerStartDistance);    
                 //markerObject.transform.localEulerAngles = Vector3.zero;
 
@@ -154,6 +166,8 @@ public class LM_ObjectPlacement : ExperimentTask
                 _lineRenderer.positionCount = 2;
                 _lineRenderer.SetPosition(0, startPoint);
                 _lineRenderer.SetPosition(1, endPoint);
+
+                // TODO: Put the object at the end of line, a little higher.
                
             }
             else
@@ -189,11 +203,25 @@ public class LM_ObjectPlacement : ExperimentTask
 
             // submit the position
             if ((!vrEnabled && Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput)){
+
                 if (trialLog.active){   
                     log.log("OBJECT_PLACEMENT\tOBJECT_PLACED\tRAY_START:\t" + startPoint.x + "\t" + startPoint.y + "\t"+ startPoint.z + "\t"+
                     "RAY_END:\t" + endPoint.x + "\t" + endPoint.y + "\t"+ endPoint.z, 1);
                 }
-                return true;
+
+                currentPlacementObject.SetActive(false);
+                currentPlacementObject = null;
+                currObjInd++;
+
+                Debug.Log(currObjInd);
+                Debug.Log(numObjects);
+                if(currObjInd == numObjects){ // are we done with all the objects? if so, move on from this task
+                    Debug.Log("completed!");
+                    return true;
+                }
+                
+                initializeObjectForPlacement();
+
             }
         }
 
@@ -244,6 +272,18 @@ public class LM_ObjectPlacement : ExperimentTask
         }
 
         stage = PointingTaskStage.Orienting; // reset stage to the original state.
+    }
+
+    private void initializeObjectForPlacement(){ // TODO: Uncomment this
+        /*
+        TargetObject currTgtObj = trialData.targetObjects[currObjInd];
+
+        GameObject go = Instantiate(relocationTargetTemplate); // TODO: Instantiate this according to the color and shape in the JSON
+        go.transform.position = new Vector3(x, 0f, y);
+        currentPlacementObject = go;
+        
+        currentPlacementObject.SetActive(true);
+        */
     }
 
 }
