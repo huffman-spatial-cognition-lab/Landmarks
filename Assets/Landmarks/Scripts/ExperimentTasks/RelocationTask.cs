@@ -29,7 +29,9 @@ public class RelocationTask : ExperimentTask
     public LineRenderer lineRendererTemplate;
 
     // for creating relocation targets
-    public GameObject relocationTargetTemplate;
+    public GameObject relocationFinalTargetPrefab;
+    public GameObject relocationTargetTemplateParent;
+    public GameObject currentTargetObjectHolder;
 
     public override void startTask ()
 	{
@@ -52,7 +54,7 @@ public class RelocationTask : ExperimentTask
 
         // load data from our ground-truth
         trialData = GameObject.Find("TrialsTruth").GetComponent<pto_trialsTruth>().trialsTruth.trials[this.parentTask.repeatCount];
-        numObjects = trialData.targetObjects.Count - 1; // minus 1 for the last object, which is for the pointing task.
+        numObjects = trialData.targetObjects.Count;
         currObjInd = 0;
         completedCurrentObject = false;
         relocateTargetStart();
@@ -222,8 +224,19 @@ public class RelocationTask : ExperimentTask
     }
 
     private GameObject InstantiateRelocationTarget(float x, float y){
-        GameObject go = Instantiate(relocationTargetTemplate);
-        go.transform.position = new Vector3(x, 0f, y);
+
+        // get current target!
+        GameObject targetObject;
+
+        if (currObjInd < numObjects - 1){ // load target from string in config JSON
+            string targetObjectString = trialData.targetObjects[currObjInd].object_repr;
+            targetObject = relocationTargetTemplateParent.transform.Find(targetObjectString).gameObject;
+        } else { // load the final target template
+            targetObject = relocationFinalTargetPrefab;
+        }
+
+        GameObject go = Instantiate(targetObject, currentTargetObjectHolder.transform);
+        go.transform.position = new Vector3(x, 1.0f, y);
         return go;
     }
 

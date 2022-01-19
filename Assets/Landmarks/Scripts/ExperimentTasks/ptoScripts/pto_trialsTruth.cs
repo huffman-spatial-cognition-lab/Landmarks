@@ -92,5 +92,5 @@ public class TargetObject
 {
 public float x;
 public float y;
-public string repr;
+public string object_repr;
 }

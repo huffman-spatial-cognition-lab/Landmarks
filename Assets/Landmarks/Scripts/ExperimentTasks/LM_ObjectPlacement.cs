@@ -17,6 +17,8 @@ public class LM_ObjectPlacement : ExperimentTask
 	private GameObject currentPlacementObject;
 
     [Header("Task-specific Properties")]
+    public GameObject relocationTargetTemplateParent;
+    public GameObject pointingObjectParent;
     public GameObject markerObjectTemplate;
     public LineRenderer lineRendererTemplate;
     public GameObject handModelLeft;
@@ -117,9 +119,9 @@ public class LM_ObjectPlacement : ExperimentTask
 
                 // Instantiate the Marker
                 markerLocation = manager.player.transform.position + avatar.GetComponentInChildren<Camera>().transform.forward * markerStartDistance;
-                markerLocation.y = markerFixedHeight;
-                markerObject = Instantiate(markerObjectTemplate, markerLocation, Quaternion.identity);
-                Debug.Log(markerLocation);
+                pointingObjectParent.transform.position = markerLocation;
+
+                markerObject = Instantiate(markerObjectTemplate, new Vector3(0f, 0f, 0f), Quaternion.identity, pointingObjectParent.transform);
                 initializeObjectForPlacement();
                 //markerObject.transform.localPosition = new Vector3(0,0, -markerStartDistance);    
                 //markerObject.transform.localEulerAngles = Vector3.zero;
@@ -137,7 +139,7 @@ public class LM_ObjectPlacement : ExperimentTask
 
             // check for key updates
             // and move markerLocation accordingly
-            // and update the markerObject.Transform
+            // and update the pointingObjectParent.Transform
             Vector3 startPoint = new Vector3();
             Vector3 endPoint = new Vector3();
 
@@ -160,7 +162,7 @@ public class LM_ObjectPlacement : ExperimentTask
                     Debug.Log(hitInfo.collider);
                 }
 
-                markerObject.transform.position = hitInfo.point;
+                pointingObjectParent.transform.position = hitInfo.point;
 
                 _lineRenderer.gameObject.SetActive(true);
                 _lineRenderer.positionCount = 2;
@@ -274,16 +276,12 @@ public class LM_ObjectPlacement : ExperimentTask
         stage = PointingTaskStage.Orienting; // reset stage to the original state.
     }
 
-    private void initializeObjectForPlacement(){ // TODO: Uncomment this
-        /*
-        TargetObject currTgtObj = trialData.targetObjects[currObjInd];
-
-        GameObject go = Instantiate(relocationTargetTemplate); // TODO: Instantiate this according to the color and shape in the JSON
-        go.transform.position = new Vector3(x, 0f, y);
-        currentPlacementObject = go;
+    private void initializeObjectForPlacement(){
+        string targetObjectString = trialData.targetObjects[currObjInd].object_repr;
+        GameObject targetObject = relocationTargetTemplateParent.transform.Find(targetObjectString).gameObject;
         
-        currentPlacementObject.SetActive(true);
-        */
+        GameObject go = Instantiate(targetObject, pointingObjectParent.transform);
+        go.transform.position = new Vector3(0f, 1.0f, 0f);
     }
 
 }

@@ -3129,6 +3129,7 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
+  pointingObjectParent: {fileID: 2028572254}
   markerObjectTemplate: {fileID: 8845932247092423020, guid: 018acccbec7002b45a34990ccc1f81c4,
     type: 3}
   lineRendererTemplate: {fileID: 2386382763588470407, guid: 60a804cf93f63274fb2403932a3552e2,
@@ -3802,7 +3803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1450415157}
   m_Layer: 0
-  m_Name: CurrentTargetObject
+  m_Name: CurrentTargetObjectHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4137,8 +4138,10 @@ MonoBehaviour:
   hideNonTargets: 0
   lineRendererTemplate: {fileID: 2386382763588470407, guid: 60a804cf93f63274fb2403932a3552e2,
     type: 3}
-  relocationTargetTemplate: {fileID: 475642739331577302, guid: b21774ad73a771e4fabd6f4c4478b623,
+  relocationFinalTargetPrefab: {fileID: 475642739331577302, guid: b21774ad73a771e4fabd6f4c4478b623,
     type: 3}
+  relocationTargetTemplateParent: {fileID: 2140146889}
+  currentTargetObjectHolder: {fileID: 1450415156}
 --- !u!1 &1772511063
 GameObject:
   m_ObjectHideFlags: 0
@@ -4771,6 +4774,36 @@ MonoBehaviour:
   triggerOnEnd: 0
   mode: 0
   borderParent: {fileID: 265180561}
+--- !u!1 &2028572254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2028572255}
+  m_Layer: 0
+  m_Name: PointingTaskObjectParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2028572255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028572254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5308465571467594066}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2070387491
 GameObject:
   m_ObjectHideFlags: 0
@@ -11694,6 +11727,7 @@ Transform:
   - {fileID: 5308465570273599371}
   - {fileID: 2140146890}
   - {fileID: 1450415157}
+  - {fileID: 2028572255}
   m_Father: {fileID: 5308465570974493285}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
