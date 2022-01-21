@@ -4686,6 +4686,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1434858932}
     m_Modifications:
+    - target: {fileID: 8777765008037820866, guid: d95e9e0a666b84fa589f46b456ce4dd6,
+        type: 3}
+      propertyPath: randomStartRotation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8777765008361736724, guid: d95e9e0a666b84fa589f46b456ce4dd6,
         type: 3}
       propertyPath: m_RootOrder
