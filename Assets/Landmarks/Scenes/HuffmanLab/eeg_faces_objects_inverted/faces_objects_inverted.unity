@@ -5126,6 +5126,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2026502503866315876, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: interval
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026502503866315876, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: jitter_lower_bound
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026502503866315876, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: jitter_upper_bound
+      value: 4000
+      objectReference: {fileID: 0}
     - target: {fileID: 2896582459213363093, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_Name

@@ -26,6 +26,9 @@ public class InterTrialInterval : ExperimentTask {
 
 	[HideInInspector] public GameObject destination;
 
+	public bool jitter_iti = true;
+	public int jitter_lower_bound;
+	public int jitter_upper_bound;
 	public ObjectList startObjects;
 	public bool blackout = true;
 	public bool showName = false;
@@ -96,6 +99,15 @@ public class InterTrialInterval : ExperimentTask {
         {
             item.SetActive(false);
         }
+
+		// if we want to jitter, then call that function to update the interval
+        // parameter; otherwise, use the stock interval value from the
+        // inspector (DJH)
+		if (jitter_iti)
+		{
+			interval = jitterTrialEnd();
+			// Debug.Log(interval);
+		}
     }
 	
 	public override bool updateTask () {
@@ -104,9 +116,11 @@ public class InterTrialInterval : ExperimentTask {
 			//log.log("INFO	skip task	" + name,1 );
 			return true;
 		}
-		
-	
-		if ( Experiment.Now() - trial_start >= interval)  {
+
+		// Note, in the TASK_START() function above, I set the interval to
+		// either be set by jitter or the interval, depending on user's preference.
+		if ( Experiment.Now() - trial_start >= interval)
+		{
 			return true;
 		} 
 		return false;
@@ -145,4 +159,8 @@ public class InterTrialInterval : ExperimentTask {
 		}
 	}
 
+	private int jitterTrialEnd()
+    {
+		return Random.Range(jitter_lower_bound, jitter_upper_bound);
+    }
 }
