@@ -20,7 +20,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 using UnityStandardAssets.Characters.FirstPerson;
 
 
-public class ViewObjectsTimed : ExperimentTask {
+public class ViewStimuliTimed : ExperimentTask {
 
     [Header("Task-specific Properties")]
 
@@ -86,25 +86,38 @@ public class ViewObjectsTimed : ExperimentTask {
 		destination = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
 
 		// handle changes to the hud
-		if (showName)
+		if (vrEnabled)
 		{
-			if (vrEnabled)
+			initialHUDposition = hud.hudPanel.transform.position;
+
+			var temp = destination.transform.position;
+			// If showName, then put in place, otherwise move under the floor (DJH)
+			if (showName)
 			{
-				initialHUDposition = hud.hudPanel.transform.position;
-
-				var temp = destination.transform.position;
 				temp.y += 2.5f;
-				hud.hudPanel.transform.position = temp;
-
 			}
 			else
+            {
+				temp.y -= 100f;
+            }
+			hud.hudPanel.transform.position = temp;
+
+		}
+		else
+		{
+			// Change the anchor points to put the message at the bottom
+			RectTransform hudposition = hud.hudPanel.GetComponent<RectTransform>() as RectTransform;
+			// If showName, then put in place, otherwise move under the floor (DJH)
+			if (showName)
 			{
-				// Change the anchor points to put the message at the bottom
-				RectTransform hudposition = hud.hudPanel.GetComponent<RectTransform>() as RectTransform;
 				hudposition.pivot = new Vector2(0.5f, 0.1f);
 			}
+			else
+            {
+				hudposition.pivot = new Vector2(0.5f, 100f);
+			}
 		}
-        
+		        
 
         // turn off all objects
         foreach (GameObject item in startObjects.objects)
@@ -161,9 +174,9 @@ public class ViewObjectsTimed : ExperimentTask {
 		setLayer(current.transform, viewLayer);
 		if (showName) {
 			hud.setMessage(current.name);
-			hud.ForceShowMessage();
 		}
-		
+		hud.ForceShowMessage();
+
 		log.log("Practice\t" + current.name,1);
 
 	}
@@ -197,18 +210,15 @@ public class ViewObjectsTimed : ExperimentTask {
 
 		base.endTask();
 
-		if (showName)
+		if (vrEnabled)
 		{
-			if (vrEnabled)
-			{
-				hud.hudPanel.transform.position = initialHUDposition;
-			}
-			else
-			{
-				// Change the anchor points to put the message back in center
-				RectTransform hudposition = hud.hudPanel.GetComponent<RectTransform>() as RectTransform;
-				hudposition.pivot = new Vector2(0.5f, 0.5f);
-			}
+			hud.hudPanel.transform.position = initialHUDposition;
+		}
+		else
+		{
+			// Change the anchor points to put the message back in center
+			RectTransform hudposition = hud.hudPanel.GetComponent<RectTransform>() as RectTransform;
+			hudposition.pivot = new Vector2(0.5f, 0.5f);
 		}
 
         // turn on all targets

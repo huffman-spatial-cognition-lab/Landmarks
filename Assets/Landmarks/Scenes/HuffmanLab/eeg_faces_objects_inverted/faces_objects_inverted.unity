@@ -5144,7 +5144,7 @@ GameObject:
   - component: {fileID: 170528091377580474}
   - component: {fileID: 170528091377580475}
   m_Layer: 0
-  m_Name: ListTargetsForFacesObjects
+  m_Name: ListStimuliForViewing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5211,7 +5211,7 @@ GameObject:
   - component: {fileID: 170528091595695227}
   - component: {fileID: 170528091595695226}
   m_Layer: 0
-  m_Name: TASK_FacesObectsInverted
+  m_Name: TASK_ViewStimuliTimed
   m_TagString: Task
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5322,7 +5322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skip: 0
   canIncrementLists: 1
-  interval: 3000
+  interval: 2500
   interruptTasks: {fileID: 0}
   interruptInterval: 0
   repeatInterrupts: 9999
@@ -5340,10 +5340,10 @@ MonoBehaviour:
   startObjects: {fileID: 170528091377580475}
   destination: {fileID: 0}
   blackout: 1
-  showName: 1
+  showName: 0
   trial_start: 0
   trial_start_float: 0
-  objectRotationOffset: {x: 0, y: 225, z: 0}
+  objectRotationOffset: {x: 0, y: 220, z: 0}
   objectPositionOffset: {x: 0, y: 0, z: 8}
   restrictMovement: 1
 --- !u!4 &496193572075894283
@@ -5431,7 +5431,7 @@ GameObject:
   - component: {fileID: 1234718899341040323}
   - component: {fileID: 2172725692335128973}
   m_Layer: 0
-  m_Name: FacesObjectsInstructions
+  m_Name: ViewStimuliInstructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5467,7 +5467,7 @@ MonoBehaviour:
   triggerOnStart: 0
   triggerOnEnd: 0
   instruction: {fileID: 0}
-  message: {fileID: 4900000, guid: 289fca87a98764036bd412d05a31e578, type: 3}
+  message: {fileID: 4900000, guid: 87f904eae8b62fd4e983e6157597b5a9, type: 3}
   objects: {fileID: 0}
   multiObjects: []
   texts: {fileID: 0}
@@ -5490,7 +5490,7 @@ GameObject:
   - component: {fileID: 496193572075894283}
   - component: {fileID: 1276067923739581550}
   m_Layer: 0
-  m_Name: ViewFacesObjects
+  m_Name: ViewStimuliTimed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
