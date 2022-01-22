@@ -20,14 +20,13 @@ using UnityStandardAssets.Characters.ThirdPerson;
 using UnityStandardAssets.Characters.FirstPerson;
 
 
-public class ViewStimuliTimed : ExperimentTask {
+public class InterTrialInterval : ExperimentTask {
 
     [Header("Task-specific Properties")]
 
-    public ObjectList startObjects;
-	private GameObject current;
 	[HideInInspector] public GameObject destination;
 
+	public ObjectList startObjects;
 	private static Vector3 position;
 	private static Quaternion rotation;
 	private static Transform parent;
@@ -47,9 +46,7 @@ public class ViewStimuliTimed : ExperimentTask {
 
     public override void startTask () {
 		TASK_START();
-		current = startObjects.currentObject();
-		
-		initCurrent();	
+			
 		trial_start = Experiment.Now();
 		trial_start_float = trial_start/1f;
 		// Debug.Log(trial_start);
@@ -92,14 +89,15 @@ public class ViewStimuliTimed : ExperimentTask {
 
 			var temp = destination.transform.position;
 			// If showName, then put in place, otherwise move under the floor (DJH)
-			if (showName)
-			{
-				temp.y += 2.5f;
-			}
-			else
-            {
-				temp.y -= 100f;
-            }
+			//if (showName)
+			//{
+			//	temp.y += 2.5f;
+			//}
+			//else
+			//{
+			//	temp.y -= 100f;
+			//}
+			temp.y -= 100f;
 			hud.hudPanel.transform.position = temp;
 
 		}
@@ -108,14 +106,15 @@ public class ViewStimuliTimed : ExperimentTask {
 			// Change the anchor points to put the message at the bottom
 			RectTransform hudposition = hud.hudPanel.GetComponent<RectTransform>() as RectTransform;
 			// If showName, then put in place, otherwise move under the floor (DJH)
-			if (showName)
-			{
-				hudposition.pivot = new Vector2(0.5f, 0.1f);
-			}
-			else
-            {
-				hudposition.pivot = new Vector2(0.5f, 100f);
-			}
+			//if (showName)
+			//{
+			//	hudposition.pivot = new Vector2(0.5f, 0.1f);
+			//}
+			//else
+			//{
+			//	hudposition.pivot = new Vector2(0.5f, 100f);
+			//}
+			hudposition.pivot = new Vector2(0.5f, 100f);
 		}
 		        
 
@@ -133,46 +132,11 @@ public class ViewStimuliTimed : ExperimentTask {
 			return true;
 		}
 		
-		if (current) {
-
-			if ( Experiment.Now() - trial_start >= interval)  {
-				return true;
-			} else {
-		    	return false;
-			}
-		} else {
+	
+		if ( Experiment.Now() - trial_start >= interval)  {
 			return true;
-		}
+		} 
 		return false;
-	}
-
-	public void initCurrent() {
-		// store original properties of the target
-		position = current.transform.position;
-        rotation = current.transform.rotation;
-		parent = current.transform.parent;
-		scale = current.transform.localScale;
-
-		// move the target to the viewing location temporarily
-		current.transform.parent = destination.transform;
-		current.transform.localPosition = objectPositionOffset;
-        current.transform.localEulerAngles = objectRotationOffset;
-        current.transform.localScale = Vector3.Scale(current.transform.localScale, destination.transform.localScale);
-
-		// return the target to its original parent (we'll revert other values later)
-		// this way it won't track with the "head" of the avatar
-		current.transform.parent = parent;
-
-        // but Turn on the current object
-        current.SetActive(true);
-
-		saveLayer = current.layer;
-		setLayer(current.transform, viewLayer);
-		hud.setMessage(current.name);
-		hud.ForceShowMessage();
-
-		log.log("Practice\t" + current.name,1);
-
 	}
 	
 	public override void TASK_ADD(GameObject go, string txt) {
@@ -185,16 +149,6 @@ public class ViewStimuliTimed : ExperimentTask {
 
 	}
 	
-	public void returnCurrent() {
-		current.transform.position = position;
-		current.transform.localRotation = rotation;
-		current.transform.localScale = scale;
-		setLayer(current.transform,saveLayer);
-
-        // turn off the object we're returning before turning on the next one
-        current.SetActive(false);
-    }
-
 	public override void endTask() {
 		//returnCurrent();
 		//startObjects.current = 0;
@@ -204,13 +158,6 @@ public class ViewStimuliTimed : ExperimentTask {
 	public override void TASK_END() {
 
 		base.endTask();
-
-		trial_start = Experiment.Now();
-		trial_start_float = trial_start / 1f;
-		startObjects.incrementCurrent();
-		returnCurrent();
-		current = startObjects.currentObject();
-		//if (current) initCurrent();
 
 		if (vrEnabled)
 		{
