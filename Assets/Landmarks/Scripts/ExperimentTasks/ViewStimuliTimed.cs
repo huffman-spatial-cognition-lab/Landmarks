@@ -36,8 +36,8 @@ public class ViewStimuliTimed : ExperimentTask {
 	private int viewLayer = 11;
 	public bool blackout = true;
 	public bool showName = false;
-	public long trial_start;
-    public float trial_start_float;
+	private long trial_start;
+    private float trial_start_float;
 	public Vector3 objectRotationOffset;
 	public Vector3 objectPositionOffset;
     public bool restrictMovement = true;
