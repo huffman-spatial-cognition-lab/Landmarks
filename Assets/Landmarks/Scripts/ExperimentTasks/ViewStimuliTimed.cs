@@ -37,7 +37,6 @@ public class ViewStimuliTimed : ExperimentTask {
 	public bool blackout = true;
 	public bool showName = false;
 	private long trial_start;
-    private float trial_start_float;
 	public Vector3 objectRotationOffset;
 	public Vector3 objectPositionOffset;
     public bool restrictMovement = true;
@@ -51,7 +50,6 @@ public class ViewStimuliTimed : ExperimentTask {
 		
 		initCurrent();	
 		trial_start = Experiment.Now();
-		trial_start_float = trial_start/1f;
 		// Debug.Log(trial_start);
 		
 	}	
@@ -206,7 +204,6 @@ public class ViewStimuliTimed : ExperimentTask {
 		base.endTask();
 
 		trial_start = Experiment.Now();
-		trial_start_float = trial_start / 1f;
 		startObjects.incrementCurrent();
 		returnCurrent();
 		current = startObjects.currentObject();
