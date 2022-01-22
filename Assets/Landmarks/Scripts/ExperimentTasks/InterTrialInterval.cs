@@ -27,18 +27,9 @@ public class InterTrialInterval : ExperimentTask {
 	[HideInInspector] public GameObject destination;
 
 	public ObjectList startObjects;
-	private static Vector3 position;
-	private static Quaternion rotation;
-	private static Transform parent;
-	private static Vector3 scale;
-	private int saveLayer;
-	private int viewLayer = 11;
 	public bool blackout = true;
 	public bool showName = false;
 	private long trial_start;
-    private float trial_start_float;
-	public Vector3 objectRotationOffset;
-	public Vector3 objectPositionOffset;
     public bool restrictMovement = true;
 
 
@@ -48,7 +39,6 @@ public class InterTrialInterval : ExperimentTask {
 		TASK_START();
 			
 		trial_start = Experiment.Now();
-		trial_start_float = trial_start/1f;
 		// Debug.Log(trial_start);
 		
 	}	
@@ -87,33 +77,16 @@ public class InterTrialInterval : ExperimentTask {
 		{
 			initialHUDposition = hud.hudPanel.transform.position;
 
+			// Put the message below the ground, so that they cannot see it for the ITI task
 			var temp = destination.transform.position;
-			// If showName, then put in place, otherwise move under the floor (DJH)
-			//if (showName)
-			//{
-			//	temp.y += 2.5f;
-			//}
-			//else
-			//{
-			//	temp.y -= 100f;
-			//}
 			temp.y -= 100f;
 			hud.hudPanel.transform.position = temp;
 
 		}
 		else
 		{
-			// Change the anchor points to put the message at the bottom
+			// Put the message below the ground, so that they cannot see it for the ITI task
 			RectTransform hudposition = hud.hudPanel.GetComponent<RectTransform>() as RectTransform;
-			// If showName, then put in place, otherwise move under the floor (DJH)
-			//if (showName)
-			//{
-			//	hudposition.pivot = new Vector2(0.5f, 0.1f);
-			//}
-			//else
-			//{
-			//	hudposition.pivot = new Vector2(0.5f, 100f);
-			//}
 			hudposition.pivot = new Vector2(0.5f, 100f);
 		}
 		        
@@ -139,19 +112,7 @@ public class InterTrialInterval : ExperimentTask {
 		return false;
 	}
 	
-	public override void TASK_ADD(GameObject go, string txt) {
-		if (txt == "add") {
-			saveLayer = go.layer;
-			setLayer(go.transform,viewLayer);
-		} else if (txt == "remove") {
-			setLayer(go.transform,saveLayer);
-		}
-
-	}
-	
 	public override void endTask() {
-		//returnCurrent();
-		//startObjects.current = 0;
 		TASK_END();
 	}
 	
@@ -184,10 +145,4 @@ public class InterTrialInterval : ExperimentTask {
 		}
 	}
 
-    public void setLayer(Transform t, int l) {
-		t.gameObject.layer = l;
-		foreach (Transform child in t) {
-			setLayer(child,l);
-		}
-	}
 }
