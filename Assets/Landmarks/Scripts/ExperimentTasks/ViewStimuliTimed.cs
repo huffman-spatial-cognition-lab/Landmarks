@@ -172,9 +172,7 @@ public class ViewStimuliTimed : ExperimentTask {
 
 		saveLayer = current.layer;
 		setLayer(current.transform, viewLayer);
-		if (showName) {
-			hud.setMessage(current.name);
-		}
+		hud.setMessage(current.name);
 		hud.ForceShowMessage();
 
 		log.log("Practice\t" + current.name,1);
