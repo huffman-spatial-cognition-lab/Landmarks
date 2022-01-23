@@ -5064,89 +5064,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134014575}
   m_CullTransparentMesh: 1
---- !u!1001 &2026502502802857485
+--- !u!1001 &210470296023660392
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 1434858932}
     m_Modifications:
-    - target: {fileID: 1944781149728106502, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1944781149728106502, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1944781149728106502, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1944781149728106502, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1944781149728106502, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1944781149728106502, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 1944781149728106502, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 1944781149728106502, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 1944781149728106502, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1944781149728106502, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1944781149728106502, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2026502503131436313, guid: 1e918461dfaa3a04d9a3df920a8e1415,
-        type: 3}
-      propertyPath: overideRepeat
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2026502503866315876, guid: 1e918461dfaa3a04d9a3df920a8e1415,
-        type: 3}
-      propertyPath: interval
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2026502503866315876, guid: 1e918461dfaa3a04d9a3df920a8e1415,
-        type: 3}
-      propertyPath: jitter_lower_bound
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2026502503866315876, guid: 1e918461dfaa3a04d9a3df920a8e1415,
-        type: 3}
-      propertyPath: jitter_upper_bound
-      value: 4000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2896582459213363093, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 3947003416744156912, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_Name
       value: TASK_ViewStimuliTimed
