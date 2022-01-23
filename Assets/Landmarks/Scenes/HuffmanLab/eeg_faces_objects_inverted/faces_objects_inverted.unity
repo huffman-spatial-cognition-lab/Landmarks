@@ -5071,6 +5071,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1434858932}
     m_Modifications:
+    - target: {fileID: 210470294730038529, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: jitter_lower_bound
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 210470294730038529, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: jitter_upper_bound
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 290879042707030371, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_RootOrder
