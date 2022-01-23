@@ -25,6 +25,7 @@ public class ViewStimuliTimed : ExperimentTask {
     [Header("Task-specific Properties")]
 
     public ObjectList startObjects;
+	public LM_RandomOrderStimuli randomOrderStimuli;
 	private GameObject current;
 	[HideInInspector] public GameObject destination;
 
@@ -204,7 +205,8 @@ public class ViewStimuliTimed : ExperimentTask {
 		base.endTask();
 
 		trial_start = Experiment.Now();
-		startObjects.incrementCurrent();
+		randomOrderStimuli.incrementCurrent();
+		startObjects.current = randomOrderStimuli.object_list[randomOrderStimuli.trial_indexer[randomOrderStimuli.current]];
 		returnCurrent();
 		current = startObjects.currentObject();
 		//if (current) initCurrent();

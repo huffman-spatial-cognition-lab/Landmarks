@@ -25,7 +25,8 @@ public class LM_RandomOrderStimuli : ExperimentTask
     public int repetitions_upright=2;
     public int repetitions_inverted = 0;
     public bool shuffle = true;
-    public EndListMode endListBehavior;
+    public EndListMode EndListBehavior;
+    public int current = 0;
     readonly public List<GameObject> currentItem;
     readonly public List<int> object_list = new List<int>();
     readonly public List<int> trial_indexer = new List<int>();
@@ -113,5 +114,16 @@ public class LM_RandomOrderStimuli : ExperimentTask
     {
         base.endTask();
     }
+
+
+    public void incrementCurrent()
+    {
+        current++;
+        if (current >= trial_indexer.Count && EndListBehavior == EndListMode.Loop)
+        {
+            current = 0;
+        }
+    }
+
 
 }
