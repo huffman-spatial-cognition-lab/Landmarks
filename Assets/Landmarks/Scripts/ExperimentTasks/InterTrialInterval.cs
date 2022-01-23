@@ -27,8 +27,8 @@ public class InterTrialInterval : ExperimentTask {
 	[HideInInspector] public GameObject destination;
 
 	public bool jitter_iti = true;
-	public int jitter_lower_bound = 1500;
-	public int jitter_upper_bound = 3000;
+	public int jitter_lower_bound = 700;
+	public int jitter_upper_bound = 1700;
 	public ObjectList startObjects;
 	public bool blackout = true;
 	public bool showName = false;
