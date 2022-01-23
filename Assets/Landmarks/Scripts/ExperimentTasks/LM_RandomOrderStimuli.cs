@@ -7,6 +7,12 @@
     helpful for general psychology experiments, e.g., in which you want to show
     the same items multiple times.
 
+    Here, this code will also provide a framework for showing upright vs.
+    inverted images. If you do not want any inverted images, then simply set
+    repetitions_inverted=0 below (default) and it will just run a "normal"
+    experiment. You could also use this parameter to show objects at different
+    rotations; e.g., to test for invariant object coding.
+
     I also used Mike's code from LM_Dummy.cs and LM_PermutedList.cs along with
     Zza's code from Object List as a starting point.
     
@@ -28,9 +34,9 @@ public class LM_RandomOrderStimuli : ExperimentTask
     public EndListMode EndListBehavior;
     public int current = 0;
     readonly public List<GameObject> currentItem;
-    readonly public List<int> object_list = new List<int>();
+    readonly public List<int> object_index_list = new List<int>();
     readonly public List<int> trial_indexer = new List<int>();
-    readonly public List<string> upright_inverted = new List<string>();
+    readonly public List<float> upright_inverted = new List<float>();
 
     private int currentIndex;
 
@@ -58,20 +64,20 @@ public class LM_RandomOrderStimuli : ExperimentTask
         // --------------------------------------------------------------------
         // Now, let's create the lists with the relevant information: ---------
         // 1) trial_indexer_unshuffled: an index array from 0 to n_trials-1 ---
-        // 2) trial_within_block_counter: an index array for the objects ------
+        // 2) object_index_list: an index array for objects (0 to n_objects) --
         // 3) upright_inverted: a string array --------------------------------
         // --------------------------------------------------------------------
         List<int> trial_indexer_unshuffled = new List<int>();
         for (int i=0; i < total_trials; i++)
         {
-            object_list.Add(trial_within_block_counter);
+            object_index_list.Add(trial_within_block_counter);
             trial_indexer_unshuffled.Add(i);
             if (i < total_upright)
             {
-                upright_inverted.Add("upright");
+                upright_inverted.Add(0f);
             } else
             {
-                upright_inverted.Add("inverted");
+                upright_inverted.Add(180f);
             }
             trial_within_block_counter += 1;
             if (trial_within_block_counter == obj_count)
@@ -136,11 +142,11 @@ public class LM_RandomOrderStimuli : ExperimentTask
 
     public int getCurrentGameObjectIndex()
     {
-        return object_list[trial_indexer[current]];
+        return object_index_list[trial_indexer[current]];
     }
 
 
-    public string getUprightInverted()
+    public float getUprightInverted()
     {
         return upright_inverted[trial_indexer[current]];
     }
