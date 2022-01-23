@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &190987039998704647
+--- !u!1 &93164180626209254
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,253 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3488460071396058004}
-  - component: {fileID: 2827745560958388721}
+  - component: {fileID: 93164180626209253}
+  - component: {fileID: 93164180626209252}
   m_Layer: 0
-  m_Name: TASK_ViewStimuliTimed
-  m_TagString: Task
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3488460071396058004
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190987039998704647}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3807367949464988709}
-  - {fileID: 3930422700830728801}
-  - {fileID: 3930422699928406372}
-  - {fileID: 3930422700632153740}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2827745560958388721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190987039998704647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b72e5b9b995348e0a53c738244f788b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 1
-  interval: 0
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  skipConditions: []
-  tasks: []
-  objectsList: []
-  repeat: 1
-  overideRepeat: {fileID: 0}
-  repeatCount: 1
-  hideTargetsDuringTask: 0
-  currentTask: {fileID: 0}
-  catchTrialCount: 0
-  skipOnCatch: []
-  onlyOnCatch: []
-  noCatchOnFirstTrial: 1
-  catchTrials: 
-  catchFlag: 0
-  trialLogging: 1
---- !u!1 &3807367949464988715
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3807367949464988709}
-  - component: {fileID: 3807367949464988708}
-  m_Layer: 0
-  m_Name: ListStimuliForViewing
+  m_Name: CreateRandomOrder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3807367949464988709
+--- !u!4 &93164180626209253
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3807367949464988715}
+  m_GameObject: {fileID: 93164180626209254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3488460071396058004}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3807367949464988708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3807367949464988715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7b965bfa25a4393bf115e4c0000ad3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 1
-  interval: 0
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  parentName: TargetObjects
-  parentObject: {fileID: 0}
-  current: 0
-  objects: []
-  EndListBehavior: 0
-  shuffle: 1
-  order: {fileID: 0}
---- !u!1 &3807367949970657393
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3807367949970657394}
-  - component: {fileID: 3807367949970657392}
-  m_Layer: 0
-  m_Name: ViewStimulus
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3807367949970657394
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3807367949970657393}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3930422700632153740}
+  m_Father: {fileID: 551736277676095504}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3807367949970657392
+--- !u!114 &93164180626209252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3807367949970657393}
+  m_GameObject: {fileID: 93164180626209254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee9c56895925a8843a023886e41d3d9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 1
-  interval: 2500
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  startObjects: {fileID: 3807367949464988708}
-  randomOrderStimuli: {fileID: 3930422700830728800}
-  destination: {fileID: 0}
-  blackout: 1
-  showName: 0
-  objectRotationOffset: {x: 0, y: 220, z: 0}
-  objectPositionOffset: {x: 0, y: 0, z: 8}
-  restrictMovement: 1
---- !u!1 &3930422699928406373
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3930422699928406372}
-  - component: {fileID: 3930422699928406371}
-  m_Layer: 0
-  m_Name: ViewStimuliInstructions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3930422699928406372
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930422699928406373}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3488460071396058004}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3930422699928406371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930422699928406373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2b24b10a1d6446ea483dff9d3e43da, type: 3}
+  m_Script: {fileID: 11500000, guid: 7551e800f20734043a8152056c39b1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
@@ -274,20 +60,13 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  instruction: {fileID: 0}
-  message: {fileID: 4900000, guid: 87f904eae8b62fd4e983e6157597b5a9, type: 3}
-  objects: {fileID: 0}
-  multiObjects: []
-  texts: {fileID: 0}
-  blackout: 1
-  text_color: {r: 1, g: 1, b: 1, a: 1}
-  instructionFont: {fileID: 0}
-  instructionSize: 12
-  actionButtonOn: 1
-  customButtonText: 
-  restrictMovement: 0
-  selfPaced: 1
---- !u!1 &3930422700632153741
+  listToRandomize: {fileID: 222693097278486432}
+  repetitions_upright: 2
+  repetitions_inverted: 1
+  shuffle: 1
+  EndListBehavior: 0
+  current: 0
+--- !u!1 &93164180636116092
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -295,8 +74,76 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3930422700632153740}
-  - component: {fileID: 3930422700632153739}
+  - component: {fileID: 93164180636116083}
+  - component: {fileID: 93164180636116082}
+  m_Layer: 0
+  m_Name: InterTrialInterval
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &93164180636116083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93164180636116092}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 93164181505295624}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &93164180636116082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93164180636116092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f370aaba4cff841afdfcda9c7aac9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 1
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  destination: {fileID: 0}
+  jitter_iti: 1
+  jitter_lower_bound: 700
+  jitter_upper_bound: 1700
+  startObjects: {fileID: 222693097278486432}
+  blackout: 1
+  showName: 0
+  restrictMovement: 1
+--- !u!1 &93164181505295625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 93164181505295624}
+  - component: {fileID: 93164181505295631}
   m_Layer: 0
   m_Name: ViewStimuliITI
   m_TagString: Untagged
@@ -304,29 +151,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3930422700632153740
+--- !u!4 &93164181505295624
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930422700632153741}
+  m_GameObject: {fileID: 93164181505295625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3930422700840681463}
-  - {fileID: 3807367949970657394}
-  m_Father: {fileID: 3488460071396058004}
+  - {fileID: 93164180636116083}
+  - {fileID: 222693096705690614}
+  m_Father: {fileID: 551736277676095504}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3930422700632153739
+--- !u!114 &93164181505295631
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930422700632153741}
+  m_GameObject: {fileID: 93164181505295625}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b72e5b9b995348e0a53c738244f788b, type: 3}
@@ -364,7 +211,7 @@ MonoBehaviour:
   catchTrials: 
   catchFlag: 0
   trialLogging: 0
---- !u!1 &3930422700830728802
+--- !u!1 &93164181875528417
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -372,44 +219,117 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3930422700830728801}
-  - component: {fileID: 3930422700830728800}
+  - component: {fileID: 93164181875528416}
+  - component: {fileID: 93164181875528423}
   m_Layer: 0
-  m_Name: CreateRandomOrder
+  m_Name: ViewStimuliInstructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3930422700830728801
+--- !u!4 &93164181875528416
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930422700830728802}
+  m_GameObject: {fileID: 93164181875528417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3488460071396058004}
+  m_Father: {fileID: 551736277676095504}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &93164181875528423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93164181875528417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2b24b10a1d6446ea483dff9d3e43da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 1
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  instruction: {fileID: 0}
+  message: {fileID: 4900000, guid: 87f904eae8b62fd4e983e6157597b5a9, type: 3}
+  objects: {fileID: 0}
+  multiObjects: []
+  texts: {fileID: 0}
+  blackout: 1
+  text_color: {r: 1, g: 1, b: 1, a: 1}
+  instructionFont: {fileID: 0}
+  instructionSize: 12
+  actionButtonOn: 1
+  customButtonText: 
+  restrictMovement: 0
+  selfPaced: 1
+--- !u!1 &222693096705690613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 222693096705690614}
+  - component: {fileID: 222693096705690612}
+  m_Layer: 0
+  m_Name: ViewStimulus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &222693096705690614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222693096705690613}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 93164181505295624}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3930422700830728800
+--- !u!114 &222693096705690612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930422700830728802}
+  m_GameObject: {fileID: 222693096705690613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7551e800f20734043a8152056c39b1ca, type: 3}
+  m_Script: {fileID: 11500000, guid: ee9c56895925a8843a023886e41d3d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
   canIncrementLists: 1
-  interval: 0
+  interval: 2500
   interruptTasks: {fileID: 0}
   interruptInterval: 0
   repeatInterrupts: 9999
@@ -424,13 +344,15 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  listToRandomize: {fileID: 3807367949464988708}
-  repetitions_upright: 2
-  repetitions_inverted: 1
-  shuffle: 1
-  EndListBehavior: 1
-  current: 0
---- !u!1 &3930422700840681464
+  startObjects: {fileID: 222693097278486432}
+  randomOrderStimuli: {fileID: 93164180626209252}
+  destination: {fileID: 0}
+  blackout: 1
+  showName: 0
+  objectRotationOffset: {x: 0, y: 220, z: 0}
+  objectPositionOffset: {x: 0, y: 0, z: 8}
+  restrictMovement: 1
+--- !u!1 &222693097278486447
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -438,39 +360,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3930422700840681463}
-  - component: {fileID: 3930422700840681462}
+  - component: {fileID: 222693097278486433}
+  - component: {fileID: 222693097278486432}
   m_Layer: 0
-  m_Name: InterTrialInterval
+  m_Name: ListStimuliForViewing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3930422700840681463
+--- !u!4 &222693097278486433
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930422700840681464}
+  m_GameObject: {fileID: 222693097278486447}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3930422700632153740}
+  m_Father: {fileID: 551736277676095504}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3930422700840681462
+--- !u!114 &222693097278486432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3930422700840681464}
+  m_GameObject: {fileID: 222693097278486447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f370aaba4cff841afdfcda9c7aac9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c7b965bfa25a4393bf115e4c0000ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
@@ -490,11 +412,89 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  destination: {fileID: 0}
-  jitter_iti: 1
-  jitter_lower_bound: 700
-  jitter_upper_bound: 1700
-  startObjects: {fileID: 3807367949464988708}
-  blackout: 1
-  showName: 0
-  restrictMovement: 1
+  parentName: TargetObjects
+  parentObject: {fileID: 0}
+  current: 0
+  objects: []
+  EndListBehavior: 0
+  shuffle: 1
+  order: {fileID: 0}
+--- !u!1 &3848276919295747971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 551736277676095504}
+  - component: {fileID: 1224835408034697845}
+  m_Layer: 0
+  m_Name: TASK_ViewStimuliTimed
+  m_TagString: Task
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &551736277676095504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848276919295747971}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 222693097278486433}
+  - {fileID: 93164180626209253}
+  - {fileID: 93164181875528416}
+  - {fileID: 93164181505295624}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1224835408034697845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848276919295747971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b72e5b9b995348e0a53c738244f788b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 1
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  skipConditions: []
+  tasks: []
+  objectsList: []
+  repeat: 1
+  overideRepeat: {fileID: 0}
+  repeatCount: 1
+  hideTargetsDuringTask: 0
+  currentTask: {fileID: 0}
+  catchTrialCount: 0
+  skipOnCatch: []
+  onlyOnCatch: []
+  noCatchOnFirstTrial: 1
+  catchTrials: 
+  catchFlag: 0
+  trialLogging: 1

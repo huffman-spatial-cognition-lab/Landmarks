@@ -95,6 +95,14 @@ public class LM_RandomOrderStimuli : ExperimentTask
             trial_indexer.Add(trial_i);
         }
 
+
+        // --------------------------------------------------------------------
+        // Set the listToRandomize.current to the current index (i.e., for ----
+        // randomization. This takes care of the first trial; all other -------
+        // trials will be set to the random index within the taks script: -----
+        // ViewStimuliTimes.cs ------------------------------------------------
+        // --------------------------------------------------------------------
+        listToRandomize.current = getCurrentGameObjectIndex();
     }
 
 
@@ -123,6 +131,18 @@ public class LM_RandomOrderStimuli : ExperimentTask
         {
             current = 0;
         }
+    }
+
+
+    public int getCurrentGameObjectIndex()
+    {
+        return object_list[trial_indexer[current]];
+    }
+
+
+    public string getUprightInverted()
+    {
+        return upright_inverted[trial_indexer[current]];
     }
 
 

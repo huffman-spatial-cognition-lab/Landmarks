@@ -206,7 +206,7 @@ public class ViewStimuliTimed : ExperimentTask {
 
 		trial_start = Experiment.Now();
 		randomOrderStimuli.incrementCurrent();
-		startObjects.current = randomOrderStimuli.object_list[randomOrderStimuli.trial_indexer[randomOrderStimuli.current]];
+		startObjects.current = randomOrderStimuli.getCurrentGameObjectIndex();
 		returnCurrent();
 		current = startObjects.currentObject();
 		//if (current) initCurrent();
