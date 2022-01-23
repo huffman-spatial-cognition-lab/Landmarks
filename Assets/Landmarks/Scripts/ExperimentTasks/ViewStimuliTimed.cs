@@ -12,6 +12,14 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    # -------------------------------------------------------------------------
+    This script was modified from the original ViewTargets.cs script. Here, I
+    am writing a script that will run with a more standard lab-based task of
+    showing objects with set timing and randomization.
+
+    WRITTEN BY DEREK J. HUFFMAN (JANUARY 2022).
+    # -------------------------------------------------------------------------
 */
 
 using UnityEngine;
@@ -208,11 +216,14 @@ public class ViewStimuliTimed : ExperimentTask {
 		base.endTask();
 
 		trial_start = Experiment.Now();
+		// increment the trial counter within LM_RandomOrderStimuli.cs --------
 		randomOrderStimuli.incrementCurrent();
+		// and set the current index in the startObjects list accordingly -----
 		startObjects.current = randomOrderStimuli.getCurrentGameObjectIndex();
+		// return the current game object -------------------------------------
 		returnCurrent();
+		// update to the next object ------------------------------------------
 		current = startObjects.currentObject();
-		//if (current) initCurrent();
 
 		if (vrEnabled)
 		{
