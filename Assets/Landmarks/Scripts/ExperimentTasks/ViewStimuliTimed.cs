@@ -48,6 +48,9 @@ public class ViewStimuliTimed : ExperimentTask {
     public override void startTask () {
 		TASK_START();
 		current = startObjects.currentObject();
+
+		// THIS IS WHERE WE'LL WANT TO CHANGE THINGS FOR UPRIGHT/INVERTED -----
+		Debug.Log(randomOrderStimuli.getUprightInverted());
 		
 		initCurrent();	
 		trial_start = Experiment.Now();
