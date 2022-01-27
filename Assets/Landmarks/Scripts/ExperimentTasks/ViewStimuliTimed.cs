@@ -59,12 +59,13 @@ public class ViewStimuliTimed : ExperimentTask {
 
 		// THIS IS WHERE WE'LL WANT TO CHANGE THINGS FOR UPRIGHT/INVERTED -----
 		Debug.Log(randomOrderStimuli.getUprightInverted());
-		
-		initCurrent();	
+
+
+		initCurrent();
 		trial_start = Experiment.Now();
 		// Debug.Log(trial_start);
-		
-	}	
+
+	}
 
 	public override void TASK_START()
 	{
@@ -76,7 +77,7 @@ public class ViewStimuliTimed : ExperimentTask {
 			log.log("INFO	skip task	" + name,1 );
 			return;
 		}
-		
+
 
 	    if (blackout) hud.showOnlyTargets();
 	    else hud.showEverything();
@@ -127,7 +128,7 @@ public class ViewStimuliTimed : ExperimentTask {
 				hudposition.pivot = new Vector2(0.5f, 100f);
 			}
 		}
-		        
+
 
         // turn off all objects
         foreach (GameObject item in startObjects.objects)
@@ -135,14 +136,14 @@ public class ViewStimuliTimed : ExperimentTask {
             item.SetActive(false);
         }
     }
-	
+
 	public override bool updateTask () {
-		
+
 		if (skip) {
 			//log.log("INFO	skip task	" + name,1 );
 			return true;
 		}
-		
+
 		if (current) {
 
 			if ( Experiment.Now() - trial_start >= interval)  {
@@ -163,10 +164,12 @@ public class ViewStimuliTimed : ExperimentTask {
 		parent = current.transform.parent;
 		scale = current.transform.localScale;
 
+
 		// move the target to the viewing location temporarily
 		current.transform.parent = destination.transform;
 		current.transform.localPosition = objectPositionOffset;
         current.transform.localEulerAngles = objectRotationOffset;
+        current.transform.localEulerAngles += new Vector3(0f, 0f, randomOrderStimuli.getUprightInverted());
         current.transform.localScale = Vector3.Scale(current.transform.localScale, destination.transform.localScale);
 
 		// return the target to its original parent (we'll revert other values later)
@@ -184,7 +187,7 @@ public class ViewStimuliTimed : ExperimentTask {
 		log.log("Practice\t" + current.name,1);
 
 	}
-	
+
 	public override void TASK_ADD(GameObject go, string txt) {
 		if (txt == "add") {
 			saveLayer = go.layer;
@@ -194,7 +197,7 @@ public class ViewStimuliTimed : ExperimentTask {
 		}
 
 	}
-	
+
 	public void returnCurrent() {
 		current.transform.position = position;
 		current.transform.localRotation = rotation;
@@ -210,7 +213,7 @@ public class ViewStimuliTimed : ExperimentTask {
 		//startObjects.current = 0;
 		TASK_END();
 	}
-	
+
 	public override void TASK_END() {
 
 		base.endTask();
