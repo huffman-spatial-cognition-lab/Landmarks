@@ -26,6 +26,7 @@ using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityStandardAssets.Characters.FirstPerson;
+using LSL;
 
 
 public class ViewStimuliTimed : ExperimentTask {
@@ -41,6 +42,7 @@ public class ViewStimuliTimed : ExperimentTask {
 	private static Quaternion rotation;
 	private static Transform parent;
 	private static Vector3 scale;
+  [DllImport ("liblsl.1.15.2")] private static extern float outlet.pushsample();
 	private int saveLayer;
 	private int viewLayer = 11;
 	public bool blackout = true;
@@ -66,6 +68,18 @@ public class ViewStimuliTimed : ExperimentTask {
 		// Debug.Log(trial_start);
 
 	}
+
+public class LSLOutput : MonoBehavior
+{
+  private StreamOutlet outlet;
+  private float[] currentSample;
+
+
+    public string StreamName = "Unity.UprightInvertedStream";
+    public string StreamType = "Unity.Rotation";
+    public string StreamId = "MyStreamID-Unity1234";
+
+
 
 	public override void TASK_START()
 	{
@@ -135,6 +149,15 @@ public class ViewStimuliTimed : ExperimentTask {
         {
             item.SetActive(false);
         }
+
+        StreamInfo streamInfo = new StreamInfo(StreamName, StreamType, 3, Time.fixedDeltaTime * 1000, LSL.channel_format_t.cf_float32);
+        XMLElement chans = streamInfo.desc().append_child("channels");
+        chans.append_child("channel").append_child_value("label", "X");
+        chans.append_child("channel").append_child_value("label", "Y");
+        chans.append_child("channel").append_child_value("label", "Z");
+        outlet = new StreamOutlet(streamInfo);
+        currentSample = new float[3];
+
     }
 
 	public override bool updateTask () {
@@ -155,6 +178,10 @@ public class ViewStimuliTimed : ExperimentTask {
 			return true;
 		}
 		return false;
+
+    Vector3 rotation = gameObject.transform.rotation;
+        currentSample[0] = rotation.z;
+        outlet.push_sample(currentSample, lsl_local_clock());
 	}
 
 	public void initCurrent() {
@@ -259,4 +286,5 @@ public class ViewStimuliTimed : ExperimentTask {
 			setLayer(child,l);
 		}
 	}
+}
 }
