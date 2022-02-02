@@ -42,7 +42,6 @@ public class ViewStimuliTimed : ExperimentTask {
 	private static Quaternion rotation;
 	private static Transform parent;
 	private static Vector3 scale;
-  [DllImport ("liblsl.1.15.2")] private static extern float outlet.pushsample();
 	private int saveLayer;
 	private int viewLayer = 11;
 	public bool blackout = true;
@@ -51,6 +50,12 @@ public class ViewStimuliTimed : ExperimentTask {
 	public Vector3 objectRotationOffset;
 	public Vector3 objectPositionOffset;
     public bool restrictMovement = true;
+
+  private StreamOutlet outlet;
+  private string[] currentSample;
+      public string StreamName = "Unity.UprightInvertedStream";
+      public string StreamType = "Unity.Rotation";
+      public string StreamId = "MyStreamID-Unity1234";
 
 
     private Vector3 initialHUDposition;
@@ -68,16 +73,6 @@ public class ViewStimuliTimed : ExperimentTask {
 		// Debug.Log(trial_start);
 
 	}
-
-public class LSLOutput : MonoBehavior
-{
-  private StreamOutlet outlet;
-  private float[] currentSample;
-
-
-    public string StreamName = "Unity.UprightInvertedStream";
-    public string StreamType = "Unity.Rotation";
-    public string StreamId = "MyStreamID-Unity1234";
 
 
 
@@ -150,13 +145,12 @@ public class LSLOutput : MonoBehavior
             item.SetActive(false);
         }
 
-        StreamInfo streamInfo = new StreamInfo(StreamName, StreamType, 3, Time.fixedDeltaTime * 1000, LSL.channel_format_t.cf_float32);
+        StreamInfo streamInfo = new StreamInfo(StreamName, StreamType, 2, Time.fixedDeltaTime * 1000, LSL.channel_format_t.cf_float32);
         XMLElement chans = streamInfo.desc().append_child("channels");
-        chans.append_child("channel").append_child_value("label", "X");
-        chans.append_child("channel").append_child_value("label", "Y");
+        chans.append_child("channel").append_child_value("label", "current.name");
         chans.append_child("channel").append_child_value("label", "Z");
         outlet = new StreamOutlet(streamInfo);
-        currentSample = new float[3];
+        currentSample = new string[2];
 
     }
 
@@ -179,9 +173,17 @@ public class LSLOutput : MonoBehavior
 		}
 		return false;
 
-    Vector3 rotation = gameObject.transform.rotation;
-        currentSample[0] = rotation.z;
-        outlet.push_sample(currentSample, lsl_local_clock());
+  Vector3 rotation = gameObject.transform.localEulerAngles;
+        if (rotation.z == 180)
+        {
+          currentSample[0] = "flipped";
+        }
+        else
+        {
+          currentSample[0] = "upright";
+        }
+        currentSample[1] = "current.name";
+        outlet.push_sample(currentSample);
 	}
 
 	public void initCurrent() {
@@ -286,5 +288,4 @@ public class LSLOutput : MonoBehavior
 			setLayer(child,l);
 		}
 	}
-}
 }
