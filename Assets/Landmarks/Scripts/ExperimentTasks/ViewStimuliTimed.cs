@@ -26,6 +26,7 @@ using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityStandardAssets.Characters.FirstPerson;
+using System.Runtime.InteropServices;
 using LSL;
 
 
@@ -42,6 +43,7 @@ public class ViewStimuliTimed : ExperimentTask {
 	private static Quaternion rotation;
 	private static Transform parent;
 	private static Vector3 scale;
+  [DllImport ("liblsl")] private static extern float push_sample ();
 	private int saveLayer;
 	private int viewLayer = 11;
 	public bool blackout = true;
@@ -51,12 +53,11 @@ public class ViewStimuliTimed : ExperimentTask {
 	public Vector3 objectPositionOffset;
     public bool restrictMovement = true;
 
-  private StreamOutlet outlet;
-  private string[] currentSample;
-      public string StreamName = "Unity.UprightInvertedStream";
-      public string StreamType = "Unity.Rotation";
-      public string StreamId = "MyStreamID-Unity1234";
-
+    private StreamOutlet outlet;
+    private string[] currentSample;
+        public string StreamName = "Unity.UprightInvertedStream";
+        public string StreamType = "Unity.Rotation";
+        public string StreamId = "MyStreamID-Unity1234";
 
     private Vector3 initialHUDposition;
 
@@ -145,14 +146,18 @@ public class ViewStimuliTimed : ExperimentTask {
             item.SetActive(false);
         }
 
-        StreamInfo streamInfo = new StreamInfo(StreamName, StreamType, 2, Time.fixedDeltaTime * 1000, LSL.channel_format_t.cf_float32);
-        XMLElement chans = streamInfo.desc().append_child("channels");
-        chans.append_child("channel").append_child_value("label", "current.name");
-        chans.append_child("channel").append_child_value("label", "Z");
-        outlet = new StreamOutlet(streamInfo);
-        currentSample = new string[2];
+
+          StreamInfo streamInfo = new StreamInfo(StreamName, StreamType, 2, Time.fixedDeltaTime * 1000, LSL.channel_format_t.cf_float32);
+          XMLElement chans = streamInfo.desc().append_child("channels");
+          chans.append_child("channel").append_child_value("label", "current.name");
+          chans.append_child("channel").append_child_value("label", "Z");
+          outlet = new StreamOutlet(streamInfo);
+          currentSample = new string[2];
+      
 
     }
+
+
 
 	public override bool updateTask () {
 
@@ -173,6 +178,7 @@ public class ViewStimuliTimed : ExperimentTask {
 		}
 		return false;
 
+
   Vector3 rotation = gameObject.transform.localEulerAngles;
         if (rotation.z == 180)
         {
@@ -184,7 +190,9 @@ public class ViewStimuliTimed : ExperimentTask {
         }
         currentSample[1] = "current.name";
         outlet.push_sample(currentSample);
+
 	}
+
 
 	public void initCurrent() {
 		// store original properties of the target
@@ -281,7 +289,6 @@ public class ViewStimuliTimed : ExperimentTask {
 			manager.scaledPlayer.GetComponent<ThirdPersonCharacter>().immobilized = false;
 		}
 	}
-
     public void setLayer(Transform t, int l) {
 		t.gameObject.layer = l;
 		foreach (Transform child in t) {
