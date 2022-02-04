@@ -72,6 +72,23 @@ public class ViewStimuliTimed : ExperimentTask {
 		initCurrent();
 		trial_start = Experiment.Now();
 		// Debug.Log(trial_start);
+    StreamInfo streamInfo = new StreamInfo(StreamName, StreamType, 2, Time.fixedDeltaTime * 1000, LSL.channel_format_t.cf_float32);
+    XMLElement chans = streamInfo.desc().append_child("channels");
+    chans.append_child("channel").append_child_value("label", "current.name");
+    chans.append_child("channel").append_child_value("label", "Z");
+    outlet = new StreamOutlet(streamInfo);
+    currentSample = new string[2];
+    Vector3 rotation = gameObject.transform.localEulerAngles;
+          if (rotation.z == 180)
+          {
+            currentSample[0] = "flipped";
+          }
+          else
+          {
+            currentSample[0] = "upright";
+          }
+          currentSample[1] = current.name;
+
 
 	}
 
@@ -147,13 +164,7 @@ public class ViewStimuliTimed : ExperimentTask {
         }
 
 
-          StreamInfo streamInfo = new StreamInfo(StreamName, StreamType, 2, Time.fixedDeltaTime * 1000, LSL.channel_format_t.cf_float32);
-          XMLElement chans = streamInfo.desc().append_child("channels");
-          chans.append_child("channel").append_child_value("label", "current.name");
-          chans.append_child("channel").append_child_value("label", "Z");
-          outlet = new StreamOutlet(streamInfo);
-          currentSample = new string[2];
-      
+
 
     }
 
@@ -176,20 +187,11 @@ public class ViewStimuliTimed : ExperimentTask {
 		} else {
 			return true;
 		}
-		return false;
 
+    outlet.push_sample(currentSample);
 
-  Vector3 rotation = gameObject.transform.localEulerAngles;
-        if (rotation.z == 180)
-        {
-          currentSample[0] = "flipped";
-        }
-        else
-        {
-          currentSample[0] = "upright";
-        }
-        currentSample[1] = "current.name";
-        outlet.push_sample(currentSample);
+    return false;
+
 
 	}
 
