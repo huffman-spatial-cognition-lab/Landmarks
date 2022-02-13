@@ -36,6 +36,7 @@ public class ViewStimuliTimed : ExperimentTask {
 
     public ObjectList startObjects;
 	public LM_RandomOrderStimuli randomOrderStimuli;
+  public Initialize_LSL initializeLSL;
 	private GameObject current;
 	[HideInInspector] public GameObject destination;
 
@@ -44,9 +45,6 @@ public class ViewStimuliTimed : ExperimentTask {
 	private static Transform parent;
 	private static Vector3 scale;
   // go back and change this to string too
-  [DllImport ("liblsl.1.15.2")] private static extern float push_sample ();
-  [DllImport ("liblsl.1.15.2")] private static extern float StreamInfo ();
-  [DllImport ("liblsl.1.15.2")] private static extern float StreamOutlet ();
 	private int saveLayer;
 	private int viewLayer = 11;
 	public bool blackout = true;
@@ -55,12 +53,6 @@ public class ViewStimuliTimed : ExperimentTask {
 	public Vector3 objectRotationOffset;
 	public Vector3 objectPositionOffset;
     public bool restrictMovement = true;
-
-    private StreamOutlet outlet;
-    private float[] currentSample;
-        public string StreamName = "Unity.UprightInvertedStream";
-        public string StreamType = "Unity.StreamType";
-        public string StreamId = "MyStreamID-Unity1234";
 
 
     private Vector3 initialHUDposition;
@@ -76,11 +68,6 @@ public class ViewStimuliTimed : ExperimentTask {
 		initCurrent();
 		trial_start = Experiment.Now();
 		// Debug.Log(trial_start);
-    StreamInfo streamInfo = new StreamInfo(StreamName, StreamType, 1, Time.deltaTime * 1000, LSL.channel_format_t.cf_float32);
-    XMLElement chans = streamInfo.desc().append_child("channels");
-    chans.append_child("channel").append_child_value("label", "Z");
-    outlet = new StreamOutlet(streamInfo);
-    currentSample = new float[1];
 
 	}
 
@@ -156,16 +143,14 @@ public class ViewStimuliTimed : ExperimentTask {
         }
 
 
-
-
     }
 
 
 
 	public override bool updateTask () {
 
-    currentSample[0] = randomOrderStimuli.getUprightInverted();
-    outlet.push_sample(currentSample);
+    initializeLSL.currentSample[0] = randomOrderStimuli.getUprightInverted();
+    initializeLSL.outlet.push_sample(initializeLSL.currentSample);
 
 		if (skip) {
 			//log.log("INFO	skip task	" + name,1 );
@@ -205,12 +190,14 @@ public class ViewStimuliTimed : ExperimentTask {
         current.transform.localEulerAngles += new Vector3(0f, 0f, randomOrderStimuli.getUprightInverted());
         current.transform.localScale = Vector3.Scale(current.transform.localScale, destination.transform.localScale);
 
+
 		// return the target to its original parent (we'll revert other values later)
 		// this way it won't track with the "head" of the avatar
 		current.transform.parent = parent;
 
         // but Turn on the current object
         current.SetActive(true);
+
 
 
 		saveLayer = current.layer;
