@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18360177, g: 0.22910838, b: 0.30537552, a: 1}
+  m_IndirectSpecularColor: {r: 0.18360144, g: 0.22910774, b: 0.30537462, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2447,6 +2447,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c48a3ebf277ae9f46bc06489f5850636, type: 3}
+--- !u!1 &904413360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 904413361}
+  - component: {fileID: 904413362}
+  m_Layer: 0
+  m_Name: Initiate_LSL_Script
+  m_TagString: Task
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &904413361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904413360}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.7092094, y: 12.628738, z: -4.7832932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1434858932}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &904413362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904413360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14340d172e644c968dd7b868bab8448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSample: []
+  StreamName: Unity.UprightInvertedStream
+  StreamType: Unity.String
+  StreamId: MyStreamID-Unity1234
 --- !u!1 &908993322
 GameObject:
   m_ObjectHideFlags: 0
@@ -5125,6 +5172,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224835408034697845, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: triggerOnEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224835408034697845, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: triggerOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457711429041455699, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: m_Name
+      value: Initialize LSL
       objectReference: {fileID: 0}
     - target: {fileID: 3848276919295747971, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
