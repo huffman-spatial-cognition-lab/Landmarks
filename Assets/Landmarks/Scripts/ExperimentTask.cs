@@ -30,6 +30,7 @@ public class ExperimentTask : MonoBehaviour{
 	protected Experiment manager;
 	protected avatarLog avatarLog;
     protected LM_TrialLog trialLog;
+	protected Initialize_LSL initializeLSL;
 
     protected GameObject scaledAvatar; // MJS 2019 - track scaled avatar in scaled nav task
     protected avatarLog scaledAvatarLog; // MJS 2019 - track scaled avatar in scaled nav task
@@ -75,6 +76,9 @@ public class ExperimentTask : MonoBehaviour{
     public void Awake () 
 	{
         eegManager = FindObjectOfType<BrainAmpManager>();
+		// update for the LSL version of EEG synchronization (DJH) ------------------
+		GameObject lsl_gameobj = GameObject.Find("Initiate_LSL_Script");
+		initializeLSL = lsl_gameobj.GetComponent("Initialize_LSL") as Initialize_LSL;
 	}
 
 	public void Start () 

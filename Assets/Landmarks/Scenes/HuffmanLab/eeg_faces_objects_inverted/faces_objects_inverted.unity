@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18360144, g: 0.22910774, b: 0.30537462, a: 1}
+  m_IndirectSpecularColor: {r: 0.18360177, g: 0.22910838, b: 0.30537552, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1990,6 +1990,11 @@ PrefabInstance:
       propertyPath: skip
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5308465572124860006, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5308465572180033509, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2447,53 +2452,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c48a3ebf277ae9f46bc06489f5850636, type: 3}
---- !u!1 &904413360
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 904413361}
-  - component: {fileID: 904413362}
-  m_Layer: 0
-  m_Name: Initiate_LSL_Script
-  m_TagString: Task
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &904413361
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904413360}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.7092094, y: 12.628738, z: -4.7832932}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1434858932}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &904413362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904413360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e14340d172e644c968dd7b868bab8448, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentSample: []
-  StreamName: Unity.UprightInvertedStream
-  StreamType: Unity.String
-  StreamId: MyStreamID-Unity1234
 --- !u!1 &908993322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4442,6 +4400,70 @@ Transform:
   m_Father: {fileID: 868073012}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1720675981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1720675982}
+  - component: {fileID: 1720675983}
+  m_Layer: 0
+  m_Name: Initiate_LSL_Script
+  m_TagString: Task
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1720675982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720675981}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.7092094, y: 12.628738, z: -4.7832932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1434858932}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1720675983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720675981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14340d172e644c968dd7b868bab8448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip: 0
+  canIncrementLists: 1
+  interval: 0
+  interruptTasks: {fileID: 0}
+  interruptInterval: 0
+  repeatInterrupts: 9999
+  currentInterrupt: 0
+  pausedTasks: {fileID: 0}
+  parentTask: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
+  overheadCamera: {fileID: 0}
+  debugButton: {fileID: 0}
+  actionButton: {fileID: 0}
+  vrEnabled: 0
+  triggerLabel: 
+  triggerOnStart: 0
+  triggerOnEnd: 0
+  StreamName: Unity.UprightInvertedStream
+  StreamType: Unity.String
+  StreamId: MyStreamID-Unity1234
+  currentSample: []
 --- !u!1001 &1745072739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5111,84 +5133,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134014575}
   m_CullTransparentMesh: 1
---- !u!1001 &93164181833780763
+--- !u!1001 &876349401920849412
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 1434858932}
     m_Modifications:
-    - target: {fileID: 551736277676095504, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 551736277676095504, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 551736277676095504, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 551736277676095504, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 551736277676095504, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 551736277676095504, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 551736277676095504, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 551736277676095504, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 551736277676095504, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 551736277676095504, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 551736277676095504, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1224835408034697845, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+    - target: {fileID: 1041665522987647979, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
-      propertyPath: triggerOnEnd
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224835408034697845, guid: 1e918461dfaa3a04d9a3df920a8e1415,
-        type: 3}
-      propertyPath: triggerOnStart
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1457711429041455699, guid: 1e918461dfaa3a04d9a3df920a8e1415,
-        type: 3}
-      propertyPath: m_Name
-      value: Initialize LSL
-      objectReference: {fileID: 0}
-    - target: {fileID: 3848276919295747971, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+      propertyPath: initializeLSL
+      value: 
+      objectReference: {fileID: 1720675983}
+    - target: {fileID: 4036425997926887324, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_Name
       value: TASK_ViewStimuliTimed
