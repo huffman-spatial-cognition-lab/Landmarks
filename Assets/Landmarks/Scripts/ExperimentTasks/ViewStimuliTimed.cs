@@ -36,7 +36,6 @@ public class ViewStimuliTimed : ExperimentTask {
 
     public ObjectList startObjects;
 	public LM_RandomOrderStimuli randomOrderStimuli;
-  public Initialize_LSL initializeLSL;
 	private GameObject current;
 	[HideInInspector] public GameObject destination;
 
@@ -44,7 +43,6 @@ public class ViewStimuliTimed : ExperimentTask {
 	private static Quaternion rotation;
 	private static Transform parent;
 	private static Vector3 scale;
-  // go back and change this to string too
 	private int saveLayer;
 	private int viewLayer = 11;
 	public bool blackout = true;
@@ -53,6 +51,7 @@ public class ViewStimuliTimed : ExperimentTask {
 	public Vector3 objectRotationOffset;
 	public Vector3 objectPositionOffset;
     public bool restrictMovement = true;
+	public bool eeg_lsl = true;
 
 
     private Vector3 initialHUDposition;
@@ -60,10 +59,6 @@ public class ViewStimuliTimed : ExperimentTask {
     public override void startTask () {
 		TASK_START();
 		current = startObjects.currentObject();
-
-		// THIS IS WHERE WE'LL WANT TO CHANGE THINGS FOR UPRIGHT/INVERTED -----
-		Debug.Log(randomOrderStimuli.getUprightInverted());
-
 
 		initCurrent();
 		trial_start = Experiment.Now();
@@ -149,8 +144,13 @@ public class ViewStimuliTimed : ExperimentTask {
 
 	public override bool updateTask () {
 
-    initializeLSL.currentSample[0] = randomOrderStimuli.getUprightInverted();
-    initializeLSL.outlet.push_sample(initializeLSL.currentSample);
+		// if we want to run LSL, then push to LSL here (DJH) -----------------------
+		if (eeg_lsl)
+		{
+			initializeLSL.currentSample = new float[1] { randomOrderStimuli.getUprightInverted() };
+			initializeLSL.lsl_push_sample();
+			Debug.Log(initializeLSL.currentSample[0]);
+		}
 
 		if (skip) {
 			//log.log("INFO	skip task	" + name,1 );
