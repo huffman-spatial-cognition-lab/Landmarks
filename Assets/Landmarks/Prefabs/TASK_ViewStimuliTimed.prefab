@@ -346,6 +346,7 @@ MonoBehaviour:
   triggerOnEnd: 0
   startObjects: {fileID: 222693097278486432}
   randomOrderStimuli: {fileID: 93164180626209252}
+  initializeLSL: {fileID: 0}
   destination: {fileID: 0}
   blackout: 1
   showName: 0
