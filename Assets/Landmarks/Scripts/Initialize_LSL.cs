@@ -17,9 +17,9 @@ using LSL;
 public class Initialize_LSL : ExperimentTask
 {
     // import the relevant LSL functions --------------------------------------
-    [DllImport ("liblsl.1.15.2")] private static extern float push_sample ();
-    [DllImport ("liblsl.1.15.2")] private static extern float StreamInfo ();
-    [DllImport ("liblsl.1.15.2")] private static extern float StreamOutlet ();
+    [DllImport ("lsl")] private static extern float push_sample ();
+    [DllImport ("lsl")] private static extern float StreamInfo ();
+    [DllImport ("lsl")] private static extern float StreamOutlet ();
 
     [Header("Task-specific Properties")]
     public string StreamName = "Unity.UprightInvertedStream";
