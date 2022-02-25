@@ -52,6 +52,7 @@ public class ViewStimuliTimed : ExperimentTask {
 	public Vector3 objectPositionOffset;
     public bool restrictMovement = true;
 	public bool eeg_lsl = true;
+	public float sample;
 
 
     private Vector3 initialHUDposition;
@@ -144,12 +145,18 @@ public class ViewStimuliTimed : ExperimentTask {
 
 	public override bool updateTask () {
 
+		if (randomOrderStimuli.getUprightInverted() == 0) { 
+			sample = 360;
+		} else {
+			sample = 180;
+		}
 		// if we want to run LSL, then push to LSL here (DJH) -----------------------
 		if (eeg_lsl)
 		{
-			initializeLSL.currentSample = new float[1] { randomOrderStimuli.getUprightInverted() };
+			initializeLSL.currentSample = new float[1] { sample };
 			initializeLSL.lsl_push_sample();
 			Debug.Log(initializeLSL.currentSample[0]);
+			//Debug.Log(1 / Time.deltaTime);
 		}
 
 		if (skip) {
