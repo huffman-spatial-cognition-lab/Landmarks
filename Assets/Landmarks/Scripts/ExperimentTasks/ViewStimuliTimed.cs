@@ -65,7 +65,6 @@ public class ViewStimuliTimed : ExperimentTask {
 		current = startObjects.currentObject();
 
 		initCurrent();
-		// note: I reset this value below in updateTask for more accuracy -----
 		trial_start = Experiment.Now();
 		first_frame = true;
 		// Debug.Log(trial_start);
@@ -155,40 +154,28 @@ public class ViewStimuliTimed : ExperimentTask {
 			return true;
 		}
 
-		if (current) {
-
-			if ( Experiment.Now() - trial_start >= interval)  {
-				return true;
-			} else {
-		    	return false;
-			}
-		} else {
-			return true;
-		}
-
 		// if we want to run LSL, then push to LSL here (DJH) -----------------
 		if (eeg_lsl)
 		{
-			if (randomOrderStimuli.getUprightInverted() == 0)
+			eeg_lsl_wait_for_end_of_frame();
+		}
+
+
+		if (current)
+		{
+
+			if (Experiment.Now() - trial_start >= interval)
 			{
-				sample = 360;
+				return true;
 			}
 			else
 			{
-				sample = 180;
+				return false;
 			}
-			initializeLSL.currentSample = new float[1] { sample };
-
-			// wait for the end of the frame to push the sample ---------------
-			lsl_push_sample_waiting();
 		}
-
-		// set trial_start here for more accurate timing (DJH) ----------------
-		if (first_frame)
+		else
 		{
-			// reseting the trial_start for the actual update -----------------
-			trial_start = Experiment.Now();
-			first_frame = false;
+			return true;
 		}
 
 		return false;
@@ -197,11 +184,37 @@ public class ViewStimuliTimed : ExperimentTask {
 	}
 
 
+	public void eeg_lsl_wait_for_end_of_frame()
+    {
+		// get the information ready for pushing the sample -------------------
+		if (randomOrderStimuli.getUprightInverted() == 0)
+		{
+			sample = 360;
+		}
+		else
+		{
+			sample = 180;
+		}
+		initializeLSL.currentSample = new float[1] { sample };
+
+		// wait for the end of frame ------------------------------------------
+		wait_for_end_of_frame();
+
+		// push the sample ----------------------------------------------------
+		initializeLSL.lsl_push_sample();
+
+		// reset trial_start here for more accurate timing --------------------
+		if (first_frame)
+		{
+			trial_start = Experiment.Now();
+			first_frame = false;
+		}
+	}
+
 	// WaitForEndOfFrame for more accurate timing for LSL (DJH) ---------------
-	IEnumerator lsl_push_sample_waiting()
+	IEnumerator wait_for_end_of_frame()
     {
 		yield return new WaitForEndOfFrame();
-		initializeLSL.lsl_push_sample();
 	}
 
 
