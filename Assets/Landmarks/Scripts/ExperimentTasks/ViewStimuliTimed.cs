@@ -53,6 +53,8 @@ public class ViewStimuliTimed : ExperimentTask {
     public bool restrictMovement = true;
 	public bool eeg_lsl = true;
 	public float sample;
+	//public Vector3 size;
+	
 
 
     private Vector3 initialHUDposition;
@@ -189,10 +191,16 @@ public class ViewStimuliTimed : ExperimentTask {
 		parent = current.transform.parent;
 		scale = current.transform.localScale;
 
+		
+		
+		//RectTransform rt = randomOrderStimuli.GetComponent<RectTransform>() as RectTransform;
+		//float height = rt.rect.height;
+		//size = renderer.bounds.size;
 
 		// move the target to the viewing location temporarily
 		current.transform.parent = destination.transform;
 		current.transform.localPosition = objectPositionOffset;
+		//current.transform.localPosition += new Vector3(0f, 0f, -0.5f * rt.rect.height);
         current.transform.localEulerAngles = objectRotationOffset;
         current.transform.localEulerAngles += new Vector3(0f, 0f, randomOrderStimuli.getUprightInverted());
         current.transform.localScale = Vector3.Scale(current.transform.localScale, destination.transform.localScale);
