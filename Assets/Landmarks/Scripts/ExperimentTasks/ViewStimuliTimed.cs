@@ -65,6 +65,7 @@ public class ViewStimuliTimed : ExperimentTask {
 		current = startObjects.currentObject();
 
 		initCurrent();
+		// note: I reset this value below in updateTask for more accuracy -----
 		trial_start = Experiment.Now();
 		first_frame = true;
 		// Debug.Log(trial_start);
@@ -185,6 +186,7 @@ public class ViewStimuliTimed : ExperimentTask {
 		// set trial_start here for more accurate timing (DJH) ----------------
 		if (first_frame)
 		{
+			// reseting the trial_start for the actual update -----------------
 			trial_start = Experiment.Now();
 			first_frame = false;
 		}
