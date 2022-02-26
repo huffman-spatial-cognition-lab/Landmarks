@@ -53,6 +53,7 @@ public class ViewStimuliTimed : ExperimentTask {
     public bool restrictMovement = true;
 	public bool eeg_lsl = true;
 	public float sample;
+	private bool first_frame = true;
 	//public Vector3 size;
 	
 
@@ -65,6 +66,7 @@ public class ViewStimuliTimed : ExperimentTask {
 
 		initCurrent();
 		trial_start = Experiment.Now();
+		first_frame = true;
 		// Debug.Log(trial_start);
 
 	}
@@ -147,20 +149,6 @@ public class ViewStimuliTimed : ExperimentTask {
 
 	public override bool updateTask () {
 
-		if (randomOrderStimuli.getUprightInverted() == 0) { 
-			sample = 360;
-		} else {
-			sample = 180;
-		}
-		// if we want to run LSL, then push to LSL here (DJH) -----------------------
-		if (eeg_lsl)
-		{
-			initializeLSL.currentSample = new float[1] { sample };
-			initializeLSL.lsl_push_sample();
-			Debug.Log(initializeLSL.currentSample[0]);
-			//Debug.Log(1 / Time.deltaTime);
-		}
-
 		if (skip) {
 			//log.log("INFO	skip task	" + name,1 );
 			return true;
@@ -177,10 +165,41 @@ public class ViewStimuliTimed : ExperimentTask {
 			return true;
 		}
 
+		// if we want to run LSL, then push to LSL here (DJH) -----------------
+		if (eeg_lsl)
+		{
+			if (randomOrderStimuli.getUprightInverted() == 0)
+			{
+				sample = 360;
+			}
+			else
+			{
+				sample = 180;
+			}
+			initializeLSL.currentSample = new float[1] { sample };
 
-    return false;
+			// wait for the end of the frame to push the sample ---------------
+			lsl_push_sample_waiting();
+		}
+
+		// set trial_start here for more accurate timing (DJH) ----------------
+		if (first_frame)
+		{
+			trial_start = Experiment.Now();
+			first_frame = false;
+		}
+
+		return false;
 
 
+	}
+
+
+	// WaitForEndOfFrame for more accurate timing for LSL (DJH) ---------------
+	IEnumerator lsl_push_sample_waiting()
+    {
+		yield return new WaitForEndOfFrame();
+		initializeLSL.lsl_push_sample();
 	}
 
 
@@ -220,7 +239,9 @@ public class ViewStimuliTimed : ExperimentTask {
 		hud.setMessage(current.name);
 		hud.ForceShowMessage();
 
-		log.log("Practice\t" + current.name,1);
+		// Here, we want to log the name of the stimulus and whether it is ----
+		// upright or inverted (DJH) ------------------------------------------
+		log.log("ViewingStimulusTimed\t" + current.name + "\t" + randomOrderStimuli.getUprightInverted(), 1);
 
 	}
 
@@ -263,6 +284,8 @@ public class ViewStimuliTimed : ExperimentTask {
 		returnCurrent();
 		// update to the next object ------------------------------------------
 		current = startObjects.currentObject();
+		// set first_frame to true for the next trial -------------------------
+		first_frame = true;
 
 		if (vrEnabled)
 		{
