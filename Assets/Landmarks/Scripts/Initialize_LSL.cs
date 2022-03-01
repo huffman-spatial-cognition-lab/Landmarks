@@ -24,7 +24,7 @@ public class Initialize_LSL : ExperimentTask
 
     [Header("Task-specific Properties")]
     public string StreamName = "Unity.UprightInvertedStream";
-    public string StreamType = "Unity.String";
+    public string StreamType = "Events";  //"Unity.String";
     public string StreamId = "MyStreamID-Unity1234";
 
     [HideInInspector] public StreamOutlet outlet;

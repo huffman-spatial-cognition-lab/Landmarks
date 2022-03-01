@@ -4461,7 +4461,7 @@ MonoBehaviour:
   triggerOnStart: 0
   triggerOnEnd: 0
   StreamName: Unity.UprightInvertedStream
-  StreamType: Unity.String
+  StreamType: Events
   StreamId: MyStreamID-Unity1234
   currentSample: []
 --- !u!1001 &1745072739
