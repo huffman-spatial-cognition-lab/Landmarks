@@ -1855,6 +1855,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 417906753}
+    - target: {fileID: 5308465570121322753, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
+        type: 3}
+      propertyPath: shuffle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5308465570167263630, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
         type: 3}
       propertyPath: skip
@@ -1934,6 +1939,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308465571149786392, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
+        type: 3}
+      propertyPath: swap
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5308465571149786392, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
         type: 3}
@@ -5193,6 +5203,16 @@ PrefabInstance:
     - target: {fileID: 777924609645490191, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 876349401094926843, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: shuffle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041665522549620671, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: shuffle
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1041665522987647979, guid: 1e918461dfaa3a04d9a3df920a8e1415,

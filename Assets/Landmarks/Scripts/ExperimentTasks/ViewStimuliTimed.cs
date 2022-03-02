@@ -192,12 +192,13 @@ public class ViewStimuliTimed : ExperimentTask {
 			// get the information ready for pushing the sample -------------------
 			if (randomOrderStimuli.getUprightInverted() == 0)
 			{
-				sample = 360;
+				sample = 360 + randomOrderStimuli.getCurrentGameObjectIndex();
 			}
 			else
 			{
-				sample = 180;
+				sample = 180 + randomOrderStimuli.getCurrentGameObjectIndex();
 			}
+			Debug.Log(sample);
 			initializeLSL.currentSample = new float[1] { sample };
 
 			// wait for the end of frame ------------------------------------------
