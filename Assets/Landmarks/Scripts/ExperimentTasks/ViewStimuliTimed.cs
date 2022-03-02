@@ -186,27 +186,28 @@ public class ViewStimuliTimed : ExperimentTask {
 
 	public void eeg_lsl_wait_for_end_of_frame()
     {
-		// get the information ready for pushing the sample -------------------
-		if (randomOrderStimuli.getUprightInverted() == 0)
-		{
-			sample = 360;
-		}
-		else
-		{
-			sample = 180;
-		}
-		initializeLSL.currentSample = new float[1] { sample };
-
-		// wait for the end of frame ------------------------------------------
-		wait_for_end_of_frame();
-
-		// push the sample ----------------------------------------------------
-		initializeLSL.lsl_push_sample();
-
-		// reset trial_start here for more accurate timing --------------------
+		// for now, let's only run this on the first frame ------------------------
 		if (first_frame)
 		{
-			trial_start = Experiment.Now();
+			// get the information ready for pushing the sample -------------------
+			if (randomOrderStimuli.getUprightInverted() == 0)
+			{
+				sample = 360;
+			}
+			else
+			{
+				sample = 180;
+			}
+			initializeLSL.currentSample = new float[1] { sample };
+
+			// wait for the end of frame ------------------------------------------
+			wait_for_end_of_frame();
+
+			// push the sample ----------------------------------------------------
+			initializeLSL.lsl_push_sample();
+
+			// reset trial_start here for more accurate timing --------------------
+            trial_start = Experiment.Now();
 			first_frame = false;
 		}
 	}
