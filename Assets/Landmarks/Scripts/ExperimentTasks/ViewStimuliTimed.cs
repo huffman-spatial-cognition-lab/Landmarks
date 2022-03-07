@@ -239,7 +239,19 @@ public class ViewStimuliTimed : ExperimentTask {
 		//current.transform.localPosition += new Vector3(0f, 0f, -0.5f * rt.rect.height);
         current.transform.localEulerAngles = objectRotationOffset;
         current.transform.localEulerAngles += new Vector3(0f, 0f, randomOrderStimuli.getUprightInverted());
-        current.transform.localScale = Vector3.Scale(current.transform.localScale, destination.transform.localScale);
+
+		// scale the size of the objects relative to the size of the first object (AKB)
+		Vector3 refSize = startObjects.objects[0].GetComponent<Renderer>().bounds.size;
+		float resizeX = refSize.x / current.GetComponent<Renderer>().bounds.size.x;
+		float resizeY = refSize.y / current.GetComponent<Renderer>().bounds.size.y;
+		float resizeZ = refSize.z / current.GetComponent<Renderer>().bounds.size.z;
+		resizeX *= current.transform.localScale.x;
+		resizeY *= current.transform.localScale.y;
+		resizeZ *= current.transform.localScale.z;
+		current.transform.localScale = new Vector3(resizeX, resizeY, resizeZ);
+
+		// the old way of changing the scale (AKB)
+        //current.transform.localScale = Vector3.Scale(current.transform.localScale, destination.transform.localScale);
 
 
 		// return the target to its original parent (we'll revert other values later)
