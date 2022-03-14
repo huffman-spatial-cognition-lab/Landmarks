@@ -223,22 +223,21 @@ public class ViewStimuliTimed : ExperimentTask {
 	public void initCurrent() {
 		// store original properties of the target
 		position = current.transform.position;
-        rotation = current.transform.rotation;
+		rotation = current.transform.rotation;
 		parent = current.transform.parent;
 		scale = current.transform.localScale;
 
 		
 		
-		//RectTransform rt = randomOrderStimuli.GetComponent<RectTransform>() as RectTransform;
-		//float height = rt.rect.height;
-		//size = renderer.bounds.size;
+	
 
 		// move the target to the viewing location temporarily
 		current.transform.parent = destination.transform;
 		current.transform.localPosition = objectPositionOffset;
 		//current.transform.localPosition += new Vector3(0f, 0f, -0.5f * rt.rect.height);
-        current.transform.localEulerAngles = objectRotationOffset;
-        current.transform.localEulerAngles += new Vector3(0f, 0f, randomOrderStimuli.getUprightInverted());
+		//current.transform.RotateAround(current.GetComponent<Renderer>().bounds.center, new Vector3(0, 0, 1), randomOrderStimuli.getUprightInverted());
+		current.transform.localEulerAngles = objectRotationOffset;
+		current.transform.localEulerAngles += new Vector3(0f, 0f, randomOrderStimuli.getUprightInverted());
 
 		// scale the size of the objects relative to the size of the first object (AKB)
 		Vector3 refSize = startObjects.objects[0].GetComponent<Renderer>().bounds.size;
