@@ -54,7 +54,7 @@ public class ViewStimuliTimed : ExperimentTask {
 	public bool eeg_lsl = true;
 	public float sample;
 	private bool first_frame = true;
-	//public Vector3 size;
+	
 	
 
 
@@ -226,6 +226,7 @@ public class ViewStimuliTimed : ExperimentTask {
 		rotation = current.transform.rotation;
 		parent = current.transform.parent;
 		scale = current.transform.localScale;
+		//center = current.GetComponent<Renderer>().bounds.center;
 
 		
 		
@@ -235,7 +236,7 @@ public class ViewStimuliTimed : ExperimentTask {
 		current.transform.parent = destination.transform;
 		current.transform.localPosition = objectPositionOffset;
 		//current.transform.localPosition += new Vector3(0f, 0f, -0.5f * rt.rect.height);
-		//current.transform.RotateAround(current.GetComponent<Renderer>().bounds.center, new Vector3(0, 0, 1), randomOrderStimuli.getUprightInverted());
+		//current.transform.RotateAround(center, new Vector3(0, 0, 1), randomOrderStimuli.getUprightInverted());
 		current.transform.localEulerAngles = objectRotationOffset;
 		current.transform.localEulerAngles += new Vector3(0f, 0f, randomOrderStimuli.getUprightInverted());
 
