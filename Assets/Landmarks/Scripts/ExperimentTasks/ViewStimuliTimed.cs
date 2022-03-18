@@ -55,7 +55,7 @@ public class ViewStimuliTimed : ExperimentTask {
 	public float sample;
 	private bool first_frame = true;
 	//public Vector3 size;
-	
+
 
 
     private Vector3 initialHUDposition;
@@ -227,8 +227,8 @@ public class ViewStimuliTimed : ExperimentTask {
 		parent = current.transform.parent;
 		scale = current.transform.localScale;
 
-		
-		
+
+
 		//RectTransform rt = randomOrderStimuli.GetComponent<RectTransform>() as RectTransform;
 		//float height = rt.rect.height;
 		//size = renderer.bounds.size;
@@ -239,7 +239,18 @@ public class ViewStimuliTimed : ExperimentTask {
 		//current.transform.localPosition += new Vector3(0f, 0f, -0.5f * rt.rect.height);
         current.transform.localEulerAngles = objectRotationOffset;
         current.transform.localEulerAngles += new Vector3(0f, 0f, randomOrderStimuli.getUprightInverted());
-        current.transform.localScale = Vector3.Scale(current.transform.localScale, destination.transform.localScale);
+
+
+        Vector3 refSize = startObjects.objects[0].GetComponent<Renderer>().bounds.size;
+        float resizeX = refSize.x / current.GetComponent<Renderer>().bounds.size.x;
+        float resizeY = refSize.y / current.GetComponent<Renderer>().bounds.size.y;
+        float resizeZ = refSize.z / current.GetComponent<Renderer>().bounds.size.z;
+        resizeX *= current.transform.localScale.x;
+        resizeY *= current.transform.localScale.y;
+        resizeZ *= current.transform.localScale.z;
+        current.transform.localScale = new Vector3(resizeX, resizeY, resizeZ);
+
+        //current.transform.localScale = Vector3.Scale(current.transform.localScale, destination.transform.localScale);
 
 
 		// return the target to its original parent (we'll revert other values later)
