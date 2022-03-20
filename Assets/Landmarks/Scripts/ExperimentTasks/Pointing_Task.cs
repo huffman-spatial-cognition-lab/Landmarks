@@ -20,21 +20,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public enum Format
-{
-    SOP,
-    JRD,
-    RVD
-}
 
 public class Pointing_Task : ExperimentTask
 {
     [Header("Task-specific Properties")]
-    public Format format;
     public LM_Compass compass;
     public TextAsset sopText;
-    public TextAsset jrdText;
-    public TextAsset rvdText;
     public LM_PermutedList listOfTriads;
     public bool randomStartRotation;
     public Vector3 compassPosOffset = new Vector3(0f, 0f, -2f);
@@ -90,31 +81,12 @@ public class Pointing_Task : ExperimentTask
         // ---------------------------------------------------------------------
         // Configure the Task based on selected format -------------------------
         // ---------------------------------------------------------------------
-
-        switch (format)
-        {
-            case Format.SOP:
                 // Prepare SOP hud and question
                 hud.showEverything(); // configure the hud for the format
                 formattedQuestion = string.Format(sopText.ToString(), target.name); // prepare to present the question
-                break;
 
-            case Format.JRD:
-                // Prepare JRD hud and question
-                hud.showOnlyHUD();
-                formattedQuestion = string.Format(jrdText.ToString(), location.name, orientation.name, target.name);
 
-                // Calculate the correct answer (done later for SOP)
-                answer = Vector3.SignedAngle(orientation.transform.position - location.transform.position,
-                                            target.transform.position - location.transform.position, Vector3.up);
-                if (answer < 0) answer += 360;
-                Debug.Log("Answer is " + answer);
-                break;
 
-            case Format.RVD:
-                Debug.LogError("RVD task is in development, but not ready for use");
-                break;
-        }
 
 
         // ---------------------------------------------------------------------
@@ -135,7 +107,7 @@ public class Pointing_Task : ExperimentTask
             avatar.GetComponent<FirstPersonController>().ResetMouselook(); // reset the zero position to be our current cam orientation
 
             // Give control back to 1stPerson controller
-            if (format == Format.SOP) avatar.GetComponent<FirstPersonController>().enabled = true; // re-enable the controller
+            avatar.GetComponent<FirstPersonController>().enabled = true; // re-enable the controller
         }
         // FIXME add reoreintation for VR controllers
         // ---------------------------------------------------------------------
@@ -153,21 +125,12 @@ public class Pointing_Task : ExperimentTask
         compass.ResetPointer(random:randomStartRotation); // set the compass arrow to zero (or a random rotation)
         startAngle = compass.pointer.transform.localEulerAngles.y;
 
-/* I assume we don't need the participants to orient themselves since they just navigated to the location? -AKB
+//Do you still want the participants to orient themselves once they have navigated to the object? -AKB
 
-        // Put up the HUD
-        if (format == Format.SOP)
-        {
-            hud.setMessage("Orient yourself to the best of your ability.\nPress Enter when you are ready.");
-        }
-        else if (format == Format.JRD)
-        {
-            hud.setMessage(formattedQuestion);
-            compass.gameObject.SetActive(true);
-            compass.interactable = true;
+        //Put up the HUD
+
+            hud.setMessage("Orient yourself to the best of your ability.\nWe will start the next task in a few seconds.");
             oriented = true;
-        }
-  */
     }
 
 
@@ -177,12 +140,11 @@ public class Pointing_Task : ExperimentTask
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-              /*
-                if (!oriented)
-                {
-              */
-                    if (format == Format.SOP)
-                    {
+
+              if (!oriented)
+              {
+
+
                         avatar.GetComponent<FirstPersonController>().enabled = false; // disable the controller to work
                         avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero; // reset the camera
                         avatar.GetComponent<FirstPersonController>().ResetMouselook(); // reset the zero position to be our current cam orientation
@@ -199,7 +161,7 @@ public class Pointing_Task : ExperimentTask
                                                     target.transform.position - location.transform.position, Vector3.up);
                         if (answer < 0) answer += 360;
                         Debug.Log("Answer is " + answer);
-                    }
+
 
 
 
@@ -207,11 +169,11 @@ public class Pointing_Task : ExperimentTask
                     hud.setMessage(formattedQuestion);
                     compass.gameObject.SetActive(true);
                     compass.interactable = true;
-                    orientTime = Time.time - startTime; // save the orientation time
+                    //orientTime = Time.time - startTime; // save the orientation time
                     startTime = Time.time; // reset the start clock for the answer portion
 
                     return false; // don't end the trial
-                //}
+                }
                 else
                 {
                     // record response time
@@ -232,14 +194,15 @@ public class Pointing_Task : ExperimentTask
 
                     return true; // end trial
                 }
+          }
 
-            }
         }
 
         hud.ForceShowMessage(); // keep the question up
         return false;
 
     }
+
 
 
     public override void endTask()
@@ -252,7 +215,7 @@ public class Pointing_Task : ExperimentTask
 
         if (trialLog.active)
         {
-            trialLog.AddData(transform.name + "_task", format.ToString());
+            //trialLog.AddData(transform.name + "_task", format.ToString());
             trialLog.AddData(transform.name + "_location", location.name);
             trialLog.AddData(transform.name + "_orientation", orientation.name);
             trialLog.AddData(transform.name + "_target", target.name);
@@ -261,7 +224,7 @@ public class Pointing_Task : ExperimentTask
             trialLog.AddData(transform.name + "_answerCW", answer.ToString());
             trialLog.AddData(transform.name + "_signedError", signedError.ToString());
             trialLog.AddData(transform.name + "_absError", absError.ToString());
-            trialLog.AddData(transform.name + "_SOPorientingTime", orientTime.ToString());
+            //trialLog.AddData(transform.name + "_SOPorientingTime", orientTime.ToString());
             trialLog.AddData(transform.name + "_responseTime", responseTime.ToString());
         }
     }
@@ -279,5 +242,4 @@ public class Pointing_Task : ExperimentTask
         if (avatar.GetComponent<FirstPersonController>() != null) avatar.GetComponent<FirstPersonController>().enabled = true; // if using 1stPerson controller
         manager.player.GetComponent<CharacterController>().enabled = false;
     }
-
-}
+  }
