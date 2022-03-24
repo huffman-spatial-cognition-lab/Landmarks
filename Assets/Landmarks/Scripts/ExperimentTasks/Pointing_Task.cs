@@ -81,9 +81,9 @@ public class Pointing_Task : ExperimentTask
         // ---------------------------------------------------------------------
         // Configure the Task based on selected format -------------------------
         // ---------------------------------------------------------------------
-                // Prepare SOP hud and question
-                hud.showEverything(); // configure the hud for the format
-                formattedQuestion = string.Format(sopText.ToString(), target.name); // prepare to present the question
+        // Prepare SOP hud and question
+        hud.showEverything(); // configure the hud for the format
+        formattedQuestion = string.Format(sopText.ToString(), target.name); // prepare to present the question
 
 
 
@@ -125,12 +125,13 @@ public class Pointing_Task : ExperimentTask
         compass.ResetPointer(random:randomStartRotation); // set the compass arrow to zero (or a random rotation)
         startAngle = compass.pointer.transform.localEulerAngles.y;
 
-//Do you still want the participants to orient themselves once they have navigated to the object? -AKB
+        //Do you still want the participants to orient themselves once they have navigated to the object? -AKB
 
         //Put up the HUD
 
-            hud.setMessage("Orient yourself to the best of your ability.\nWe will start the next task in a few seconds.");
-            oriented = true;
+        hud.setMessage("Orient yourself to the best of your ability.\nPress Enter when you are ready.");
+        Debug.Log("*** HERE WE ARE *** !!!");
+        //oriented = true;
     }
 
 
