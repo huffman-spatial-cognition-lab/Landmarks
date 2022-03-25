@@ -79,6 +79,13 @@ public class Pointing_Task : ExperimentTask
         //orientation = questionItems[1]; // where the player is facing (anchor 2)
         //target = questionItems[2]; // where the player is estimating
 
+        // and set the current index in the startObjects list accordingly -----
+        //startObjects.current = randomOrderStimuli.getCurrentGameObjectIndex();
+        startObjects.current = randomOrderStimuli.getCurrentHeadingIndex();
+        orientation = startObjects.currentObject();
+        Debug.Log("THE HEADING IS: " + orientation.name);
+
+        startObjects.current = randomOrderStimuli.getCurrentPointingIndex();
         target = startObjects.currentObject();
         Debug.Log("THE TARGET IS: " + target.name);
 
@@ -135,7 +142,9 @@ public class Pointing_Task : ExperimentTask
 
         //Put up the HUD
 
-        hud.setMessage("Orient yourself to the best of your ability.\nPress Enter when you are ready.");
+        // Get the information about the current object they should be facing -
+        // and set the message accordingly ------------------------------------
+        hud.setMessage("Please face the " + orientation.name + ".\nPress Enter when you are ready.");
         Debug.Log("*** HERE WE ARE *** !!!");
         //oriented = true;
     }
@@ -246,9 +255,8 @@ public class Pointing_Task : ExperimentTask
         // DJH ----------------------------------------------------------------
         // increment the trial counter within LM_RandomOrderStimuli.cs --------
         randomOrderStimuli.incrementCurrent();
-        // and set the current index in the startObjects list accordingly -----
-        //startObjects.current = randomOrderStimuli.getCurrentGameObjectIndex();
-        startObjects.current = randomOrderStimuli.getCurrentPointingIndex();
+        // Note, I am setting the object in the start and update calls so -----
+        // that I can deal with both orientation and pointing locations. ------
 
         //listOfTriads.IncrementCurrentSubset(); // next set of targets
         oriented = false; // reset for next SOP trial (if any)
