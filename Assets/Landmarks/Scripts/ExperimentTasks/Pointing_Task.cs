@@ -48,7 +48,7 @@ public class Pointing_Task : ExperimentTask
     private bool oriented;
 
     private float startTime; // mark the start of the task timer
-    //private float orientTime; // save the time to orient (SOP only)
+    private float orientTime; // save the time to orient (SOP only)
     private float responseTime; // save the time to answer
 
     public override void startTask()
@@ -157,27 +157,29 @@ public class Pointing_Task : ExperimentTask
             if (Input.GetKeyDown(KeyCode.Return))
             {
 
-              if (!oriented)
-              {
+                if (!oriented)
+                {
 
 
-                        avatar.GetComponent<FirstPersonController>().enabled = false; // disable the controller to work
-                        avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero; // reset the camera
-                        avatar.GetComponent<FirstPersonController>().ResetMouselook(); // reset the zero position to be our current cam orientation
+                    avatar.GetComponent<FirstPersonController>().enabled = false; // disable the controller to work
+                    avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero; // reset the camera
+                    avatar.GetComponent<FirstPersonController>().ResetMouselook(); // reset the zero position to be our current cam orientation
 
-                        var compassparent = compass.transform.parent;
-                        compass.transform.parent = avatar.GetComponentInChildren<LM_SnapPoint>().transform; // make it the child of the snappoint
-                        compass.transform.localPosition = compassPosOffset; // adjust position
-                        compass.transform.localEulerAngles = compassRotOffset; // adjust rotation
-                        compass.transform.parent = compassparent; // send it back to its old parent to avoid funky movement effects
+                    var compassparent = compass.transform.parent;
+                    compass.transform.parent = avatar.GetComponentInChildren<LM_SnapPoint>().transform; // make it the child of the snappoint
+                    compass.transform.localPosition = compassPosOffset; // adjust position
+                    compass.transform.localEulerAngles = compassRotOffset; // adjust rotation
+                    compass.transform.parent = compassparent; // send it back to its old parent to avoid funky movement effects
 
-                        // Calculate the correct answer (using the new oriented facing direction)
-                        var newOrientation = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
-                        //DJH EDITS
-                        //answer = Vector3.SignedAngle(newOrientation.transform.position - location.transform.position,
-                        //                            target.transform.position - location.transform.position, Vector3.up);
-                        // if (answer < 0) answer += 360;
-                        //Debug.Log("Answer is " + answer);
+                    // Calculate the correct answer (using the new oriented facing direction)
+                    var newOrientation = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
+                    //DJH EDITS
+                    //answer = Vector3.SignedAngle(newOrientation.transform.position - location.transform.position,
+                    //                            target.transform.position - location.transform.position, Vector3.up);
+                    answer = Vector3.SignedAngle(newOrientation.transform.position, 
+                                                 target.transform.position, Vector3.up);
+                    if (answer < 0) answer += 360;
+                    Debug.Log("Answer is " + answer);
 
 
 
@@ -186,7 +188,7 @@ public class Pointing_Task : ExperimentTask
                     hud.setMessage(formattedQuestion);
                     compass.gameObject.SetActive(true);
                     compass.interactable = true;
-                    //orientTime = Time.time - startTime; // save the orientation time
+                    orientTime = Time.time - startTime; // save the orientation time
                     startTime = Time.time; // reset the start clock for the answer portion
 
                     return false; // don't end the trial
@@ -234,15 +236,16 @@ public class Pointing_Task : ExperimentTask
         {
             //trialLog.AddData(transform.name + "_task", format.ToString());
             // DJH EDITS
+            trialLog.AddData(transform.name + "_task", "SOP");
             //trialLog.AddData(transform.name + "_location", location.name);
-            //trialLog.AddData(transform.name + "_orientation", orientation.name);
+            trialLog.AddData(transform.name + "_orientation", orientation.name);
             trialLog.AddData(transform.name + "_target", target.name);
             trialLog.AddData(transform.name + "_compassStartAngle", startAngle.ToString()); // record where we started the compass at
             trialLog.AddData(transform.name + "_responseCW", response.ToString());
-            //trialLog.AddData(transform.name + "_answerCW", answer.ToString());
-            //trialLog.AddData(transform.name + "_signedError", signedError.ToString());
-            //trialLog.AddData(transform.name + "_absError", absError.ToString());
-            //trialLog.AddData(transform.name + "_SOPorientingTime", orientTime.ToString());
+            trialLog.AddData(transform.name + "_answerCW", answer.ToString());
+            trialLog.AddData(transform.name + "_signedError", signedError.ToString());
+            trialLog.AddData(transform.name + "_absError", absError.ToString());
+            trialLog.AddData(transform.name + "_SOPorientingTime", orientTime.ToString());
             trialLog.AddData(transform.name + "_responseTime", responseTime.ToString());
         }
     }
