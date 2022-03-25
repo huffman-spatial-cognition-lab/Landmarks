@@ -247,7 +247,8 @@ public class Pointing_Task : ExperimentTask
         // increment the trial counter within LM_RandomOrderStimuli.cs --------
         randomOrderStimuli.incrementCurrent();
         // and set the current index in the startObjects list accordingly -----
-        startObjects.current = randomOrderStimuli.getCurrentGameObjectIndex();
+        //startObjects.current = randomOrderStimuli.getCurrentGameObjectIndex();
+        startObjects.current = randomOrderStimuli.getCurrentPointingIndex();
 
         //listOfTriads.IncrementCurrentSubset(); // next set of targets
         oriented = false; // reset for next SOP trial (if any)

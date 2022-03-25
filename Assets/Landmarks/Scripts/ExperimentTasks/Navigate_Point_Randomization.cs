@@ -30,7 +30,8 @@ public class Navigate_Point_Randomization : ExperimentTask
     public EndListMode EndListBehavior;
     public int current = 0;
     readonly public List<GameObject> currentItem;
-    readonly public List<int> object_index_list = new List<int>();
+    readonly public List<int> heading_index_list = new List<int>();
+    readonly public List<int> pointing_index_list = new List<int>();
     readonly public List<int> trial_indexer = new List<int>();
 
     private int currentIndex;
@@ -50,41 +51,32 @@ public class Navigate_Point_Randomization : ExperimentTask
         // First, let's gather some information about trial counts, etc. ------
         // --------------------------------------------------------------------
         int obj_count = listToRandomize.objects.Count;
-        int trial_within_block_counter = 0;
-        //int total_upright = obj_count * repetitions_upright;
-        //int total_inverted = obj_count * repetitions_inverted;
-        //int total_trials = total_upright + total_inverted;
-        int total_trials = obj_count * repetitions_upright;
 
 
         // --------------------------------------------------------------------
         // Now, let's create the lists with the relevant information: ---------
         // 1) trial_indexer_unshuffled: an index array from 0 to n_trials-1 ---
-        // 2) object_index_list: an index array for objects (0 to n_objects) --
-        // 3) upright_inverted: a string array --------------------------------
+        // 2) object_heading_list: an index array for headings for each trial -
+        //    (0 to n_objects-1)
+        // 3) object_pointing_list: an index array for headings for each ------
+        //    trial (o to n_objects-1) ----------------------------------------
         // --------------------------------------------------------------------
         List<int> trial_indexer_unshuffled = new List<int>();
-        for (int i = 0; i < total_trials; i++)
+        int repeat_blocks = 2;
+        int trial_indexer_counter = 0;
+        for (int repeat_i = 0; repeat_i < repeat_blocks; repeat_i++)
         {
-            object_index_list.Add(trial_within_block_counter);
-            trial_indexer_unshuffled.Add(i);
-            //if (i < total_upright)
-            //{
-            //    upright_inverted.Add(0f);
-            //    Debug.Log("Upright trial");
-            //}
-            //else
-            //{
-            //    //upright_inverted.Add(180f);
-            //    Debug.Log("Inverted trial");
-            //}
-            trial_within_block_counter += 1;
-            if (trial_within_block_counter == obj_count)
+            for (int heading_j = 0; heading_j < obj_count; heading_j++)
             {
-                trial_within_block_counter = 0;
+                for (int pointing_k = 0; pointing_k < obj_count; pointing_k++)
+                {
+                    heading_index_list.Add(heading_j);
+                    pointing_index_list.Add(pointing_k);
+                    trial_indexer_unshuffled.Add(trial_indexer_counter);
+                    trial_indexer_counter += 1;
+                }
             }
         }
-
 
         // --------------------------------------------------------------------
         // Fill in trial_indexer from the temporary tmp_trial_indexer; e.g., --
@@ -108,7 +100,8 @@ public class Navigate_Point_Randomization : ExperimentTask
         // trials will be set to the random index within the taks script: -----
         // ViewStimuliTimes.cs ------------------------------------------------
         // --------------------------------------------------------------------
-        listToRandomize.current = getCurrentGameObjectIndex();
+        //listToRandomize.current = getCurrentGameObjectIndex();
+        listToRandomize.current = getCurrentPointingIndex();
     }
 
 
@@ -140,11 +133,16 @@ public class Navigate_Point_Randomization : ExperimentTask
     }
 
 
-    public int getCurrentGameObjectIndex()
+    public int getCurrentHeadingIndex()
     {
-        return object_index_list[trial_indexer[current]];
+        return heading_index_list[trial_indexer[current]];
     }
 
+
+    public int getCurrentPointingIndex()
+    {
+        return pointing_index_list[trial_indexer[current]];
+    }
 }
 
 
