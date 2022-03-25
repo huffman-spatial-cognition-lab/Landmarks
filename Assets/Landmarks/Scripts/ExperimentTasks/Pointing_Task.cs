@@ -26,7 +26,9 @@ public class Pointing_Task : ExperimentTask
     [Header("Task-specific Properties")]
     public LM_Compass compass;
     public TextAsset sopText;
-    public LM_PermutedList listOfTriads;
+    //public LM_PermutedList listOfTriads;
+    public ObjectList startObjects;
+    public Navigate_Point_Randomization randomOrderStimuli;
     public bool randomStartRotation;
     public Vector3 compassPosOffset = new Vector3(0f, 0f, -2f);
     public Vector3 compassRotOffset = new Vector3(15f, 0f, 0f);
@@ -72,10 +74,13 @@ public class Pointing_Task : ExperimentTask
         // Configure the Task-independent variables ----------------------------
         // ---------------------------------------------------------------------
 
-        questionItems = listOfTriads.GetCurrentSubset(); // Get the objects for this question
-        location = questionItems[0]; // where to the player is positioned (anchor 1)
-        orientation = questionItems[1]; // where the player is facing (anchor 2)
-        target = questionItems[2]; // where the player is estimating
+        //questionItems = listOfTriads.GetCurrentSubset(); // Get the objects for this question
+        //location = questionItems[0]; // where to the player is positioned (anchor 1)
+        //orientation = questionItems[1]; // where the player is facing (anchor 2)
+        //target = questionItems[2]; // where the player is estimating
+
+        target = startObjects.currentObject();
+        Debug.Log("THE TARGET IS: " + target.name);
 
 
         // ---------------------------------------------------------------------
@@ -100,7 +105,8 @@ public class Pointing_Task : ExperimentTask
             //avatar.transform.position = location.transform.position; // move player to the pointing location
 
             // Point the player at the orientation for JRD or a random orientation for SOP start
-            avatar.transform.LookAt(orientation.transform);
+            // DJH Turn this off for now!!
+            //avatar.transform.LookAt(orientation.transform);
 
             // Reset the camera to be zeroed on the controller position (i.e. looking straight forward)
             avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero; // reset the camera
@@ -158,10 +164,11 @@ public class Pointing_Task : ExperimentTask
 
                         // Calculate the correct answer (using the new oriented facing direction)
                         var newOrientation = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
-                        answer = Vector3.SignedAngle(newOrientation.transform.position - location.transform.position,
-                                                    target.transform.position - location.transform.position, Vector3.up);
-                        if (answer < 0) answer += 360;
-                        Debug.Log("Answer is " + answer);
+                        //DJH EDITS
+                        //answer = Vector3.SignedAngle(newOrientation.transform.position - location.transform.position,
+                        //                            target.transform.position - location.transform.position, Vector3.up);
+                        // if (answer < 0) answer += 360;
+                        //Debug.Log("Answer is " + answer);
 
 
 
@@ -217,14 +224,15 @@ public class Pointing_Task : ExperimentTask
         if (trialLog.active)
         {
             //trialLog.AddData(transform.name + "_task", format.ToString());
-            trialLog.AddData(transform.name + "_location", location.name);
-            trialLog.AddData(transform.name + "_orientation", orientation.name);
+            // DJH EDITS
+            //trialLog.AddData(transform.name + "_location", location.name);
+            //trialLog.AddData(transform.name + "_orientation", orientation.name);
             trialLog.AddData(transform.name + "_target", target.name);
             trialLog.AddData(transform.name + "_compassStartAngle", startAngle.ToString()); // record where we started the compass at
             trialLog.AddData(transform.name + "_responseCW", response.ToString());
-            trialLog.AddData(transform.name + "_answerCW", answer.ToString());
-            trialLog.AddData(transform.name + "_signedError", signedError.ToString());
-            trialLog.AddData(transform.name + "_absError", absError.ToString());
+            //trialLog.AddData(transform.name + "_answerCW", answer.ToString());
+            //trialLog.AddData(transform.name + "_signedError", signedError.ToString());
+            //trialLog.AddData(transform.name + "_absError", absError.ToString());
             //trialLog.AddData(transform.name + "_SOPorientingTime", orientTime.ToString());
             trialLog.AddData(transform.name + "_responseTime", responseTime.ToString());
         }
@@ -235,7 +243,13 @@ public class Pointing_Task : ExperimentTask
     {
         base.endTask();
 
-        listOfTriads.IncrementCurrentSubset(); // next set of targets
+        // DJH ----------------------------------------------------------------
+        // increment the trial counter within LM_RandomOrderStimuli.cs --------
+        randomOrderStimuli.incrementCurrent();
+        // and set the current index in the startObjects list accordingly -----
+        startObjects.current = randomOrderStimuli.getCurrentGameObjectIndex();
+
+        //listOfTriads.IncrementCurrentSubset(); // next set of targets
         oriented = false; // reset for next SOP trial (if any)
         compass.interactable = false; // shut off the compass object's function
         compass.gameObject.SetActive(false); // hide the compass
