@@ -183,6 +183,8 @@ public class Pointing_Task : ExperimentTask
                     float heading_angle = avatar.transform.localRotation.eulerAngles.y;
                     if (heading_angle < 0) heading_angle += 360;
 
+                    // calculate the angle from the current position to target
+                    // https://docs.unity3d.com/ScriptReference/Mathf.Atan2.html
                     Vector3 relative = transform.InverseTransformPoint(target.transform.position);
                     float target_angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
                     if (target_angle < 0) target_angle += 360;
