@@ -24,7 +24,7 @@ public class Navigate_Point_Randomization : ExperimentTask
 {
     [Header("Task-specific Properties")]
     public ObjectList listToRandomize;
-    public int repetitions_upright = 2;
+    public int repeats_per_heading = 2;
     //public int repetitions_inverted = 1;
     public bool shuffle = true;
     public EndListMode EndListBehavior;
@@ -60,7 +60,6 @@ public class Navigate_Point_Randomization : ExperimentTask
         //    trial (o to n_objects-1) ----------------------------------------
         // --------------------------------------------------------------------
         List<int> heading_template_unshuffled = new List<int>();
-        int repeat_blocks = 2;
         // Set up the heading template so that we can randomize the facing ----
         // directions for each trial, but we repeat the trials within each ----
         // facing direction below. --------------------------------------------
@@ -80,7 +79,7 @@ public class Navigate_Point_Randomization : ExperimentTask
         List<int> heading_only = new List<int>();
         foreach (int heading_i in heading_template)
         {
-            for (int repeat_i = 0; repeat_i < repeat_blocks; repeat_i++)
+            for (int repeat_i = 0; repeat_i < repeats_per_heading; repeat_i++)
             {
                 heading_only.Add(heading_i);
             }
