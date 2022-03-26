@@ -173,13 +173,12 @@ public class Pointing_Task : ExperimentTask
                     compass.transform.parent = compassparent; // send it back to its old parent to avoid funky movement effects
 
                     // Calculate the correct answer (using the new oriented facing direction)
-                    var newOrientation = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
-                    //DJH EDITS
+                    // Mike's version (commented out for now)
+                    //var newOrientation = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
                     //answer = Vector3.SignedAngle(newOrientation.transform.position - location.transform.position,
                     //                            target.transform.position - location.transform.position, Vector3.up);
-                    //float answer_allo = Vector3.SignedAngle(newOrientation.transform.position, 
-                    //    target.transform.position, Vector3.up);
-                    //double answer_allo = Math.Atan2(avatar.transform.position.z - target.transform.position.z, avatar.transform.position.x - target.transform.position.x) * -(180 / Math.PI);
+
+                    // DJH's version for the new task -------------------------
                     float heading_angle = avatar.transform.localRotation.eulerAngles.y;
                     if (heading_angle < 0) heading_angle += 360;
 
