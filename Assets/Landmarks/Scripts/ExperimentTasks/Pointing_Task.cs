@@ -188,6 +188,7 @@ public class Pointing_Task : ExperimentTask
                     Debug.Log("Current orientation z: " + orientation.transform.position.z);
                     Debug.Log("Current orientation x: " + orientation.transform.position.x);
                     float heading_angle = Mathf.Atan2(avatar.transform.position.z - orientation.transform.position.z, avatar.transform.position.x - orientation.transform.position.x) * -(180 / Mathf.PI);
+                    heading_angle -= 90;
                     if (heading_angle < 0) heading_angle += 360;
                     Debug.Log("Heading angle: " + heading_angle);
 
@@ -196,6 +197,7 @@ public class Pointing_Task : ExperimentTask
                     //Vector3 relative = transform.InverseTransformPoint(target.transform.position);
                     //float target_angle = Mathf.Atan2(relative.z, relative.x) * Mathf.Rad2Deg;
                     float target_angle = Mathf.Atan2(avatar.transform.position.z - target.transform.position.z, avatar.transform.position.x - target.transform.position.x) * -(180 / Mathf.PI);
+                    target_angle -= 90;
                     if (target_angle < 0) target_angle += 360;
 
                     answer = target_angle - heading_angle;
