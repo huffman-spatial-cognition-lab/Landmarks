@@ -32,7 +32,6 @@ public class Navigate_Point_Randomization : ExperimentTask
     readonly public List<GameObject> currentItem;
     readonly public List<int> heading_index_list = new List<int>();
     readonly public List<int> pointing_index_list = new List<int>();
-    readonly public List<int> trial_indexer = new List<int>();
 
     private int currentIndex;
 
@@ -55,16 +54,13 @@ public class Navigate_Point_Randomization : ExperimentTask
 
         // --------------------------------------------------------------------
         // Now, let's create the lists with the relevant information: ---------
-        // 1) trial_indexer_unshuffled: an index array from 0 to n_trials-1 ---
-        // 2) object_heading_list: an index array for headings for each trial -
+        // 1) object_heading_list: an index array for headings for each trial -
         //    (0 to n_objects-1)
-        // 3) object_pointing_list: an index array for headings for each ------
+        // 2) object_pointing_list: an index array for headings for each ------
         //    trial (o to n_objects-1) ----------------------------------------
         // --------------------------------------------------------------------
-        List<int> trial_indexer_unshuffled = new List<int>();
         List<int> heading_template_unshuffled = new List<int>();
         int repeat_blocks = 2;
-        int trial_indexer_counter = 0;
         // Set up the heading template so that we can randomize the facing ----
         // directions for each trial, but we repeat the trials within each ----
         // facing direction below. --------------------------------------------
@@ -99,8 +95,6 @@ public class Navigate_Point_Randomization : ExperimentTask
             {
                 heading_index_list.Add(heading_i);
                 pointing_heading_i_unshuffled.Add(pointing_j);
-                trial_indexer_unshuffled.Add(trial_indexer_counter);
-                trial_indexer_counter += 1;
             }
             // Now, let's shuffle the pointing locations within each heading
             int[] pointing_heading_i = pointing_heading_i_unshuffled.ToArray();
@@ -112,21 +106,6 @@ public class Navigate_Point_Randomization : ExperimentTask
             {
                 pointing_index_list.Add(pointing_j);
             }
-        }
-
-        // --------------------------------------------------------------------
-        // Fill in trial_indexer from the temporary tmp_trial_indexer; e.g., --
-        // allowing for shuffling the array here. -----------------------------
-        // --------------------------------------------------------------------
-        int[] objs = trial_indexer_unshuffled.ToArray();
-        //if (shuffle)
-        //{
-        //    Experiment.Shuffle(objs);
-        //}
-        foreach (int trial_i in objs)
-        {
-            trial_indexer.Add(trial_i);
-            Debug.Log("Here is trial:" + trial_i);
         }
 
 
@@ -162,7 +141,7 @@ public class Navigate_Point_Randomization : ExperimentTask
     public void incrementCurrent()
     {
         current++;
-        if (current >= trial_indexer.Count && EndListBehavior == EndListMode.Loop)
+        if (current >= heading_index_list.Count && EndListBehavior == EndListMode.Loop)
         {
             current = 0;
         }
@@ -171,13 +150,13 @@ public class Navigate_Point_Randomization : ExperimentTask
 
     public int getCurrentHeadingIndex()
     {
-        return heading_index_list[trial_indexer[current]];
+        return heading_index_list[current];
     }
 
 
     public int getCurrentPointingIndex()
     {
-        return pointing_index_list[trial_indexer[current]];
+        return pointing_index_list[current];
     }
 }
 
