@@ -25,7 +25,6 @@ public class Navigate_Point_Randomization : ExperimentTask
     [Header("Task-specific Properties")]
     public ObjectList listToRandomize;
     public int repeats_per_heading = 2;
-    //public int repetitions_inverted = 1;
     public bool shuffle = true;
     public EndListMode EndListBehavior;
     public int current = 0;
