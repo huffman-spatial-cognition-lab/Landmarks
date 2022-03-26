@@ -160,7 +160,7 @@ public class Pointing_Task : ExperimentTask
 
                 if (!oriented)
                 {
-                    Debug.Log("Current avatar heading: " + avatar.transform.localRotation.eulerAngles.y);
+                    //Debug.Log("Current avatar heading: " + avatar.transform.localRotation.eulerAngles.y);
 
                     avatar.GetComponent<FirstPersonController>().enabled = false; // disable the controller to work
                     avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero; // reset the camera
@@ -177,22 +177,32 @@ public class Pointing_Task : ExperimentTask
                     //var newOrientation = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
                     //answer = Vector3.SignedAngle(newOrientation.transform.position - location.transform.position,
                     //                            target.transform.position - location.transform.position, Vector3.up);
+                    //answer = Vector3.SignedAngle(newOrientation.transform.position - avatar.transform.position,
+                    //                             target.transform.position - avatar.transform.position, Vector3.up);
 
                     // DJH's version for the new task -------------------------
-                    float heading_angle = avatar.transform.localRotation.eulerAngles.y;
+                    float curr_heading = avatar.transform.localRotation.eulerAngles.y;
+                    Debug.Log("Heading from avatar transform: " + curr_heading);
+                    Debug.Log("Current avatar z: " + avatar.transform.position.z);
+                    Debug.Log("Current avatar x: " + avatar.transform.position.x);
+                    Debug.Log("Current orientation z: " + orientation.transform.position.z);
+                    Debug.Log("Current orientation x: " + orientation.transform.position.x);
+                    float heading_angle = Mathf.Atan2(avatar.transform.position.z - orientation.transform.position.z, avatar.transform.position.x - orientation.transform.position.x) * -(180 / Mathf.PI);
                     if (heading_angle < 0) heading_angle += 360;
+                    Debug.Log("Heading angle: " + heading_angle);
 
                     // calculate the angle from the current position to target
                     // https://docs.unity3d.com/ScriptReference/Mathf.Atan2.html
-                    Vector3 relative = transform.InverseTransformPoint(target.transform.position);
-                    float target_angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
+                    //Vector3 relative = transform.InverseTransformPoint(target.transform.position);
+                    //float target_angle = Mathf.Atan2(relative.z, relative.x) * Mathf.Rad2Deg;
+                    float target_angle = Mathf.Atan2(avatar.transform.position.z - target.transform.position.z, avatar.transform.position.x - target.transform.position.x) * -(180 / Mathf.PI);
                     if (target_angle < 0) target_angle += 360;
 
                     answer = target_angle - heading_angle;
                     if (answer < 0) answer += 360;
 
-                    Debug.Log("Current heading angle: " + heading_angle);
-                    Debug.Log("Target angle: " + target_angle);
+                    //Debug.Log("Current heading angle: " + heading_angle);
+                    //Debug.Log("Target angle: " + target_angle);
                     Debug.Log("Answer is " + answer);
 
 
