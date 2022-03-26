@@ -19,6 +19,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using System;
 
 
 public class Pointing_Task : ExperimentTask
@@ -159,7 +160,7 @@ public class Pointing_Task : ExperimentTask
 
                 if (!oriented)
                 {
-
+                    Debug.Log("Current avatar heading: " + avatar.transform.localRotation.eulerAngles.y);
 
                     avatar.GetComponent<FirstPersonController>().enabled = false; // disable the controller to work
                     avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero; // reset the camera
@@ -176,9 +177,21 @@ public class Pointing_Task : ExperimentTask
                     //DJH EDITS
                     //answer = Vector3.SignedAngle(newOrientation.transform.position - location.transform.position,
                     //                            target.transform.position - location.transform.position, Vector3.up);
-                    answer = Vector3.SignedAngle(newOrientation.transform.position, 
-                                                 target.transform.position, Vector3.up);
+                    //float answer_allo = Vector3.SignedAngle(newOrientation.transform.position, 
+                    //    target.transform.position, Vector3.up);
+                    //double answer_allo = Math.Atan2(avatar.transform.position.z - target.transform.position.z, avatar.transform.position.x - target.transform.position.x) * -(180 / Math.PI);
+                    float heading_angle = avatar.transform.localRotation.eulerAngles.y;
+                    if (heading_angle < 0) heading_angle += 360;
+
+                    Vector3 relative = transform.InverseTransformPoint(target.transform.position);
+                    float target_angle = Mathf.Atan2(relative.x, relative.z) * Mathf.Rad2Deg;
+                    if (target_angle < 0) target_angle += 360;
+
+                    answer = target_angle - heading_angle;
                     if (answer < 0) answer += 360;
+
+                    Debug.Log("Current heading angle: " + heading_angle);
+                    Debug.Log("Target angle: " + target_angle);
                     Debug.Log("Answer is " + answer);
 
 
