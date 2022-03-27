@@ -30,6 +30,7 @@ public class Pointing_Task : ExperimentTask
     //public LM_PermutedList listOfTriads;
     public ObjectList startObjects;
     public Navigate_Point_Randomization randomOrderStimuli;
+    public float heading_error_tolerance = 10f;
     public bool randomStartRotation;
     public Vector3 compassPosOffset = new Vector3(0f, 0f, -2f);
     public Vector3 compassRotOffset = new Vector3(15f, 0f, 0f);
@@ -159,53 +160,62 @@ public class Pointing_Task : ExperimentTask
 
                 if (!oriented)
                 {
-                    //Debug.Log("Current avatar heading: " + avatar.transform.localRotation.eulerAngles.y);
-
-                    avatar.GetComponent<FirstPersonController>().enabled = false; // disable the controller to work
-                    avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero; // reset the camera
-                    avatar.GetComponent<FirstPersonController>().ResetMouselook(); // reset the zero position to be our current cam orientation
-
-                    var compassparent = compass.transform.parent;
-                    compass.transform.parent = avatar.GetComponentInChildren<LM_SnapPoint>().transform; // make it the child of the snappoint
-                    compass.transform.localPosition = compassPosOffset; // adjust position
-                    compass.transform.localEulerAngles = compassRotOffset; // adjust rotation
-                    compass.transform.parent = compassparent; // send it back to its old parent to avoid funky movement effects
-
-                    // Calculate the correct answer (using the new oriented facing direction)
-                    // Mike's version (commented out for now)
-                    //var newOrientation = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
-                    //answer = Vector3.SignedAngle(newOrientation.transform.position - location.transform.position,
-                    //                            target.transform.position - location.transform.position, Vector3.up);
-
-                    // DJH's version for the new task -------------------------
-                    float curr_heading = avatar.transform.localRotation.eulerAngles.y;
-                    Debug.Log("Heading from avatar transform: " + curr_heading);
+                    // Gather the current facing angle of the avatar ----------
+                    float heading_response = avatar.transform.localRotation.eulerAngles.y;
+                    Debug.Log("Heading from avatar transform: " + heading_response);
 
                     // Calculate the angle from the current location to the ---
                     // "facing" object. ---------------------------------------
                     float heading_angle = calc_ang_rel_environment(avatar, orientation);
 
-                    // Calculate the angle from the current location to the ---
-                    // "target" object. ---------------------------------------
-                    float target_angle = calc_ang_rel_environment(avatar, target);
+                    // Calculate the error between the current heading and ----
+                    // the correct heading. -----------------------------------
+                    float heading_error = calc_absolute_error(heading_response, heading_angle);
 
-                    //answer = target_angle - heading_angle;
-                    //answer = constrain_bw_0_360(answer);
-                    answer = calc_angular_difference(target_angle, heading_angle);
+                    if (heading_error < heading_error_tolerance)
+                    {
+                        //Debug.Log("Current avatar heading: " + avatar.transform.localRotation.eulerAngles.y);
 
-                    Debug.Log("Current heading angle: " + heading_angle);
-                    Debug.Log("Target angle: " + target_angle);
-                    Debug.Log("Answer is " + answer);
+                        avatar.GetComponent<FirstPersonController>().enabled = false; // disable the controller to work
+                        avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero; // reset the camera
+                        avatar.GetComponent<FirstPersonController>().ResetMouselook(); // reset the zero position to be our current cam orientation
+
+                        var compassparent = compass.transform.parent;
+                        compass.transform.parent = avatar.GetComponentInChildren<LM_SnapPoint>().transform; // make it the child of the snappoint
+                        compass.transform.localPosition = compassPosOffset; // adjust position
+                        compass.transform.localEulerAngles = compassRotOffset; // adjust rotation
+                        compass.transform.parent = compassparent; // send it back to its old parent to avoid funky movement effects
+
+                        // Calculate the correct answer (using the new oriented facing direction)
+                        // Mike's version (commented out for now)
+                        //var newOrientation = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
+                        //answer = Vector3.SignedAngle(newOrientation.transform.position - location.transform.position,
+                        //                            target.transform.position - location.transform.position, Vector3.up);
+
+                        // Calculate the angle from the current location to ---
+                        // the "target" object. -------------------------------
+                        float target_angle = calc_ang_rel_environment(avatar, target);
+
+                        // Calculate the angle of the answer. -----------------
+                        answer = calc_angular_difference(target_angle, heading_angle);
+
+                        Debug.Log("Current heading angle: " + heading_angle);
+                        Debug.Log("Target angle: " + target_angle);
+                        Debug.Log("Answer is " + answer);
 
 
 
 
-                    oriented = true; // mark them oriented
-                    hud.setMessage(formattedQuestion);
-                    compass.gameObject.SetActive(true);
-                    compass.interactable = true;
-                    orientTime = Time.time - startTime; // save the orientation time
-                    startTime = Time.time; // reset the start clock for the answer portion
+                        oriented = true; // mark them oriented
+                        hud.setMessage(formattedQuestion);
+                        compass.gameObject.SetActive(true);
+                        compass.interactable = true;
+                        orientTime = Time.time - startTime; // save the orientation time
+                        startTime = Time.time; // reset the start clock for the answer portion
+                    } else
+                    {
+                        hud.setMessage("Your heading error was more than " + heading_error_tolerance + " degrees.\nPlease face the " + orientation.name + ".\nPress Enter when you are ready.");
+                    }
 
                     return false; // don't end the trial
                 }
