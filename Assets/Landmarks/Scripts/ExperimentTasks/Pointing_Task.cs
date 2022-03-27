@@ -30,6 +30,7 @@ public class Pointing_Task : ExperimentTask
     //public LM_PermutedList listOfTriads;
     public ObjectList startObjects;
     public Navigate_Point_Randomization randomOrderStimuli;
+    public ObjectList navigationObjectList;
     public float heading_error_tolerance = 10f;
     public bool randomStartRotation;
     public Vector3 compassPosOffset = new Vector3(0f, 0f, -2f);
@@ -148,6 +149,17 @@ public class Pointing_Task : ExperimentTask
         // and set the message accordingly ------------------------------------
         hud.setMessage("Please face the " + orientation.name + ".\nPress Enter when you are ready.");
         //oriented = true;
+
+
+        // --------------------------------------------------------------------
+        // Inactivate the navigations object so they can see the environment --
+        // --------------------------------------------------------------------
+        foreach (GameObject obj in navigationObjectList.objects)
+        {
+            obj.SetActive(false);
+        }
+
+
     }
 
 
@@ -292,6 +304,14 @@ public class Pointing_Task : ExperimentTask
         // Free Movement
         if (avatar.GetComponent<FirstPersonController>() != null) avatar.GetComponent<FirstPersonController>().enabled = true; // if using 1stPerson controller
         manager.player.GetComponent<CharacterController>().enabled = false;
+
+        // --------------------------------------------------------------------
+        // Activate the navigation objects again. -----------------------------
+        // --------------------------------------------------------------------
+        foreach (GameObject obj in navigationObjectList.objects)
+        {
+            obj.SetActive(true);
+        }
     }
 
 
