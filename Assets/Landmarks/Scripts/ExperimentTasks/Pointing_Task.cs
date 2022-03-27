@@ -177,8 +177,6 @@ public class Pointing_Task : ExperimentTask
                     //var newOrientation = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
                     //answer = Vector3.SignedAngle(newOrientation.transform.position - location.transform.position,
                     //                            target.transform.position - location.transform.position, Vector3.up);
-                    //answer = Vector3.SignedAngle(newOrientation.transform.position - avatar.transform.position,
-                    //                             target.transform.position - avatar.transform.position, Vector3.up);
 
                     // DJH's version for the new task -------------------------
                     float curr_heading = avatar.transform.localRotation.eulerAngles.y;
@@ -187,24 +185,20 @@ public class Pointing_Task : ExperimentTask
                     Debug.Log("Current avatar x: " + avatar.transform.position.x);
                     Debug.Log("Current orientation z: " + orientation.transform.position.z);
                     Debug.Log("Current orientation x: " + orientation.transform.position.x);
-                    float heading_angle = Mathf.Atan2(avatar.transform.position.z - orientation.transform.position.z, avatar.transform.position.x - orientation.transform.position.x) * -(180 / Mathf.PI);
-                    heading_angle -= 90;
-                    if (heading_angle < 0) heading_angle += 360;
-                    Debug.Log("Heading angle: " + heading_angle);
 
-                    // calculate the angle from the current position to target
-                    // https://docs.unity3d.com/ScriptReference/Mathf.Atan2.html
-                    //Vector3 relative = transform.InverseTransformPoint(target.transform.position);
-                    //float target_angle = Mathf.Atan2(relative.z, relative.x) * Mathf.Rad2Deg;
-                    float target_angle = Mathf.Atan2(avatar.transform.position.z - target.transform.position.z, avatar.transform.position.x - target.transform.position.x) * -(180 / Mathf.PI);
-                    target_angle -= 90;
-                    if (target_angle < 0) target_angle += 360;
+                    // Calculate the angle from the current location to the ---
+                    // "facing" object. ---------------------------------------
+                    float heading_angle = calc_ang_rel_environment(avatar, orientation);
+
+                    // Calculate the angle from the current location to the ---
+                    // "target" object. ---------------------------------------
+                    float target_angle = calc_ang_rel_environment(avatar, target);
 
                     answer = target_angle - heading_angle;
-                    if (answer < 0) answer += 360;
+                    answer = constrain_bw_0_360(answer);
 
-                    //Debug.Log("Current heading angle: " + heading_angle);
-                    //Debug.Log("Target angle: " + target_angle);
+                    Debug.Log("Current heading angle: " + heading_angle);
+                    Debug.Log("Target angle: " + target_angle);
                     Debug.Log("Answer is " + answer);
 
 
@@ -295,4 +289,33 @@ public class Pointing_Task : ExperimentTask
         if (avatar.GetComponent<FirstPersonController>() != null) avatar.GetComponent<FirstPersonController>().enabled = true; // if using 1stPerson controller
         manager.player.GetComponent<CharacterController>().enabled = false;
     }
-  }
+
+
+    // Calculate the angle relative to the environment. -----------------------
+    // Note, here we are taking inputs of GameObjects for the starting --------
+    // location and the target location. --------------------------------------
+    // Note also that atan2 will be offset by 90 relative to Unity's ----------
+    // transform's rotations, hence the -90 bit below. ------------------------
+    // WRITTEN BY DJH
+    public float calc_ang_rel_environment(GameObject game_obj_from, GameObject game_obj_to)
+    {
+        float z_from = game_obj_from.transform.position.z;
+        float x_from = game_obj_from.transform.position.x;
+        float z_to = game_obj_to.transform.position.z;
+        float x_to = game_obj_to.transform.position.x;
+        float ang = Mathf.Atan2(z_from - z_to, x_from - x_to) * (-180/Mathf.PI);
+        ang -= 90;
+        float ang_out = constrain_bw_0_360(ang);
+        return ang_out;
+    }
+
+
+    // Set up a function to constrain angles between 0 and 360 degrees. -------
+    public float constrain_bw_0_360(float x)
+    {
+        if (x < 0) x += 360;
+        return x;
+    }
+
+
+}
