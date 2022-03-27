@@ -24,13 +24,14 @@ public class Navigate_Point_Randomization : ExperimentTask
 {
     [Header("Task-specific Properties")]
     public ObjectList listToRandomize;
+    public ObjectList navigationObjectList;
     public int repeats_per_heading = 2;
+    public bool reset_each_block = true;
     public bool shuffle = true;
     public EndListMode EndListBehavior;
     public int current = 0;
-    readonly public List<GameObject> currentItem;
-    readonly public List<int> heading_index_list = new List<int>();
-    readonly public List<int> pointing_index_list = new List<int>();
+    public List<int> heading_index_list = new List<int>();
+    public List<int> pointing_index_list = new List<int>();
 
     private int currentIndex;
 
@@ -46,9 +47,30 @@ public class Navigate_Point_Randomization : ExperimentTask
         base.startTask();
 
         // --------------------------------------------------------------------
-        // First, let's gather some information about trial counts, etc. ------
+        // First, let's reset these arrays so we don't spill over from other --
+        // trials. Note: this might not always be the desired behavior. -------
         // --------------------------------------------------------------------
-        int obj_count = listToRandomize.objects.Count;
+        if (reset_each_block) {
+            heading_index_list = new List<int>();
+            pointing_index_list = new List<int>();
+        }
+
+        // --------------------------------------------------------------------
+        // Next, let's gather some information about trial counts, etc. -------
+        // --------------------------------------------------------------------
+        int total_obj_count = listToRandomize.objects.Count;
+        int nav_location_count = navigationObjectList.objects.Count;
+        int obj_count = total_obj_count / nav_location_count;
+
+        int curr_nav = navigationObjectList.current;
+        if (curr_nav == 0)
+        {
+            curr_nav = nav_location_count - 1;
+        } else
+        {
+            curr_nav -= 1;
+        }
+        Debug.Log("Current navigation iteration: " + curr_nav);
 
 
         // --------------------------------------------------------------------
@@ -62,8 +84,15 @@ public class Navigate_Point_Randomization : ExperimentTask
         // Set up the heading template so that we can randomize the facing ----
         // directions for each trial, but we repeat the trials within each ----
         // facing direction below. --------------------------------------------
-        for (int heading_j = 0; heading_j < obj_count; heading_j++)
+
+        // Here, we will set up the minimum and maximum values so that we -----
+        // can loop over different center points for each array. --------------
+        int min_index = curr_nav * obj_count;
+        int less_than_index = (curr_nav + 1) * obj_count;
+
+        for (int heading_j = min_index; heading_j < less_than_index; heading_j++)
         {
+            Debug.Log("Current Heading: " + heading_j);
             heading_template_unshuffled.Add(heading_j);
         }
 
@@ -89,7 +118,7 @@ public class Navigate_Point_Randomization : ExperimentTask
         foreach (int heading_i in heading_only)
         {
             List<int> pointing_heading_i_unshuffled = new List<int>();
-            for (int pointing_j = 0; pointing_j < obj_count; pointing_j++)
+            for (int pointing_j = min_index; pointing_j < less_than_index; pointing_j++)
             {
                 heading_index_list.Add(heading_i);
                 pointing_heading_i_unshuffled.Add(pointing_j);
