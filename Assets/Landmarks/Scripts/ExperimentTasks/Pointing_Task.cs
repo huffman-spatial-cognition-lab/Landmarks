@@ -189,8 +189,9 @@ public class Pointing_Task : ExperimentTask
                     // "target" object. ---------------------------------------
                     float target_angle = calc_ang_rel_environment(avatar, target);
 
-                    answer = target_angle - heading_angle;
-                    answer = constrain_bw_0_360(answer);
+                    //answer = target_angle - heading_angle;
+                    //answer = constrain_bw_0_360(answer);
+                    answer = calc_angular_difference(target_angle, heading_angle);
 
                     Debug.Log("Current heading angle: " + heading_angle);
                     Debug.Log("Target angle: " + target_angle);
@@ -219,11 +220,9 @@ public class Pointing_Task : ExperimentTask
                     Debug.Log("RESPONSE: " + response.ToString());
 
                     // Calculate the (signed) error - should be between -180 and 180
-                    signedError = response - answer;
-                    if (signedError > 180) signedError -= 360;
-                    else if (signedError < -180) signedError += 360;
+                    signedError = calc_signed_error(response, answer);
                     Debug.Log("Signed Error: " + signedError);
-                    absError = Mathf.Abs(signedError);
+                    absError = calc_absolute_error(response, answer);
                     Debug.Log("Absolute Error: " + absError);
 
                     return true; // end trial
@@ -313,4 +312,30 @@ public class Pointing_Task : ExperimentTask
     }
 
 
+    // Set up a function to calculate the difference between two angles. ------
+    public float calc_angular_difference(float x, float y)
+    {
+        float ang_diff = x - y;
+        float ang_out = constrain_bw_0_360(ang_diff);
+        return ang_out;
+    }
+
+
+    // Set up a function to calculate the signed error between -180 and 180. --
+    public float calc_signed_error(float response_ang, float actual_ang)
+    {
+        float ang_err = calc_angular_difference(response_ang, actual_ang);
+        if (ang_err > 180) ang_err -= 360;
+        else if (ang_err < -180) ang_err += 360;
+        return ang_err;
+    }
+
+    // Set up a function to calculate the absolute angular error between 0 ----
+    // and 360. ---------------------------------------------------------------
+    public float calc_absolute_error(float response_ang, float actual_ang)
+    {
+        float ang_err = calc_signed_error(response_ang, actual_ang);
+        float ang_err_abs = Mathf.Abs(ang_err);
+        return ang_err_abs;
+    }
 }
