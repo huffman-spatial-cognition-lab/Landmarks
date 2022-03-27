@@ -32,6 +32,7 @@ public class Pointing_Task : ExperimentTask
     public Navigate_Point_Randomization randomOrderStimuli;
     public ObjectList navigationObjectList;
     public float heading_error_tolerance = 10f;
+    public float pointing_error_tolerance = 25f;
     public bool randomStartRotation;
     public Vector3 compassPosOffset = new Vector3(0f, 0f, -2f);
     public Vector3 compassRotOffset = new Vector3(15f, 0f, 0f);
@@ -247,7 +248,14 @@ public class Pointing_Task : ExperimentTask
                     absError = calc_absolute_error(response, answer);
                     Debug.Log("Absolute Error: " + absError);
 
-                    return true; // end trial
+                    // End the trial if the error is within the specified range
+                    if (absError < pointing_error_tolerance)
+                    {
+                        return true; // end trial
+                    } else
+                    {
+                        hud.setMessage("Your pointing error was more than " + pointing_error_tolerance + " degrees.\n" + formattedQuestion);
+                    }
                 }
           }
 
