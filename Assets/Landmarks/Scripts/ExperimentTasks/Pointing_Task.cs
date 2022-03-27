@@ -146,7 +146,6 @@ public class Pointing_Task : ExperimentTask
         // Get the information about the current object they should be facing -
         // and set the message accordingly ------------------------------------
         hud.setMessage("Please face the " + orientation.name + ".\nPress Enter when you are ready.");
-        Debug.Log("*** HERE WE ARE *** !!!");
         //oriented = true;
     }
 
@@ -181,10 +180,6 @@ public class Pointing_Task : ExperimentTask
                     // DJH's version for the new task -------------------------
                     float curr_heading = avatar.transform.localRotation.eulerAngles.y;
                     Debug.Log("Heading from avatar transform: " + curr_heading);
-                    Debug.Log("Current avatar z: " + avatar.transform.position.z);
-                    Debug.Log("Current avatar x: " + avatar.transform.position.x);
-                    Debug.Log("Current orientation z: " + orientation.transform.position.z);
-                    Debug.Log("Current orientation x: " + orientation.transform.position.x);
 
                     // Calculate the angle from the current location to the ---
                     // "facing" object. ---------------------------------------
