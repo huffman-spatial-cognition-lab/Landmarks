@@ -33,8 +33,6 @@ public class Navigate_Point_Randomization : ExperimentTask
     public List<int> heading_index_list = new List<int>();
     public List<int> pointing_index_list = new List<int>();
 
-    private int currentIndex;
-
     public override void startTask()
     {
         TASK_START();
@@ -51,6 +49,7 @@ public class Navigate_Point_Randomization : ExperimentTask
         // trials. Note: this might not always be the desired behavior. -------
         // --------------------------------------------------------------------
         if (reset_each_block) {
+            current = 0;
             heading_index_list = new List<int>();
             pointing_index_list = new List<int>();
         }
