@@ -90,6 +90,14 @@ public class Experiment : MonoBehaviour {
     private string configfile = "";
     private LM_AzureStorage azureStorage;
 
+    // DJH EDITS: Changing shuffle because it was having issues when running --
+    // in close temporal proximity: namely, it was returning the same ---------
+    // randomization. Therefore, I am now setting things up so that it uses ---
+    // a single randomization and does not set the seed each time it is -------
+    // called, which causes it to return the same values. For more info: ------
+    // https://docs.microsoft.com/en-us/dotnet/api/system.random?view=net-6.0
+    private static System.Random random;
+
     protected GameObject avatar;
 	protected AvatarController avatarController;
 	protected HUD hud;
@@ -249,6 +257,9 @@ public class Experiment : MonoBehaviour {
             c.detectCollisions = false;
 			dblog = new dbPlaybackLog(dataPath + logfile);
 		}
+
+        // DJH edits (moving this up to avoid duplicating issue; see above) ---
+        random = new System.Random();
 
         dblog.log("EXPERIMENT:\t" + PlayerPrefs.GetString("expID") + "\tSUBJECT:\t" + config.subject +
                   "\tSTART_SCENE\t" + config.levelNames[config.levelNumber] + "\tSTART_CONDITION:\t" + config.conditions[config.levelNumber] + "\tUI:\t" + userInterface.ToString(), 1);
@@ -565,7 +576,8 @@ public class Experiment : MonoBehaviour {
 
 	public static void Shuffle<T>(T[] array)
     {
-		var random = new System.Random();
+        // DJH EDITS: see above for rationale on commenting this out ----------
+		//var random = new System.Random();
 		for (int i = array.Length; i > 1; i--)
 		{
 		    // Pick random element to swap.
