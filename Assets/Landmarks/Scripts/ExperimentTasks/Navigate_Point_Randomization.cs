@@ -100,7 +100,6 @@ public class Navigate_Point_Randomization : ExperimentTask
         if (shuffle)
         {
             Experiment.Shuffle(heading_template);
-            WaitToGenerateNewSeed();
         }
 
         // Loop over each heading ---------------------------------------------
@@ -123,14 +122,16 @@ public class Navigate_Point_Randomization : ExperimentTask
             if (shuffle)
             {
                 Experiment.Shuffle(pointing_heading_i);
-                WaitToGenerateNewSeed();
             }
             foreach (int pointing_j in pointing_heading_i)
             {
                 pointing_index_list.Add(pointing_j);
+                Debug.Log("Current pointing: " + pointing_j);
             }
         }
 
+        Debug.Log("Length of headings: " + heading_index_list.Count);
+        Debug.Log("Length of pointings: " + pointing_index_list.Count);
 
         // --------------------------------------------------------------------
         // Set the listToRandomize.current to the current index (i.e., for ----
@@ -182,10 +183,7 @@ public class Navigate_Point_Randomization : ExperimentTask
         return pointing_index_list[current];
     }
 
-    IEnumerator WaitToGenerateNewSeed()
-    {
-        yield return new WaitForSeconds(1);
-    }
+
 }
 
 
