@@ -100,33 +100,30 @@ public class Navigate_Point_Randomization : ExperimentTask
         if (shuffle)
         {
             Experiment.Shuffle(heading_template);
+            WaitToGenerateNewSeed();
         }
 
-        // Loop over this to repeat the trials within each facing direction ---
-        List<int> heading_only = new List<int>();
+        // Loop over each heading ---------------------------------------------
         foreach (int heading_i in heading_template)
         {
-            for (int repeat_i = 0; repeat_i < repeats_per_heading; repeat_i++)
-            {
-                heading_only.Add(heading_i);
-            }
-        }
-
-        // Now, loop over the pointing trials for each heading and fill out ---
-        // the arrays we will need for the heading and pointing trials --------
-        foreach (int heading_i in heading_only)
-        {
             List<int> pointing_heading_i_unshuffled = new List<int>();
+            // loop over each target / pointing object ------------------------
             for (int pointing_j = min_index; pointing_j < less_than_index; pointing_j++)
             {
-                heading_index_list.Add(heading_i);
-                pointing_heading_i_unshuffled.Add(pointing_j);
+                // loop over the number of repetitions ------------------------
+                for (int repeat_i = 0; repeat_i < repeats_per_heading; repeat_i++)
+                {
+                    heading_index_list.Add(heading_i);
+                    pointing_heading_i_unshuffled.Add(pointing_j);
+                }
+
             }
             // Now, let's shuffle the pointing locations within each heading
             int[] pointing_heading_i = pointing_heading_i_unshuffled.ToArray();
             if (shuffle)
             {
                 Experiment.Shuffle(pointing_heading_i);
+                WaitToGenerateNewSeed();
             }
             foreach (int pointing_j in pointing_heading_i)
             {
@@ -183,6 +180,11 @@ public class Navigate_Point_Randomization : ExperimentTask
     public int getCurrentPointingIndex()
     {
         return pointing_index_list[current];
+    }
+
+    IEnumerator WaitToGenerateNewSeed()
+    {
+        yield return new WaitForSeconds(1);
     }
 }
 
