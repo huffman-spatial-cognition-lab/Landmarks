@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum adjustState{
+    on,
     onCondition,
     off
 }
@@ -48,6 +49,8 @@ public class pto_adjustBorder : ExperimentTask
             
         }else if(mode == adjustState.off){
             newBorderActive = false;
+        }else if(mode == adjustState.on){
+            newBorderActive = true;
         }
 
         foreach (Transform child in borderParent.transform) {
