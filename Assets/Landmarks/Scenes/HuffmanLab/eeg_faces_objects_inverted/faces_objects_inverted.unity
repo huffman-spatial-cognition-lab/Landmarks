@@ -3830,6 +3830,11 @@ PrefabInstance:
       propertyPath: shuffle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 876349401104870509, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: restrictMovement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1041665522549620671, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: shuffle
@@ -3840,6 +3845,11 @@ PrefabInstance:
       propertyPath: initializeLSL
       value: 
       objectReference: {fileID: 1720675983}
+    - target: {fileID: 1041665522987647979, guid: 1e918461dfaa3a04d9a3df920a8e1415,
+        type: 3}
+      propertyPath: restrictMovement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1041665522987647979, guid: 1e918461dfaa3a04d9a3df920a8e1415,
         type: 3}
       propertyPath: objectPositionOffset.y
