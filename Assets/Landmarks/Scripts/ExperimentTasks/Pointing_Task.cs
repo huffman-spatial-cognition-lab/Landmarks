@@ -38,6 +38,7 @@ public class Pointing_Task : ExperimentTask
     public Vector3 compassRotOffset = new Vector3(15f, 0f, 0f);
     [Min(0f)]
     public float secondsBeforeResponse = 5.0f; // how long before they can submit answer
+    public bool restrictMovement = false;
 
     private List<GameObject> questionItems;
     private GameObject location; // standing at the...
@@ -71,7 +72,10 @@ public class Pointing_Task : ExperimentTask
         startTime = Time.time;
 
         // Restrict Movement
-        manager.player.GetComponent<CharacterController>().enabled = false;
+        if (restrictMovement)
+        {
+            manager.player.GetComponent<CharacterController>().enabled = false;
+        }
 
 
         // ---------------------------------------------------------------------
@@ -311,7 +315,10 @@ public class Pointing_Task : ExperimentTask
         compass.gameObject.SetActive(false); // hide the compass
         // Free Movement
         if (avatar.GetComponent<FirstPersonController>() != null) avatar.GetComponent<FirstPersonController>().enabled = true; // if using 1stPerson controller
-        manager.player.GetComponent<CharacterController>().enabled = false;
+        if (restrictMovement)
+        {
+            manager.player.GetComponent<CharacterController>().enabled = false;
+        }
 
         // --------------------------------------------------------------------
         // Activate the navigation objects again. -----------------------------
