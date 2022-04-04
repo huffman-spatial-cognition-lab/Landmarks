@@ -53,6 +53,7 @@ public class ViewStimuliTimed : ExperimentTask {
     public bool restrictMovement = true;
 	public bool eeg_lsl = true;
 	public float sample;
+	public float sampleKey;
 	private bool first_frame = true;
 	
 	
@@ -148,6 +149,21 @@ public class ViewStimuliTimed : ExperimentTask {
 
 
 	public override bool updateTask () {
+
+		if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+			sampleKey = 1;
+			log.log("ViewingTaskStimulusTimed_BUTTON_PRESSED\t" + current.name + "\t" + randomOrderStimuli.getUprightInverted() + "\t" + "1", 1);
+        }
+
+		else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+			sampleKey = 2;
+			log.log("ViewingTaskStimulusTimed_BUTTON_PRESSED\t" + current.name + "\t" + randomOrderStimuli.getUprightInverted() + "\t" + "2", 1);
+		}
+
+		
+		//Debug.Log(sampleKey);
 
 		if (skip) {
 			//log.log("INFO	skip task	" + name,1 );
