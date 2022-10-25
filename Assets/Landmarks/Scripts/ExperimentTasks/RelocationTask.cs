@@ -210,11 +210,21 @@ public class RelocationTask : ExperimentTask
     }
 
     private void relocateTargetStart(){
+
         TargetObject currTgtObj = trialData.targetObjects[currObjInd];
-        Debug.Log("instantiating target in current.");
-        Debug.Log(currObjInd);
-        current = InstantiateRelocationTarget(currTgtObj.x, currTgtObj.y);
+        Debug.Log("x and y coordinates from logs are " + currTgtObj.x + ", " + currTgtObj.y);
+        
+        GameObject terrain = GameObject.Find("LM_Environment");
+        float scale_x = terrain.transform.localScale.x;
+        float scale_y = terrain.transform.localScale.z; // python code y is the Unity Z
+        Debug.Log("x and y scales of the terrain are " + scale_x + ", " + scale_y);
+
+        float final_x = currTgtObj.x * scale_x;
+        float final_y = currTgtObj.y * scale_y;
+        Debug.Log("instantiating target at coordinates" + final_x + ", " + final_y);
+        current = InstantiateRelocationTarget(final_x, final_y);
         current.SetActive(true);
+
     }
 
     private void relocateTargetEnd(){
