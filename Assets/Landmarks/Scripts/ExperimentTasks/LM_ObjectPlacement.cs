@@ -126,10 +126,9 @@ public class LM_ObjectPlacement : ExperimentTask
                 //markerObject.transform.localPosition = new Vector3(0,0, -markerStartDistance);    
                 //markerObject.transform.localEulerAngles = Vector3.zero;
 
+                log.log("OBJECT_PLACEMENT\tPLAYER_ORIENTED\tLOCATION:\t" + manager.player.transform.position.x + "\t" + manager.player.transform.position.y + "\t"+ manager.player.transform.position.z, 1);
+                
                 // move on to the next stage
-                if (trialLog.active){   
-                    log.log("OBJECT_PLACEMENT\tPLAYER_ORIENTED\tLOCATION:\t" + manager.player.transform.position.x + "\t" + manager.player.transform.position.y + "\t"+ manager.player.transform.position.z, 1);
-                }
                 stage = PointingTaskStage.Pointing;
             }
         }
@@ -206,10 +205,8 @@ public class LM_ObjectPlacement : ExperimentTask
             // submit the position
             if ((!vrEnabled && Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput)){
 
-                if (trialLog.active){   
-                    log.log("OBJECT_PLACEMENT\tOBJECT_PLACED\tRAY_START:\t" + startPoint.x + "\t" + startPoint.y + "\t"+ startPoint.z + "\t"+
+                log.log("OBJECT_PLACEMENT\tOBJECT_PLACED\tRAY_START:\t" + startPoint.x + "\t" + startPoint.y + "\t"+ startPoint.z + "\t"+
                     "RAY_END:\t" + endPoint.x + "\t" + endPoint.y + "\t"+ endPoint.z, 1);
-                }
 
                 currentPlacementObject.SetActive(false);
                 currentPlacementObject = null;
@@ -248,9 +245,7 @@ public class LM_ObjectPlacement : ExperimentTask
         // Log data
         // --------------------------
 
-        if (trialLog.active)
-        {
-            trialLog.AddData(transform.name + "_task", "ObjectPlacement");
+        log.log("LM_ObjectPlacement.cs\tTASK_END");
             /*
             trialLog.AddData(transform.name + "_playerLocation", startAngle.ToString()); // record where we started the compass at
             trialLog.AddData(transform.name + "_responseCW", response.ToString());
@@ -260,7 +255,6 @@ public class LM_ObjectPlacement : ExperimentTask
             trialLog.AddData(transform.name + "_SOPorientingTime", orientTime.ToString());
             trialLog.AddData(transform.name + "_responseTime", responseTime.ToString());
             */
-        }
 
         // Object clean-up
         Destroy(markerObject);

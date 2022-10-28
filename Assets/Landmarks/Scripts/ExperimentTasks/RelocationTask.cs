@@ -5,6 +5,10 @@ using TMPro;
 
 public class RelocationTask : ExperimentTask
 {
+
+    private dbLog log;
+	private Experiment manager;
+
     [Header("Task-specific Properties")]
     private Trial trialData;
     private int numObjects;
@@ -59,6 +63,8 @@ public class RelocationTask : ExperimentTask
         completedCurrentObject = false;
         relocateTargetStart();
 
+        manager = experiment.GetComponent("Experiment") as Experiment;
+		log = manager.dblog;
 
         hud.SecondsToShow = 0;
         hud.setMessage("Please relocate to the target");
@@ -102,16 +108,13 @@ public class RelocationTask : ExperimentTask
         
         if (skip)
         {
-            //log.log("INFO    skip task    " + name,1 );
             return true;
         }
 
         if (completedCurrentObject){
             relocateTargetEnd();
-            Debug.Log(currObjInd);
-            Debug.Log(numObjects);
+            log.log("RelocationTask.cs\tcompleted_object\tobject_ind\t" + currObjInd.ToString() + "\tnum_objects\t" + numObjects.ToString());
             if(currObjInd == numObjects){ // are we done with all the objects? if so, move on from this task
-                Debug.Log("completed!");
                 return true;
             }
             relocateTargetStart();
@@ -124,8 +127,8 @@ public class RelocationTask : ExperimentTask
         Vector2 alternate_to = new Vector2(current.transform.position.x, current.transform.position.z);
         Vector2 alternate_from = new Vector2(CenterEyeAnchor.transform.position.x, CenterEyeAnchor.transform.position.z);
         
-        Vector3 debug_to = new Vector3(alternate_to.x, 0.2f, alternate_to.y);
-        Vector3 debug_from = new Vector3(alternate_from.x, 0.2f, alternate_from.y);
+        Vector3 debug_to = new Vector3(alternate_from.x, 0.2f, alternate_from.y);
+        Vector3 debug_from = new Vector3(alternate_to.x, 0.2f, alternate_to.y);
 
         debug_to = debug_from + (debug_to - debug_from).normalized * alternateDistThreshold;
         
@@ -205,7 +208,7 @@ public class RelocationTask : ExperimentTask
             excessPath = float.NaN;
         }
 
-        log.log("LM_OUTPUT\tRelocationTask.cs\tRelocated to the asked position", 1);
+        log.log("RelocationTask.cs\tTASK_END", 1);
 
     }
 
