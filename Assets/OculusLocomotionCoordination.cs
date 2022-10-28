@@ -33,8 +33,8 @@ public class OculusLocomotionCoordination : MonoBehaviour
     void Update()
     {
         Vector3 CenterPosition = GameObject.Find("TrackingSpace/CenterEyeAnchor").transform.position;
-        CharacterController cc = GameObject.Find("OVRPlayerController").GetComponent(typeof(CharacterController)) as CharacterController;
-        cc.center = new Vector3(CenterPosition.x, 0.2f, CenterPosition.z);
+        // CharacterController cc = GameObject.Find("OVRPlayerController").GetComponent(typeof(CharacterController)) as CharacterController;
+        // cc.center = new Vector3(CenterPosition.x, 0.2f, CenterPosition.z);
 
         // ---------- DEBUGGING --------- //
         if(debugLocomotion){
