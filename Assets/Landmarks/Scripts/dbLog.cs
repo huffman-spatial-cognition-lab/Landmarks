@@ -21,6 +21,8 @@ using System.IO;
 
 public class dbLog {
 
+    public bool active = true;
+
     protected long microseconds = 1;
     protected string workingFile = "";
     private StreamWriter logfile;
@@ -46,16 +48,21 @@ public class dbLog {
 		return 0;
 	}
 	
+    public virtual void log(string msg) {
+        if (this.active){
+            long tick = DateTime.Now.Ticks;
+            //long seconds = tick / TimeSpan.TicksPerSecond;
+            long milliseconds = tick / TimeSpan.TicksPerMillisecond;
+            microseconds = tick / 10;
+            //Debug.Log(milliseconds);
+            //Debug.Log(Time.frameCount + ": " + Event.current);
+            
+            logfile.WriteLine( milliseconds + "\t" + msg );
+        }
+	}
+
 	public virtual void log(string msg, int level) {
-		
-	    long tick = DateTime.Now.Ticks;
-        //long seconds = tick / TimeSpan.TicksPerSecond;
-        long milliseconds = tick / TimeSpan.TicksPerMillisecond;
-        microseconds = tick / 10;
-        //Debug.Log(milliseconds);
-        //Debug.Log(Time.frameCount + ": " + Event.current);
-        
-		logfile.WriteLine( milliseconds + "\t" + msg );
+        this.log(msg); // level variable is unused; this is for backwards compatibility
 	}
 
     // MJS function to cleanly log info with no prefixes
