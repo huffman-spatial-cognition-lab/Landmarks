@@ -218,6 +218,9 @@ public class Experiment : MonoBehaviour {
         // Otherwise, save data in the persistent data path for file permission (regardless of Azure)
         else
         {
+            DateTime nowDateTime = DateTime.Now;
+            string nowString = nowDateTime.ToString("yyyyMMdd_HH_mm_ss");
+
             Debug.Log("SAVING BUILD DATA IN PERSISTENTDATAPATH");
             dataPath =
                 Application.persistentDataPath + "/" +
@@ -227,7 +230,8 @@ public class Experiment : MonoBehaviour {
                 config.experiment + "_" +
                 config.subject + "_" +
                 config.levelNames[config.levelNumber] + "_" +
-                config.conditions[config.levelNumber] + ".log";
+                config.conditions[config.levelNumber] +
+                nowString + ".log";
         }
         Debug.Log("data will be saved as " + dataPath + logfile);
 
