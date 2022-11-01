@@ -102,6 +102,10 @@ public class RelocationTask : ExperimentTask
 
     }
 
+    public void completeCurrentObject() {
+        completedCurrentObject = true;
+    }
+
     public override bool updateTask ()
 	{
 		base.updateTask();
@@ -139,7 +143,7 @@ public class RelocationTask : ExperimentTask
         
         float alternateDist = Vector2.Distance(alternate_from, alternate_to);
         if (alternateDist < alternateDistThreshold){
-            completedCurrentObject = true; // move to the next object!
+            completeCurrentObject();
         }
 
         // Update the distance traveled
@@ -256,14 +260,9 @@ public class RelocationTask : ExperimentTask
 	public override bool OnControllerColliderHit(GameObject hit)
 	{
         Debug.Log("OnControllerColliderHit-RelocationTask.cs");
-		if (hit == current)
+		if (hit == current || hit.transform.parent == current.transform)
 		{
-			completedCurrentObject = true;
-		}
-
-		if (hit.transform.parent == current.transform)
-		{
-			completedCurrentObject = true;
+			 completeCurrentObject();   
 		}
 		return false;
 	}
