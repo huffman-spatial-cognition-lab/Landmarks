@@ -29,9 +29,6 @@ public class pto_createTargetObjects : ExperimentTask
         if (!manager) Start();
         base.startTask();
 
-        // WRITE TASK STARTUP CODE HERE
-
-        // testing creating an object and attaching a material to it
         for (int colori = 0; colori < OBJ_COLOR_NAMES.Count; colori += 1){
             for (int shapei = 0; shapei < OBJ_SHAPE_NAMES.Count; shapei += 1){
                 GameObject targetObject = Instantiate(OBJ_SHAPES[shapei], TargetObjectTemplatesParent);
@@ -42,30 +39,23 @@ public class pto_createTargetObjects : ExperimentTask
             }
         }
         
-        
     }
 
     public override bool updateTask()
     {
         return true;
-
-        // WRITE TASK UPDATE CODE HERE
     }
 
 
     public override void endTask()
     {
         TASK_END();
-
-        // LEAVE BLANK
     }
 
 
     public override void TASK_END()
     {
         base.endTask();
-
-        // WRITE TASK EXIT CODE HERE
     }
 
 }
