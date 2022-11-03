@@ -69,9 +69,6 @@ public class LM_ObjectPlacement : ExperimentTask
         manager = experiment.GetComponent("Experiment") as Experiment;
 		log = manager.dblog;
 
-        handModelLeft.SetActive(false);
-        handModelRight.SetActive(true);
-
         hud.showEverything();
         
     }
@@ -96,14 +93,12 @@ public class LM_ObjectPlacement : ExperimentTask
             } 
         }
 
-        Debug.Log(stage);
-        Debug.Log(vrInput);
-        Debug.Log(triggerWasPushed);
-
         // During the orienting stage
         if (stage == PointingTaskStage.Orienting){
             
-            if ((!vrEnabled && Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput))
+            Debug.Log("vrEnabled? " + vrEnabled);
+            Debug.Log("Return key pressed? " + Input.GetKeyDown(KeyCode.Return));
+            if ((Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput))
             {
                 
                 if (vrEnabled)
@@ -119,31 +114,27 @@ public class LM_ObjectPlacement : ExperimentTask
 
                 // Instantiate the Marker
                 markerLocation = manager.player.transform.position + avatar.GetComponentInChildren<Camera>().transform.forward * markerStartDistance;
-                pointingObjectParent.transform.position = markerLocation;
 
-                markerObject = Instantiate(markerObjectTemplate, new Vector3(0f, 0f, 0f), Quaternion.identity, pointingObjectParent.transform);
+                markerObject = Instantiate(markerObjectTemplate, markerLocation, Quaternion.identity, pointingObjectParent.transform);
                 initializeObjectForPlacement();
-                //markerObject.transform.localPosition = new Vector3(0,0, -markerStartDistance);    
-                //markerObject.transform.localEulerAngles = Vector3.zero;
 
                 log.log("OBJECT_PLACEMENT\tPLAYER_ORIENTED\tLOCATION:\t" + manager.player.transform.position.x + "\t" + manager.player.transform.position.y + "\t"+ manager.player.transform.position.z, 1);
                 
                 // move on to the next stage
                 stage = PointingTaskStage.Pointing;
+                Debug.Log("Orienting stage complete, moving to placing markers (ie Pointing)");
             }
         }
 
         // During the pointing stage (after orienting)
         else if (stage == PointingTaskStage.Pointing){
-
-            // check for key updates
-            // and move markerLocation accordingly
-            // and update the pointingObjectParent.Transform
+            
             Vector3 startPoint = new Vector3();
             Vector3 endPoint = new Vector3();
 
             if (vrEnabled)
             {
+                
                 int range = 100;
                 bool aimHit = false;
 		        Ray aimRay = new Ray(RightHand.position, RightHand.forward);
@@ -151,24 +142,18 @@ public class LM_ObjectPlacement : ExperimentTask
                 endPoint = startPoint + aimRay.direction * range;
                 RaycastHit hitInfo;
 
-                Debug.Log(startPoint);
-
-                if(Physics.Raycast(startPoint, aimRay.direction, out hitInfo, range)){//, out hitInfo, range, QueryTriggerInteraction.Ignore)){
+                if(Physics.Raycast(startPoint, aimRay.direction, out hitInfo, range)){
                     endPoint = startPoint + aimRay.direction * hitInfo.distance;
                     aimHit = true;
-                    Debug.Log(hitInfo);
-                    Debug.Log(hitInfo.point);
-                    Debug.Log(hitInfo.collider);
                 }
 
-                pointingObjectParent.transform.position = hitInfo.point;
+                markerObject.transform.position = hitInfo.point;
+                currentPlacementObject.transform.position = hitInfo.point;
 
                 _lineRenderer.gameObject.SetActive(true);
                 _lineRenderer.positionCount = 2;
                 _lineRenderer.SetPosition(0, startPoint);
                 _lineRenderer.SetPosition(1, endPoint);
-
-                // TODO: Put the object at the end of line, a little higher.
                
             }
             else
@@ -190,20 +175,23 @@ public class LM_ObjectPlacement : ExperimentTask
                 }
                 
                 if (targetMovementHori != 0){
-                    targetTranslation += avatar.GetComponentInChildren<Camera>().transform.right * Time.deltaTime * targetMovementHori;
+                    targetTranslation += Vector3.right * Time.deltaTime * targetMovementHori;
                 }
                 if (targetMovementVert != 0){
-                    targetTranslation += avatar.GetComponentInChildren<Camera>().transform.forward * Time.deltaTime * targetMovementVert;
-                    Debug.Log(targetTranslation);
+                    targetTranslation += Vector3.forward * Time.deltaTime * targetMovementVert;
                 }
+                Debug.Log(targetTranslation);
                 markerLocation = markerObject.transform.position;
                 markerLocation += targetTranslation * translationSpeed;
                 markerLocation.y = markerFixedHeight;
-                markerObject.transform.position = markerLocation; 
+
+                markerObject.transform.position = markerLocation;
+                currentPlacementObject.transform.position = markerLocation;
             }
 
+
             // submit the position
-            if ((!vrEnabled && Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput)){
+            if ((Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput)){
 
                 log.log("OBJECT_PLACEMENT\tOBJECT_PLACED\tRAY_START:\t" + startPoint.x + "\t" + startPoint.y + "\t"+ startPoint.z + "\t"+
                     "RAY_END:\t" + endPoint.x + "\t" + endPoint.y + "\t"+ endPoint.z, 1);
@@ -260,9 +248,6 @@ public class LM_ObjectPlacement : ExperimentTask
         Destroy(markerObject);
         Destroy(_lineRenderer);
 
-        handModelLeft.SetActive(false);
-        handModelRight.SetActive(false);
-
         if(!vrEnabled){
             avatar.GetComponent<FirstPersonController>().enabled = true;
         }
@@ -273,8 +258,8 @@ public class LM_ObjectPlacement : ExperimentTask
     private void initializeObjectForPlacement(){
         string targetObjectString = trialData.targetObjects[currObjInd].object_repr;
         GameObject targetObject = relocationTargetTemplateParent.transform.Find(targetObjectString).gameObject;
-        
         GameObject go = Instantiate(targetObject, pointingObjectParent.transform);
+        currentPlacementObject = go;
         go.transform.position = new Vector3(0f, 1.0f, 0f);
     }
 
