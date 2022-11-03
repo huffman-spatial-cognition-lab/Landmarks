@@ -17,6 +17,7 @@ public class LM_ObjectPlacement : ExperimentTask
 	private GameObject currentPlacementObject;
 
     [Header("Task-specific Properties")]
+    public GameObject infiniteTerrain;
     public GameObject relocationTargetTemplateParent;
     public GameObject pointingObjectParent;
     public GameObject markerObjectTemplate;
@@ -137,18 +138,21 @@ public class LM_ObjectPlacement : ExperimentTask
                 
                 int range = 100;
                 bool aimHit = false;
+                Collider terrainCollider = infiniteTerrain.GetComponent<BoxCollider>();
 		        Ray aimRay = new Ray(RightHand.position, RightHand.forward);
                 startPoint = RightHand.position;
                 endPoint = startPoint + aimRay.direction * range;
                 RaycastHit hitInfo;
 
-                if(Physics.Raycast(startPoint, aimRay.direction, out hitInfo, range)){
+                if(terrainCollider.Raycast(aimRay, out hitInfo, range)){
                     endPoint = startPoint + aimRay.direction * hitInfo.distance;
                     aimHit = true;
                 }
 
-                markerObject.transform.position = hitInfo.point;
-                currentPlacementObject.transform.position = hitInfo.point;
+                Vector3 moveMarkersTo = new Vector3(hitInfo.point.x, 1.0f, hitInfo.point.z);
+
+                markerObject.transform.position = moveMarkersTo;
+                currentPlacementObject.transform.position = moveMarkersTo;
 
                 _lineRenderer.gameObject.SetActive(true);
                 _lineRenderer.positionCount = 2;
