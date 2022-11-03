@@ -106,6 +106,11 @@ public class RelocationTask : ExperimentTask
         completedCurrentObject = true;
     }
 
+    private bool isOnFinalObject()
+    {
+        return (currObjInd + 1) == numObjects;
+    }
+
     public override bool updateTask ()
 	{
 		base.updateTask();
@@ -143,7 +148,13 @@ public class RelocationTask : ExperimentTask
         
         float alternateDist = Vector2.Distance(alternate_from, alternate_to);
         if (alternateDist < alternateDistThreshold){
-            completeCurrentObject();
+            // only trigger the final object (final location before pointing task) with the distance
+            // note that the rest of the objects are completed with `targetObjectScript.cs` trigger logic
+            // and hands won't complete the last object because that template does not have
+            //   `targetObjectScript.cs` attached
+            if(isOnFinalObject()){ 
+                completeCurrentObject();
+            }
         }
 
         // Update the distance traveled
@@ -257,13 +268,8 @@ public class RelocationTask : ExperimentTask
         return go;
     }
 
-	public override bool OnControllerColliderHit(GameObject hit)
+	public override bool OnControllerColliderHit(GameObject other)
 	{
-        Debug.Log("OnControllerColliderHit-RelocationTask.cs");
-		if (hit == current || hit.transform.parent == current.transform)
-		{
-			 completeCurrentObject();   
-		}
-		return false;
+        return false;
 	}
 }

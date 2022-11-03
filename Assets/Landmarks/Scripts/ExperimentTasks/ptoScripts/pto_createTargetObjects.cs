@@ -35,6 +35,7 @@ public class pto_createTargetObjects : ExperimentTask
                 string targetObjectName = OBJ_COLOR_NAMES[colori] + "_" + OBJ_SHAPE_NAMES[shapei];
 
                 targetObject.GetComponent<Renderer>().material = OBJ_COLOR_MATERIALS[colori];
+                targetObject.AddComponent<targetObjectScript>();
                 targetObject.name = targetObjectName;
             }
         }
