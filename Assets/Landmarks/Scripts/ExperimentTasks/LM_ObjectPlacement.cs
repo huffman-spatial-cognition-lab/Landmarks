@@ -60,7 +60,8 @@ public class LM_ObjectPlacement : ExperimentTask
         // WRITE TASK STARTUP CODE HERE
 
         // load data from our ground-truth
-        trialData = GameObject.Find("TrialsTruth").GetComponent<pto_trialsTruth>().trialsTruth.trials[this.parentTask.repeatCount];
+        // repeatCount starts from 1, we subtract one to 0-index into the arrays
+        trialData = GameObject.Find("TrialsTruth").GetComponent<pto_trialsTruth>().trialsTruth.trials[this.parentTask.repeatCount - 1];
         numObjects = trialData.targetObjects.Count - 1; // minus 1 for the last object, which is for the pointing task.
         currObjInd = 0;
         
