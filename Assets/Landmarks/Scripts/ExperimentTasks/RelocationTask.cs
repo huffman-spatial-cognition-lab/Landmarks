@@ -247,7 +247,8 @@ public class RelocationTask : ExperimentTask
     }
 
     private void relocateTargetEnd(){
-        current.SetActive(false);
+        current.GetComponent<fadeable>().FadeOutThenDestroy();
+        current.GetComponent<Collider>().enabled = false;
         current = null;
         currObjInd++;
     }
