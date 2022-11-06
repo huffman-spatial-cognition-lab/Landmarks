@@ -36,6 +36,7 @@ public class pto_createTargetObjects : ExperimentTask
 
                 targetObject.GetComponent<Renderer>().material = OBJ_COLOR_MATERIALS[colori];
                 targetObject.AddComponent<targetObjectScript>();
+                targetObject.AddComponent<fadeable>();
                 targetObject.name = targetObjectName;
             }
         }
