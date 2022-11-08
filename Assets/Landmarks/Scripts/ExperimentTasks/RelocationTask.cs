@@ -40,8 +40,6 @@ public class RelocationTask : ExperimentTask
     public override void startTask ()
 	{
 		TASK_START();
-		avatarLog.navLog = true;
-        if (isScaled) scaledAvatarLog.navLog = true;
     }
 
 	public override void TASK_START()
@@ -178,8 +176,6 @@ public class RelocationTask : ExperimentTask
 
 	public override void TASK_PAUSE()
 	{
-		avatarLog.navLog = false;
-        if (isScaled) scaledAvatarLog.navLog = false;
 		//base.endTask();
 		log.log("TASK_PAUSE\t" + name + "\t" + this.GetType().Name + "\t" ,1 );
 		//avatarController.stop();
@@ -192,9 +188,6 @@ public class RelocationTask : ExperimentTask
 	public override void TASK_END()
 	{
 		base.endTask();
-		//avatarController.stop();
-		avatarLog.navLog = false;
-        if (isScaled) scaledAvatarLog.navLog = false;
 
 		hud.setMessage("");
 		hud.showScore = false;

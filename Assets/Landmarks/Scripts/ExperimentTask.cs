@@ -85,6 +85,7 @@ public class ExperimentTask : MonoBehaviour{
 	public virtual void startTask() {
 		avatar = GameObject.FindWithTag ("Player");
 		avatarLog = avatar.GetComponent("avatarLog") as avatarLog; //jdstokes 2015
+		avatarLog.navLog = true;
 		hud = avatar.GetComponent("HUD") as HUD;
 		experiment = GameObject.FindWithTag ("Experiment");
 		manager = experiment.GetComponent("Experiment") as Experiment;
