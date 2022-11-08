@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 229562795}
   - component: {fileID: 229562798}
   - component: {fileID: 229562797}
+  - component: {fileID: 229562796}
   m_Layer: 10
   m_Name: Border 2
   m_TagString: Untagged
@@ -639,6 +640,19 @@ Transform:
   m_Father: {fileID: 265180562}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &229562796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229562794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba54fa05973ab045903e48806f448bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 1.2
 --- !u!23 &229562797
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -657,7 +671,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
+  - {fileID: 2100000, guid: 938b51fc3723cff40b5102963c305709, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -780,6 +794,8 @@ MonoBehaviour:
   triggerOnEnd: 0
   mode: 0
   borderParent: {fileID: 806628040}
+  materialOpaque: {fileID: 2100000, guid: 938b51fc3723cff40b5102963c305709, type: 2}
+  materialFade: {fileID: 2100000, guid: 0bbb5eb98afaae14694effc1dae06f9f, type: 2}
 --- !u!1 &271656133
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +959,7 @@ GameObject:
   - component: {fileID: 300232585}
   - component: {fileID: 300232586}
   m_Layer: 0
-  m_Name: AdjustBorder
+  m_Name: TurnBorderOff
   m_TagString: Untagged
   m_Icon: {fileID: -982381405332843317, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -992,8 +1008,10 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  mode: 1
+  mode: 2
   borderParent: {fileID: 265180561}
+  materialOpaque: {fileID: 2100000, guid: 938b51fc3723cff40b5102963c305709, type: 2}
+  materialFade: {fileID: 2100000, guid: 0bbb5eb98afaae14694effc1dae06f9f, type: 2}
 --- !u!1 &390742036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,6 +2704,8 @@ MonoBehaviour:
   triggerOnEnd: 0
   mode: 2
   borderParent: {fileID: 806628040}
+  materialOpaque: {fileID: 2100000, guid: 938b51fc3723cff40b5102963c305709, type: 2}
+  materialFade: {fileID: 2100000, guid: 0bbb5eb98afaae14694effc1dae06f9f, type: 2}
 --- !u!1 &1034745817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2956,6 +2976,7 @@ GameObject:
   - component: {fileID: 1155273993}
   - component: {fileID: 1155273996}
   - component: {fileID: 1155273995}
+  - component: {fileID: 1155273994}
   m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
@@ -2977,6 +2998,19 @@ Transform:
   m_Father: {fileID: 806628041}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1155273994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155273992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba54fa05973ab045903e48806f448bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 1.2
 --- !u!23 &1155273995
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2995,7 +3029,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b5d954be5c34944868ae1d162f973255, type: 2}
+  - {fileID: 2100000, guid: 938b51fc3723cff40b5102963c305709, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3133,6 +3167,7 @@ GameObject:
   - component: {fileID: 1159868621}
   - component: {fileID: 1159868624}
   - component: {fileID: 1159868623}
+  - component: {fileID: 1159868622}
   m_Layer: 10
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -3154,6 +3189,19 @@ Transform:
   m_Father: {fileID: 806628041}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1159868622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159868620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba54fa05973ab045903e48806f448bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 1.2
 --- !u!23 &1159868623
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3172,7 +3220,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b5d954be5c34944868ae1d162f973255, type: 2}
+  - {fileID: 2100000, guid: 938b51fc3723cff40b5102963c305709, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3286,6 +3334,7 @@ GameObject:
   - component: {fileID: 1206326400}
   - component: {fileID: 1206326399}
   - component: {fileID: 1206326398}
+  - component: {fileID: 1206326401}
   m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -3338,7 +3387,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b5d954be5c34944868ae1d162f973255, type: 2}
+  - {fileID: 2100000, guid: 938b51fc3723cff40b5102963c305709, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3367,6 +3416,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206326396}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1206326401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206326396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba54fa05973ab045903e48806f448bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 1.2
 --- !u!1 &1273419999
 GameObject:
   m_ObjectHideFlags: 0
@@ -4061,6 +4123,7 @@ GameObject:
   - component: {fileID: 1540131663}
   - component: {fileID: 1540131666}
   - component: {fileID: 1540131665}
+  - component: {fileID: 1540131664}
   m_Layer: 10
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -4082,6 +4145,19 @@ Transform:
   m_Father: {fileID: 806628041}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1540131664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540131662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba54fa05973ab045903e48806f448bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 1.2
 --- !u!23 &1540131665
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4100,7 +4176,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b5d954be5c34944868ae1d162f973255, type: 2}
+  - {fileID: 2100000, guid: 938b51fc3723cff40b5102963c305709, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4234,6 +4310,7 @@ GameObject:
   - component: {fileID: 1739538086}
   - component: {fileID: 1739538089}
   - component: {fileID: 1739538088}
+  - component: {fileID: 1739538087}
   m_Layer: 10
   m_Name: Border 1
   m_TagString: Untagged
@@ -4255,6 +4332,19 @@ Transform:
   m_Father: {fileID: 265180562}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1739538087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739538085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba54fa05973ab045903e48806f448bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 1.2
 --- !u!23 &1739538088
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4273,7 +4363,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
+  - {fileID: 2100000, guid: 938b51fc3723cff40b5102963c305709, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4365,7 +4455,7 @@ MonoBehaviour:
   hideNonTargets: 0
   lineRendererTemplate: {fileID: 2386382763588470407, guid: 60a804cf93f63274fb2403932a3552e2,
     type: 3}
-  relocationFinalTargetPrefab: {fileID: 475642739331577302, guid: b21774ad73a771e4fabd6f4c4478b623,
+  relocationFinalTargetPrefab: {fileID: 8934479900859509566, guid: b8ad6ab9b6fcc3644b7f54b91c266159,
     type: 3}
   relocationTargetTemplateParent: {fileID: 2140146889}
   currentTargetObjectHolder: {fileID: 1450415156}
@@ -4950,7 +5040,7 @@ GameObject:
   - component: {fileID: 2007481302}
   - component: {fileID: 2007481303}
   m_Layer: 0
-  m_Name: AdjustBorder
+  m_Name: ToggleBorderOnCondition
   m_TagString: Untagged
   m_Icon: {fileID: -982381405332843317, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4999,8 +5089,10 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  mode: 0
+  mode: 1
   borderParent: {fileID: 265180561}
+  materialOpaque: {fileID: 2100000, guid: 938b51fc3723cff40b5102963c305709, type: 2}
+  materialFade: {fileID: 2100000, guid: 0bbb5eb98afaae14694effc1dae06f9f, type: 2}
 --- !u!1 &2028572254
 GameObject:
   m_ObjectHideFlags: 0
