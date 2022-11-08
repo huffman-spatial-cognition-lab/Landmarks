@@ -18,6 +18,8 @@ public class pto_adjustBorder : ExperimentTask
     [Header("Task-specific Properties")]
     public adjustState mode;
     public GameObject borderParent;
+    public Material materialOpaque;
+    public Material materialFade;
 
     private GameObject trialData; // game object from which to pull the masterTrialMatrix data
 
@@ -54,7 +56,14 @@ public class pto_adjustBorder : ExperimentTask
         }
 
         foreach (Transform child in borderParent.transform) {
-            child.gameObject.SetActive(newBorderActive);
+            if(newBorderActive)
+            {
+                child.gameObject.GetComponent<fadeable>().EnableThenFadeIn();
+            }
+            else
+            {
+                child.gameObject.GetComponent<fadeable>().FadeOutThenDisable(materialFade, materialOpaque);
+            }
         }
 
     }

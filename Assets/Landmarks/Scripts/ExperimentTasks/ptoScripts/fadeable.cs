@@ -5,20 +5,20 @@ using UnityEngine;
 public class fadeable : MonoBehaviour
 {
 
-    private bool fadeOut, fadeIn, destroyAfterFadeOut;
-
+    private bool fadeOut, fadeIn, destroyAfterFadeOut, disableAfterFadeOut;
+    private Material mat, afterTransitionMaterial;
     public float fadeSpeed = 1.2f;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        mat = this.GetComponent<Renderer>().material;
         float colorDirection;
 
         colorDirection = 0;
@@ -32,17 +32,28 @@ public class fadeable : MonoBehaviour
             colorDirection = 1;
         }
 
-        Color objectColor = this.GetComponent<Renderer>().material.color;
+        Color objectColor = mat.color;
         float newAlpha = objectColor.a + (fadeSpeed * Time.deltaTime * colorDirection);
 
         Color newColor = new Color(objectColor.r, objectColor.g, objectColor.b, newAlpha);
-        this.GetComponent<Renderer>().material.color = newColor;
+        mat.color = newColor;
         
         if(fadeOut && newAlpha <= 0)
         {
             fadeOut = false;
-            if(destroyAfterFadeOut){
+            if(destroyAfterFadeOut)
+            {
                 Destroy(this.transform.gameObject);
+            }
+            if(afterTransitionMaterial)
+            {
+                this.transform.gameObject.GetComponent<Renderer>().material = afterTransitionMaterial;
+                afterTransitionMaterial = null;
+            }
+            if(disableAfterFadeOut)
+            {
+                this.transform.gameObject.SetActive(false);
+                disableAfterFadeOut = false;
             }
         }
         
@@ -53,9 +64,22 @@ public class fadeable : MonoBehaviour
         
     }
 
-    public void FadeOut()
+    public void FadeOutThenDisable()
     {
         fadeOut = true;
+        disableAfterFadeOut = true;
+    }
+
+    /*
+        Overload that allows to specify two materials; one for the object to have during the transition,
+        and to swap back to afterwards.
+    */
+    public void FadeOutThenDisable(Material duringTransition, Material afterTransition)
+    {
+        this.transform.gameObject.GetComponent<Renderer>().material = duringTransition;
+        fadeOut = true;
+        disableAfterFadeOut = true;
+        afterTransitionMaterial = afterTransition;
     }
 
     public void FadeOutThenDestroy()
@@ -64,8 +88,10 @@ public class fadeable : MonoBehaviour
         destroyAfterFadeOut = true;
     }
 
-    public void FadeIn()
+    public void EnableThenFadeIn()
     {
+        this.transform.gameObject.SetActive(true);
         fadeIn = true;
     }
+
 }
