@@ -29,8 +29,8 @@ TagManager:
   - Targets
   - Avatar
   - HUD only
-  - 
-  - 
+  - door
+  - doorGrabbableHandler
   - 
   - 
   - 
