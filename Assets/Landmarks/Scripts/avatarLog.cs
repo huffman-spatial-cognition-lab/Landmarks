@@ -31,6 +31,17 @@ public class avatarLog : MonoBehaviour {
 
         // Log the name of the tracked object, it's body position, body rotation, and camera (head) rotation
 		if (navLog){
+			/* PROTOTYPE: how to reconstruct
+			
+
+			float lookDist = cameraCon.eulerAngles.y / cameraCon.transform.forward.y;
+			if (lookDist <= 0) {
+				log.log("HEADSET LOOKING UP")
+			} else {
+				log.log("HEADSET LOOKING AT Y=0 AT\t" + (cameraCon.position.x + cameraCon.transform.forward.x * lookDist) +  "\t" + (cameraCon.position.z + cameraCon.transform.forward.z * lookDist));
+			}
+			
+			*/
             //print("AVATAR_POS	" + "\t" +  avatar.position.ToString("f3") + "\t" + "AVATAR_Body " + "\t" +  cameraCon.localEulerAngles.ToString("f3") +"\t"+ "AVATAR_Head " + cameraRig.localEulerAngles.ToString("f3"));
             log.log("Avatar: \t" + avatar.name + "\t" +
                     "Position (xyz): \t" + cameraCon.position.x + "\t" + cameraCon.position.y + "\t" + cameraCon.position.z + "\t" +
