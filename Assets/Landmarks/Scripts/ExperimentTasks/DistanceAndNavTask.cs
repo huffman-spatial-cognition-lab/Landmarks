@@ -11,10 +11,11 @@ public enum HideTargetOnStart
     SetProbeTrial
 }
 
-public class DistanceAndTask : ExperimentTask
+public class DistanceAndNavTask : ExperimentTask
 {
     [Header("Task-specific Properties")]
     public ObjectList destinations;
+    public ObjectList targetObjects;
 	private GameObject current;
 
 	private int score = 0;
@@ -31,11 +32,11 @@ public class DistanceAndTask : ExperimentTask
     public bool hideNonTargets;
 
     // for compass assist
-    // public LM_Compass assistCompass;
-    // [Min(-1)]
-    // public int SecondsUntilAssist = -1;
-    // public Vector3 compassPosOffset; // where is the compass relative to the active player snappoint
-    // public Vector3 compassRotOffset; // compass rotation relative to the active player snap point
+    public LM_Compass assistCompass;
+    [Min(-1)]
+    public int SecondsUntilAssist = -1;
+    public Vector3 compassPosOffset; // where is the compass relative to the active player snappoint
+    public Vector3 compassRotOffset; // compass rotation relative to the active player snap point
 
     // For logging output
     private float startTime;
@@ -43,7 +44,7 @@ public class DistanceAndTask : ExperimentTask
     private float playerDistance = 0;
     private Vector3 scaledPlayerLastPosition;
     private float scaledPlayerDistance = 0;
-    private float optimalDistance;
+    private List<float> distances;
 
     public override void startTask ()
 	{
@@ -70,9 +71,9 @@ public class DistanceAndTask : ExperimentTask
 
         // if it's a target, open the door to show it's active
         // AKB - come back and edit depending on which route they are following
-        if (current.GetComponentInChildren<LM_TargetStore>() != null)
+        if (current.GetComponentInChildren<AKB_Door>() != null)
         {
-            current.GetComponentInChildren<LM_TargetStore>().OpenDoor();
+            current.GetComponentInChildren<AKB_Door>().OpenDoor();
         }
 
         // AKB - come back and change to general instruction "follow the path, keeping track of 
@@ -149,9 +150,17 @@ public class DistanceAndTask : ExperimentTask
         // AKB - change to calculate distances between starting location and two target objects
         if (isScaled)
         {
-            optimalDistance = Vector3.Distance(scaledAvatar.transform.position, current.transform.position);
+            foreach (GameObject target in targetObjects.objects) {
+                distances.Add(Vector3.Distance(scaledAvatar.transform.position, target.transform.position));
+            }
+            
         }
-        else optimalDistance = Vector3.Distance(avatar.transform.position, current.transform.position);
+        else 
+        {
+            foreach (GameObject target in targetObjects.objects) {
+                distances.Add(Vector3.Distance(avatar.transform.position, target.transform.position));
+            }
+        }
 
 
         // Grab our LM_Compass object and move it to the player snapPoint
@@ -180,7 +189,7 @@ public class DistanceAndTask : ExperimentTask
 
         if (score > 0) penaltyTimer = penaltyTimer + (Time.deltaTime * 1000);
 
-
+        // AKB question for DJH: should I have a penalty timer?
 		if (penaltyTimer >= penaltyRate)
 		{
 			penaltyTimer = penaltyTimer - penaltyRate;
@@ -208,19 +217,19 @@ public class DistanceAndTask : ExperimentTask
         //     }
         // }
 
-        //show target on button click or after set time
-        if (hideTargetOnStart != HideTargetOnStart.Off && hideTargetOnStart != HideTargetOnStart.SetProbeTrial && ((Time.time - startTime > (showTargetAfterSeconds) || Input.GetButtonDown("Return"))))
-        {
-            destinations.currentObject().SetActive(true);
-        }
+        // show target on button click or after set time
+        // if (hideTargetOnStart != HideTargetOnStart.Off && hideTargetOnStart != HideTargetOnStart.SetProbeTrial && ((Time.time - startTime > (showTargetAfterSeconds) || Input.GetButtonDown("Return"))))
+        // {
+        //     destinations.currentObject().SetActive(true);
+        // }
 
-        if (hideTargetOnStart == HideTargetOnStart.SetProbeTrial && Input.GetButtonDown("Return"))
-        {
-            //get current location and then log it
+        // if (hideTargetOnStart == HideTargetOnStart.SetProbeTrial && Input.GetButtonDown("Return"))
+        // {
+        //     //get current location and then log it
 
-            destinations.currentObject().SetActive(true);
-            destinations.currentObject().GetComponent<MeshRenderer>().enabled = true;
-        }
+        //     destinations.currentObject().SetActive(true);
+        //     destinations.currentObject().GetComponent<MeshRenderer>().enabled = true;
+        // }
 
         // Keep updating the distance traveled
         playerDistance += Vector3.Distance(avatar.transform.position, playerLastPosition);
@@ -296,11 +305,11 @@ public class DistanceAndTask : ExperimentTask
 
         hud.SecondsToShow = hud.GeneralDuration;
 
-        if (assistCompass != null)
-        {
-            // Hide the assist compass
-            assistCompass.gameObject.SetActive(false);
-        }
+        // if (assistCompass != null)
+        // {
+        //     // Hide the assist compass
+        //     assistCompass.gameObject.SetActive(false);
+        // }
         
         // Move hud back to center and reset
         hud.hudPanel.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
@@ -318,7 +327,7 @@ public class DistanceAndTask : ExperimentTask
         var masterTask = parent;
         while (!masterTask.gameObject.CompareTag("Task")) masterTask = masterTask.parentTask;
         // This will log all final trial info in tab delimited format
-        var excessPath = perfDistance - optimalDistance;
+        // var excessPath = perfDistance - optimalDistance;
 
         var navTime = Time.time - startTime;
 
@@ -327,14 +336,14 @@ public class DistanceAndTask : ExperimentTask
         {
             navTime = float.NaN;
             perfDistance = float.NaN;
-            optimalDistance = float.NaN;
+            distances = List(float.NaN, float.NaN);
             excessPath = float.NaN;
         }
         
 
         log.log("LM_OUTPUT\tNavigationTask.cs\t" + masterTask + "\t" + this.name + "\n" +
         	"Task\tBlock\tTrial\tTargetName\tOptimalPath\tActualPath\tExcessPath\tRouteDuration\n" +
-        	masterTask.name + "\t" + masterTask.repeatCount + "\t" + parent.repeatCount + "\t" + destinations.currentObject().name + "\t" + optimalDistance + "\t"+ perfDistance + "\t" + excessPath + "\t" + navTime
+        	masterTask.name + "\t" + masterTask.repeatCount + "\t" + parent.repeatCount + "\t" + destinations.currentObject().name + "\t" + distances + "\t"+ perfDistance + "\t" + excessPath + "\t" + navTime
             , 1);
 
 
@@ -343,10 +352,14 @@ public class DistanceAndTask : ExperimentTask
         {
             trialLog.AddData(transform.name + "_target", destinations.currentObject().name);
             trialLog.AddData(transform.name + "_actualPath", perfDistance.ToString());
-            trialLog.AddData(transform.name + "_optimalPath", optimalDistance.ToString());
+            trialLog.AddData(transform.name + "_distances", distances.ToString());
             trialLog.AddData(transform.name + "_excessPath", excessPath.ToString());
             trialLog.AddData(transform.name + "_duration", navTime.ToString());
         }
+    }
+
+    public override void DistanceJudgment() {
+
     }
 
 	public override bool OnControllerColliderHit(GameObject hit)

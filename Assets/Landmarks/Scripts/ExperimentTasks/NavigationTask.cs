@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public enum HideTargetOnStart
-{
-    Off,
-    SetInactive,
-    SetInvisible,
-    SetProbeTrial
-}
+// public enum HideTargetOnStart
+// {
+//     Off,
+//     SetInactive,
+//     SetInvisible,
+//     SetProbeTrial
+// }
 
 public class NavigationTask : ExperimentTask
 {
