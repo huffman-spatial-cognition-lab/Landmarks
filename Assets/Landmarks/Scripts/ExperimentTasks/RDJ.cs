@@ -67,8 +67,8 @@ public class RDJ : ExperimentTask {
         // same as target objects?
 		// current = startObjects.currentObject();
 		
-		initCurrent(target1);
-        initCurrent(target2);	
+		initCurrent(target1, destination1);
+        initCurrent(target2, destination2);	
 		rotation_start = Experiment.Now();
 		rotation_start_float = rotation_start/1f;
 		// Debug.Log(rotation_start);
@@ -102,16 +102,16 @@ public class RDJ : ExperimentTask {
 			manager.scaledPlayer.GetComponent<ThirdPersonCharacter>().immobilized = true;
         }
 
-		destination = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
+		//destination = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject; // what does this mean?
 
         // handle changes to the hud
         if (vrEnabled)
         {
-            initialHUDposition = hud.hudPanel.transform.position;
+            // initialHUDposition = hud.hudPanel.transform.position;
 
-            var temp = destination.transform.position;
-            temp.y += 2.5f;
-            hud.hudPanel.transform.position = temp;
+            // var temp = destination.transform.position;
+            // temp.y += 2.5f;
+            // hud.hudPanel.transform.position = temp;
 
         }
         else
@@ -167,8 +167,10 @@ public class RDJ : ExperimentTask {
                 startObjects.incrementCurrent(target2);
 				returnCurrent(target1);
                 returnCurrent(target2);
+				initCurrent(target1, destination1);
+				initCurrent(target2, destination2);
 				current = startObjects.currentObject();	
-				if (current) initCurrent();
+				// if (current) initCurrent();
 			} else {
 		    	return false;
 			}
@@ -177,7 +179,7 @@ public class RDJ : ExperimentTask {
 		}
 		return false;
 	}
-	public void initCurrent(GameObject current) {
+	public void initCurrent(GameObject current, GameObject destination) {
 		// store original properties of the target
 		position = current.transform.position;
         rotation = current.transform.rotation;

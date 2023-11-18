@@ -44,7 +44,7 @@ public class DistanceAndNavTask : ExperimentTask
     private float playerDistance = 0;
     private Vector3 scaledPlayerLastPosition;
     private float scaledPlayerDistance = 0;
-    private List<float> distances;
+    private List<float> distances = new List<float>();
 
     public override void startTask ()
 	{
@@ -281,6 +281,21 @@ public class DistanceAndNavTask : ExperimentTask
 
 	}
 
+    // public override void DistanceJudgment() {
+
+    //     if (DistanceJudgmentInstruction)
+	// 	{
+	// 		string msg = DistanceJudgmentInstruction.text;
+	// 		msg = string.Format(msg, current.name);
+	// 		hud.setMessage(msg);
+   	// 	}
+	// 	else
+	// 	{
+    //         hud.SecondsToShow = 0;
+    //         hud.setMessage("Please find the " + current.name);
+	// 	}
+    // }
+
 	public override void TASK_END()
 	{
 		base.endTask();
@@ -336,14 +351,15 @@ public class DistanceAndNavTask : ExperimentTask
         {
             navTime = float.NaN;
             perfDistance = float.NaN;
-            distances = List(float.NaN, float.NaN);
-            excessPath = float.NaN;
+            distances.Add(float.NaN);
+            distances.Add(float.NaN);
+            // excessPath = float.NaN;
         }
         
 
         log.log("LM_OUTPUT\tNavigationTask.cs\t" + masterTask + "\t" + this.name + "\n" +
-        	"Task\tBlock\tTrial\tTargetName\tOptimalPath\tActualPath\tExcessPath\tRouteDuration\n" +
-        	masterTask.name + "\t" + masterTask.repeatCount + "\t" + parent.repeatCount + "\t" + destinations.currentObject().name + "\t" + distances + "\t"+ perfDistance + "\t" + excessPath + "\t" + navTime
+        	"Task\tBlock\tTrial\tTargetName\tOptimalPath\tActualPath\tRouteDuration\n" +
+        	masterTask.name + "\t" + masterTask.repeatCount + "\t" + parent.repeatCount + "\t" + destinations.currentObject().name + "\t" + distances + "\t"+ perfDistance + "\t" + navTime
             , 1);
 
 
@@ -353,13 +369,9 @@ public class DistanceAndNavTask : ExperimentTask
             trialLog.AddData(transform.name + "_target", destinations.currentObject().name);
             trialLog.AddData(transform.name + "_actualPath", perfDistance.ToString());
             trialLog.AddData(transform.name + "_distances", distances.ToString());
-            trialLog.AddData(transform.name + "_excessPath", excessPath.ToString());
+            // trialLog.AddData(transform.name + "_excessPath", excessPath.ToString());
             trialLog.AddData(transform.name + "_duration", navTime.ToString());
         }
-    }
-
-    public override void DistanceJudgment() {
-
     }
 
 	public override bool OnControllerColliderHit(GameObject hit)
