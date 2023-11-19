@@ -163,13 +163,13 @@ public class RDJ : ExperimentTask {
                 // AKB Note: Must fix this!!! ------------------------------------------------
 				rotation_start = Experiment.Now();
 				rotation_start_float = rotation_start/1f;
-				startObjects.incrementCurrent(target1);  // don't know where this function comes from
-                startObjects.incrementCurrent(target2);
+				// startObjects.incrementCurrent(target1);  // don't know where this function comes from
+                // startObjects.incrementCurrent(target2);
 				returnCurrent(target1);
                 returnCurrent(target2);
 				initCurrent(target1, destination1);
 				initCurrent(target2, destination2);
-				current = startObjects.currentObject();	
+				// current = startObjects.currentObject();	
 				// if (current) initCurrent();
 			} else {
 		    	return false;
@@ -229,7 +229,7 @@ public class RDJ : ExperimentTask {
     }
 	public override void endTask() {
 		//returnCurrent();
-		startObjects.current = 0;
+		// startObjects.current = 0;
 		TASK_END();
 	}
 	
@@ -249,10 +249,10 @@ public class RDJ : ExperimentTask {
         }
 
         // turn on all targets
-        foreach (GameObject item in startObjects.objects)
-        {
-            item.SetActive(true);
-        }
+        // foreach (GameObject item in startObjects.objects)
+        // {
+        //     item.SetActive(true);
+        // }
 
 		if (restrictMovement)
 		{

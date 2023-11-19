@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8469159375982378161}
   m_Layer: 10
-  m_Name: Wall_and_Door
+  m_Name: AKB_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
