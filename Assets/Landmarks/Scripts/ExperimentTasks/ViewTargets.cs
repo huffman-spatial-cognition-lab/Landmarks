@@ -19,12 +19,12 @@ using System.Collections;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityStandardAssets.Characters.FirstPerson;
 
-// public enum RotationAxis
-// {
-//     X,
-//     Y,
-//     Z
-// }
+public enum RotationAxis
+{
+    X,
+    Y,
+    Z
+}
 
 public class ViewTargets : ExperimentTask {
 

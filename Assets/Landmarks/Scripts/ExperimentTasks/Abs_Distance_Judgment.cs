@@ -77,7 +77,7 @@ public class Abs_Distance_Judgment : ExperimentTask {
             return;
         }
 
-        if (sliderLabels.Length < 2)    // AKB question: but where are these set?
+        if (sliderLabels.Length < 2)  
         {
             Debug.LogError("LM_SliderQuestions requires at least 2 label values (min/max)");
         }

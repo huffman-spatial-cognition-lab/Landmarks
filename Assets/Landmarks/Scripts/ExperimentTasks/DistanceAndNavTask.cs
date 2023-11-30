@@ -15,8 +15,12 @@ public class DistanceAndNavTask : ExperimentTask
 {
     [Header("Task-specific Properties")]
     public ObjectList destinations;
-    public ObjectList targetObjects;
+    // public ObjectList targetObjects;
+    // public List<GameObject> Doors;
+    private GameObject door;
 	private GameObject current;
+    public GameObject  endObject;
+    
 
 	private int score = 0;
 	public int scoreIncrement = 50;
@@ -71,23 +75,29 @@ public class DistanceAndNavTask : ExperimentTask
 
         // if it's a target, open the door to show it's active
         // AKB - come back and edit depending on which route they are following
-        if (current.GetComponentInChildren<AKB_Door>() != null)
-        {
-            current.GetComponentInChildren<AKB_Door>().OpenDoor();
-        }
+        // if (Doors != null)
+        // {   
+        //     foreach (GameObject door in Doors)
+        //         door.GetComponentInChildren<Wall_and_Door>().OpenDoor();
+        // }
+        Debug.Log("before finding");
+        door = GameObject.Find("a");
+        Debug.Log("found a");
+        door.GetComponentInChildren<AKB_Door>().OpenDoor();
+        
 
         // AKB - come back and change to general instruction "follow the path, keeping track of 
         // objects you see along the way
 		if (NavigationInstruction)
 		{
 			string msg = NavigationInstruction.text;
-			if (destinations != null) msg = string.Format(msg, current.name);
+			if (destinations != null) msg = string.Format(msg);
 			hud.setMessage(msg);
    		}
 		else
 		{
             hud.SecondsToShow = 0;
-            hud.setMessage("Please find the " + current.name);
+            // hud.setMessage("Please find the " + current.name);
 		}
 
         // Handle if we're hiding all the non-targets
@@ -148,19 +158,19 @@ public class DistanceAndNavTask : ExperimentTask
 
         // Calculate optimal distance to travel (straight line)
         // AKB - change to calculate distances between starting location and two target objects
-        if (isScaled)
-        {
-            foreach (GameObject target in targetObjects.objects) {
-                distances.Add(Vector3.Distance(scaledAvatar.transform.position, target.transform.position));
-            }
+        // if (isScaled)
+        // {
+        //     foreach (GameObject target in targetObjects.objects) {
+        //         distances.Add(Vector3.Distance(scaledAvatar.transform.position, target.transform.position));
+        //     }
             
-        }
-        else 
-        {
-            foreach (GameObject target in targetObjects.objects) {
-                distances.Add(Vector3.Distance(avatar.transform.position, target.transform.position));
-            }
-        }
+        // }
+        // else 
+        // {
+        //     foreach (GameObject target in targetObjects.objects) {
+        //         distances.Add(Vector3.Distance(avatar.transform.position, target.transform.position));
+        //     }
+        // }
 
 
         // Grab our LM_Compass object and move it to the player snapPoint
@@ -252,6 +262,9 @@ public class DistanceAndNavTask : ExperimentTask
         //         assistCompass.gameObject.SetActive(true);
         //     }
         // }
+        if (current == endObject) {
+            return true;
+        }
         
 
 		if (killCurrent == true)
