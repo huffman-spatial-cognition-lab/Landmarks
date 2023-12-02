@@ -3,13 +3,17 @@
 """
 import numpy as np
 
-def generate_paths():
+def generate_paths(participant_number):
     '''
     This function creates the randomized paths (3 repetitions of 7 paths = 21 total)
     for one participant.
 
-    Returns
-    -------
+    Arguments:
+    ----------
+    participant_number: int, subject number for saving the txt file
+
+    Returns:
+    --------
     paths_for_subj : np array - shape=(21,7)
         Array of paths for one participant
         
@@ -36,27 +40,26 @@ def generate_paths():
     '''
     # To keep all of the arrays the same size, 99 is added to the end of
     # each path that is less than 7 rooms long
-    route1 = [1, 0, 5, 6, 7, 99, 99]
-    route2 = [3, 2, 7, 8, 9, 99, 99]
-    route3 = [9, 4, 3, 8, 13, 14, 99]
-    route4 = [12, 7, 6, 11, 16, 17, 18]
-    route5 = [19, 14, 13, 18, 23, 24, 99]
-    route6 = [21, 20, 15, 16, 17, 22, 99]
-    route7 = [15, 10, 11, 16, 21, 20, 99]
+    route1 = [1, 0, 5, 6, 7, 99, 99, 99]
+    route2 = [3, 2, 7, 8, 9, 99, 99, 99]
+    route3 = [9, 4, 3, 8, 13, 14, 99, 99]
+    route4 = [12, 7, 6, 11, 16, 17, 18, 99]
+    route5 = [19, 14, 13, 18, 23, 24, 99, 99]
+    route6 = [21, 20, 15, 16, 17, 22, 99, 99]
+    route7 = [15, 10, 11, 16, 21, 20, 99, 99]
 
-    rdj_arr = np.array([[5,7], [7,9], [3, 13], [6, 16], [13, 23], [20, 22], [10, 20]])
+    rdj_arr = np.array([[5,7], [7,9], [3, 13], [6, 16], [13, 23], [20, 22], [10, 20]], dtype=int)
 
-    doors_arr = np.array([["a", "e", "j", "k", "", ""], ["c", "g", "l", "m", "", ""], 
-                          ["i", "d", "h", "q", "v", ""], ["p", "k", "o", "x", "cc", "dd"], 
-                          ["aa", "v", "z", "ii", "nn", ""], ["kk", "ff", "bb", "cc", "hh", ""], 
-                          ["w", "s", "x", "gg", "kk", ""]])
+    doors_arr = np.array([["a", "e", "j", "k", "", "", ""], ["c", "g", "l", "m", "", "", ""], 
+                        ["i", "d", "h", "q", "v", "", ""], ["p", "k", "o", "x", "cc", "dd", ""], 
+                        ["aa", "v", "z", "ii", "nn", "", ""], ["kk", "ff", "bb", "cc", "hh", "", ""], 
+                        ["w", "s", "x", "gg", "kk", "", ""]])
 
     paths = np.vstack((route1, route2, route3, route4, route5, route6, route7))
 
-
-    paths_for_subj = np.zeros((21,7))
-    rdj_for_subj = np.zeros((21,2))
-    doors_for_subj = np.zeros((21,6))
+    paths_for_subj = np.zeros((21,8), dtype=int)
+    rdj_for_subj = np.zeros((21,2), dtype=int)
+    doors_for_subj = np.empty((21,7), dtype=str)
 
     for i in range(3):
         ind = np.random.choice(7, 7, replace=False)
@@ -68,5 +71,15 @@ def generate_paths():
 
         # Should handle edge case where duplicates at 3?
 
-    # 3 text files for each participant
-    return paths_for_subj, rdj_for_subj, doors_for_subj
+    path_name = "../TextFiles/ParticipantFiles/"
+    path_filename = path_name + "s" + str(participant_number) + "_paths.txt"
+    rdj_name = path_name + "s" + str(participant_number) + "_rdj.txt"
+    doors_name = path_name + "s" + str(participant_number) + "_doors.txt"
+
+    np.savetxt(path_filename, paths_for_subj, fmt="%.0f",delimiter="\n")
+    np.savetxt(rdj_name, rdj_for_subj, fmt="%.0i", delimiter="\n")
+    np.savetxt(doors_name, doors_for_subj, fmt="%s", delimiter="\n")
+    
+    return
+
+generate_paths(0)
