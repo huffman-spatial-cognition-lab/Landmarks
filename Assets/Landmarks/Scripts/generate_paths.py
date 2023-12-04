@@ -50,24 +50,25 @@ def generate_paths(participant_number):
 
     rdj_arr = np.array([[5,7], [7,9], [3, 13], [6, 16], [13, 23], [20, 22], [10, 20]], dtype=int)
 
-    doors_arr = np.array([["a", "e", "j", "k", "", "", ""], ["c", "g", "l", "m", "", "", ""], 
-                        ["i", "d", "h", "q", "v", "", ""], ["p", "k", "o", "x", "cc", "dd", ""], 
-                        ["aa", "v", "z", "ii", "nn", "", ""], ["kk", "ff", "bb", "cc", "hh", "", ""], 
-                        ["w", "s", "x", "gg", "kk", "", ""]])
+    doors_arr = [["a", "e", "j", "k"], ["c", "g", "l", "m"], 
+                ["i", "d", "h", "q", "v"], ["p", "k", "o", "x", "cc", "dd"], 
+                ["aa", "v", "z", "ii", "nn"], ["kk", "ff", "bb", "cc", "hh"], 
+                ["w", "s", "x", "gg", "kk"]]
 
     paths = np.vstack((route1, route2, route3, route4, route5, route6, route7))
 
     paths_for_subj = np.zeros((21,8), dtype=int)
     rdj_for_subj = np.zeros((21,2), dtype=int)
-    doors_for_subj = np.empty((21,7), dtype=str)
+    doors_for_subj = list()
 
     for i in range(3):
         ind = np.random.choice(7, 7, replace=False)
+        for index in ind:
+            doors_for_subj.append(doors_arr[index])
         if i > 0:
             ind = (7*i)+ind
         paths_for_subj[ind] = paths
         rdj_for_subj[ind] = rdj_arr
-        doors_for_subj[ind] = doors_arr
 
         # Should handle edge case where duplicates at 3?
 
@@ -78,7 +79,11 @@ def generate_paths(participant_number):
 
     np.savetxt(path_filename, paths_for_subj, fmt="%.0f",delimiter="\n")
     np.savetxt(rdj_name, rdj_for_subj, fmt="%.0i", delimiter="\n")
-    np.savetxt(doors_name, doors_for_subj, fmt="%s", delimiter="\n")
+
+    with open(doors_name, "w") as output:
+        for trial in doors_for_subj:
+            for door in trial:
+                output.write("%s\n" %door)
     
     return
 
