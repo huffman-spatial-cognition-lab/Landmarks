@@ -17,15 +17,19 @@
 using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.Characters.FirstPerson;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
-public class MoveSpawn : ExperimentTask {
+public class MoveSpawnAKB : ExperimentTask {
     
     [HideInInspector] public GameObject start;
 
     [Header("Task-specific Properties")]
     public GameObject destination;
-    public string destinationListName;
-	public ObjectList destinations;
+    public ExperimentTask destinationList;
+	public List<GameObject> destinations;
+    public int current = 0;
 
 	public bool swap;
 	private static Vector3 position;
@@ -57,22 +61,37 @@ public class MoveSpawn : ExperimentTask {
             return;
         }
 
+
+
         if (scaledPlayer)
         {
             start = scaledAvatar;
         } else start = avatar;
         Debug.Log("Player identified: " + start.gameObject.name);
 
-        // Find destinations with string destinationsName
-        if (destinations == null && destinationListName != "") // only if destinations is blank and destinationsName is not
-        {
-            destinations = GameObject.Find(destinationListName).GetComponent<ObjectList>();
-            // Debug.Log("moving the " + start.gameObject.name + " to " + destinations.currentObject());
+
+        destinations = new List<GameObject>();
+        
+        string strDestinations = destinationList.currentString();
+
+        string[] strDestinationList = strDestinations.Split(new char[] {','});
+
+        foreach (string name in strDestinationList) {
+            GameObject location = GameObject.Find(name);
+            destinations.Add(location);
         }
+        Debug.Log("found start");
+
+        // Find destinations with string destinationsName
+        // if (destinations == null && destinationList != null) // only if destinations is blank and destinationsName is not
+        // {
+        //     destinations = GameObject.Find(destinationListName).GetComponent<ObjectList>();
+        //     // Debug.Log("moving the " + start.gameObject.name + " to " + destinations.currentObject());
+        // }
         // otherwise, use destination or destinations.
 
-        if (destinations) {
-            destination = destinations.currentObject();
+        if (destinations != null) {
+            destination = destinations[current];
             Debug.Log("Destination selected: " + destination.name +
                 " (" + destination.transform.position.x + ", " +
                 destination.transform.position.z + ")");
@@ -102,7 +121,7 @@ public class MoveSpawn : ExperimentTask {
         if (randomRotation)
         {
         Vector3 tempRot = start.transform.eulerAngles;
-        tempRot.y = Random.Range(0, 359.999f);
+        tempRot.y = UnityEngine.Random.Range(0, 359.999f);
         start.transform.eulerAngles = tempRot;
         }
 
@@ -145,16 +164,16 @@ public class MoveSpawn : ExperimentTask {
 
 	public override void TASK_END() {
 		base.endTask();
-		if ( destinations ) {
+		if ( destinations != null) {
             if (blockRepeat)
             {
                 BlockIncrementation();
             }
             else
             {
-                destinations.incrementCurrent();
+                current++;
             }
-            destination = destinations.currentObject();
+            destination = destinations[current];
 		}
 	}
 
@@ -162,12 +181,12 @@ public class MoveSpawn : ExperimentTask {
     public void BlockIncrementation()
     {
         //Debug.Log("count before increment: " + count);
-
+        current++;
         //If the player has done # of repetitions equal to the parent task Repetition Value then set count back to 0 & move the Spawn Location to the next in the list
         if (count == repetition)
         {
             count = 1;
-            destinations.incrementCurrent();
+            destinationList.incrementCurrent();
         }
         else //increment count
         {

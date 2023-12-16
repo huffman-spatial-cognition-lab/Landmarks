@@ -20,8 +20,21 @@ public class RDJ : ExperimentTask
 
 	[Header("Task-specific Properties")]
 
-	public List<GameObject> targetList;		// AKB question: where will I pass in this list?
-	public GameObject copyObjects;
+	public bool blackout;
+
+	public ExperimentTask Objs;
+	public string currentTrial;
+    private string[] objList;
+	public MoveObjects objsAndLocs;
+    private Dictionary<GameObject,GameObject> objDict;
+	private GameObject target1;
+	private GameObject target2;
+	public List<GameObject> targetList;
+
+	public ObjectList TargetObjects;
+	public ObjectList Doors;
+
+	public CopyObjectsAB copyObjects;
 	[Tooltip("In seconds; 0 = unlimited time")]
 	public int timeLimit = 0;
 	// public bool flattenMap = true;
@@ -76,7 +89,7 @@ public class RDJ : ExperimentTask
 	{
 		TASK_START();
 		Debug.Log("RDJ task is starting");
-		initTargets();
+		// initTargets();
 		avatarLog.navLog = false;
 	}
 
@@ -85,6 +98,9 @@ public class RDJ : ExperimentTask
 	{
 		if (!manager) Start();
 		base.startTask();
+
+		if (blackout) hud.showOnlyTargets();
+	    else hud.showEverything();
 
 		startTime = Time.time;
 		// DJH - adding for button press
@@ -105,46 +121,75 @@ public class RDJ : ExperimentTask
 		avatar.GetComponent<CharacterController>().enabled = false;
 
 		// Swap from 1st-person camera to overhead view
-		firstPersonCamera.enabled = false;
-		overheadCamera.enabled = true;
+		// firstPersonCamera.enabled = false;
+		// overheadCamera.enabled = true;
 
 		// Change text and turn on the map action button
 		actionButton.GetComponentInChildren<Text>().text = buttonText;
 		hud.actionButton.SetActive(true);
 		hud.actionButton.GetComponent<Button>().onClick.AddListener(hud.OnActionClick);
 
-	}
 
-	// AKB question - do I need this function? Or no since we have a list of copyObjects?
-	public void initTargets() {
-		
-		int i = 0;
-		foreach (GameObject target in targetList) {
-			// store original properties of the target
-			position.Add(target.transform.position);
-			rotation.Add(target.transform.rotation);
-			parent.Add(target.transform.parent);
-			scale.Add(target.transform.localScale);
+		// Turn off all other target objects and doors
+        foreach (GameObject item in TargetObjects.objects)
+        {
+            item.SetActive(false);
+        }
 
-			// move the target to the viewing location temporarily
-			target.transform.parent = destinations[i].transform;
-			target.transform.localPosition = objectPositionOffset;
-			target.transform.localEulerAngles = objectRotationOffset;
-			target.transform.localScale = Vector3.Scale(target.transform.localScale, destinations[i].transform.localScale);
+        foreach (GameObject door in Doors.objects)
+        {
+            door.SetActive(false);
+        }
 
-			target.transform.parent = parent[i];
-
-			target.SetActive(true);
-			i += 1;
-
-			saveLayer = target.layer;				// AKB question - do I need these two lines?
-			setLayer(target.transform,viewLayer);
-
-			log.log("RDJ\t" + target.name,1);
-
+		Debug.Log("Before turning on objects");
+		// Turn on copyObjects
+		foreach (GameObject copy in copyObjects.copies) {
+			Debug.Log("here");
+			copy.SetActive(true);
+			Debug.Log(copy.transform.position);
 		}
-		
+
+
 	}
+
+	// // AKB question - do I need this function? Or no since we have a list of copyObjects?
+	// public void initTargets() {
+		
+	// 	int i = 0;
+	// 	position = new List<Vector3>();
+	// 	rotation = new List<Quaternion>();
+	// 	parent = new List<Transform>();
+	// 	scale = new List<Vector3>();
+
+
+	// 	foreach (GameObject target in targetList) {
+	// 		Debug.Log(target);
+	// 		// store original properties of the target
+	// 		position.Add(target.transform.position);
+	// 		rotation.Add(target.transform.rotation);
+	// 		parent.Add(target.transform.parent);
+	// 		scale.Add(target.transform.localScale);
+
+	// 		// move the target to the viewing location temporarily
+	// 		target.transform.parent = destinations[i].transform;
+	// 		target.transform.localPosition = objectPositionOffset;
+	// 		target.transform.localEulerAngles = objectRotationOffset;
+	// 		target.transform.localScale = Vector3.Scale(target.transform.localScale, destinations[i].transform.localScale);
+
+	// 		target.transform.parent = parent[i];
+
+	// 		target.SetActive(true);
+	// 		i += 1;
+
+	// 		saveLayer = target.layer;				// AKB question - do I need these two lines?
+	// 		setLayer(target.transform,viewLayer);
+
+	// 		log.log("RDJ\t" + target.name,1);
+	// 		Debug.Log(target.transform.position);
+
+	// 	}
+		
+	// }
 
 	public void setLayer(Transform t, int l) {
 		t.gameObject.layer = l;
@@ -358,27 +403,37 @@ public class RDJ : ExperimentTask
 		// -------------------------------
 
 		// Destroy the copies we created when initializing the map test task
-		foreach (Transform child in copyObjects.transform)
-		{
-			Destroy(child.gameObject);
-		}
+		// foreach (Transform child in copyObjects.transform)
+		// {
+		// 	Destroy(child.gameObject);
+		// }
 
 		// DJH - Also activate the original objects
 		// reactivate the original objects
-		targetObjects = copyObjects.GetComponent<CopyChildObjects>().sourcesParent.parentObject; // should be the game object called TargetObjects under Environment game object
-		targetObjects.SetActive(true);
+		// targetObjects = copyObjects.GetComponent<CopyChildObjects>().sourcesParent.parentObject; // should be the game object called TargetObjects under Environment game object
+		foreach (GameObject item in TargetObjects.objects)
+        {
+            item.SetActive(true);
+        }
+
+        foreach (GameObject door in Doors.objects)
+        {
+            door.SetActive(true);
+        }
+		
 
 		// DJH - Destroy game objects that they did not select
-		int counter = 0;
-		foreach (Transform child in targetObjects.transform)
-		{
-			if (targetInBoundsList[counter] == false)
-			{
-				Destroy(child.gameObject);
-			}
-			counter++;
-		}
+		// int counter = 0;
+		// foreach (Transform child in targetObjects.transform)
+		// {
+		// 	if (targetInBoundsList[counter] == false)
+		// 	{
+		// 		Destroy(child.gameObject);
+		// 	}
+		// 	counter++;
+		// }
 
 	}
 
 }
+

@@ -30,6 +30,8 @@ public class MoveObjects : ExperimentTask {
 	private GameObject destination;
 	public ObjectList destinations;
     public bool hideDestinations = true;
+    public Dictionary<GameObject, GameObject> objDict;
+    public Dictionary<GameObject, GameObject> centerDict;
 	
 	public bool swap;
 
@@ -134,6 +136,9 @@ public class MoveObjects : ExperimentTask {
             log.log("TARGET INFORMATION ----------------------------------------", 1);
         }
 
+        objDict = new Dictionary<GameObject, GameObject>();
+        centerDict = new Dictionary<GameObject, GameObject>();
+
         destination = destinations.currentObject();		
 		source = sources.currentObject();	
 		
@@ -169,6 +174,11 @@ public class MoveObjects : ExperimentTask {
 				destination.transform.localRotation = rotation;
 		
 			}
+            
+            // Add to the dictionary
+            objDict.Add(destination, source);
+            GameObject center = GameObject.Find("Center" + destination.name);
+            centerDict.Add(destination, center);
 			
 			destinations.incrementCurrent();
 			destination = destinations.currentObject();

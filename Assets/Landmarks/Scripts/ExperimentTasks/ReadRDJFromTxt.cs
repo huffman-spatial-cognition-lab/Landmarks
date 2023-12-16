@@ -24,6 +24,7 @@ stores in other scripts and to have the questions
 modified accordingly.
 
 EDITED BY DJ HUFFMAN (MARCH 2017)
+MODIFIED BY AK BONIN (DECEMBER 2023)
 */
 
 using UnityEngine;
@@ -33,17 +34,13 @@ using System.Linq;
 using System;
 
 
+public class ReadRDJFromTxt : ExperimentTask {
 
-
-public class ReadDoorsFromTxt : ExperimentTask {
-
-	//public string question;
-	//public GameObject parentObject;
 	public EndListMode EndListBehavior; 
 	public int size = 9999;
     public int subjNum;
 
-	private List<List<string>> doorList;
+	private List<List<string>> objList;
     private List<string> trial;
 
 	private int current = 0;
@@ -53,32 +50,32 @@ public class ReadDoorsFromTxt : ExperimentTask {
 	public override void startTask () {
 		TASK_START();
 
-        string filename = "Assets/Landmarks/TextFiles/ParticipantFiles/s" + subjNum.ToString() + "_doors.txt";
-		string[] doors = System.IO.File.ReadAllLines(filename);
+        string filename = "Assets/Landmarks/TextFiles/ParticipantFiles/s" + subjNum.ToString() + "_paths.txt";
+		string[] objs = System.IO.File.ReadAllLines(filename);
 
 		int eachLine;
         trial = new List<string>();
         int trialNum = 1;
-		for ( eachLine = 0; eachLine < doors.Length; eachLine++ )
+		for ( eachLine = 0; eachLine < objs.Length; eachLine++ )
 		{
-            if ( string.IsNullOrWhiteSpace(doors[eachLine]) ) {
+            if ( string.IsNullOrWhiteSpace(objs[eachLine]) ) {
                 // save previous trial
-                doorList.Add(trial);
+                objList.Add(trial);
                 trialNum++;
                 Debug.Log("Trial" + trialNum.ToString() + "\n");
                 trial = new List<string>();
             } else {
-                Debug.Log(doors[eachLine]  + "\n");
-			    trial.Add(doors[eachLine]);
+                Debug.Log(objs[eachLine]  + "\n");
+			    trial.Add(objs[eachLine]);
             }
 			
 		}
 
 		
-		doorList = doorList.GetRange(0, eachLine);
-		foreach( List<string> d in doorList ) {
+		objList = objList.GetRange(0, eachLine);
+		foreach( List<string> o in objList ) {
 			//Debug.Log(txt);
-			log.log("TASK_ADD	" + name  + "\t" + this.GetType().Name + "\t" + name  + "\t" + d,1 );
+			log.log("TASK_ADD	" + name  + "\t" + this.GetType().Name + "\t" + name  + "\t" + o,1 );
 
 		}
 
@@ -91,7 +88,7 @@ public class ReadDoorsFromTxt : ExperimentTask {
 		Debug.Log("ADD  " + txt);
         List<string> txtList = new List<string>();
         txtList.Add(txt);
-		doorList.Add(txtList);
+		objList.Add(txtList);
 	}
 
 	public override void TASK_START()
@@ -100,7 +97,7 @@ public class ReadDoorsFromTxt : ExperimentTask {
 		base.startTask();
 
 		if (!manager) Start();
-		doorList = new List<List<string>>();
+		objList = new List<List<string>>();
 
 
 	}
@@ -117,14 +114,14 @@ public class ReadDoorsFromTxt : ExperimentTask {
 	}
 
 	public override string currentString() {
-		if (current >= doorList.Count) {
+		if (current >= objList.Count) {
 			return null;
 		}
         
         int eachLine;
         string trialString = "";
-        for (eachLine = 0; eachLine < doorList[current].Count; eachLine++ ) {
-            trialString += doorList[current][eachLine] + ",";
+        for (eachLine = 0; eachLine < objList[current].Count; eachLine++ ) {
+            trialString += objList[current][eachLine] + ",";
         }
         
 		return trialString;
@@ -132,7 +129,7 @@ public class ReadDoorsFromTxt : ExperimentTask {
 
 	public override void incrementCurrent() {
 		current++;
-		if (current >= doorList.Count && EndListBehavior == EndListMode.Loop) {
+		if (current >= objList.Count && EndListBehavior == EndListMode.Loop) {
 			current = 0;
 		}
 		currentTrial = currentString();

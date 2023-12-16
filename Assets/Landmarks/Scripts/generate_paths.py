@@ -40,35 +40,33 @@ def generate_paths(participant_number):
     '''
     # To keep all of the arrays the same size, 99 is added to the end of
     # each path that is less than 7 rooms long
-    route1 = [1, 0, 5, 6, 7, 99, 99, 99]
-    route2 = [3, 2, 7, 8, 9, 99, 99, 99]
-    route3 = [9, 4, 3, 8, 13, 14, 99, 99]
-    route4 = [12, 7, 6, 11, 16, 17, 18, 99]
-    route5 = [19, 14, 13, 18, 23, 24, 99, 99]
-    route6 = [21, 20, 15, 16, 17, 22, 99, 99]
-    route7 = [15, 10, 11, 16, 21, 20, 99, 99]
+    route1 = [1, 0, 5, 6, 7]
+    route2 = [3, 2, 7, 8, 9]
+    route3 = [9, 4, 3, 8, 13, 14]
+    route4 = [12, 7, 6, 11, 16, 17, 18]
+    route5 = [19, 14, 13, 18, 23, 24]
+    route6 = [21, 20, 15, 16, 17, 22]
+    route7 = [15, 10, 11, 16, 21, 20]
 
-    rdj_arr = np.array([[5,7], [7,9], [3, 13], [6, 16], [13, 23], [20, 22], [10, 20]], dtype=int)
+    rdj_arr = [[5,7], [7,9], [3, 13], [6, 16], [13, 23], [20, 22], [10, 20]]
 
     doors_arr = [["a", "e", "j", "k"], ["c", "g", "l", "m"], 
                 ["i", "d", "h", "q", "v"], ["p", "k", "o", "x", "cc", "dd"], 
                 ["aa", "v", "z", "ii", "nn"], ["kk", "ff", "bb", "cc", "hh"], 
                 ["w", "s", "x", "gg", "kk"]]
 
-    paths = np.vstack((route1, route2, route3, route4, route5, route6, route7))
+    paths = [route1, route2, route3, route4, route5, route6, route7]
 
-    paths_for_subj = np.zeros((21,8), dtype=int)
-    rdj_for_subj = np.zeros((21,2), dtype=int)
+    paths_for_subj = list()
+    rdj_for_subj = list()
     doors_for_subj = list()
 
     for i in range(3):
         ind = np.random.choice(7, 7, replace=False)
         for index in ind:
             doors_for_subj.append(doors_arr[index])
-        if i > 0:
-            ind = (7*i)+ind
-        paths_for_subj[ind] = paths
-        rdj_for_subj[ind] = rdj_arr
+            paths_for_subj.append(paths[index])
+            rdj_for_subj.append(rdj_arr[index])
 
         # Should handle edge case where duplicates at 3?
 
@@ -77,13 +75,25 @@ def generate_paths(participant_number):
     rdj_name = path_name + "s" + str(participant_number) + "_rdj.txt"
     doors_name = path_name + "s" + str(participant_number) + "_doors.txt"
 
-    np.savetxt(path_filename, paths_for_subj, fmt="%.0f",delimiter="\n")
-    np.savetxt(rdj_name, rdj_for_subj, fmt="%.0i", delimiter="\n")
+    with open(path_filename, "w") as output_paths:
+        for trial in paths_for_subj:
+            for room in trial:
+                output_paths.write("%i\n" %room)
+            output_paths.write("\n")
+    output_paths.close()
+
+    with open(rdj_name, "w") as output_rdj:
+        for trial in rdj_for_subj:
+            for obj in trial:
+                output_rdj.write("%i\n" %obj)
+            output_rdj.write("\n")
+    output_rdj.close()
 
     with open(doors_name, "w") as output:
         for trial in doors_for_subj:
             for door in trial:
                 output.write("%s\n" %door)
+            output.write("\n")
     
     return
 

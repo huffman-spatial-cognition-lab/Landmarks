@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public enum HideTargetOnStart
 {
@@ -13,14 +14,33 @@ public enum HideTargetOnStart
 
 public class DistanceAndNavTask : ExperimentTask
 {
+    [HideInInspector] public GameObject start;
     [Header("Task-specific Properties")]
-    public ObjectList destinations;
     // public ObjectList targetObjects;
-    // public List<GameObject> Doors;
+    public ExperimentTask Doors;
     private GameObject door;
-	private GameObject current;
-    public GameObject  endObject;
-    
+    private string[] doorList;
+    private string currentDoor;
+
+    public List<GameObject> destinations;
+    public MoveObjects objsAndLocs;
+    private Dictionary<GameObject,GameObject> objDict;
+    private Dictionary<GameObject,GameObject> centerDict;
+
+    public ExperimentTask Rooms;
+	private string currentPath;
+    private string[] roomList;
+    private List<GameObject> roomObjList;
+    // private GameObject roomObj;
+    private GameObject start_destination;
+    private static Vector3 position;
+	private static Vector3 rotation;
+
+    public bool randomRotation;
+	public bool scaledPlayer = false;
+    public bool ignoreY = false;
+
+    private GameObject endObject;
 
 	private int score = 0;
 	public int scoreIncrement = 50;
@@ -59,8 +79,10 @@ public class DistanceAndNavTask : ExperimentTask
 
 	public override void TASK_START()
 	{
+        
 		if (!manager) Start();
         base.startTask();
+
 
         if (skip)
         {
@@ -70,28 +92,94 @@ public class DistanceAndNavTask : ExperimentTask
 
         hud.showEverything();
 		hud.showScore = showScoring;
-		current = destinations.currentObject();
-        // Debug.Log ("Find " + destinations.currentObject().name);
+		
+        // Parse the path we are supposed to follow
+        currentPath = Rooms.currentString();
+
+        roomList = currentPath.Split(new char[] {','});
+        roomObjList = new List<GameObject>();
+        foreach (string roomName in roomList) {
+    
+            if (string.IsNullOrWhiteSpace(roomName)) {
+                break;
+            } else {
+
+                GameObject temp = GameObject.Find(roomName);
+                roomObjList.Add(temp);
+            }
+            
+        }
+
+        objDict = objsAndLocs.objDict;
+        centerDict = objsAndLocs.centerDict;
+        start_destination = centerDict[roomObjList[0]];
+        Debug.Log(start_destination.transform.position.ToString());
+        // Debug.Log(GameObject.Find("obj20"));
+        GameObject endLocation = roomObjList.Last();
+        endObject = objDict[endLocation];
+        Debug.Log(objDict[endLocation]);
+
+        // move person to start location
+        if (scaledPlayer)
+        {
+            start = scaledAvatar;
+        } else start = avatar;
+
+        Debug.Log("Starting location selected: " + start_destination.name.ToString() +
+                " (" + start_destination.transform.position.x + ", " +
+                start_destination.transform.position.z + ")");
+
+        position = start.transform.position;
+        rotation = start.transform.eulerAngles;
+
+
+        // Change the position (2D or 3D)
+        start.GetComponentInChildren<CharacterController>().enabled = false;
+        Vector3 tempPos = start.transform.position;
+        tempPos.x = start_destination.transform.position.x;
+        if (!ignoreY)
+        {
+            tempPos.y = start_destination.transform.position.y;
+        }
+        tempPos.z = start_destination.transform.position.z;
+        start.transform.position = tempPos;
+        log.log("TASK_POSITION\t" + start.name + "\t" + this.GetType().Name + "\t" + start.transform.transform.position.ToString("f1"), 1);
+        Debug.Log("Player now at: " + start.name +
+                " (" + start.transform.position.x + ", " +
+                start.transform.position.z + ")");
+        start.GetComponentInChildren<CharacterController>().enabled = true;
+
+        // Set the rotation to random if selected
+        if (randomRotation)
+        {
+        Vector3 tempRot = start.transform.eulerAngles;
+        tempRot.y = Random.Range(0, 359.999f);
+        start.transform.eulerAngles = tempRot;
+        }
+
+        // Debug.Log ("Find " + endObject.name);
 
         // if it's a target, open the door to show it's active
         // AKB - come back and edit depending on which route they are following
-        // if (Doors != null)
-        // {   
-        //     foreach (GameObject door in Doors)
-        //         door.GetComponentInChildren<Wall_and_Door>().OpenDoor();
-        // }
-        Debug.Log("before finding");
-        door = GameObject.Find("a");
-        Debug.Log("found a");
-        door.GetComponentInChildren<AKB_Door>().OpenDoor();
-        
+        currentDoor = Doors.currentString();
+
+        doorList = currentDoor.Split(new char[] {','});
+
+        foreach (string doorName in doorList) {
+            if (doorName == "") {
+                break;
+            }
+            door = GameObject.Find(doorName);
+            Debug.Log("found door");
+            door.GetComponentInChildren<AKB_Door>().OpenDoor();
+        }
 
         // AKB - come back and change to general instruction "follow the path, keeping track of 
         // objects you see along the way
 		if (NavigationInstruction)
 		{
 			string msg = NavigationInstruction.text;
-			if (destinations != null) msg = string.Format(msg);
+			if (roomObjList != null) msg = string.Format(msg);
 			hud.setMessage(msg);
    		}
 		else
@@ -101,17 +189,17 @@ public class DistanceAndNavTask : ExperimentTask
 		}
 
         // Handle if we're hiding all the non-targets
-        // if (hideNonTargets)
-        // {
-        //     foreach (GameObject item in destinations.objects)
-        //     {
-        //         if (item.name != destinations.currentObject().name)
-        //         {
-        //             item.SetActive(false);
-        //         }
-        //         else item.SetActive(true);
-        //     }
-        // }
+        if (hideNonTargets)
+        {
+            foreach (GameObject item in destinations)
+            {
+                if (item.name != endObject.name)
+                {
+                    item.SetActive(false);
+                }
+                else item.SetActive(true);
+            }
+        }
 
 
         // Handle if we're hiding the target object
@@ -119,24 +207,24 @@ public class DistanceAndNavTask : ExperimentTask
         {
             if (hideTargetOnStart == HideTargetOnStart.SetInactive)
             {
-                destinations.currentObject().SetActive(false);
+                endObject.SetActive(false);
             }
             else if (hideTargetOnStart == HideTargetOnStart.SetInvisible)
             {
-                destinations.currentObject().GetComponent<MeshRenderer>().enabled = false;
+                endObject.GetComponent<MeshRenderer>().enabled = false;
             }
             else if (hideTargetOnStart == HideTargetOnStart.SetProbeTrial)
             {
-                destinations.currentObject().SetActive(false);
-                destinations.currentObject().GetComponent<MeshRenderer>().enabled = false;
+                endObject.SetActive(false);
+                endObject.GetComponent<MeshRenderer>().enabled = false;
             }
         }
         else
         {
-            destinations.currentObject().SetActive(true); // make sure the target is visible unless the bool to hide was checked
+            endObject.SetActive(true); // make sure the target is visible unless the bool to hide was checked
             try
             {
-                destinations.currentObject().GetComponent<MeshRenderer>().enabled = true;
+                endObject.GetComponent<MeshRenderer>().enabled = true;
             }
             catch (System.Exception ex)
             {
@@ -262,9 +350,9 @@ public class DistanceAndNavTask : ExperimentTask
         //         assistCompass.gameObject.SetActive(true);
         //     }
         // }
-        if (current == endObject) {
-            return true;
-        }
+        // if (roomObj == endObject) {
+        //     return true;
+        // }
         
 
 		if (killCurrent == true)
@@ -318,16 +406,22 @@ public class DistanceAndNavTask : ExperimentTask
 
         // close the door if the target was a store and it is open
         // if it's a target, open the door to show it's active
-        if (current.GetComponentInChildren<LM_TargetStore>() != null)
-        {
-            current.GetComponentInChildren<LM_TargetStore>().CloseDoor();
-        }
+        // if (current.GetComponentInChildren<LM_TargetStore>() != null)
+        // {
+        //     current.GetComponentInChildren<LM_TargetStore>().CloseDoor();
+        // }
 
-        if (canIncrementLists)
-		{
-			destinations.incrementCurrent();
-		}
-		current = destinations.currentObject();
+        // if (canIncrementLists)
+		// {
+		// 	roomObjList.incrementCurrent();
+		// }
+
+        // increment everything
+        Doors.incrementCurrent();
+        Rooms.incrementCurrent();
+        // currentDoor = doorList.currentString(); // not sure if i need this
+
+		// currentRoom = Rooms.currentString();
 		hud.setMessage("");
 		hud.showScore = false;
 
@@ -350,10 +444,10 @@ public class DistanceAndNavTask : ExperimentTask
         }
         else perfDistance = playerDistance;
 
-
+        // AKB COME BACK !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         var parent = this.parentTask;
         var masterTask = parent;
-        while (!masterTask.gameObject.CompareTag("Task")) masterTask = masterTask.parentTask;
+        // while (!masterTask.gameObject.CompareTag("Task")) masterTask = masterTask.parentTask;
         // This will log all final trial info in tab delimited format
         // var excessPath = perfDistance - optimalDistance;
 
@@ -372,14 +466,14 @@ public class DistanceAndNavTask : ExperimentTask
 
         log.log("LM_OUTPUT\tNavigationTask.cs\t" + masterTask + "\t" + this.name + "\n" +
         	"Task\tBlock\tTrial\tTargetName\tOptimalPath\tActualPath\tRouteDuration\n" +
-        	masterTask.name + "\t" + masterTask.repeatCount + "\t" + parent.repeatCount + "\t" + destinations.currentObject().name + "\t" + distances + "\t"+ perfDistance + "\t" + navTime
+        	masterTask.name + "\t" + masterTask.repeatCount + "\t" + parent.repeatCount + "\t" + Rooms.currentString() + "\t" + distances + "\t"+ perfDistance + "\t" + navTime
             , 1);
 
 
         // More concise LM_TrialLog logging
         if (trialLog.active)
         {
-            trialLog.AddData(transform.name + "_target", destinations.currentObject().name);
+            trialLog.AddData(transform.name + "_target", Rooms.currentString());
             trialLog.AddData(transform.name + "_actualPath", perfDistance.ToString());
             trialLog.AddData(transform.name + "_distances", distances.ToString());
             // trialLog.AddData(transform.name + "_excessPath", excessPath.ToString());
@@ -389,7 +483,7 @@ public class DistanceAndNavTask : ExperimentTask
 
 	public override bool OnControllerColliderHit(GameObject hit)
 	{
-		if (hit == current)
+		if (hit == endObject)
 		{
 			if (showScoring)
 			{
@@ -400,7 +494,7 @@ public class DistanceAndNavTask : ExperimentTask
 		}
 
 		//		Debug.Log (hit.transform.parent.name + " = " + current.name);
-		if (hit.transform.parent == current.transform)
+		if (hit.transform.parent == endObject.transform)
 		{
 			if (showScoring)
 			{
