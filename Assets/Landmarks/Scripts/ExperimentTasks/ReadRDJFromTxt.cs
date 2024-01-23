@@ -50,7 +50,7 @@ public class ReadRDJFromTxt : ExperimentTask {
 	public override void startTask () {
 		TASK_START();
 
-        string filename = "Assets/Landmarks/TextFiles/ParticipantFiles/s" + subjNum.ToString() + "_paths.txt";
+        string filename = "Assets/Landmarks/TextFiles/ParticipantFiles/s" + subjNum.ToString() + "_rdj.txt";
 		string[] objs = System.IO.File.ReadAllLines(filename);
 
 		int eachLine;
@@ -72,7 +72,7 @@ public class ReadRDJFromTxt : ExperimentTask {
 		}
 
 		
-		objList = objList.GetRange(0, eachLine);
+		objList = objList.GetRange(0, eachLine - 1);
 		foreach( List<string> o in objList ) {
 			//Debug.Log(txt);
 			log.log("TASK_ADD	" + name  + "\t" + this.GetType().Name + "\t" + name  + "\t" + o,1 );

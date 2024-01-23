@@ -1,0 +1,5 @@
+Distance Judgment
+
+You will be asked to report about how far away two objects in the environment are in virtual meters. 
+
+Type your response into the text box and hit enter when you want to advance to the next trial.

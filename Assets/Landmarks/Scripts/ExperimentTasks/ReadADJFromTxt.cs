@@ -34,15 +34,13 @@ using System.Linq;
 using System;
 
 
-
-
-public class ReadRoomsFromTxt : ExperimentTask {
+public class ReadADJFromTxt : ExperimentTask {
 
 	public EndListMode EndListBehavior; 
 	public int size = 9999;
     public int subjNum;
 
-	private List<List<string>> roomList;
+	private List<List<string>> objList;
     private List<string> trial;
 
 	private int current = 0;
@@ -52,32 +50,32 @@ public class ReadRoomsFromTxt : ExperimentTask {
 	public override void startTask () {
 		TASK_START();
 
-        string filename = "Assets/Landmarks/TextFiles/ParticipantFiles/s" + subjNum.ToString() + "_paths.txt";
-		string[] rooms = System.IO.File.ReadAllLines(filename);
+        string filename = "Assets/Landmarks/TextFiles/ParticipantFiles/s" + subjNum.ToString() + "_adj.txt";
+		string[] objs = System.IO.File.ReadAllLines(filename);
 
 		int eachLine;
         trial = new List<string>();
         int trialNum = 1;
-		for ( eachLine = 0; eachLine < rooms.Length; eachLine++ )
+		for ( eachLine = 0; eachLine < objs.Length; eachLine++ )
 		{
-            if ( string.IsNullOrWhiteSpace(rooms[eachLine]) ) {
+            if ( string.IsNullOrWhiteSpace(objs[eachLine]) ) {
                 // save previous trial
-                roomList.Add(trial);
+                objList.Add(trial);
                 trialNum++;
                 Debug.Log("Trial" + trialNum.ToString() + "\n");
                 trial = new List<string>();
             } else {
-                Debug.Log(rooms[eachLine]  + "\n");
-			    trial.Add(rooms[eachLine]);
+                Debug.Log(objs[eachLine]  + "\n");
+			    trial.Add(objs[eachLine]);
             }
 			
 		}
 
 		
-		roomList = roomList.GetRange(0, eachLine - 1);
-		foreach( List<string> r in roomList ) {
+		objList = objList.GetRange(0, eachLine - 1);
+		foreach( List<string> o in objList ) {
 			//Debug.Log(txt);
-			log.log("TASK_ADD	" + name  + "\t" + this.GetType().Name + "\t" + name  + "\t" + r,1 );
+			log.log("TASK_ADD	" + name  + "\t" + this.GetType().Name + "\t" + name  + "\t" + o,1 );
 
 		}
 
@@ -90,7 +88,7 @@ public class ReadRoomsFromTxt : ExperimentTask {
 		Debug.Log("ADD  " + txt);
         List<string> txtList = new List<string>();
         txtList.Add(txt);
-		roomList.Add(txtList);
+		objList.Add(txtList);
 	}
 
 	public override void TASK_START()
@@ -99,7 +97,7 @@ public class ReadRoomsFromTxt : ExperimentTask {
 		base.startTask();
 
 		if (!manager) Start();
-		roomList = new List<List<string>>();
+		objList = new List<List<string>>();
 
 
 	}
@@ -116,14 +114,14 @@ public class ReadRoomsFromTxt : ExperimentTask {
 	}
 
 	public override string currentString() {
-		if (current >= roomList.Count) {
+		if (current >= objList.Count) {
 			return null;
 		}
         
         int eachLine;
         string trialString = "";
-        for (eachLine = 0; eachLine < roomList[current].Count; eachLine++ ) {
-            trialString += roomList[current][eachLine] + ",";
+        for (eachLine = 0; eachLine < objList[current].Count; eachLine++ ) {
+            trialString += objList[current][eachLine] + ",";
         }
         
 		return trialString;
@@ -131,10 +129,9 @@ public class ReadRoomsFromTxt : ExperimentTask {
 
 	public override void incrementCurrent() {
 		current++;
-		if (current >= roomList.Count && EndListBehavior == EndListMode.Loop) {
+		if (current >= objList.Count && EndListBehavior == EndListMode.Loop) {
 			current = 0;
 		}
 		currentTrial = currentString();
 	}
-
 }

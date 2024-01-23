@@ -10,6 +10,7 @@ public class AB_CreatePlaceHolders : ExperimentTask
 
     public int numPlaceHolders;
     public float placeholderSpacing = 10.0f;
+    public List<GameObject> destinations;
 
     // DJH - adding functionality for offset
     public float offsetX = 0.0f;
@@ -33,6 +34,7 @@ public class AB_CreatePlaceHolders : ExperimentTask
     {
         if (!manager) Start();
         base.startTask();
+        destinations = new List<GameObject>();
 
         positionPlaceholder();
 
@@ -95,6 +97,8 @@ public class AB_CreatePlaceHolders : ExperimentTask
           placeholder.transform.localPosition = new Vector3(offsetX3, 1.5f, offsetZ3 + (-1 * i * placeholderSpacing));
 
         }
+
+      destinations.Add(placeholder);
 
     }
   }

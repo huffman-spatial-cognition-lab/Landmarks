@@ -1,0 +1,6 @@
+
+Please estimate the distance between the two objects
+you see on the screen.
+
+Hint: Each room is about 10x10 virtual meters.
+

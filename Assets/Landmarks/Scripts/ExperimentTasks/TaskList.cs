@@ -69,7 +69,6 @@ public class TaskList : ExperimentTask
         base.startTask();
 
        
-
         foreach (var skipCondition in skipConditions)
         {
             if (manager.config.conditions[manager.config.levelNumber].Contains(skipCondition))

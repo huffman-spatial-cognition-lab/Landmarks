@@ -14,13 +14,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityStandardAssets.Characters.ThirdPerson;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class RDJ : ExperimentTask
 {
-
+	[HideInInspector] public GameObject start;
+	public bool scaledPlayer = false;
 	[Header("Task-specific Properties")]
 
 	public bool blackout;
+	[HideInInspector] public GameObject destination;
 
 	public ExperimentTask Objs;
 	public string currentTrial;
@@ -34,7 +38,7 @@ public class RDJ : ExperimentTask
 	public ObjectList TargetObjects;
 	public ObjectList Doors;
 
-	public CopyObjectsAB copyObjects;
+	// public CopyObjectsAB copyObjects;
 	[Tooltip("In seconds; 0 = unlimited time")]
 	public int timeLimit = 0;
 	// public bool flattenMap = true;
@@ -54,7 +58,7 @@ public class RDJ : ExperimentTask
 	public Vector3 objectRotationOffset;
 
 	private GameObject targetObjects; // should be the game object called TargetObjects under Environment game object
-	[HideInInspector] public List<GameObject> destinations;
+	// [HideInInspector] public List<GameObject> destinations;
 	private int saveLayer;
 	private int viewLayer = 11;
 
@@ -85,11 +89,14 @@ public class RDJ : ExperimentTask
 	private float minZ = 955f;  // the maximum Z value
 	private float maxZ = 1025f;  // the minumum Z value
 
+	public bool restrictMovement = true;
+	private Vector3 initialHUDposition;
+
 	public override void startTask()
 	{
 		TASK_START();
 		Debug.Log("RDJ task is starting");
-		// initTargets();
+		initTargets();
 		avatarLog.navLog = false;
 	}
 
@@ -129,6 +136,58 @@ public class RDJ : ExperimentTask
 		hud.actionButton.SetActive(true);
 		hud.actionButton.GetComponent<Button>().onClick.AddListener(hud.OnActionClick);
 
+		firstPersonCamera.enabled = false;
+		overheadCamera.enabled = true;
+
+		if (restrictMovement)
+        {
+            manager.player.GetComponent<CharacterController>().enabled = false;
+			if (avatar.GetComponent<FirstPersonController>())
+			{
+				avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero;
+				avatar.GetComponent<FirstPersonController>().ResetMouselook();
+				avatar.GetComponent<FirstPersonController>().enabled = false;
+			}
+			manager.scaledPlayer.GetComponent<ThirdPersonCharacter>().immobilized = true;
+        }
+
+		// destination = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
+		destination = new GameObject("Destination");
+		destination.transform.parent = transform;
+		destination.transform.localPosition = new Vector3(envCenterX,1.5f,envCenterZ);
+
+
+        // handle changes to the hud
+        if (vrEnabled)
+        {
+            initialHUDposition = hud.hudPanel.transform.position;
+
+            var temp = destination.transform.position;
+            temp.y += 2.5f;
+            hud.hudPanel.transform.position = temp;
+
+        }
+        else
+        {
+            // Change the anchor points to put the message at the bottom
+            RectTransform hudposition = hud.hudPanel.GetComponent<RectTransform>() as RectTransform;
+            hudposition.pivot = new Vector2(0.5f, 0.1f);
+        }
+
+
+		// Grab target objects
+        currentTrial = Objs.currentString();
+
+        objList = currentTrial.Split(new char[] {','});
+
+		GameObject loc1 = GameObject.Find(objList[0]);
+		GameObject loc2 = GameObject.Find(objList[1]);
+
+		objDict = objsAndLocs.objDict;
+		target1 = objDict[loc1];
+		target2 = objDict[loc2];
+		targetList.Add(target1);
+		targetList.Add(target2);
 
 		// Turn off all other target objects and doors
         foreach (GameObject item in TargetObjects.objects)
@@ -143,53 +202,62 @@ public class RDJ : ExperimentTask
 
 		Debug.Log("Before turning on objects");
 		// Turn on copyObjects
-		foreach (GameObject copy in copyObjects.copies) {
-			Debug.Log("here");
-			copy.SetActive(true);
-			Debug.Log(copy.transform.position);
-		}
+		// foreach (GameObject copy in copyObjects.copies) {
+		// 	Debug.Log("here");
+		// 	copy.SetActive(true);
+		// 	Debug.Log(copy.transform.position);
+		// }
 
 
 	}
 
 	// // AKB question - do I need this function? Or no since we have a list of copyObjects?
-	// public void initTargets() {
+	public void initTargets() {
 		
-	// 	int i = 0;
-	// 	position = new List<Vector3>();
-	// 	rotation = new List<Quaternion>();
-	// 	parent = new List<Transform>();
-	// 	scale = new List<Vector3>();
+		int i = 0;
+		position = new List<Vector3>();
+		rotation = new List<Quaternion>();
+		parent = new List<Transform>();
+		scale = new List<Vector3>();
 
 
-	// 	foreach (GameObject target in targetList) {
-	// 		Debug.Log(target);
-	// 		// store original properties of the target
-	// 		position.Add(target.transform.position);
-	// 		rotation.Add(target.transform.rotation);
-	// 		parent.Add(target.transform.parent);
-	// 		scale.Add(target.transform.localScale);
+		foreach (GameObject target in targetList) {
+			Debug.Log(target);
+			// store original properties of the target
+			position.Add(target.transform.position);
+			rotation.Add(target.transform.rotation);
+			parent.Add(target.transform.parent);
+			scale.Add(target.transform.localScale);
 
-	// 		// move the target to the viewing location temporarily
-	// 		target.transform.parent = destinations[i].transform;
-	// 		target.transform.localPosition = objectPositionOffset;
-	// 		target.transform.localEulerAngles = objectRotationOffset;
-	// 		target.transform.localScale = Vector3.Scale(target.transform.localScale, destinations[i].transform.localScale);
+			// move the target to the viewing location temporarily
+			target.transform.parent = destination.transform;
 
-	// 		target.transform.parent = parent[i];
+			if (i == 0) {
+				objectPositionOffset.x = 5;
+			} else {
+				objectPositionOffset.x = -5;
+			}
 
-	// 		target.SetActive(true);
-	// 		i += 1;
+			target.transform.localPosition = objectPositionOffset;
+			target.transform.localEulerAngles = objectRotationOffset;
+			target.transform.localScale = Vector3.Scale(target.transform.localScale, destination.transform.localScale);
 
-	// 		saveLayer = target.layer;				// AKB question - do I need these two lines?
-	// 		setLayer(target.transform,viewLayer);
+			target.transform.parent = parent[i];
 
-	// 		log.log("RDJ\t" + target.name,1);
-	// 		Debug.Log(target.transform.position);
+			target.SetActive(true);
+			i += 1;
 
-	// 	}
+			saveLayer = target.layer;				// AKB question - do I need these two lines?
+			setLayer(target.transform,viewLayer);
+
+			log.log("RDJ\t" + target.name,1);
+			Debug.Log(target.transform.position);
+			Debug.Log(target.tag);
+
+		}
 		
-	// }
+	}
+
 
 	public void setLayer(Transform t, int l) {
 		t.gameObject.layer = l;
@@ -224,13 +292,15 @@ public class RDJ : ExperimentTask
 
 		//ray shooting out of the camera from where the mouse is
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		Debug.DrawRay(ray.origin, ray.direction * 10);
 
 		// Register when our raycaster is hitting a gameobject...
-		if (Physics.Raycast(ray, out hit))
+		if (Physics.Raycast(ray, out hit, 100))
 		{
+			Debug.Log(hit.collider.gameObject.transform.position);
 			// ... but only if that game object is one of our target stores ...
-			if (hit.transform.CompareTag("Target"))
-			{
+			if (hit.collider.gameObject == targetList[0]) {
+				Debug.Log(targetList[0].name);
 				hud.setMessage(hit.transform.name);
 				hud.hudPanel.SetActive(true);
 				hud.ForceShowMessage();
@@ -257,7 +327,7 @@ public class RDJ : ExperimentTask
 					// previousTargetRot = activeTarget.transform.eulerAngles;
 				}
 			}
-			else if (hit.transform.parent.transform.CompareTag("Target"))
+			else if (hit.transform.name == targetList[1].name)
 			{
 				hud.setMessage(hit.transform.parent.transform.name);
 				hud.hudPanel.SetActive(true);
@@ -280,11 +350,11 @@ public class RDJ : ExperimentTask
 					targetActive = true;
 					activeTarget = hit.transform.parent.transform.gameObject;
 					// Record previos position so the current move can be cancelled
-					// previousTargetPos = activeTarget.transform.position;
-					// previousTargetRot = activeTarget.transform.eulerAngles;
+
 				}
 			}
 		}
+	
 			// ... Otherwise, clear the message and hide the gui
 		// 	else if (Time.time - buttonPressTime > timeShowInBoundsMessage)
 		// 	{
@@ -407,6 +477,8 @@ public class RDJ : ExperimentTask
 		// {
 		// 	Destroy(child.gameObject);
 		// }
+
+		returnTargets();
 
 		// DJH - Also activate the original objects
 		// reactivate the original objects

@@ -133,27 +133,30 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  blackout: 0
+  start: {fileID: 0}
+  scaledPlayer: 0
+  blackout: 1
+  destination: {fileID: 0}
   Objs: {fileID: 0}
   currentTrial: 
   objsAndLocs: {fileID: 0}
   targetList: []
-  TargetObjects: {fileID: 0}
-  Doors: {fileID: 0}
+  TargetObjects: {fileID: 4894719146367621410}
+  Doors: {fileID: 8857640296091331729}
   copyObjects: {fileID: 0}
   timeLimit: 0
   snapToTargetProximity: 0
   buttonText: These objects are the same distance from my starting point
   objectPositionOffset: {x: 0, y: 0, z: 0}
   objectRotationOffset: {x: 0, y: 0, z: 0}
-  destinations: []
   hudTextOffset: {x: 0, y: 0, z: 0}
   numTargsToSelect: 1
   timeShowInBoundsMessage: 2.5
-  envCenterX: 0
-  envCenterZ: 0
+  envCenterX: 1000
+  envCenterZ: 1000
   offsetX: 0
   offsetZ: 0
+  restrictMovement: 1
 --- !u!1 &1810254082746609606
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6570773871068016529}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6533942377375530165
 MonoBehaviour:
@@ -414,7 +417,7 @@ Transform:
   - {fileID: 1518503486536247257}
   - {fileID: 4080746509304671823}
   m_Father: {fileID: 6570773871068016529}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2745955661315918096
 MonoBehaviour:
@@ -460,74 +463,6 @@ MonoBehaviour:
   catchTrials: 
   catchFlag: 0
   trialLogging: 1
---- !u!1 &3491298446278577541
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5853807705770855412}
-  - component: {fileID: 3519954842540689942}
-  m_Layer: 0
-  m_Name: ItemSelectionPlaceholders
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5853807705770855412
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491298446278577541}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6570773871068016529}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3519954842540689942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491298446278577541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e39f1999cdee943f6bb62642bc45f344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 1
-  interval: 0
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  numPlaceHolders: 2
-  placeholderSpacing: 10
-  offsetX: 0
-  offsetZ: 0
-  offsetX2: 990
-  offsetZ2: 1050
-  offsetX3: 980
-  offsetZ3: 1100
 --- !u!1 &4539321372584992692
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +492,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6570773871068016529}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8857640296091331729
 MonoBehaviour:
@@ -605,6 +540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6570773871068016529}
   - component: {fileID: 3466533819662697556}
+  - component: {fileID: 51934960967054601}
   m_Layer: 0
   m_Name: TASK_NavRDJ
   m_TagString: Untagged
@@ -619,17 +555,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5725661667804331521}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 718696318348863910}
+  - {fileID: 6310993433940059726}
   - {fileID: 5825207632686867856}
   - {fileID: 1045914956362679495}
-  - {fileID: 5853807705770855412}
-  - {fileID: 8968684230273748823}
-  - {fileID: 3128328870039066625}
-  - {fileID: 6310993433940059726}
   - {fileID: 4749390367135090364}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -678,47 +611,16 @@ MonoBehaviour:
   catchTrials: 
   catchFlag: 0
   trialLogging: 0
---- !u!1 &5793990524603328770
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3128328870039066625}
-  - component: {fileID: 3454752806245725838}
-  m_Layer: 0
-  m_Name: CopyObjects
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3128328870039066625
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5793990524603328770}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.01, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6570773871068016529}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3454752806245725838
+--- !u!114 &51934960967054601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5793990524603328770}
+  m_GameObject: {fileID: 5725661667804331521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e847c47bb51242b39cdea8b315e1b62, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b72e5b9b995348e0a53c738244f788b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
@@ -738,14 +640,21 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  Objs: {fileID: 0}
-  currentTrial: 
-  objsAndLocs: {fileID: 0}
-  sourcesParent: []
-  destinationsParent: []
-  copies: []
-  setOriginalInactive: 1
-  randomlyRotateCopy: 0
+  skipConditions: []
+  tasks: []
+  objectsList: []
+  repeat: 1
+  overideRepeat: {fileID: 0}
+  repeatCount: 1
+  hideTargetsDuringTask: 0
+  currentTask: {fileID: 0}
+  catchTrialCount: 0
+  skipOnCatch: []
+  onlyOnCatch: []
+  noCatchOnFirstTrial: 1
+  catchTrials: 
+  catchFlag: 0
+  trialLogging: 0
 --- !u!1 &7450288904885210455
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +684,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6570773871068016529}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4436163901877421120
 MonoBehaviour:
@@ -945,73 +854,6 @@ MonoBehaviour:
   swap: 0
   start: {fileID: 0}
   destination: {fileID: 0}
---- !u!1 &8545517774712297262
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8968684230273748823}
-  - component: {fileID: 6375756390086752942}
-  m_Layer: 0
-  m_Name: ListItemSelectionPlaceholders
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8968684230273748823
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8545517774712297262}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6570773871068016529}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6375756390086752942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8545517774712297262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7b965bfa25a4393bf115e4c0000ad3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 1
-  interval: 0
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  parentName: ItemSelectionPlaceholders
-  parentObject: {fileID: 0}
-  current: 0
-  objects: []
-  EndListBehavior: 1
-  shuffle: 1
-  order: {fileID: 0}
 --- !u!1001 &1575117149106987495
 PrefabInstance:
   m_ObjectHideFlags: 0

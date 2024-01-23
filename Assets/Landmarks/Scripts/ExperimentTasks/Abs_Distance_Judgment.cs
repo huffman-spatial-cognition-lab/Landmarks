@@ -8,6 +8,7 @@
 */   
 
 using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.ThirdPerson;
@@ -18,6 +19,19 @@ public class Abs_Distance_Judgment : ExperimentTask {
 
     public TextAsset instruction;
     public TextAsset message;
+    private string current;
+    protected string textForQuestion;
+
+    public MoveObjects objsAndLocs;
+    private Dictionary<GameObject,GameObject> objDict;
+    private Dictionary<GameObject,GameObject> centerDict;
+
+    public ExperimentTask Rooms;
+	private string currentObjs;
+    private string[] roomList;
+    private List<GameObject> roomObjList;
+    private GameObject start_destination;
+	private GameObject endObject;
     
     public ObjectList objects;
     private GameObject currentObject;
@@ -37,9 +51,11 @@ public class Abs_Distance_Judgment : ExperimentTask {
 
     public bool restrictMovement = false; 
 
+    private bool viewable = false;
     private GameObject sliderObject;
     // private LM_vrSlider vrSlider;
     private Slider slider;
+    private string[] questionStandDist;
 
     [Header("Slider Properties")]
     public float sliderWidth = 800f;
@@ -51,6 +67,13 @@ public class Abs_Distance_Judgment : ExperimentTask {
     public bool randomStartValue = true;
 
     private float startTime;
+    public bool withAnswer = false;
+    public string question = "";
+	public string answer = "";
+    private bool numberYet = false;
+    private string currResponse;
+
+
     
     void OnDisable ()
     {
@@ -77,10 +100,36 @@ public class Abs_Distance_Judgment : ExperimentTask {
             return;
         }
 
-        if (sliderLabels.Length < 2)  
-        {
-            Debug.LogError("LM_SliderQuestions requires at least 2 label values (min/max)");
+        // Parse the path we are supposed to follow
+        currentObjs = Rooms.currentString();
+
+        roomList = currentObjs.Split(new char[] {','});
+        roomObjList = new List<GameObject>();
+        foreach (string roomName in roomList) {
+    
+            if (string.IsNullOrWhiteSpace(roomName)) {
+                break;
+
+            } else {
+
+                GameObject temp = GameObject.Find(roomName);
+                roomObjList.Add(temp);
+            }
+            
         }
+
+        objDict = objsAndLocs.objDict;
+        centerDict = objsAndLocs.centerDict;
+        start_destination = centerDict[roomObjList[0]];
+        // Debug.Log(start_destination.transform.position.ToString());
+        // Debug.Log(GameObject.Find("obj20"));
+        GameObject endLocation = roomObjList[1];
+        endObject = objDict[endLocation];
+
+        // if (sliderLabels.Length < 2)  
+        // {
+        //     Debug.LogError("LM_SliderQuestions requires at least 2 label values (min/max)");
+        // }
 
         GameObject sgo = new GameObject("Instruction Display");
 
@@ -121,13 +170,18 @@ public class Abs_Distance_Judgment : ExperimentTask {
             if (currentText != null) msg = string.Format(msg, currentText);
             if (currentObject != null) msg = string.Format(msg, currentObject.name);
             hud.setMessage(msg);
+            // question = msg;
         }
         else if (!message & texts)
         {
             string msg = currentText;
             if (currentObject != null) msg = string.Format(msg, currentObject.name);
             hud.setMessage(msg);
+            // question = msg;
         }
+
+        question = gui.text;
+
 
         hud.flashStatus("");
 
@@ -154,58 +208,83 @@ public class Abs_Distance_Judgment : ExperimentTask {
             Cursor.visible = true;
         }
 
-        //---------------------------
-        // Confidence Slider
-        //---------------------------
-        sliderObject = Instantiate(hud.confidenceSlider.gameObject, hud.confidenceSlider.transform.parent); // clone the slider for formatting
-        hud.confidenceSlider.gameObject.SetActive(false); // hide the slider we copied from
 
-        // Format the slider properties
-        sliderObject.GetComponent<RectTransform>().sizeDelta = new Vector2(sliderWidth, sliderHeight);
-        sliderObject.transform.Find("Panel").GetComponent<RectTransform>().sizeDelta = new Vector2(sliderWidth + 150, sliderHeight + 150);
-        // Create labels
-        var labelTemp = sliderObject.gameObject.GetComponentInChildren<Text>().gameObject;
-        for (int i = 0; i < sliderLabels.Length; i++)
-        {
+        // Text UI
+        // make text viewable
+        // if (withAnswer) {
+		// 	string[] parts = new string[1];		
+		// 	parts = current.Split (new char[] { '\t' });				        	
 
-            var tmp = new GameObject("label" + i.ToString());
-            tmp = Instantiate(labelTemp, sliderObject.transform.Find("Labels"));
-            RectTransform rt = tmp.transform.GetComponent<RectTransform>();
-            rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, (i * sliderWidth / (sliderLabels.Length - 1)) - 50, rt.rect.width);
-            tmp.GetComponent<Text>().text = sliderLabels[i];
-        }
-        labelTemp.SetActive(false);
+		// 	answer = parts [0];
+		// 	question = parts [1];
+        //     // if (isVirtualSilcton)
+        //     // {
+        //     //     within_or_bw = parts[2];
+        //     // }
+		// } else {
+		// 	question = current;
+		// }
 
-        sliderObject.SetActive(true);
+        // question = question.Replace("    ", "\n");   //workaround for multi line questions
+
+		// split the string so that we can have the "standing" bit appear first
+		// until the participant pressed the "Space" bar.
+		// questionStandDist = question.Split(new char[] {"\n\n"});
+        textForQuestion = question + "\n\n\n\n\n\n\n\n";
+        currResponse = "";
+
+        // //---------------------------
+        // // Confidence Slider
+        // //---------------------------
+        // sliderObject = Instantiate(hud.confidenceSlider.gameObject, hud.confidenceSlider.transform.parent); // clone the slider for formatting
+        // hud.confidenceSlider.gameObject.SetActive(false); // hide the slider we copied from
+
+        // // Format the slider properties
+        // sliderObject.GetComponent<RectTransform>().sizeDelta = new Vector2(sliderWidth, sliderHeight);
+        // sliderObject.transform.Find("Panel").GetComponent<RectTransform>().sizeDelta = new Vector2(sliderWidth + 150, sliderHeight + 150);
+        // // Create labels
+        // var labelTemp = sliderObject.gameObject.GetComponentInChildren<Text>().gameObject;
+        // for (int i = 0; i < sliderLabels.Length; i++)
+        // {
+
+        //     var tmp = new GameObject("label" + i.ToString());
+        //     tmp = Instantiate(labelTemp, sliderObject.transform.Find("Labels"));
+        //     RectTransform rt = tmp.transform.GetComponent<RectTransform>();
+        //     rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, (i * sliderWidth / (sliderLabels.Length - 1)) - 50, rt.rect.width);
+        //     tmp.GetComponent<Text>().text = sliderLabels[i];
+        // }
+        // labelTemp.SetActive(false);
+
+        // sliderObject.SetActive(true);
 
         // Get the functioning part of the slider (interactable)
-        if (vrEnabled)
-        {
-            // vrSlider = sliderObject.GetComponent<LM_vrSlider>();
-            // vrSlider.minValue = sliderMin;
-            // vrSlider.maxValue = sliderMax;
-            // if (wholeNumbersOnly) vrSlider.wholeNumbers = true;
-            // else vrSlider.wholeNumbers = false;
-        }
-        else
-        {
-            slider = sliderObject.GetComponent<Slider>();
-            slider.minValue = sliderMin;
-            slider.maxValue = sliderMax;
-            if (wholeNumbersOnly) slider.wholeNumbers = true;
-            else slider.wholeNumbers = false;
-        }
+        // if (vrEnabled)
+        // {
+        //     // vrSlider = sliderObject.GetComponent<LM_vrSlider>();
+        //     // vrSlider.minValue = sliderMin;
+        //     // vrSlider.maxValue = sliderMax;
+        //     // if (wholeNumbersOnly) vrSlider.wholeNumbers = true;
+        //     // else vrSlider.wholeNumbers = false;
+        // }
+        // else
+        // {
+        //     slider = sliderObject.GetComponent<Slider>();
+        //     slider.minValue = sliderMin;
+        //     slider.maxValue = sliderMax;
+        //     if (wholeNumbersOnly) slider.wholeNumbers = true;
+        //     else slider.wholeNumbers = false;
+        // }
 
-        // Reset the value before the trial starts
-        if (vrEnabled)
-        {
-            // vrSlider.ResetSliderPosition(randomStartValue);
-        }
-        else
-        {
-            if (randomStartValue) slider.value = Random.Range(slider.minValue, slider.maxValue);
-            else slider.value = 0;
-        }
+        // // Reset the value before the trial starts
+        // if (vrEnabled)
+        // {
+        //     // vrSlider.ResetSliderPosition(randomStartValue);
+        // }
+        // else
+        // {
+        //     if (randomStartValue) slider.value = Random.Range(slider.minValue, slider.maxValue);
+        //     else slider.value = 0;
+        // }
 
     }
     // Update is called once per frame
@@ -218,6 +297,34 @@ public class Abs_Distance_Judgment : ExperimentTask {
         if ( interval > 0 && Experiment.Now() - task_start >= interval)  {
             return true;
         }
+
+        if ((Input.inputString.ToString ().Length == 1) && char.IsNumber (Input.inputString.ToString () [0])) {
+            // Pressed a number, so add it to the cue
+            currResponse = currResponse + Input.inputString.ToString ();
+            numberYet = true;
+            textForQuestion = question + "\n\n" + currResponse + "\n\n\n";
+            log.log ("INFO\tDIST_EST_INPUT\t" + currResponse, 1);
+        } else if (Input.GetKeyDown (KeyCode.Period)) {
+            // Pressed period, so add that (e.g., for decimal point)
+            currResponse = currResponse + ".";
+            numberYet = false;
+            textForQuestion = question + "\n\n" + currResponse + "\n\n\n";
+            log.log ("INFO\tDIST_EST_INPUT\t" + currResponse, 1);
+        } else if (numberYet && Input.GetKeyDown (KeyCode.Backspace)) {
+            // Pressed Backspace, so remove the last element
+            if (currResponse.Length == 1) {
+                currResponse = "";
+                numberYet = false;
+                textForQuestion = question + "\n\n\n\n\n"; 
+            } else {
+                currResponse = currResponse.Substring (0, currResponse.Length - 1);
+                textForQuestion = question + "\n\n" + currResponse + "\n\n\n";
+            }
+            log.log ("INFO\tDIST_EST_INPUT_BACKSPACE\t" + currResponse, 1);
+        }
+
+        hud.setMessage(textForQuestion);
+
 
         //------------------------------------------
         // Handle buttons to advance the task - MJS
@@ -280,40 +387,46 @@ public class Abs_Distance_Judgment : ExperimentTask {
         //        masterTask.name + "\t" + masterTask.repeatCount + "\t" + parent.repeatCount + "\t" + objects.currentObject().name + "\t" + sliderValue + "\t" + sliderMax + "\t" + rt
         //        , 1);
 
-        
+		viewable = false;
+		// textUI.SetActive(viewable);
+		// reset to false
+		numberYet = false;
 
-        if (trialLog.active)
-        {
+		// reset to empty string
+		currResponse = "";
+
+        // if (trialLog.active)
+        // {
             
-            trialLog.AddData(transform.name + "_minLabel", sliderLabels[0].ToString());
-            trialLog.AddData(transform.name + "_maxLabel", sliderLabels[sliderLabels.Length-1].ToString());
-            trialLog.AddData(transform.name + "_nLabels", sliderLabels.Length.ToString());
+        //     trialLog.AddData(transform.name + "_minLabel", sliderLabels[0].ToString());
+        //     trialLog.AddData(transform.name + "_maxLabel", sliderLabels[sliderLabels.Length-1].ToString());
+        //     trialLog.AddData(transform.name + "_nLabels", sliderLabels.Length.ToString());
 
-            trialLog.AddData(transform.name + "_minValue", slider.minValue.ToString());
-            trialLog.AddData(transform.name + "_maxValue", slider.maxValue.ToString());
+        //     trialLog.AddData(transform.name + "_minValue", slider.minValue.ToString());
+        //     trialLog.AddData(transform.name + "_maxValue", slider.maxValue.ToString());
 
             
-            trialLog.AddData(transform.name + "_question", texts.currentText);
+        //     trialLog.AddData(transform.name + "_question", texts.currentText);
 
-            trialLog.AddData(transform.name + "_rating", slider.value.ToString());
+        //     trialLog.AddData(transform.name + "_rating", slider.value.ToString());
 
-            trialLog.AddData(transform.name + "_rt", rt.ToString());
+        //     trialLog.AddData(transform.name + "_rt", rt.ToString());
 
-        }
+        // }
 
 
-        if (canIncrementLists) {
+        // if (canIncrementLists) {
 
-            if (objects) {
-                objects.incrementCurrent ();
-                currentObject = objects.currentObject ();
-            }
-            if (texts) {
-                texts.incrementCurrent ();        
-                currentText = texts.currentString ();
-            }
+        //     if (objects) {
+        //         objects.incrementCurrent ();
+        //         currentObject = objects.currentObject ();
+        //     }
+        //     if (texts) {
+        //         texts.incrementCurrent ();        
+        //         currentText = texts.currentString ();
+        //     }
 
-        }
+        // }
 
         GameObject avatar = manager.player.GetComponent<HUD>().Canvas as GameObject;
         Text canvas = avatar.GetComponent<Text>();
@@ -334,7 +447,7 @@ public class Abs_Distance_Judgment : ExperimentTask {
         }
 
         // Destroy the slider copy
-        Destroy(sliderObject);
+        // Destroy(sliderObject);
 
         // If we turned movement off; turn it back on
         if (restrictMovement)

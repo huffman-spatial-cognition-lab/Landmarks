@@ -6,7 +6,8 @@ public class CopyObjectsAB : ExperimentTask {
 
     [Header("Task-specific Properties")]
 
-	public ObjectList destinationsParent;
+	public AB_CreatePlaceHolders Placeholders; 
+	private List<GameObject> destinationsParent;
     public ExperimentTask Objs;
 	public string currentTrial;
     private string[] objList;
@@ -47,18 +48,25 @@ public class CopyObjectsAB : ExperimentTask {
 		target1 = objDict[loc1];
 		target2 = objDict[loc2];
 
+		sourcesParent = new List<GameObject>();
+
         sourcesParent.Add(target1);
         sourcesParent.Add(target2);
 
+		destinationsParent = Placeholders.destinations;
+
 
 		// move the copy destination parent to the same place as the sourcesParent to be copied
-		this.transform.position = destinationsParent.gameObject.transform.position;
-		this.transform.rotation = destinationsParent.gameObject.transform.rotation;
+		// this.transform.position = destinationsParent.gameObject.transform.position;
+		// this.transform.rotation = destinationsParent.gameObject.transform.rotation;
 
 		for (int i = 0; i < sourcesParent.Count; i++)
-		{
+		{	
+			Debug.Log(i);
             GameObject sourceChild = sourcesParent[i];
-            GameObject destinationChild = destinationsParent.objects[i];
+			Debug.Log("sourceParent not empty");
+            GameObject destinationChild = destinationsParent[i];
+			Debug.Log("destinationParent not empty");
 
 			GameObject copy = Instantiate<GameObject> (sourceChild, destinationChild.transform.position, sourceChild.transform.rotation, this.transform);
 
@@ -79,12 +87,11 @@ public class CopyObjectsAB : ExperimentTask {
             copies.Add(copy);
 			Debug.Log(copy.transform.position);
 
-            if (setOriginalInactive == true) {
-				sourcesParent[i].SetActive(false);
-			}
+            // if (setOriginalInactive == true) {
+			// 	sourcesParent[i].SetActive(false);
+			// }
 		}
 
-		
 	}
 
 	public override bool updateTask ()
