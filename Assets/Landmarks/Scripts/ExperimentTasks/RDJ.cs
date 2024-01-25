@@ -251,8 +251,8 @@ public class RDJ : ExperimentTask
 			setLayer(target.transform,viewLayer);
 
 			log.log("RDJ\t" + target.name,1);
-			Debug.Log(target.transform.position);
-			Debug.Log(target.tag);
+			// Debug.Log(target.transform.position);
+			// Debug.Log(target.tag);
 
 		}
 		

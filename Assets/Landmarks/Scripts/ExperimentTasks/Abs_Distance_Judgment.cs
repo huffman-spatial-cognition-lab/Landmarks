@@ -12,12 +12,12 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.ThirdPerson;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Abs_Distance_Judgment : ExperimentTask {
 
     [Header("Task-specific Properties")]
 
-    public TextAsset instruction;
     public TextAsset message;
     private string current;
     protected string textForQuestion;
@@ -30,14 +30,32 @@ public class Abs_Distance_Judgment : ExperimentTask {
 	private string currentObjs;
     private string[] roomList;
     private List<GameObject> roomObjList;
-    private GameObject start_destination;
-	private GameObject endObject;
+    private GameObject obj1;
+	private GameObject obj2;
     
     public ObjectList objects;
     private GameObject currentObject;
     
     public TextList texts;
     private string currentText;
+
+    // For storing properties of the targets
+    [HideInInspector] public GameObject destination1;
+    [HideInInspector] public GameObject destination2;
+    private static Vector3 position1;
+	private static Quaternion rotation1;
+	private static Transform parent1;
+	private static Vector3 scale1;
+    private static Vector3 position2;
+	private static Quaternion rotation2;
+	private static Transform parent2;
+	private static Vector3 scale2;
+    public Vector3 objectRotationOffset;
+    public Vector3 objectPositionOffset;
+    public float envCenterX = 0.0f;  // the center of the SelectItems part of your environment
+	public float envCenterZ = 0.0f;  // same as above, but for the Z dimension
+    private int saveLayer;
+	private int viewLayer = 11;
         
     public bool blackout = true;
     public Color text_color = Color.white;
@@ -46,25 +64,11 @@ public class Abs_Distance_Judgment : ExperimentTask {
 
     public bool actionButtonOn = true;
     public string customButtonText = "";
-        
-    private Text gui;
 
-    public bool restrictMovement = false; 
+    public bool restrictMovement = true; 
 
     private bool viewable = false;
-    private GameObject sliderObject;
-    // private LM_vrSlider vrSlider;
-    private Slider slider;
     private string[] questionStandDist;
-
-    [Header("Slider Properties")]
-    public float sliderWidth = 800f;
-    public float sliderHeight = 30f;
-    public string[] sliderLabels;
-    public int sliderMin = 0;
-    public int sliderMax = 100;
-    public bool wholeNumbersOnly;
-    public bool randomStartValue = true;
 
     private float startTime;
     public bool withAnswer = false;
@@ -73,17 +77,13 @@ public class Abs_Distance_Judgment : ExperimentTask {
     private bool numberYet = false;
     private string currResponse;
 
+    private Vector3 initialHUDposition;
 
-    
-    void OnDisable ()
-    {
-        if (gui)
-            DestroyImmediate (gui.gameObject);
-    }
     
     public override void startTask () {
         TASK_START();
         Debug.Log ("Starting Absolute Distance Judgment Task");
+        initCurrent();
         ResetHud();
     }    
 
@@ -94,11 +94,22 @@ public class Abs_Distance_Judgment : ExperimentTask {
         base.startTask();
 
         startTime = Time.time;
+
+        if (blackout) hud.showOnlyTargets();
+	    else hud.showEverything();
         
         if (skip) {
             log.log("INFO    skip task    " + name,1 );
             return;
         }
+
+        destination1 = new GameObject("Destination");
+		destination1.transform.parent = transform;
+		destination1.transform.localPosition = new Vector3(envCenterX,1.5f,envCenterZ);
+
+        destination2 = new GameObject("Destination");
+		destination2.transform.parent = transform;
+		destination2.transform.localPosition = new Vector3(envCenterX,1.5f,envCenterZ);
 
         // Parse the path we are supposed to follow
         currentObjs = Rooms.currentString();
@@ -120,67 +131,38 @@ public class Abs_Distance_Judgment : ExperimentTask {
 
         objDict = objsAndLocs.objDict;
         centerDict = objsAndLocs.centerDict;
-        start_destination = centerDict[roomObjList[0]];
-        // Debug.Log(start_destination.transform.position.ToString());
-        // Debug.Log(GameObject.Find("obj20"));
+        obj1 = objDict[roomObjList[0]];
+        Debug.Log(roomObjList[0]);
         GameObject endLocation = roomObjList[1];
-        endObject = objDict[endLocation];
+        obj2 = objDict[endLocation];
+        Debug.Log(roomObjList[1]);
 
-        // if (sliderLabels.Length < 2)  
-        // {
-        //     Debug.LogError("LM_SliderQuestions requires at least 2 label values (min/max)");
-        // }
+        initialHUDposition = hud.hudPanel.transform.position;
+        var tempPos = initialHUDposition;
+        tempPos.y += 200;
+        tempPos.x += 20;
+        hud.hudPanel.transform.position = tempPos;
 
-        GameObject sgo = new GameObject("Instruction Display");
 
-        GameObject avatar = manager.player.GetComponent<HUD>().Canvas as GameObject;
-        Text canvas = avatar.GetComponent<Text>();
-        hud.SecondsToShow = hud.InstructionDuration;
+        firstPersonCamera.enabled = false;
+		overheadCamera.enabled = true;
 
-            
-        sgo.AddComponent<Text>();
-        sgo.hideFlags = HideFlags.HideAndDontSave;
-        sgo.transform.position = new Vector3(0,0,0);
-        gui = sgo.GetComponent<Text>(); 
-        // DEPRICATED IN UNITY 2019 // gui.pixelOffset = new Vector2( 20, Screen.height - 20);
-        gui.font = instructionFont;
-        gui.fontSize = instructionSize;
-        gui.material.color = text_color;                 
-
-        if (texts) currentText = texts.currentString().Trim();
-        if (objects) currentObject = objects.currentObject();
-        if (instruction) canvas.text = instruction.text;
-
-        // Determine where we're getting the text from (default is message)
-        if (message == null & texts != null)
-        {
-            Debug.Log("No message asset detected; texts asset found; using texts");
-            gui.text = currentText;
-        }
-        else
-        {
-            Debug.Log("Attempting to use the default, message, asset.");
-            gui.text = message.text;
-        }
-
-        if (blackout) hud.showOnlyHUD();
 
         if (message) {
             string msg = message.text;
             if (currentText != null) msg = string.Format(msg, currentText);
             if (currentObject != null) msg = string.Format(msg, currentObject.name);
             hud.setMessage(msg);
-            // question = msg;
         }
         else if (!message & texts)
         {
             string msg = currentText;
             if (currentObject != null) msg = string.Format(msg, currentObject.name);
             hud.setMessage(msg);
-            // question = msg;
+
         }
 
-        question = gui.text;
+        question = message.text;
 
 
         hud.flashStatus("");
@@ -230,63 +212,71 @@ public class Abs_Distance_Judgment : ExperimentTask {
 		// split the string so that we can have the "standing" bit appear first
 		// until the participant pressed the "Space" bar.
 		// questionStandDist = question.Split(new char[] {"\n\n"});
-        textForQuestion = question + "\n\n\n\n\n\n\n\n";
+        textForQuestion = question + "\n\n";
         currResponse = "";
 
-        // //---------------------------
-        // // Confidence Slider
-        // //---------------------------
-        // sliderObject = Instantiate(hud.confidenceSlider.gameObject, hud.confidenceSlider.transform.parent); // clone the slider for formatting
-        // hud.confidenceSlider.gameObject.SetActive(false); // hide the slider we copied from
-
-        // // Format the slider properties
-        // sliderObject.GetComponent<RectTransform>().sizeDelta = new Vector2(sliderWidth, sliderHeight);
-        // sliderObject.transform.Find("Panel").GetComponent<RectTransform>().sizeDelta = new Vector2(sliderWidth + 150, sliderHeight + 150);
-        // // Create labels
-        // var labelTemp = sliderObject.gameObject.GetComponentInChildren<Text>().gameObject;
-        // for (int i = 0; i < sliderLabels.Length; i++)
-        // {
-
-        //     var tmp = new GameObject("label" + i.ToString());
-        //     tmp = Instantiate(labelTemp, sliderObject.transform.Find("Labels"));
-        //     RectTransform rt = tmp.transform.GetComponent<RectTransform>();
-        //     rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, (i * sliderWidth / (sliderLabels.Length - 1)) - 50, rt.rect.width);
-        //     tmp.GetComponent<Text>().text = sliderLabels[i];
-        // }
-        // labelTemp.SetActive(false);
-
-        // sliderObject.SetActive(true);
-
-        // Get the functioning part of the slider (interactable)
-        // if (vrEnabled)
-        // {
-        //     // vrSlider = sliderObject.GetComponent<LM_vrSlider>();
-        //     // vrSlider.minValue = sliderMin;
-        //     // vrSlider.maxValue = sliderMax;
-        //     // if (wholeNumbersOnly) vrSlider.wholeNumbers = true;
-        //     // else vrSlider.wholeNumbers = false;
-        // }
-        // else
-        // {
-        //     slider = sliderObject.GetComponent<Slider>();
-        //     slider.minValue = sliderMin;
-        //     slider.maxValue = sliderMax;
-        //     if (wholeNumbersOnly) slider.wholeNumbers = true;
-        //     else slider.wholeNumbers = false;
-        // }
-
-        // // Reset the value before the trial starts
-        // if (vrEnabled)
-        // {
-        //     // vrSlider.ResetSliderPosition(randomStartValue);
-        // }
-        // else
-        // {
-        //     if (randomStartValue) slider.value = Random.Range(slider.minValue, slider.maxValue);
-        //     else slider.value = 0;
-        // }
-
     }
+
+    public void initCurrent() {
+		// store original properties of the target
+		position1 = obj1.transform.position;
+        rotation1 = obj1.transform.rotation;
+		parent1 = obj1.transform.parent;
+		scale1 = obj1.transform.localScale;
+
+		// move the target to the viewing location temporarily
+		obj1.transform.parent = destination1.transform;
+        objectPositionOffset.x = 5;
+		obj1.transform.localPosition = objectPositionOffset;
+        obj1.transform.localEulerAngles = objectRotationOffset;
+        obj1.transform.localScale = Vector3.Scale(obj1.transform.localScale, destination1.transform.localScale);
+
+		// return the target to its original parent (we'll revert other values later)
+		// this way it won't track with the "head" of the avatar
+		obj1.transform.parent = parent1;
+
+        // store original properties of the target
+		position2 = obj2.transform.position;
+        rotation2 = obj2.transform.rotation;
+		parent2 = obj2.transform.parent;
+		scale2 = obj2.transform.localScale;
+
+		// move the target to the viewing location temporarily
+		obj2.transform.parent = destination2.transform;
+        objectPositionOffset.x = -5;
+        obj2.transform.localEulerAngles = objectRotationOffset;
+		obj2.transform.localPosition = objectPositionOffset;
+        obj2.transform.localScale = Vector3.Scale(obj2.transform.localScale, destination2.transform.localScale);
+
+		// return the target to its original parent (we'll revert other values later)
+		// this way it won't track with the "head" of the avatar
+		obj2.transform.parent = parent2;
+
+        // but Turn on the current object
+        obj1.SetActive(true);
+        obj2.SetActive(true);
+
+        saveLayer = obj1.layer;
+		setLayer(obj1.transform,viewLayer);
+
+        Debug.Log(obj1.transform.position);
+        // hud.setMessage(current.name);
+        // hud.ForceShowMessage();
+		
+		// log.log("Practice\t" + current.name,1);
+
+	}
+
+    public override void TASK_ADD(GameObject go, string txt) {
+		if (txt == "add") {
+			saveLayer = go.layer;
+			setLayer(go.transform,viewLayer);
+		} else if (txt == "remove") {
+			setLayer(go.transform,saveLayer);
+		}
+
+	}
+
     // Update is called once per frame
     public override bool updateTask () {
         
@@ -302,29 +292,29 @@ public class Abs_Distance_Judgment : ExperimentTask {
             // Pressed a number, so add it to the cue
             currResponse = currResponse + Input.inputString.ToString ();
             numberYet = true;
-            textForQuestion = question + "\n\n" + currResponse + "\n\n\n";
+            textForQuestion = question + "\n" + currResponse + "\n";
             log.log ("INFO\tDIST_EST_INPUT\t" + currResponse, 1);
         } else if (Input.GetKeyDown (KeyCode.Period)) {
             // Pressed period, so add that (e.g., for decimal point)
             currResponse = currResponse + ".";
             numberYet = false;
-            textForQuestion = question + "\n\n" + currResponse + "\n\n\n";
+            textForQuestion = question + "\n" + currResponse + "\n";
             log.log ("INFO\tDIST_EST_INPUT\t" + currResponse, 1);
         } else if (numberYet && Input.GetKeyDown (KeyCode.Backspace)) {
             // Pressed Backspace, so remove the last element
             if (currResponse.Length == 1) {
                 currResponse = "";
                 numberYet = false;
-                textForQuestion = question + "\n\n\n\n\n"; 
+                textForQuestion = question + "\n\n"; 
             } else {
                 currResponse = currResponse.Substring (0, currResponse.Length - 1);
-                textForQuestion = question + "\n\n" + currResponse + "\n\n\n";
+                textForQuestion = question + "\n" + currResponse + "\n";
             }
             log.log ("INFO\tDIST_EST_INPUT_BACKSPACE\t" + currResponse, 1);
         }
 
         hud.setMessage(textForQuestion);
-
+        hud.ForceShowMessage();
 
         //------------------------------------------
         // Handle buttons to advance the task - MJS
@@ -343,8 +333,24 @@ public class Abs_Distance_Judgment : ExperimentTask {
 
         return false;
     }
+
+    public void returnCurrent() {
+		obj1.transform.position = position1;
+		obj1.transform.localRotation = rotation1;
+		obj1.transform.localScale = scale1;
+
+        obj2.transform.position = position2;
+		obj2.transform.localRotation = rotation2;
+		obj2.transform.localScale = scale2;
+		setLayer(obj1.transform,saveLayer);
+
+        // turn off the object we're returning before turning on the next one
+        obj1.SetActive(false);
+        obj2.SetActive(false);
+    }
     
     public override void endTask() {
+        returnCurrent();
         TASK_END();
     }
     
@@ -352,19 +358,6 @@ public class Abs_Distance_Judgment : ExperimentTask {
         base.endTask ();
         hud.setMessage ("");
         hud.SecondsToShow = hud.GeneralDuration;
-
-        //// Save the rating to a variable depending on the object we're using
-        //float sliderValue;
-        //float sliderMax;
-        //if (vrEnabled)
-        //{
-        //    sliderValue = vrSlider.sliderValue;
-        //    sliderMax = slider.maxValue;
-        //} else
-        //{
-        //    sliderValue = hud.confidenceSlider.GetComponent<Slider>().value;
-        //    sliderMax = hud.confidenceSlider.GetComponent<Slider>().maxValue;
-        //}
 
 
         // -----------------------
@@ -381,58 +374,46 @@ public class Abs_Distance_Judgment : ExperimentTask {
             Debug.Log(masterTask.name);
         }
         var rt = Time.time - startTime;
+
+        // increment Rooms
+        Rooms.incrementCurrent();
+
+
         // Output log for this task in tab delimited format
-        //log.log("LM_OUTPUT\tMentalNavigation.cs\t" + masterTask.name + "\t" + this.name + "\n" +
-        //        "Task\tBlock\tTrial\tTargetName\tRating\tMaxRating\tRT\n" +
-        //        masterTask.name + "\t" + masterTask.repeatCount + "\t" + parent.repeatCount + "\t" + objects.currentObject().name + "\t" + sliderValue + "\t" + sliderMax + "\t" + rt
-        //        , 1);
+        log.log("LM_OUTPUT\tAbs_Distance_Judgment.cs\t" + masterTask.name + "\t" + this.name + "\n" +
+               "Task\tBlock\tTrial\tObject1\tObject2\tDistanceJudge\tRT\n" +
+               masterTask.name + "\t" + masterTask.repeatCount + "\t" + parent.repeatCount + "\t" + obj1.name + "\t" + obj2.name + "\t" + currResponse + "\t" + rt
+               , 1);
 
 		viewable = false;
-		// textUI.SetActive(viewable);
 		// reset to false
 		numberYet = false;
 
 		// reset to empty string
 		currResponse = "";
 
-        // if (trialLog.active)
-        // {
+        // Set up hud for other tasks
+		hud.hudPanel.SetActive(true); //hide the text background on HUD
+									  // Change the anchor points to put the message back in center
+		RectTransform hudposition = hud.hudPanel.GetComponent<RectTransform>() as RectTransform;
+		hudposition.anchorMin = new Vector2(0, 0);
+		hudposition.anchorMax = new Vector2(1, 1);
+		hudposition.pivot = new Vector2(0.5f, 0.5f);
+		hudposition.anchoredPosition3D = new Vector3(0, 0, 0);
+
+        if (trialLog.active)
+        {
+
             
-        //     trialLog.AddData(transform.name + "_minLabel", sliderLabels[0].ToString());
-        //     trialLog.AddData(transform.name + "_maxLabel", sliderLabels[sliderLabels.Length-1].ToString());
-        //     trialLog.AddData(transform.name + "_nLabels", sliderLabels.Length.ToString());
+            trialLog.AddData(transform.name + "_question", question);
 
-        //     trialLog.AddData(transform.name + "_minValue", slider.minValue.ToString());
-        //     trialLog.AddData(transform.name + "_maxValue", slider.maxValue.ToString());
+            trialLog.AddData(transform.name + "_distanceJudge", currResponse);
 
-            
-        //     trialLog.AddData(transform.name + "_question", texts.currentText);
+            trialLog.AddData(transform.name + "_rt", rt.ToString());
 
-        //     trialLog.AddData(transform.name + "_rating", slider.value.ToString());
-
-        //     trialLog.AddData(transform.name + "_rt", rt.ToString());
-
-        // }
+        }
 
 
-        // if (canIncrementLists) {
-
-        //     if (objects) {
-        //         objects.incrementCurrent ();
-        //         currentObject = objects.currentObject ();
-        //     }
-        //     if (texts) {
-        //         texts.incrementCurrent ();        
-        //         currentText = texts.currentString ();
-        //     }
-
-        // }
-
-        GameObject avatar = manager.player.GetComponent<HUD>().Canvas as GameObject;
-        Text canvas = avatar.GetComponent<Text>();
-        string nullstring = null;
-        canvas.text = nullstring;
-//            StartCoroutine(storesInactive());
 
         if (actionButtonOn)
         {
@@ -446,9 +427,6 @@ public class Abs_Distance_Judgment : ExperimentTask {
             Cursor.visible = false;
         }
 
-        // Destroy the slider copy
-        // Destroy(sliderObject);
-
         // If we turned movement off; turn it back on
         if (restrictMovement)
         {
@@ -456,5 +434,12 @@ public class Abs_Distance_Judgment : ExperimentTask {
             manager.scaledPlayer.GetComponent<ThirdPersonCharacter>().immobilized = false;
         }
     }
+
+    public void setLayer(Transform t, int l) {
+		t.gameObject.layer = l;
+		foreach (Transform child in t) {
+			setLayer(child,l);
+		}
+	}
 
 }
