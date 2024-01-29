@@ -62,6 +62,9 @@ public class ReadADJFromTxt : ExperimentTask {
                 // save previous trial
                 objList.Add(trial);
                 trialNum++;
+				if (trialNum == 22) {
+					break;
+				}
                 Debug.Log("Trial" + trialNum.ToString() + "\n");
                 trial = new List<string>();
             } else {

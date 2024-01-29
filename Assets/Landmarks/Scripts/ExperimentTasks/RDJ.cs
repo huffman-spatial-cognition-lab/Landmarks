@@ -26,6 +26,8 @@ public class RDJ : ExperimentTask
 	public bool blackout;
 	[HideInInspector] public GameObject destination;
 
+	private GameObject[] env;
+
 	public ExperimentTask Objs;
 	public string currentTrial;
     private string[] objList;
@@ -37,17 +39,13 @@ public class RDJ : ExperimentTask
 
 	public ObjectList TargetObjects;
 	public ObjectList Doors;
+	public TextAsset message;
 
-	// public CopyObjectsAB copyObjects;
 	[Tooltip("In seconds; 0 = unlimited time")]
 	public int timeLimit = 0;
-	// public bool flattenMap = true;
-	//public bool highlightAssist = false; // MJS - Removing Target Highlights for ease of use (requires additional environment configuration)
-	//public GameObject mapTestHighlights; // MJS - Removing Target Highlights for ease of use (requires additional environment configuration)
 	public float snapToTargetProximity = 0.0f; // leave at 0.0f to have snapping off. Otherwise this will be the straight line distance within a target users must be to snap object to target position/location
 	[TextArea]
 	public string buttonText = "These objects are the same distance from my starting point";
-	// public string doneButtonText = "Get Score";
 
 	// AKB - lists to store original properties of objects
 	private List<Vector3> position;
@@ -58,7 +56,6 @@ public class RDJ : ExperimentTask
 	public Vector3 objectRotationOffset;
 
 	private GameObject targetObjects; // should be the game object called TargetObjects under Environment game object
-	// [HideInInspector] public List<GameObject> destinations;
 	private int saveLayer;
 	private int viewLayer = 11;
 
@@ -78,7 +75,6 @@ public class RDJ : ExperimentTask
 
 	// DJH - new variables for select tasks
 	public int numTargsToSelect = 1;  // total number of targets you want participants to select
-	public float timeShowInBoundsMessage = 2.5f;  // the amount of time (seconds) to show in bounds message
 	private float buttonPressTime;
 	public float envCenterX = 0.0f;  // the center of the SelectItems part of your environment
 	public float envCenterZ = 0.0f;  // same as above, but for the Z dimension
@@ -113,13 +109,6 @@ public class RDJ : ExperimentTask
 		// DJH - adding for button press
 		buttonPressTime = Time.time;
 
-		// Modify the HUD display for the map task
-		hud.setMessage("");
-		hud.hudPanel.SetActive(true); // temporarily turn off the hud panel at task start (no empty message window)
-		hud.ForceShowMessage();
-		// move hud off screen if we aren't hitting a target shop
-		hud.hudPanel.transform.position = new Vector3(99999, 99999, 99999);
-
 		// make the cursor functional and visible
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
@@ -128,16 +117,14 @@ public class RDJ : ExperimentTask
 		avatar.GetComponent<CharacterController>().enabled = false;
 
 		// Swap from 1st-person camera to overhead view
-		// firstPersonCamera.enabled = false;
-		// overheadCamera.enabled = true;
+		firstPersonCamera.enabled = false;
+		overheadCamera.enabled = true;
 
 		// Change text and turn on the map action button
 		actionButton.GetComponentInChildren<Text>().text = buttonText;
 		hud.actionButton.SetActive(true);
 		hud.actionButton.GetComponent<Button>().onClick.AddListener(hud.OnActionClick);
 
-		firstPersonCamera.enabled = false;
-		overheadCamera.enabled = true;
 
 		if (restrictMovement)
         {
@@ -151,28 +138,25 @@ public class RDJ : ExperimentTask
 			manager.scaledPlayer.GetComponent<ThirdPersonCharacter>().immobilized = true;
         }
 
-		// destination = avatar.GetComponentInChildren<LM_SnapPoint>().gameObject;
 		destination = new GameObject("Destination");
 		destination.transform.parent = transform;
 		destination.transform.localPosition = new Vector3(envCenterX,1.5f,envCenterZ);
 
 
         // handle changes to the hud
-        if (vrEnabled)
-        {
-            initialHUDposition = hud.hudPanel.transform.position;
+		initialHUDposition = hud.hudPanel.transform.position;
+        var tempPos = initialHUDposition;
+        tempPos.y += 200;
+        tempPos.x += 20;
+        hud.hudPanel.transform.position = tempPos;
+		
+		// show instructions at the top
+		string msg = message.text;
+		msg = string.Format(msg);
+		hud.setMessage(msg);
+    
 
-            var temp = destination.transform.position;
-            temp.y += 2.5f;
-            hud.hudPanel.transform.position = temp;
-
-        }
-        else
-        {
-            // Change the anchor points to put the message at the bottom
-            RectTransform hudposition = hud.hudPanel.GetComponent<RectTransform>() as RectTransform;
-            hudposition.pivot = new Vector2(0.5f, 0.1f);
-        }
+		hud.flashStatus("");
 
 
 		// Grab target objects
@@ -200,18 +184,18 @@ public class RDJ : ExperimentTask
             door.SetActive(false);
         }
 
-		Debug.Log("Before turning on objects");
-		// Turn on copyObjects
-		// foreach (GameObject copy in copyObjects.copies) {
-		// 	Debug.Log("here");
-		// 	copy.SetActive(true);
-		// 	Debug.Log(copy.transform.position);
-		// }
+		// Turn off all objects in Map Environment
+		env = GameObject.FindGameObjectsWithTag("MapEnv");
 
+		foreach (GameObject envObj in env) {
+			envObj.SetActive(false);
+		}
+
+
+		Debug.Log("Before turning on objects");
 
 	}
 
-	// // AKB question - do I need this function? Or no since we have a list of copyObjects?
 	public void initTargets() {
 		
 		int i = 0;
@@ -247,12 +231,10 @@ public class RDJ : ExperimentTask
 			target.SetActive(true);
 			i += 1;
 
-			saveLayer = target.layer;				// AKB question - do I need these two lines?
+			saveLayer = target.layer;			
 			setLayer(target.transform,viewLayer);
 
 			log.log("RDJ\t" + target.name,1);
-			// Debug.Log(target.transform.position);
-			// Debug.Log(target.tag);
 
 		}
 		
@@ -279,6 +261,11 @@ public class RDJ : ExperimentTask
 			return true;
 		}
 
+		string msg = message.text;
+		msg = string.Format(msg);
+		hud.setMessage(msg);
+        hud.ForceShowMessage();
+
 		// ------------------------------------------------------------
 		// Handle mouse input for hovering over and selecting objects
 		// ------------------------------------------------------------
@@ -301,17 +288,7 @@ public class RDJ : ExperimentTask
 			// ... but only if that game object is one of our target stores ...
 			if (hit.collider.gameObject == targetList[0]) {
 				Debug.Log(targetList[0].name);
-				hud.setMessage(hit.transform.name);
-				hud.hudPanel.SetActive(true);
-				hud.ForceShowMessage();
 
-				// move hud text to the store being highlighted (coroutine to prevent Update framerate jitter)
-				// jitterGuardOn is inherited from Experiment task so it can be used in multiple task scripts (e.g., MapStudy and MapTest) - MJS 2019
-				if (!jitterGuardOn)
-				{
-					hud.hudPanel.transform.position = Camera.main.WorldToScreenPoint(hit.transform.position + hudTextOffset);
-					StartCoroutine(HudJitterReduction());
-				}
 
 				log.log("Mouseover \t" + hit.transform.name, 1);
 
@@ -329,17 +306,7 @@ public class RDJ : ExperimentTask
 			}
 			else if (hit.transform.name == targetList[1].name)
 			{
-				hud.setMessage(hit.transform.parent.transform.name);
-				hud.hudPanel.SetActive(true);
-				hud.ForceShowMessage();
-
-				// move hud text to the store being highlighted (coroutine to prevent Update framerate jitter)
-				// jitterGuardOn is inherited from Experiment task so it can be used in multiple task scripts (e.g., MapStudy and MapTest) - MJS 2019
-				if (!jitterGuardOn)
-				{
-					hud.hudPanel.transform.position = Camera.main.WorldToScreenPoint(hit.transform.parent.transform.position + hudTextOffset);
-					StartCoroutine(HudJitterReduction());
-				}
+				Debug.Log(targetList[1].name);
 
 				log.log("Mouseover \t" + hit.transform.parent.transform.name, 1);
 
@@ -355,26 +322,15 @@ public class RDJ : ExperimentTask
 			}
 		}
 	
-			// ... Otherwise, clear the message and hide the gui
-		// 	else if (Time.time - buttonPressTime > timeShowInBoundsMessage)
-		// 	{
-		// 		HideStoreName();
-		// 	}
-		// }
-		// else if (Time.time - buttonPressTime > timeShowInBoundsMessage)
-		// {
-		// 	HideStoreName();
-		// }
 
 		// -----------------------------------------
-		// Manipulate the currently active store
+		// Log the participant's choice
 		// -----------------------------------------
 
 		if (targetActive)
 		{
 			log.log("Options :\t" + targetList, 1);
 			log.log("Selected :\t" + activeTarget.name, 1);
-			// AKB: if I return true, will I just end the trial here?
 			return true;
 
 		}
@@ -397,6 +353,7 @@ public class RDJ : ExperimentTask
 			log.log("Selected :\t" + "SAME DISTANCE", 1);
 			return true;
 		}
+
 		return false;
 	}
 
@@ -429,6 +386,9 @@ public class RDJ : ExperimentTask
 	{
 		base.endTask();
 
+		hud.setMessage ("");
+        hud.SecondsToShow = hud.GeneralDuration;
+
 		// Log data
 		trialLog.AddData(transform.name + "_testTime", taskDuration.ToString());
 
@@ -444,8 +404,9 @@ public class RDJ : ExperimentTask
 
 
 		// make the cursor invisible
-		Cursor.lockState = CursorLockMode.Confined;
-		Cursor.visible = false;
+		// Cursor.lockState = CursorLockMode.Confined;
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 
 		// Turn on Player movement
 		avatar.GetComponent<CharacterController>().enabled = true;
@@ -460,23 +421,24 @@ public class RDJ : ExperimentTask
 		actionButton.GetComponentInChildren<Text>().text = actionButton.GetComponent<DefaultText>().defaultText;
 		hud.actionButton.SetActive(false);
 
-		// MJS - Removing Target Highlights for ease of use (requires additional environment configuration)
-		//// Turn off the maptarget highlights (to show where stores should be located
-		//if (highlightAssist == true)
-		//{
-		//	mapTestHighlights.SetActive (false);
-		//}
+		if (restrictMovement)
+        {
+            manager.player.GetComponent<CharacterController>().enabled = true;
+			if (avatar.GetComponent<FirstPersonController>())
+			{
+				// avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero;
+				avatar.GetComponent<FirstPersonController>().ResetMouselook();
+				avatar.GetComponent<FirstPersonController>().enabled = true;
+			}
+			manager.scaledPlayer.GetComponent<ThirdPersonCharacter>().immobilized = false;
+        }
 
-		// DJH - Copying from MapScoreTest.cs
-		// -------------------------------
-		// Prep the Target Object States
-		// -------------------------------
+		targetActive = false;
+		targetList = new List<GameObject>();
 
-		// Destroy the copies we created when initializing the map test task
-		// foreach (Transform child in copyObjects.transform)
-		// {
-		// 	Destroy(child.gameObject);
-		// }
+		// increment trial
+		Objs.incrementCurrent();
+
 
 		returnTargets();
 
@@ -492,18 +454,13 @@ public class RDJ : ExperimentTask
         {
             door.SetActive(true);
         }
-		
 
-		// DJH - Destroy game objects that they did not select
-		// int counter = 0;
-		// foreach (Transform child in targetObjects.transform)
-		// {
-		// 	if (targetInBoundsList[counter] == false)
-		// 	{
-		// 		Destroy(child.gameObject);
-		// 	}
-		// 	counter++;
-		// }
+
+		foreach (GameObject envObj in env)
+        {
+            envObj.SetActive(true);
+        }
+		
 
 	}
 

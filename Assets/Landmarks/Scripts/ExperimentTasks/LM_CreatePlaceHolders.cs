@@ -15,11 +15,17 @@ public class LM_CreatePlaceHolders : ExperimentTask
     public float offsetX = 0.0f;
     public float offsetZ = 0.0f;
 
-    public float offsetX2 = 990.0f;
-    public float offsetZ2 = 1050.0f;
+    public float offsetX2 = 995.0f;
+    public float offsetZ2 = 1025.0f;
 
-    public float offsetX3 = 980.0f;
-    public float offsetZ3 = 1100.0f;
+    public float offsetX3 = 990.0f;
+    public float offsetZ3 = 1050.0f;
+
+    public float offsetX4 = 985.0f;
+    public float offsetZ4 = 1075.0f;
+
+    public float offsetX5 = 980.0f;
+    public float offsetZ5 = 1100.0f;
 
     private GameObject placeholder;
 
@@ -90,9 +96,19 @@ public class LM_CreatePlaceHolders : ExperimentTask
         {
           placeholder.transform.localPosition = new Vector3(offsetX2, 1.5f, offsetZ2 + (-1 * i * placeholderSpacing));
         }
-        else if(i >= 9)
+        else if(i >= 9 && i <= 14)
         {
           placeholder.transform.localPosition = new Vector3(offsetX3, 1.5f, offsetZ3 + (-1 * i * placeholderSpacing));
+
+        }
+        else if(i >= 14 && i <= 19)
+        {
+          placeholder.transform.localPosition = new Vector3(offsetX4, 1.5f, offsetZ4 + (-1 * i * placeholderSpacing));
+
+        }
+        else if(i >= 14)
+        {
+          placeholder.transform.localPosition = new Vector3(offsetX5, 1.5f, offsetZ5 + (-1 * i * placeholderSpacing));
 
         }
 

@@ -113,6 +113,7 @@ public class Abs_Distance_Judgment : ExperimentTask {
 
         // Parse the path we are supposed to follow
         currentObjs = Rooms.currentString();
+        Debug.Log(currentObjs);
 
         roomList = currentObjs.Split(new char[] {','});
         roomObjList = new List<GameObject>();
@@ -189,6 +190,13 @@ public class Abs_Distance_Judgment : ExperimentTask {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        // Turn off all objects in Map Environment
+		GameObject[] env = GameObject.FindGameObjectsWithTag("MapEnv");
+
+		foreach (GameObject envObj in env) {
+			envObj.SetActive(false);
+		}
 
 
         // Text UI
@@ -375,9 +383,6 @@ public class Abs_Distance_Judgment : ExperimentTask {
         }
         var rt = Time.time - startTime;
 
-        // increment Rooms
-        Rooms.incrementCurrent();
-
 
         // Output log for this task in tab delimited format
         log.log("LM_OUTPUT\tAbs_Distance_Judgment.cs\t" + masterTask.name + "\t" + this.name + "\n" +
@@ -414,6 +419,9 @@ public class Abs_Distance_Judgment : ExperimentTask {
         }
 
 
+        // increment Rooms
+        Rooms.incrementCurrent();
+
 
         if (actionButtonOn)
         {
@@ -427,10 +435,23 @@ public class Abs_Distance_Judgment : ExperimentTask {
             Cursor.visible = false;
         }
 
+         // Turn off all objects in Map Environment
+		GameObject[] env = GameObject.FindGameObjectsWithTag("MapEnv");
+
+		foreach (GameObject envObj in env) {
+			envObj.SetActive(true);
+		}
+
         // If we turned movement off; turn it back on
         if (restrictMovement)
         {
             manager.player.GetComponent<CharacterController>().enabled = true;
+            if (avatar.GetComponent<FirstPersonController>())
+			{
+				// avatar.GetComponentInChildren<Camera>().transform.localEulerAngles = Vector3.zero;
+				avatar.GetComponent<FirstPersonController>().ResetMouselook();
+				avatar.GetComponent<FirstPersonController>().enabled = true;
+			}
             manager.scaledPlayer.GetComponent<ThirdPersonCharacter>().immobilized = false;
         }
     }

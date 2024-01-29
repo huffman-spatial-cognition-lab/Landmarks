@@ -15,6 +15,7 @@ TagManager:
   - ScaledEnvironment
   - Compass
   - Doors
+  - MapEnv
   layers:
   - Default
   - TransparentFX

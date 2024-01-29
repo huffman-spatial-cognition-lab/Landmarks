@@ -118,20 +118,20 @@ public class MapScoreTest : ExperimentTask {
         }
 
         // Based on performance, update the instruction text and add another repeat to the parent task, if below criterion
-        if (percentCorrect >= percentCorrectCriterion)
-        {
-            progressionText = actionButton.GetComponent<DefaultText>().defaultText;
-            parentTask.GetComponent<TaskList>().repeat = PlayerPrefs.GetInt("BaseMapRepeats"); // if criterion is met, reset the repeat value of the parent
-        }
-        else if (percentCorrect < percentCorrectCriterion)
-        {
-            progressionText = "Try Again";
-            parentTask.GetComponent<TaskList>().repeat++; // if criterion is not met, add another repetition
-        }
-        else
-        {
-            progressionText = "CHECK WHAT'S WRONG WITH THE CODE";
-        }
+        // if (percentCorrect >= percentCorrectCriterion)
+        // {
+		progressionText = actionButton.GetComponent<DefaultText>().defaultText;
+		parentTask.GetComponent<TaskList>().repeat = PlayerPrefs.GetInt("BaseMapRepeats"); // if criterion is met, reset the repeat value of the parent
+        // }
+        // else if (percentCorrect < percentCorrectCriterion)
+        // {
+        //     progressionText = "Try Again";
+        //     parentTask.GetComponent<TaskList>().repeat++; // if criterion is not met, add another repetition
+        // }
+        // else
+        // {
+        //     progressionText = "CHECK WHAT'S WRONG WITH THE CODE";
+        // }
 
 
         // ---------------------------------

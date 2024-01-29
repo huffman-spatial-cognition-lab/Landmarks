@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.UI;
 
 public enum HideTargetOnStart
 {
@@ -18,11 +19,12 @@ public class DistanceAndNavTask : ExperimentTask
     [Header("Task-specific Properties")]
     // public ObjectList targetObjects;
     public ExperimentTask Doors;
+    private GameObject[] doors;
     private GameObject door;
     private string[] doorList;
     private string currentDoor;
 
-    public List<GameObject> destinations;
+    public ObjectList destinations;
     public MoveObjects objsAndLocs;
     private Dictionary<GameObject,GameObject> objDict;
     private Dictionary<GameObject,GameObject> centerDict;
@@ -41,6 +43,10 @@ public class DistanceAndNavTask : ExperimentTask
     public bool ignoreY = false;
 
     private GameObject endObject;
+
+    public bool shortcut;   // whether this is the shortcut task or not
+    public string buttonText = "Done";
+    private GameObject startCue;
 
 	private int score = 0;
 	public int scoreIncrement = 50;
@@ -92,6 +98,17 @@ public class DistanceAndNavTask : ExperimentTask
 
         hud.showEverything();
 		hud.showScore = showScoring;
+
+        // Change text and turn on the map action button
+        if (shortcut) {
+            actionButton.GetComponentInChildren<Text>().text = buttonText;
+		    hud.actionButton.SetActive(true);
+		    hud.actionButton.GetComponent<Button>().onClick.AddListener(hud.OnActionClick);
+            // make the cursor functional and visible
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+		
 		
         // Parse the path we are supposed to follow
         currentPath = Rooms.currentString();
@@ -160,19 +177,28 @@ public class DistanceAndNavTask : ExperimentTask
         // Debug.Log ("Find " + endObject.name);
 
         // if it's a target, open the door to show it's active
-        // AKB - come back and edit depending on which route they are following
-        currentDoor = Doors.currentString();
+        // if this is NavRDJ, only open certain doors
+        if (!shortcut) {
+            currentDoor = Doors.currentString();
 
-        doorList = currentDoor.Split(new char[] {','});
+            doorList = currentDoor.Split(new char[] {','});
 
-        foreach (string doorName in doorList) {
-            if (doorName == "") {
-                break;
+            foreach (string doorName in doorList) {
+                if (doorName == "") {
+                    break;
+                }
+                door = GameObject.Find(doorName);
+                Debug.Log("found door");
+                door.GetComponentInChildren<AKB_Door>().OpenDoor();
             }
-            door = GameObject.Find(doorName);
-            Debug.Log("found door");
-            door.GetComponentInChildren<AKB_Door>().OpenDoor();
+        } else {    // otherwise open all the doors
+            doors = GameObject.FindGameObjectsWithTag("Doors");
+
+            foreach (GameObject door in doors) {
+                door.GetComponentInChildren<AKB_Door>().OpenDoor();
+            }
         }
+        
 
         // AKB - come back and change to general instruction "follow the path, keeping track of 
         // objects you see along the way
@@ -191,14 +217,22 @@ public class DistanceAndNavTask : ExperimentTask
         // Handle if we're hiding all the non-targets
         if (hideNonTargets)
         {
-            foreach (GameObject item in destinations)
-            {
-                if (item.name != endObject.name)
+            GameObject cur = destinations.currentObject();
+            while (cur) {
+                if (cur.name != endObject.name)
                 {
-                    item.SetActive(false);
+                    cur.SetActive(false);
                 }
-                else item.SetActive(true);
+                else cur.SetActive(true);
+
+                destinations.incrementCurrent();
+                cur = destinations.currentObject();
             }
+
+            // but turn on the first object
+            startCue = objDict[roomObjList[0]];
+            startCue.SetActive(true);
+
         }
 
 
@@ -279,6 +313,7 @@ public class DistanceAndNavTask : ExperimentTask
 	{
 		base.updateTask();
 
+
         if (skip)
         {
             //log.log("INFO    skip task    " + name,1 );
@@ -298,36 +333,7 @@ public class DistanceAndNavTask : ExperimentTask
 			}
 		}
 
-        //VR capability with showing target
-        // if (vrEnabled)
-        // {
-        //     if (hideTargetOnStart != HideTargetOnStart.Off && hideTargetOnStart != HideTargetOnStart.SetProbeTrial && ((Time.time - startTime > (showTargetAfterSeconds) || vrInput.TouchpadButton.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))))
-        //     {
-        //         destinations.currentObject().SetActive(true);
-        //     }
-
-        //     if (hideTargetOnStart == HideTargetOnStart.SetProbeTrial && vrInput.TouchpadButton.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))
-        //     {
-        //         //get current location and then log it
-
-        //         destinations.currentObject().SetActive(true);
-        //         destinations.currentObject().GetComponent<MeshRenderer>().enabled = true;
-        //     }
-        // }
-
-        // show target on button click or after set time
-        // if (hideTargetOnStart != HideTargetOnStart.Off && hideTargetOnStart != HideTargetOnStart.SetProbeTrial && ((Time.time - startTime > (showTargetAfterSeconds) || Input.GetButtonDown("Return"))))
-        // {
-        //     destinations.currentObject().SetActive(true);
-        // }
-
-        // if (hideTargetOnStart == HideTargetOnStart.SetProbeTrial && Input.GetButtonDown("Return"))
-        // {
-        //     //get current location and then log it
-
-        //     destinations.currentObject().SetActive(true);
-        //     destinations.currentObject().GetComponent<MeshRenderer>().enabled = true;
-        // }
+    
 
         // Keep updating the distance traveled
         playerDistance += Vector3.Distance(avatar.transform.position, playerLastPosition);
@@ -338,21 +344,18 @@ public class DistanceAndNavTask : ExperimentTask
             scaledPlayerLastPosition = scaledAvatar.transform.position;
         }
 
-        // if (assistCompass != null)
-        // {
-        //     // Keep the assist compass pointing at the target (even if it isn't visible)
-        //     var targetDirection = 2 * assistCompass.transform.position - destinations.currentObject().transform.position;
-        //     targetDirection = new Vector3(targetDirection.x, assistCompass.pointer.transform.position.y, targetDirection.z);
-        //     assistCompass.pointer.transform.LookAt(targetDirection, Vector3.up);
-        //     // Show assist compass if and when it is needed
-        //     if (assistCompass.gameObject.activeSelf == false & SecondsUntilAssist >= 0 & (Time.time - startTime > SecondsUntilAssist))
-        //     {
-        //         assistCompass.gameObject.SetActive(true);
-        //     }
-        // }
-        // if (roomObj == endObject) {
-        //     return true;
-        // }
+
+        // if player presses enter during shortcut round, end the trial
+        if (shortcut) {
+            if (hud.actionButtonClicked == true)
+            {
+                hud.actionButtonClicked = false;
+                // log.log("Selected :\t" + "SAME DISTANCE", 1);
+                return true;
+            }
+        }
+
+    
         
 
 		if (killCurrent == true)
@@ -382,21 +385,7 @@ public class DistanceAndNavTask : ExperimentTask
 
 	}
 
-    // public override void DistanceJudgment() {
-
-    //     if (DistanceJudgmentInstruction)
-	// 	{
-	// 		string msg = DistanceJudgmentInstruction.text;
-	// 		msg = string.Format(msg, current.name);
-	// 		hud.setMessage(msg);
-   	// 	}
-	// 	else
-	// 	{
-    //         hud.SecondsToShow = 0;
-    //         hud.setMessage("Please find the " + current.name);
-	// 	}
-    // }
-
+   
 	public override void TASK_END()
 	{
 		base.endTask();
@@ -404,34 +393,47 @@ public class DistanceAndNavTask : ExperimentTask
 		avatarLog.navLog = false;
         if (isScaled) scaledAvatarLog.navLog = false;
 
-        // close the door if the target was a store and it is open
-        // if it's a target, open the door to show it's active
-        // if (current.GetComponentInChildren<LM_TargetStore>() != null)
-        // {
-        //     current.GetComponentInChildren<LM_TargetStore>().CloseDoor();
-        // }
 
-        // if (canIncrementLists)
-		// {
-		// 	roomObjList.incrementCurrent();
-		// }
+        if (!shortcut) {
+
+            foreach (string doorName in doorList) {
+                if (doorName == "") {
+                    break;
+                }
+                door = GameObject.Find(doorName);
+                door.GetComponentInChildren<AKB_Door>().CloseDoor();
+            }
+
+        } else {    // otherwise close all the doors
+            doors = GameObject.FindGameObjectsWithTag("Doors");
+
+            foreach (GameObject door in doors) {
+                door.GetComponentInChildren<AKB_Door>().CloseDoor();
+            }
+        }
+
+        Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = false;
+
+        // turn off the map action button
+		hud.actionButton.GetComponent<Button>().onClick.RemoveListener(hud.OnActionClick);
+		actionButton.GetComponentInChildren<Text>().text = actionButton.GetComponent<DefaultText>().defaultText;
+		hud.actionButton.SetActive(false);
+
 
         // increment everything
-        Doors.incrementCurrent();
-        Rooms.incrementCurrent();
-        // currentDoor = doorList.currentString(); // not sure if i need this
+        if (Doors) Doors.incrementCurrent();
+        if (shortcut) {
+            Rooms.incrementCurrent();
+            startCue.SetActive(false);
+        }
 
-		// currentRoom = Rooms.currentString();
+
 		hud.setMessage("");
 		hud.showScore = false;
 
         hud.SecondsToShow = hud.GeneralDuration;
 
-        // if (assistCompass != null)
-        // {
-        //     // Hide the assist compass
-        //     assistCompass.gameObject.SetActive(false);
-        // }
         
         // Move hud back to center and reset
         hud.hudPanel.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
@@ -447,7 +449,7 @@ public class DistanceAndNavTask : ExperimentTask
         // AKB COME BACK !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         var parent = this.parentTask;
         var masterTask = parent;
-        // while (!masterTask.gameObject.CompareTag("Task")) masterTask = masterTask.parentTask;
+        while (!masterTask.gameObject.CompareTag("Task")) masterTask = masterTask.parentTask;
         // This will log all final trial info in tab delimited format
         // var excessPath = perfDistance - optimalDistance;
 

@@ -11,7 +11,7 @@ public class MapTestTask : ExperimentTask {
     public ObjectList targetList;
 	[Tooltip("In seconds; 0 = unlimited time")]
 	public int timeLimit = 0;
-	public bool flattenMap = true;
+	public bool flattenMap = false;
 	//public bool highlightAssist = false; // MJS - Removing Target Highlights for ease of use (requires additional environment configuration)
 	//public GameObject mapTestHighlights; // MJS - Removing Target Highlights for ease of use (requires additional environment configuration)
     public float snapToTargetProximity = 0.0f; // leave at 0.0f to have snapping off. Otherwise this will be the straight line distance within a target users must be to snap object to target position/location
@@ -74,6 +74,10 @@ public class MapTestTask : ExperimentTask {
 		// Swap from 1st-person camera to overhead view
 		firstPersonCamera.enabled = false;
 		overheadCamera.enabled = true;
+
+		// Set the position of the overhead camera -- AKB 2024
+		overheadCamera.transform.position = new Vector3(1000, 45, 1000);
+		overheadCamera.transform.localEulerAngles = new Vector3(90, 0, 0);
 
 		// Remove environment topography so tall things don't get in the way of dragging objects
 		if (flattenMap)
@@ -326,6 +330,10 @@ public class MapTestTask : ExperimentTask {
 		// Swap from overhead camera to first-person view
 		firstPersonCamera.enabled = true;
 		overheadCamera.enabled = false;
+
+		// Move the overhead camera back for the NavRDJ task -- AKB 2024
+		overheadCamera.transform.position = new Vector3(1000, 2.5f, 995);
+		overheadCamera.transform.localEulerAngles = new Vector3(0, 0, 0);
 
 		if (flattenMap)
 		{

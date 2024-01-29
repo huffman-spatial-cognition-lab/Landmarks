@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 961535287914972390}
-  - component: {fileID: 3173508706340971057}
   m_Layer: 0
   m_Name: Found
   m_TagString: Untagged
@@ -31,48 +30,6 @@ Transform:
   m_Father: {fileID: 4749390367135090364}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3173508706340971057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192154374693553623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2b24b10a1d6446ea483dff9d3e43da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 0
-  interval: 5000
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  instruction: {fileID: 0}
-  message: {fileID: 4900000, guid: 205a6b26dec3f41f5aae12ed747e893e, type: 3}
-  objects: {fileID: 4894719146367621410}
-  multiObjects: []
-  texts: {fileID: 0}
-  blackout: 1
-  text_color: {r: 1, g: 1, b: 1, a: 1}
-  instructionFont: {fileID: 12800000, guid: b51a3e520f9164da198dc59c8acfccd6, type: 3}
-  instructionSize: 24
-  actionButtonOn: 0
-  customButtonText: 
-  restrictMovement: 1
-  selfPaced: 0
 --- !u!1 &671948628562149217
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +100,7 @@ MonoBehaviour:
   targetList: []
   TargetObjects: {fileID: 4894719146367621410}
   Doors: {fileID: 8857640296091331729}
-  copyObjects: {fileID: 0}
+  message: {fileID: 0}
   timeLimit: 0
   snapToTargetProximity: 0
   buttonText: These objects are the same distance from my starting point
@@ -151,7 +108,6 @@ MonoBehaviour:
   objectRotationOffset: {x: 0, y: 0, z: 0}
   hudTextOffset: {x: 0, y: 0, z: 0}
   numTargsToSelect: 1
-  timeShowInBoundsMessage: 2.5
   envCenterX: 1000
   envCenterZ: 1000
   offsetX: 0
@@ -166,7 +122,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4174736899990722291}
-  - component: {fileID: 7013989671790919746}
   m_Layer: 0
   m_Name: CueTarget
   m_TagString: Untagged
@@ -188,48 +143,6 @@ Transform:
   m_Father: {fileID: 4749390367135090364}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7013989671790919746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810254082746609606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2b24b10a1d6446ea483dff9d3e43da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 0
-  interval: 5000
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  instruction: {fileID: 0}
-  message: {fileID: 4900000, guid: 9640913f0e4984ce190c4c98b1787149, type: 3}
-  objects: {fileID: 4894719146367621410}
-  multiObjects: []
-  texts: {fileID: 0}
-  blackout: 1
-  text_color: {r: 1, g: 1, b: 1, a: 1}
-  instructionFont: {fileID: 12800000, guid: b51a3e520f9164da198dc59c8acfccd6, type: 3}
-  instructionSize: 24
-  actionButtonOn: 0
-  customButtonText: 
-  restrictMovement: 1
-  selfPaced: 0
 --- !u!1 &1811109709837372852
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,12 +279,13 @@ MonoBehaviour:
   triggerOnEnd: 0
   start: {fileID: 0}
   Doors: {fileID: 0}
-  destinations: []
+  destinations: {fileID: 0}
   objsAndLocs: {fileID: 0}
   Rooms: {fileID: 0}
   randomRotation: 0
   scaledPlayer: 0
   ignoreY: 0
+  shortcut: 0
   scoreIncrement: 50
   penaltyRate: 2000
   showScoring: 0
