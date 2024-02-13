@@ -99,6 +99,15 @@ public class DistanceAndNavTask : ExperimentTask
         hud.showEverything();
 		hud.showScore = showScoring;
 
+
+        // Disable the objects to start
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+
+        foreach (GameObject tar in targets) {
+            tar.SetActive(false);
+        }
+
+
         // Change text and turn on the map action button
         if (shortcut) {
             actionButton.GetComponentInChildren<Text>().text = buttonText;
@@ -107,6 +116,57 @@ public class DistanceAndNavTask : ExperimentTask
             // make the cursor functional and visible
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+        }
+
+        // if it's a target, open the door to show it's active
+        // if this is NavRDJ, only open certain doors
+        if (!shortcut) {
+            currentDoor = Doors.currentString();
+            Debug.Log(currentDoor);
+
+            doorList = currentDoor.Split(new char[] {','});
+
+            foreach (string doorName in doorList) {
+                if (doorName == "") {
+                    break;
+                }
+                door = GameObject.Find(doorName);
+                // Debug.Log("found door");
+                door.GetComponentInChildren<AKB_Door>().OpenDoor();
+            }
+        } else {    // otherwise open all the doors
+            doors = GameObject.FindGameObjectsWithTag("Doors");
+
+            foreach (GameObject door in doors) {
+                door.GetComponentInChildren<AKB_Door>().OpenDoor();
+            }
+        }
+
+        // Handle if we're hiding all the non-targets
+        if (hideNonTargets)
+        {
+            GameObject cur = destinations.currentObject();
+            while (cur) {
+                if (cur.name != endObject.name)
+                {
+                    cur.SetActive(false);
+                }
+                else cur.SetActive(true);
+
+                destinations.incrementCurrent();
+                cur = destinations.currentObject();
+            }
+
+            // but turn on the first object
+            startCue = objDict[roomObjList[0]];
+            startCue.SetActive(true);
+
+        } else {
+            // Enable all objects to start
+
+            foreach (GameObject tar in targets) {
+                tar.SetActive(true);
+            }
         }
 		
 		
@@ -126,6 +186,7 @@ public class DistanceAndNavTask : ExperimentTask
             }
             
         }
+
 
         objDict = objsAndLocs.objDict;
         centerDict = objsAndLocs.centerDict;
@@ -175,29 +236,6 @@ public class DistanceAndNavTask : ExperimentTask
         }
 
         // Debug.Log ("Find " + endObject.name);
-
-        // if it's a target, open the door to show it's active
-        // if this is NavRDJ, only open certain doors
-        if (!shortcut) {
-            currentDoor = Doors.currentString();
-
-            doorList = currentDoor.Split(new char[] {','});
-
-            foreach (string doorName in doorList) {
-                if (doorName == "") {
-                    break;
-                }
-                door = GameObject.Find(doorName);
-                Debug.Log("found door");
-                door.GetComponentInChildren<AKB_Door>().OpenDoor();
-            }
-        } else {    // otherwise open all the doors
-            doors = GameObject.FindGameObjectsWithTag("Doors");
-
-            foreach (GameObject door in doors) {
-                door.GetComponentInChildren<AKB_Door>().OpenDoor();
-            }
-        }
         
 
         // AKB - come back and change to general instruction "follow the path, keeping track of 
@@ -214,26 +252,7 @@ public class DistanceAndNavTask : ExperimentTask
             // hud.setMessage("Please find the " + current.name);
 		}
 
-        // Handle if we're hiding all the non-targets
-        if (hideNonTargets)
-        {
-            GameObject cur = destinations.currentObject();
-            while (cur) {
-                if (cur.name != endObject.name)
-                {
-                    cur.SetActive(false);
-                }
-                else cur.SetActive(true);
-
-                destinations.incrementCurrent();
-                cur = destinations.currentObject();
-            }
-
-            // but turn on the first object
-            startCue = objDict[roomObjList[0]];
-            startCue.SetActive(true);
-
-        }
+        
 
 
         // Handle if we're hiding the target object
@@ -393,24 +412,14 @@ public class DistanceAndNavTask : ExperimentTask
 		avatarLog.navLog = false;
         if (isScaled) scaledAvatarLog.navLog = false;
 
+  // otherwise close all the doors
+        doors = GameObject.FindGameObjectsWithTag("Doors");
 
-        if (!shortcut) {
-
-            foreach (string doorName in doorList) {
-                if (doorName == "") {
-                    break;
-                }
-                door = GameObject.Find(doorName);
-                door.GetComponentInChildren<AKB_Door>().CloseDoor();
-            }
-
-        } else {    // otherwise close all the doors
-            doors = GameObject.FindGameObjectsWithTag("Doors");
-
-            foreach (GameObject door in doors) {
-                door.GetComponentInChildren<AKB_Door>().CloseDoor();
-            }
+        foreach (GameObject door in doors) {
+            Debug.Log("closing doors");
+            door.GetComponentInChildren<AKB_Door>().CloseDoor();
         }
+    
 
         Cursor.lockState = CursorLockMode.Confined;
 		Cursor.visible = false;
@@ -449,7 +458,7 @@ public class DistanceAndNavTask : ExperimentTask
         // AKB COME BACK !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         var parent = this.parentTask;
         var masterTask = parent;
-        while (!masterTask.gameObject.CompareTag("Task")) masterTask = masterTask.parentTask;
+        // while (!masterTask.gameObject.CompareTag("Task")) masterTask = masterTask.parentTask;
         // This will log all final trial info in tab delimited format
         // var excessPath = perfDistance - optimalDistance;
 

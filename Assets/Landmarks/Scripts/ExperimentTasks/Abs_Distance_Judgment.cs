@@ -271,7 +271,8 @@ public class Abs_Distance_Judgment : ExperimentTask {
         // hud.setMessage(current.name);
         // hud.ForceShowMessage();
 		
-		// log.log("Practice\t" + current.name,1);
+		log.log("ADJ\t" + obj1.name,1);
+        log.log("ADJ\t" + obj2.name,1);
 
 	}
 

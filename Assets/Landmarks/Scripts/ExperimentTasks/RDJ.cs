@@ -179,10 +179,10 @@ public class RDJ : ExperimentTask
             item.SetActive(false);
         }
 
-        foreach (GameObject door in Doors.objects)
-        {
-            door.SetActive(false);
-        }
+        // foreach (GameObject door in Doors.objects)
+        // {
+        //     door.SetActive(false);
+        // }
 
 		// Turn off all objects in Map Environment
 		env = GameObject.FindGameObjectsWithTag("MapEnv");
@@ -225,6 +225,7 @@ public class RDJ : ExperimentTask
 			target.transform.localPosition = objectPositionOffset;
 			target.transform.localEulerAngles = objectRotationOffset;
 			target.transform.localScale = Vector3.Scale(target.transform.localScale, destination.transform.localScale);
+
 
 			target.transform.parent = parent[i];
 
@@ -450,10 +451,12 @@ public class RDJ : ExperimentTask
             item.SetActive(true);
         }
 
-        foreach (GameObject door in Doors.objects)
-        {
-            door.SetActive(true);
-        }
+        // foreach (GameObject door in Doors.objects)
+        // {
+        //     door.SetActive(true);
+        //     // door.GetComponentInChildren<AKB_Door>().CloseDoor();
+
+        // }
 
 
 		foreach (GameObject envObj in env)

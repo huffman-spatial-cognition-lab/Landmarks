@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0, g: 0, b: 0, a: 0}
   door: {fileID: 7641916051063970633}
-  doorMaxOpenAngle: -115
+  doorMaxOpenAngle: -145
   doorSpeedMulitplier: 1
 --- !u!1 &7641916049563240550
 GameObject:
