@@ -32,7 +32,7 @@ public class DistanceAndNavTask : ExperimentTask
     public ExperimentTask Rooms;
 	private string currentPath;
     private string[] roomList;
-    private List<GameObject> roomObjList;
+    private List<string> roomObjList;
     // private GameObject roomObj;
     private GameObject start_destination;
     private static Vector3 position;
@@ -43,6 +43,7 @@ public class DistanceAndNavTask : ExperimentTask
     public bool ignoreY = false;
 
     private GameObject endObject;
+    private GameObject[] targets;
 
     public bool shortcut;   // whether this is the shortcut task or not
     public string buttonText = "Done";
@@ -101,7 +102,7 @@ public class DistanceAndNavTask : ExperimentTask
 
 
         // Disable the objects to start
-        GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+        targets = GameObject.FindGameObjectsWithTag("Target");
 
         foreach (GameObject tar in targets) {
             tar.SetActive(false);
@@ -142,61 +143,45 @@ public class DistanceAndNavTask : ExperimentTask
             }
         }
 
-        // Handle if we're hiding all the non-targets
-        if (hideNonTargets)
-        {
-            GameObject cur = destinations.currentObject();
-            while (cur) {
-                if (cur.name != endObject.name)
-                {
-                    cur.SetActive(false);
-                }
-                else cur.SetActive(true);
-
-                destinations.incrementCurrent();
-                cur = destinations.currentObject();
-            }
-
-            // but turn on the first object
-            startCue = objDict[roomObjList[0]];
-            startCue.SetActive(true);
-
-        } else {
-            // Enable all objects to start
-
-            foreach (GameObject tar in targets) {
-                tar.SetActive(true);
-            }
+        foreach (GameObject tar in targets) {
+            tar.SetActive(true);
         }
-		
 		
         // Parse the path we are supposed to follow
         currentPath = Rooms.currentString();
 
         roomList = currentPath.Split(new char[] {','});
-        roomObjList = new List<GameObject>();
+        roomObjList = new List<string>();
         foreach (string roomName in roomList) {
-    
             if (string.IsNullOrWhiteSpace(roomName)) {
                 break;
             } else {
-
-                GameObject temp = GameObject.Find(roomName);
-                roomObjList.Add(temp);
+                roomObjList.Add(roomName);
             }
             
         }
 
-
         objDict = objsAndLocs.objDict;
         centerDict = objsAndLocs.centerDict;
-        start_destination = centerDict[roomObjList[0]];
+        start_destination = centerDict[GameObject.Find(roomObjList[0])];
         Debug.Log(start_destination.transform.position.ToString());
         // Debug.Log(GameObject.Find("obj20"));
-        GameObject endLocation = roomObjList.Last();
-        endObject = objDict[endLocation];
-        Debug.Log(objDict[endLocation]);
+        string endLocation = roomObjList.Last();
+        endObject = objDict[GameObject.Find(endLocation)];
+        Debug.Log(endObject);
 
+        // Handle if we're hiding all the non-targets
+        if (hideNonTargets)
+        {
+            startCue = objDict[GameObject.Find(roomObjList[0])];
+            foreach (GameObject tar in targets) {
+                tar.SetActive(false);
+            }
+
+            endObject.SetActive(true);
+            // but turn on the first object
+            startCue.SetActive(true);
+        }
         // move person to start location
         if (scaledPlayer)
         {
@@ -418,6 +403,13 @@ public class DistanceAndNavTask : ExperimentTask
         foreach (GameObject door in doors) {
             Debug.Log("closing doors");
             door.GetComponentInChildren<AKB_Door>().CloseDoor();
+        }
+
+        // Disable the objects to start
+        // GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+
+        foreach (GameObject tar in targets) {
+            tar.SetActive(true);
         }
     
 

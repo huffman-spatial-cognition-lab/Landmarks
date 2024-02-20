@@ -162,23 +162,23 @@ public class MoveObjects : ExperimentTask {
                 source.transform.localRotation = destination.transform.localRotation;
             }
 
+            // Add to the dictionary
+            objDict.Add(destination, source);
+            GameObject center = GameObject.Find("Center" + destination.name);
+            centerDict.Add(destination, center);
+
             // Log the target info
-            log.log(destination.name + ": \t" + source.name + 
+            log.log(source.name + ": \tRoom Name: \t" + destination.name + 
                     "\tPosition: \t" + source.transform.position.x + "\t" + source.transform.position.y + "\t" + source.transform.position.z +
-                    "\tRotation: \t" + source.transform.eulerAngles.x + "\t" + source.transform.eulerAngles.y + "\t" + source.transform.eulerAngles.z
+                    "\tRotation: \t" + source.transform.eulerAngles.x + "\t" + source.transform.eulerAngles.y + "\t" + source.transform.eulerAngles.z +
+                    "\tRoom Center: \t" + center.transform.position.x + "\t" + center.transform.position.y + "\t" + center.transform.position.z
                     , 1);
 
-			
 			if (swap) {
 				destination.transform.position = position;
 				destination.transform.localRotation = rotation;
 		
 			}
-            
-            // Add to the dictionary
-            objDict.Add(destination, source);
-            GameObject center = GameObject.Find("Center" + destination.name);
-            centerDict.Add(destination, center);
 			
 			destinations.incrementCurrent();
 			destination = destinations.currentObject();

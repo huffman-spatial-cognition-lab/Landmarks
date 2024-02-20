@@ -199,24 +199,6 @@ public class Abs_Distance_Judgment : ExperimentTask {
 		}
 
 
-        // Text UI
-        // make text viewable
-        // if (withAnswer) {
-		// 	string[] parts = new string[1];		
-		// 	parts = current.Split (new char[] { '\t' });				        	
-
-		// 	answer = parts [0];
-		// 	question = parts [1];
-        //     // if (isVirtualSilcton)
-        //     // {
-        //     //     within_or_bw = parts[2];
-        //     // }
-		// } else {
-		// 	question = current;
-		// }
-
-        // question = question.Replace("    ", "\n");   //workaround for multi line questions
-
 		// split the string so that we can have the "standing" bit appear first
 		// until the participant pressed the "Space" bar.
 		// questionStandDist = question.Split(new char[] {"\n\n"});
@@ -232,12 +214,15 @@ public class Abs_Distance_Judgment : ExperimentTask {
 		parent1 = obj1.transform.parent;
 		scale1 = obj1.transform.localScale;
 
+        Quaternion localRot1 = obj1.transform.localRotation;
+
 		// move the target to the viewing location temporarily
 		obj1.transform.parent = destination1.transform;
         objectPositionOffset.x = 5;
 		obj1.transform.localPosition = objectPositionOffset;
-        obj1.transform.localEulerAngles = objectRotationOffset;
-        obj1.transform.localScale = Vector3.Scale(obj1.transform.localScale, destination1.transform.localScale);
+        obj1.transform.localRotation = localRot1;
+        // obj1.transform.localEulerAngles = objectRotationOffset;
+        // obj1.transform.localScale = Vector3.Scale(obj1.transform.localScale, destination1.transform.localScale);
 
 		// return the target to its original parent (we'll revert other values later)
 		// this way it won't track with the "head" of the avatar
@@ -249,12 +234,15 @@ public class Abs_Distance_Judgment : ExperimentTask {
 		parent2 = obj2.transform.parent;
 		scale2 = obj2.transform.localScale;
 
+        Quaternion localRot2 = obj2.transform.localRotation;
+
 		// move the target to the viewing location temporarily
 		obj2.transform.parent = destination2.transform;
         objectPositionOffset.x = -5;
-        obj2.transform.localEulerAngles = objectRotationOffset;
+        // obj2.transform.localEulerAngles = objectRotationOffset;
 		obj2.transform.localPosition = objectPositionOffset;
-        obj2.transform.localScale = Vector3.Scale(obj2.transform.localScale, destination2.transform.localScale);
+        obj1.transform.localRotation = localRot2;
+        // obj2.transform.localScale = Vector3.Scale(obj2.transform.localScale, destination2.transform.localScale);
 
 		// return the target to its original parent (we'll revert other values later)
 		// this way it won't track with the "head" of the avatar

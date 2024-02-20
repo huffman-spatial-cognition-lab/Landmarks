@@ -73,12 +73,18 @@ public class AKB_Door : LM_Target
 
     public void OpenDoor()
     {
-        if (!doorInMotion) StartCoroutine(Open());
+        // if (!doorInMotion) StartCoroutine(Open());
+        door.transform.localEulerAngles = new Vector3(0f, doorMaxOpenAngle, 0f);
+        doorInMotion = false;
+        doorOpen = true;
     }
 
     public void CloseDoor()
     {
-        if (!doorInMotion) StartCoroutine(Close());
+        // if (!doorInMotion) StartCoroutine(Close());
+        door.transform.localEulerAngles = Vector3.zero;
+        doorInMotion = false;
+        doorOpen = false;
     }
 
     IEnumerator Open()
@@ -86,7 +92,7 @@ public class AKB_Door : LM_Target
         doorInMotion = true;
         for (float ft = 0; ft > doorMaxOpenAngle; ft--)
         {
-            door.transform.localEulerAngles = new Vector3(0f, ft, 0f);
+            door.transform.localEulerAngles = new Vector3(0f, ft*doorSpeedMulitplier, 0f);
             yield return null;
         }
         door.transform.localEulerAngles = new Vector3(0f, doorMaxOpenAngle, 0f);
@@ -99,7 +105,7 @@ public class AKB_Door : LM_Target
         doorInMotion = true;
         for (float ft = doorMaxOpenAngle; ft < 0; ft++)
         {
-            door.transform.localEulerAngles = new Vector3(0f, ft, 0f);
+            door.transform.localEulerAngles = new Vector3(0f, ft*doorSpeedMulitplier, 0f);
             yield return null;
         }
         door.transform.localEulerAngles = Vector3.zero;

@@ -213,6 +213,8 @@ public class RDJ : ExperimentTask
 			parent.Add(target.transform.parent);
 			scale.Add(target.transform.localScale);
 
+			Quaternion localRot = target.transform.localRotation;
+
 			// move the target to the viewing location temporarily
 			target.transform.parent = destination.transform;
 
@@ -223,8 +225,9 @@ public class RDJ : ExperimentTask
 			}
 
 			target.transform.localPosition = objectPositionOffset;
-			target.transform.localEulerAngles = objectRotationOffset;
-			target.transform.localScale = Vector3.Scale(target.transform.localScale, destination.transform.localScale);
+			target.transform.localRotation = localRot;
+			// target.transform.localEulerAngles = objectRotationOffset;
+			// target.transform.localScale = Vector3.Scale(target.transform.localScale, destination.transform.localScale);
 
 
 			target.transform.parent = parent[i];

@@ -1,0 +1,10 @@
+
+NAVIGATION
+
+You will be required to navigate to targets in the environment
+based on your memory from the first task. Only the object in the
+starting room will be visible to you. Once you've reached the location
+of where you think the target object should be, press the button
+on the lower right corner of the screen.
+
+

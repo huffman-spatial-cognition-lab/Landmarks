@@ -48,6 +48,7 @@ public class NavInstructionsTask : ExperimentTask {
     private List<GameObject> roomObjList;
 
     public bool found = false;
+    public bool shortcut = false;
 
     public TextList texts;
     private string currentText;
@@ -97,7 +98,6 @@ public class NavInstructionsTask : ExperimentTask {
             if (string.IsNullOrWhiteSpace(roomName)) {
                 break;
             } else {
-
                 GameObject temp = GameObject.Find(roomName);
                 roomObjList.Add(temp);
             }
@@ -259,7 +259,7 @@ public class NavInstructionsTask : ExperimentTask {
 
 
         // if found is true, increment rooms bc end of trial
-        if (found) {
+        if (found & !shortcut) {
             Rooms.incrementCurrent();
         }
 
