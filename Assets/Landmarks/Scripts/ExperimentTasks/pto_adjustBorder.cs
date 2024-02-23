@@ -41,7 +41,8 @@ public class pto_adjustBorder : ExperimentTask
 
         if(mode == adjustState.onCondition){
             int trialIndex = this.parentTask.repeatCount;
-            bool borderIsOn = trialData.GetComponent<pto_trialsTruth>().trialsTruth.trials[this.parentTask.repeatCount].boundaryVisible;
+            // repeatCount starts from 1, we subtract one to 0-index into the arrays
+            bool borderIsOn = trialData.GetComponent<pto_trialsTruth>().trialsTruth.trials[this.parentTask.repeatCount - 1].boundaryVisible;
 
             Debug.Log("THE CURRENT STATE OF borderIsOn");
             Debug.Log(borderIsOn);
