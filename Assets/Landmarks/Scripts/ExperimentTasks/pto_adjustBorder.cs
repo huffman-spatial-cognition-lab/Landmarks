@@ -42,6 +42,9 @@ public class pto_adjustBorder : ExperimentTask
         if(mode == adjustState.onCondition){
             int trialIndex = this.parentTask.repeatCount;
             bool borderIsOn = trialData.GetComponent<pto_trialsTruth>().trialsTruth.trials[this.parentTask.repeatCount].boundaryVisible;
+
+            Debug.Log("THE CURRENT STATE OF borderIsOn");
+            Debug.Log(borderIsOn);
             
             if(borderIsOn){
                 newBorderActive = true;
@@ -55,9 +58,13 @@ public class pto_adjustBorder : ExperimentTask
             newBorderActive = true;
         }
 
+        Debug.Log("THE CURRENT STATE OF newBorderActive");
+        Debug.Log(newBorderActive);
+
         foreach (Transform child in borderParent.transform) {
             if(newBorderActive)
             {
+                Debug.Log("We made it to the get component enablethenfade in bit");
                 child.gameObject.GetComponent<fadeable>().EnableThenFadeIn();
             }
             else

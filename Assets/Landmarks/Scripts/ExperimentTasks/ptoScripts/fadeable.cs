@@ -91,6 +91,10 @@ public class fadeable : MonoBehaviour
     public void EnableThenFadeIn()
     {
         this.transform.gameObject.SetActive(true);
+        Debug.Log("WE ARE SETTING THE FOLLOWING GAME OBJECT TO BE ACTIVE");
+        Debug.Log(this.transform.gameObject.name);
+        Debug.Log("IS THE THING SET TO ACTIVE FOLLOWING THIS CHANGE???");
+        Debug.Log(this.transform.gameObject.activeSelf);
         fadeIn = true;
     }
 
