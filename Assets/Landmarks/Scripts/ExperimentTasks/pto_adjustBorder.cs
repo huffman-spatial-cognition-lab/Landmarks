@@ -66,10 +66,11 @@ public class pto_adjustBorder : ExperimentTask
             if(newBorderActive)
             {
                 Debug.Log("We made it to the get component enablethenfade in bit");
-                child.gameObject.GetComponent<fadeable>().EnableThenFadeIn();
+                child.gameObject.GetComponent<fadeable>().EnableThenFadeIn(materialFade, materialOpaque);
             }
             else
             {
+                Debug.Log("We made it to the get component FADEOUTTHENDISABLE");
                 child.gameObject.GetComponent<fadeable>().FadeOutThenDisable(materialFade, materialOpaque);
             }
         }
@@ -97,6 +98,19 @@ public class pto_adjustBorder : ExperimentTask
         base.endTask();
 
         // WRITE TASK EXIT CODE HERE
+        foreach (Transform child in borderParent.transform)
+        {
+            if (child.transform.gameObject.activeSelf)
+            {
+                Debug.Log("We made it to the ENDTASK as active");
+                //child.gameObject.GetComponent<fadeable>().EnableThenFadeIn();
+            }
+            else
+            {
+                Debug.Log("We made it to the ENDTASK as inactive");
+                //child.gameObject.GetComponent<fadeable>().FadeOutThenDisable(materialFade, materialOpaque);
+            }
+        }
     }
 
 }

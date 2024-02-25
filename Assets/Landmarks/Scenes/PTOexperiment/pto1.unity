@@ -5871,7 +5871,7 @@ MonoBehaviour:
   mode: 1
   borderParent: {fileID: 1685502429}
   materialOpaque: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  materialFade: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  materialFade: {fileID: 2100000, guid: 3d44a611a2c9bed419f2aeff7d6dad70, type: 2}
 --- !u!1 &2122672403
 GameObject:
   m_ObjectHideFlags: 0
