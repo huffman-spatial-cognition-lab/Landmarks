@@ -33,6 +33,7 @@ public class Abs_Distance_Judgment : ExperimentTask {
     private GameObject obj1;
 	private GameObject obj2;
     
+    public ObjectList TargetObjects;
     public ObjectList objects;
     private GameObject currentObject;
     
@@ -105,11 +106,11 @@ public class Abs_Distance_Judgment : ExperimentTask {
 
         destination1 = new GameObject("Destination");
 		destination1.transform.parent = transform;
-		destination1.transform.localPosition = new Vector3(envCenterX,1.5f,envCenterZ);
+		destination1.transform.localPosition = new Vector3(envCenterX,0.0f,envCenterZ);
 
         destination2 = new GameObject("Destination");
 		destination2.transform.parent = transform;
-		destination2.transform.localPosition = new Vector3(envCenterX,1.5f,envCenterZ);
+		destination2.transform.localPosition = new Vector3(envCenterX,0.0f,envCenterZ);
 
         // Parse the path we are supposed to follow
         currentObjs = Rooms.currentString();
@@ -140,8 +141,8 @@ public class Abs_Distance_Judgment : ExperimentTask {
 
         initialHUDposition = hud.hudPanel.transform.position;
         var tempPos = initialHUDposition;
-        tempPos.y += 200;
-        tempPos.x += 20;
+        tempPos.y += 275;
+        tempPos.x += 10;
         hud.hudPanel.transform.position = tempPos;
 
 
@@ -191,6 +192,11 @@ public class Abs_Distance_Judgment : ExperimentTask {
             Cursor.visible = true;
         }
 
+        foreach (GameObject item in TargetObjects.objects)
+        {
+            item.SetActive(false);
+        }
+
         // Turn off all objects in Map Environment
 		GameObject[] env = GameObject.FindGameObjectsWithTag("MapEnv");
 
@@ -218,7 +224,7 @@ public class Abs_Distance_Judgment : ExperimentTask {
 
 		// move the target to the viewing location temporarily
 		obj1.transform.parent = destination1.transform;
-        objectPositionOffset.x = 5;
+        objectPositionOffset.x = 3;
 		obj1.transform.localPosition = objectPositionOffset;
         obj1.transform.localRotation = localRot1;
         // obj1.transform.localEulerAngles = objectRotationOffset;
@@ -238,10 +244,10 @@ public class Abs_Distance_Judgment : ExperimentTask {
 
 		// move the target to the viewing location temporarily
 		obj2.transform.parent = destination2.transform;
-        objectPositionOffset.x = -5;
+        objectPositionOffset.x = -3;
         // obj2.transform.localEulerAngles = objectRotationOffset;
 		obj2.transform.localPosition = objectPositionOffset;
-        obj1.transform.localRotation = localRot2;
+        obj2.transform.localRotation = localRot2;
         // obj2.transform.localScale = Vector3.Scale(obj2.transform.localScale, destination2.transform.localScale);
 
 		// return the target to its original parent (we'll revert other values later)
@@ -395,6 +401,18 @@ public class Abs_Distance_Judgment : ExperimentTask {
 		hudposition.pivot = new Vector2(0.5f, 0.5f);
 		hudposition.anchoredPosition3D = new Vector3(0, 0, 0);
 
+        // make the cursor invisible
+		// Cursor.lockState = CursorLockMode.Confined;
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+
+		// Turn on Player movement
+		avatar.GetComponent<CharacterController>().enabled = true;
+
+		// Swap from overhead camera to first-person view
+		firstPersonCamera.enabled = true;
+		overheadCamera.enabled = false;
+
         if (trialLog.active)
         {
 
@@ -424,7 +442,12 @@ public class Abs_Distance_Judgment : ExperimentTask {
             Cursor.visible = false;
         }
 
-         // Turn off all objects in Map Environment
+        foreach (GameObject item in TargetObjects.objects)
+        {
+            item.SetActive(true);
+        }
+
+        // Turn off all objects in Map Environment
 		GameObject[] env = GameObject.FindGameObjectsWithTag("MapEnv");
 
 		foreach (GameObject envObj in env) {

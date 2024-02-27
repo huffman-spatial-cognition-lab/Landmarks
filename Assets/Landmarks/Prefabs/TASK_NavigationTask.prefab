@@ -108,7 +108,6 @@ Transform:
   m_Children:
   - {fileID: 126786360096039086}
   - {fileID: 8482316418033649362}
-  - {fileID: 2658633220850182596}
   m_Father: {fileID: 6279364624764035789}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -363,6 +362,7 @@ MonoBehaviour:
   objsAndLocs: {fileID: 0}
   Rooms: {fileID: 0}
   found: 0
+  shortcut: 0
   texts: {fileID: 0}
   blackout: 1
   text_color: {r: 1, g: 1, b: 1, a: 1}
@@ -435,13 +435,14 @@ MonoBehaviour:
   triggerOnEnd: 0
   start: {fileID: 0}
   Doors: {fileID: 0}
-  destinations: []
+  destinations: {fileID: 0}
   objsAndLocs: {fileID: 0}
   Rooms: {fileID: 0}
   randomRotation: 0
   scaledPlayer: 0
   ignoreY: 0
   shortcut: 0
+  buttonText: Done
   scoreIncrement: 50
   penaltyRate: 2000
   showScoring: 0
@@ -453,82 +454,6 @@ MonoBehaviour:
   SecondsUntilAssist: -1
   compassPosOffset: {x: 0, y: 0, z: 0}
   compassRotOffset: {x: 0, y: 0, z: 0}
---- !u!1 &8937608498322594567
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2658633220850182596}
-  - component: {fileID: 3926478716799585725}
-  m_Layer: 0
-  m_Name: Found
-  m_TagString: Untagged
-  m_Icon: {fileID: -6488666005112524639, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2658633220850182596
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8937608498322594567}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6285781053553488291}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3926478716799585725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8937608498322594567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a37f3a8816e42968f8bfd8ad203a2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 1
-  interval: 0
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  instruction: {fileID: 0}
-  message: {fileID: 4900000, guid: 205a6b26dec3f41f5aae12ed747e893e, type: 3}
-  objects: {fileID: 0}
-  multiObjects: []
-  objsAndLocs: {fileID: 0}
-  Rooms: {fileID: 0}
-  found: 1
-  texts: {fileID: 0}
-  blackout: 1
-  text_color: {r: 1, g: 1, b: 1, a: 1}
-  instructionFont: {fileID: 0}
-  instructionSize: 12
-  actionButtonOn: 1
-  customButtonText: 
-  restrictMovement: 1
-  selfPaced: 1
 --- !u!1001 &9012772696151050461
 PrefabInstance:
   m_ObjectHideFlags: 0

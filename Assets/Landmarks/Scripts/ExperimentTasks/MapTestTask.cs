@@ -18,6 +18,7 @@ public class MapTestTask : ExperimentTask {
 	[TextArea]
 	//public string buttonText = "Get Score";
 
+	private GameObject[] targets;
 	private GameObject activeTarget; // This is the container we will use for whichever object is currently being clicked and dragged
 	private bool targetActive = false; // Are we currently manipulating a targetobject?
 	private Vector3 previousTargetPos; // save the position when a target was clicked so users can undo the current move
@@ -78,6 +79,14 @@ public class MapTestTask : ExperimentTask {
 		// Set the position of the overhead camera -- AKB 2024
 		overheadCamera.transform.position = new Vector3(1000, 45, 1000);
 		overheadCamera.transform.localEulerAngles = new Vector3(90, 0, 0);
+
+		// Make sure all targets are visible
+        targets = GameObject.FindGameObjectsWithTag("Target");
+
+        foreach (GameObject tar in targets) {
+            tar.SetActive(true);
+        }
+
 
 		// Remove environment topography so tall things don't get in the way of dragging objects
 		if (flattenMap)
@@ -422,20 +431,3 @@ public class MapTestTask : ExperimentTask {
     }
   }
 
-
-//}
-//if (Pos.x > minX &&
-//Pos.x < maxX &&
-//Pos.z > minZ &&
-//Pos.z < maxZ)
-//{
-  //activeTarget = selectedTarget;
-  //targetSelected = true;
-  //numSelectedItems = +1;
-  //Debug.Log("check function is working");
-//}
-
-//if(targetSelected = false)
-//{
-//  gameObject.SetActive(false);
-//}

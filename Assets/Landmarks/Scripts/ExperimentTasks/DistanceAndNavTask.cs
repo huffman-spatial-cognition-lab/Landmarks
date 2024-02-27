@@ -111,9 +111,9 @@ public class DistanceAndNavTask : ExperimentTask
 
         // Change text and turn on the map action button
         if (shortcut) {
-            actionButton.GetComponentInChildren<Text>().text = buttonText;
-		    hud.actionButton.SetActive(true);
-		    hud.actionButton.GetComponent<Button>().onClick.AddListener(hud.OnActionClick);
+            // actionButton.GetComponentInChildren<Text>().text = buttonText;
+		    // hud.actionButton.SetActive(true);
+		    // hud.actionButton.GetComponent<Button>().onClick.AddListener(hud.OnActionClick);
             // make the cursor functional and visible
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -351,9 +351,8 @@ public class DistanceAndNavTask : ExperimentTask
 
         // if player presses enter during shortcut round, end the trial
         if (shortcut) {
-            if (hud.actionButtonClicked == true)
+            if (Input.GetKeyDown (KeyCode.Return))
             {
-                hud.actionButtonClicked = false;
                 // log.log("Selected :\t" + "SAME DISTANCE", 1);
                 return true;
             }
@@ -397,16 +396,13 @@ public class DistanceAndNavTask : ExperimentTask
 		avatarLog.navLog = false;
         if (isScaled) scaledAvatarLog.navLog = false;
 
-  // otherwise close all the doors
+        // otherwise close all the doors
         doors = GameObject.FindGameObjectsWithTag("Doors");
 
         foreach (GameObject door in doors) {
             Debug.Log("closing doors");
             door.GetComponentInChildren<AKB_Door>().CloseDoor();
         }
-
-        // Disable the objects to start
-        // GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
 
         foreach (GameObject tar in targets) {
             tar.SetActive(true);
@@ -426,7 +422,7 @@ public class DistanceAndNavTask : ExperimentTask
         if (Doors) Doors.incrementCurrent();
         if (shortcut) {
             Rooms.incrementCurrent();
-            startCue.SetActive(false);
+            // startCue.SetActive(false);
         }
 
 

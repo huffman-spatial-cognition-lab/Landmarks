@@ -45,7 +45,7 @@ public class RDJ : ExperimentTask
 	public int timeLimit = 0;
 	public float snapToTargetProximity = 0.0f; // leave at 0.0f to have snapping off. Otherwise this will be the straight line distance within a target users must be to snap object to target position/location
 	[TextArea]
-	public string buttonText = "These objects are the same distance from my starting point";
+	public string buttonText = "Same distance from start";
 
 	// AKB - lists to store original properties of objects
 	private List<Vector3> position;
@@ -140,13 +140,13 @@ public class RDJ : ExperimentTask
 
 		destination = new GameObject("Destination");
 		destination.transform.parent = transform;
-		destination.transform.localPosition = new Vector3(envCenterX,1.5f,envCenterZ);
+		destination.transform.localPosition = new Vector3(envCenterX,0.5f,envCenterZ);
 
 
         // handle changes to the hud
 		initialHUDposition = hud.hudPanel.transform.position;
         var tempPos = initialHUDposition;
-        tempPos.y += 200;
+        tempPos.y += 275;
         tempPos.x += 20;
         hud.hudPanel.transform.position = tempPos;
 		
@@ -219,9 +219,9 @@ public class RDJ : ExperimentTask
 			target.transform.parent = destination.transform;
 
 			if (i == 0) {
-				objectPositionOffset.x = 5;
+				objectPositionOffset.x = 3;
 			} else {
-				objectPositionOffset.x = -5;
+				objectPositionOffset.x = -3;
 			}
 
 			target.transform.localPosition = objectPositionOffset;
