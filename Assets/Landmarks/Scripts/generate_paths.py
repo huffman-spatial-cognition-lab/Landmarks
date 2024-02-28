@@ -219,7 +219,7 @@ def generate_adj(participant_number, shortcut=False):
     rand1 = np.random.choice(7, 7, replace=False)
     for i in range(7):
         trial_path = paths[rand1[i]]
-        trial_arr = np.random.choice(trial_path, 2)
+        trial_arr = np.random.choice(trial_path, 2, replace=False)
         condition1.append(trial_arr)
 
     all_trials = np.row_stack((condition1, condition2, condition3, condition4))

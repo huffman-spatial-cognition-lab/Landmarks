@@ -139,6 +139,7 @@ public class DistanceAndNavTask : ExperimentTask
             doors = GameObject.FindGameObjectsWithTag("Doors");
 
             foreach (GameObject door in doors) {
+                door.GetComponentInChildren<AKB_Door>().doorMaxOpenAngle = -20;
                 door.GetComponentInChildren<AKB_Door>().OpenDoor();
             }
         }
@@ -149,6 +150,7 @@ public class DistanceAndNavTask : ExperimentTask
 		
         // Parse the path we are supposed to follow
         currentPath = Rooms.currentString();
+        Debug.Log(currentPath);
 
         roomList = currentPath.Split(new char[] {','});
         roomObjList = new List<string>();
@@ -336,7 +338,6 @@ public class DistanceAndNavTask : ExperimentTask
 				hud.setScore(score);
 			}
 		}
-
     
 
         // Keep updating the distance traveled
@@ -350,16 +351,15 @@ public class DistanceAndNavTask : ExperimentTask
 
 
         // if player presses enter during shortcut round, end the trial
-        if (shortcut) {
-            if (Input.GetKeyDown (KeyCode.Return))
-            {
-                // log.log("Selected :\t" + "SAME DISTANCE", 1);
-                return true;
-            }
-        }
+        // if (shortcut) {
+        //     if (Input.GetKeyDown (KeyCode.Return))
+        //     {
+        //         // log.log("Selected :\t" + "SAME DISTANCE", 1);
+        //         return true;
+        //     }
+        // }
 
-    
-        
+
 
 		if (killCurrent == true)
 		{
@@ -400,7 +400,7 @@ public class DistanceAndNavTask : ExperimentTask
         doors = GameObject.FindGameObjectsWithTag("Doors");
 
         foreach (GameObject door in doors) {
-            Debug.Log("closing doors");
+            door.GetComponentInChildren<AKB_Door>().doorMaxOpenAngle = -115;
             door.GetComponentInChildren<AKB_Door>().CloseDoor();
         }
 

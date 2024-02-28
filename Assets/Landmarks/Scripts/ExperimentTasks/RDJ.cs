@@ -288,10 +288,10 @@ public class RDJ : ExperimentTask
 		// Register when our raycaster is hitting a gameobject...
 		if (Physics.Raycast(ray, out hit, 100))
 		{
-			Debug.Log(hit.collider.gameObject.transform.position);
+			// Debug.Log(hit.collider.gameObject.transform.position);
 			// ... but only if that game object is one of our target stores ...
 			if (hit.collider.gameObject == targetList[0]) {
-				Debug.Log(targetList[0].name);
+				// Debug.Log(targetList[0].name);
 
 
 				log.log("Mouseover \t" + hit.transform.name, 1);
@@ -310,7 +310,7 @@ public class RDJ : ExperimentTask
 			}
 			else if (hit.transform.name == targetList[1].name)
 			{
-				Debug.Log(targetList[1].name);
+				// Debug.Log(targetList[1].name);
 
 				log.log("Mouseover \t" + hit.transform.parent.transform.name, 1);
 
