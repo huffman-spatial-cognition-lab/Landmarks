@@ -100,6 +100,8 @@ public class pto_adjustBorder : ExperimentTask
         // WRITE TASK EXIT CODE HERE
         foreach (Transform child in borderParent.transform)
         {
+            // Save whether each is active/inactive to the log file
+            log.log("pto_adjustBorder.cs\t" + this.parentTask.repeatCount + "\tNAME\t" + child.transform.gameObject.name + "\tactiveSELF\t" + child.transform.gameObject.activeSelf, 1);
             if (child.transform.gameObject.activeSelf)
             {
                 Debug.Log("We made it to the ENDTASK as active");
