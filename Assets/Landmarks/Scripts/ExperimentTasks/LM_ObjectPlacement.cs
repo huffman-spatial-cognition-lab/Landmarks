@@ -114,13 +114,18 @@ public class LM_ObjectPlacement : ExperimentTask
                     avatar.GetComponent<FirstPersonController>().enabled = false; // disable the controller to work
                 }
 
+                // log the information about the player's current location (note: other bits will be in the previous line, e.g., rotation)
+                log.log("OBJECT_PLACEMENT\tPLAYER_ORIENTED\tLOCATION:\t" + manager.player.transform.position.x + "\t" + manager.player.transform.position.y + "\t" + manager.player.transform.position.z, 1);
+
                 // Instantiate the Marker
                 markerLocation = manager.player.transform.position + avatar.GetComponentInChildren<Camera>().transform.forward * markerStartDistance;
 
                 markerObject = Instantiate(markerObjectTemplate, markerLocation, Quaternion.identity, pointingObjectParent.transform);
                 initializeObjectForPlacement();
 
-                log.log("OBJECT_PLACEMENT\tPLAYER_ORIENTED\tLOCATION:\t" + manager.player.transform.position.x + "\t" + manager.player.transform.position.y + "\t"+ manager.player.transform.position.z, 1);
+                // and log the start of the new trial
+                string taskStringForLog = gatherTaskStringForLog("OBJECT_INSTANTIATED", new Vector3(), new Vector3());
+                log.log(taskStringForLog, 1);
                 
                 // move on to the next stage
                 stage = PointingTaskStage.Pointing;
@@ -216,6 +221,9 @@ public class LM_ObjectPlacement : ExperimentTask
                 
                 initializeObjectForPlacement();
 
+                // and log the start of the new trial
+                taskStringForLog = gatherTaskStringForLog("OBJECT_INSTANTIATED", startPoint, endPoint);
+                log.log(taskStringForLog, 1);
             }
         }
 
