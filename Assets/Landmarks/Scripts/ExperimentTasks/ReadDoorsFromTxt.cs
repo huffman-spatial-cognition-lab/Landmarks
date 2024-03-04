@@ -56,6 +56,8 @@ public class ReadDoorsFromTxt : ExperimentTask {
         string filename = "Assets/Landmarks/TextFiles/ParticipantFiles/s" + subjNum.ToString() + "_doors.txt";
 		string[] doors = System.IO.File.ReadAllLines(filename);
 
+		Debug.Log(Application.persistentDataPath);
+
 		int eachLine;
         trial = new List<string>();
         int trialNum = 1;
