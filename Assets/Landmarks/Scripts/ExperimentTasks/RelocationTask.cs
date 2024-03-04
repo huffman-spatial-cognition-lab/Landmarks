@@ -127,6 +127,8 @@ public class RelocationTask : ExperimentTask
         string stringForLog = "RelocationTask.cs\t" + beginOrEndingString + "\t";
         // add the information about the object index and number of objects
         stringForLog += "object_ind\t" + currObjInd.ToString() + "\tnum_objects\t" + numObjects.ToString();
+        // add the information about the object name
+        stringForLog += "\tobject_name\t" + current.transform.gameObject.name;
         // add the information about the scale
         stringForLog += "\tscale_x\t" + scale_x.ToString() + "\tscale_y\t" + scale_y.ToString();
         // add the information about the x and y coordinates of the object
