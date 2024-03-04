@@ -198,8 +198,10 @@ public class LM_ObjectPlacement : ExperimentTask
             // submit the position
             if ((Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput)){
 
-                log.log("OBJECT_PLACEMENT\tOBJECT_PLACED\tRAY_START:\t" + startPoint.x + "\t" + startPoint.y + "\t"+ startPoint.z + "\t"+
-                    "RAY_END:\t" + endPoint.x + "\t" + endPoint.y + "\t"+ endPoint.z, 1);
+                //log.log("OBJECT_PLACEMENT\tOBJECT_PLACED\tRAY_START:\t" + startPoint.x + "\t" + startPoint.y + "\t"+ startPoint.z + "\t"+
+                //    "RAY_END:\t" + endPoint.x + "\t" + endPoint.y + "\t"+ endPoint.z, 1);
+                string taskStringForLog = gatherTaskStringForLog("OBJECT_PLACED", startPoint, endPoint);
+                log.log(taskStringForLog, 1);
 
                 currentPlacementObject.SetActive(false);
                 currentPlacementObject = null;
@@ -266,6 +268,29 @@ public class LM_ObjectPlacement : ExperimentTask
         GameObject go = Instantiate(targetObject, pointingObjectParent.transform);
         currentPlacementObject = go;
         go.transform.position = new Vector3(0f, 1.0f, 0f);
+    }
+
+    private string gatherTaskStringForLog(string beginOrEndingString, Vector3 startPoint, Vector3 endPoint)
+    {
+        // set up strings for the outpu, here this is the prefix
+        string stringForLog = "LM_ObjectPlacement.cs\t" + beginOrEndingString + "\t";
+        // add the information about the object index and number of objects
+        stringForLog += "object_ind\t" + currObjInd.ToString() + "\tnum_objects\t" + numObjects.ToString();
+        // add the information about the object name
+        stringForLog += "\tobject_name\t" + currentPlacementObject.transform.gameObject.name;
+        // add the information about the scale
+        //stringForLog += "\tscale_x\t" + scale_x.ToString() + "\tscale_y\t" + scale_y.ToString();
+        // add the information about the x and y coordinates of the object
+        //stringForLog += "\tfinal_x\t" + final_x.ToString() + "\tfinal_y\t" + final_y.ToString();
+        // add the information about the start point
+        stringForLog += "\tRAY_START:\t" + startPoint.x + "\t" + startPoint.y + "\t" + startPoint.z;
+        // add the information about the end point
+        stringForLog += "\tRAY_END:\t" + endPoint.x + "\t" + endPoint.y + "\t" + endPoint.z;
+        // add the information about the object position
+        stringForLog += "\tOBJECT_POS_X\t" + currentPlacementObject.transform.position.x;
+        stringForLog += "\tOBJECT_POS_Y\t" + currentPlacementObject.transform.position.y;
+        stringForLog += "\tOBJECT_POS_Z\t" + currentPlacementObject.transform.position.z;
+        return stringForLog;
     }
 
 }
