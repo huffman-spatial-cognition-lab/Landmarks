@@ -224,6 +224,11 @@ public class LM_ObjectPlacement : ExperimentTask
                 // and log the start of the new trial
                 taskStringForLog = gatherTaskStringForLog("OBJECT_INSTANTIATED", startPoint, endPoint);
                 log.log(taskStringForLog, 1);
+            } else
+            {
+                // log the raycast and object information (e.g., so we can recreate the object "path" from log)
+                string taskUpdateStringForLog = gatherTaskStringForLog("OBJECT_MOVING", startPoint, endPoint);
+                log.log(taskUpdateStringForLog, 1);
             }
         }
 
