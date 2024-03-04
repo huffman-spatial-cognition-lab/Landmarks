@@ -37,6 +37,12 @@ public class RelocationTask : ExperimentTask
     public GameObject relocationTargetTemplateParent;
     public GameObject currentTargetObjectHolder;
 
+    // moving the final_x and final_y here so we can access across functions
+    private float final_x;
+    private float final_y;
+    private float scale_x;
+    private float scale_y;
+
     public override void startTask ()
 	{
 		TASK_START();
@@ -64,6 +70,10 @@ public class RelocationTask : ExperimentTask
 
         manager = experiment.GetComponent("Experiment") as Experiment;
 		log = manager.dblog;
+
+        // log the information
+        string targetStartString = gatherTargetStringForLog("INSTANTIATING_TARGET");
+        log.log(targetStartString, 1);
 
         hud.SecondsToShow = 0;
         hud.setMessage("Please relocate to the target");
@@ -99,6 +109,7 @@ public class RelocationTask : ExperimentTask
         CenterEyeAnchor = GameObject.Find("TrackingSpace/CenterEyeAnchor");
         _lineRenderer = Instantiate(lineRendererTemplate);
 
+        Debug.Log("END OF STARTTASK FOR RELOCATIONTASK");
     }
 
     public void completeCurrentObject() {
@@ -108,6 +119,19 @@ public class RelocationTask : ExperimentTask
     private bool isOnFinalObject()
     {
         return (currObjInd + 1) == numObjects;
+    }
+
+    private string gatherTargetStringForLog(string beginOrEndingString)
+    {
+        // set up strings for the outpu, here this is the prefix
+        string stringForLog = "RelocationTask.cs\t" + beginOrEndingString + "\t";
+        // add the information about the object index and number of objects
+        stringForLog += "object_ind\t" + currObjInd.ToString() + "\tnum_objects\t" + numObjects.ToString();
+        // add the information about the scale
+        stringForLog += "\tscale_x\t" + scale_x.ToString() + "\tscale_y\t" + scale_y.ToString();
+        // add the information about the x and y coordinates of the object
+        stringForLog += "\tfinal_x\t" + final_x.ToString() + "\tfinal_y\t" + final_y.ToString();
+        return stringForLog;
     }
 
     public override bool updateTask ()
@@ -120,12 +144,18 @@ public class RelocationTask : ExperimentTask
         }
 
         if (completedCurrentObject){
+            // log the information, here do this before relocateTargetEnd() so that we do not prematurely update the currObjInd in the log
+            string targetEndString = gatherTargetStringForLog("COMPLETED_OBJECT");
+            log.log(targetEndString, 1);
+            // update the currObjInd
             relocateTargetEnd();
-            log.log("RelocationTask.cs\tcompleted_object\tobject_ind\t" + currObjInd.ToString() + "\tnum_objects\t" + numObjects.ToString());
+            //log.log("RelocationTask.cs\tcompleted_object\tobject_ind\t" + currObjInd.ToString() + "\tnum_objects\t" + numObjects.ToString());
             if(currObjInd == numObjects){ // are we done with all the objects? if so, move on from this task
                 return true;
             }
             relocateTargetStart();
+            string targetStartString = gatherTargetStringForLog("INSTANTIATING_TARGET");
+            log.log(targetStartString, 1);
             completedCurrentObject = false;
         }
         completedCurrentObject = false;
@@ -227,12 +257,12 @@ public class RelocationTask : ExperimentTask
         Debug.Log("x and y coordinates from logs are " + currTgtObj.x + ", " + currTgtObj.y);
         
         GameObject terrain = GameObject.Find("LM_Environment");
-        float scale_x = terrain.transform.localScale.x;
-        float scale_y = terrain.transform.localScale.z; // python code y is the Unity Z
+        scale_x = terrain.transform.localScale.x;
+        scale_y = terrain.transform.localScale.z; // python code y is the Unity Z
         Debug.Log("x and y scales of the terrain are " + scale_x + ", " + scale_y);
 
-        float final_x = currTgtObj.x * scale_x;
-        float final_y = currTgtObj.y * scale_y;
+        final_x = currTgtObj.x * scale_x;
+        final_y = currTgtObj.y * scale_y;
         Debug.Log("instantiating target at coordinates" + final_x + ", " + final_y);
         current = InstantiateRelocationTarget(final_x, final_y);
         current.SetActive(true);
