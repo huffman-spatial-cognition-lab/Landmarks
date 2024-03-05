@@ -297,12 +297,14 @@ public class Abs_Distance_Judgment : ExperimentTask {
             numberYet = true;
             textForQuestion = question + "\n" + currResponse + "\n";
             log.log ("INFO\tDIST_EST_INPUT\t" + currResponse, 1);
+            Debug.Log ("INFO\tDIST_EST_INPUT\t" + currResponse);
         } else if (Input.GetKeyDown (KeyCode.Period)) {
             // Pressed period, so add that (e.g., for decimal point)
             currResponse = currResponse + ".";
             numberYet = false;
             textForQuestion = question + "\n" + currResponse + "\n";
             log.log ("INFO\tDIST_EST_INPUT\t" + currResponse, 1);
+            Debug.Log ("INFO\tDIST_EST_INPUT\t" + currResponse);
         } else if (numberYet && Input.GetKeyDown (KeyCode.Backspace)) {
             // Pressed Backspace, so remove the last element
             if (currResponse.Length == 1) {
@@ -314,6 +316,8 @@ public class Abs_Distance_Judgment : ExperimentTask {
                 textForQuestion = question + "\n" + currResponse + "\n";
             }
             log.log ("INFO\tDIST_EST_INPUT_BACKSPACE\t" + currResponse, 1);
+            Debug.Log ("INFO\tDIST_EST_INPUT_BACKSPACE\t" + currResponse);
+
         }
 
         hud.setMessage(textForQuestion);
@@ -326,7 +330,10 @@ public class Abs_Distance_Judgment : ExperimentTask {
         {
             hud.actionButtonClicked = false;
             log.log("INPUT_EVENT    clear text    1", 1);
-            return true;
+            if (!string.IsNullOrWhiteSpace(currResponse)) {
+                return true;
+            } 
+            
         }
 
         if (killCurrent == true)
@@ -378,7 +385,9 @@ public class Abs_Distance_Judgment : ExperimentTask {
         }
         var rt = Time.time - startTime;
 
-
+        Debug.Log("RT: " + rt);
+        Debug.Log("Response: " + currResponse);
+        Debug.Log("Text for question: " + textForQuestion);
         // Output log for this task in tab delimited format
         log.log("LM_OUTPUT\tAbs_Distance_Judgment.cs\t" + masterTask.name + "\t" + this.name + "\n" +
                "Task\tBlock\tTrial\tObject1\tObject2\tDistanceJudge\tRT\n" +

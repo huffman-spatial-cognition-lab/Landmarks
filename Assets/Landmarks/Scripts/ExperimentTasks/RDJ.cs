@@ -291,7 +291,7 @@ public class RDJ : ExperimentTask
 			// Debug.Log(hit.collider.gameObject.transform.position);
 			// ... but only if that game object is one of our target stores ...
 			if (hit.collider.gameObject == targetList[0]) {
-				// Debug.Log(targetList[0].name);
+				Debug.Log(targetList[0].name);
 
 
 				log.log("Mouseover \t" + hit.transform.name, 1);
@@ -302,15 +302,15 @@ public class RDJ : ExperimentTask
 				{
 					// Container for active store
 					targetActive = true;
-					activeTarget = hit.transform.gameObject;
+					activeTarget = targetList[0];
 					// Record previos position so the current move can be cancelled
 					// previousTargetPos = activeTarget.transform.position;
 					// previousTargetRot = activeTarget.transform.eulerAngles;
 				}
 			}
-			else if (hit.transform.name == targetList[1].name)
+			else if (hit.collider.gameObject == targetList[1])
 			{
-				// Debug.Log(targetList[1].name);
+				Debug.Log(targetList[1].name);
 
 				log.log("Mouseover \t" + hit.transform.parent.transform.name, 1);
 
@@ -319,7 +319,7 @@ public class RDJ : ExperimentTask
 				{
 					// Container for active store
 					targetActive = true;
-					activeTarget = hit.transform.parent.transform.gameObject;
+					activeTarget = targetList[1];
 					// Record previos position so the current move can be cancelled
 
 				}
@@ -333,8 +333,10 @@ public class RDJ : ExperimentTask
 
 		if (targetActive)
 		{
-			log.log("Options :\t" + targetList, 1);
+			log.log("Options :\t" + targetList[0].name + "\t" + targetList[1].name, 1);
+			Debug.Log("Options :\t" + targetList[0].name + "\t" + targetList[1].name);
 			log.log("Selected :\t" + activeTarget.name, 1);
+			Debug.Log("Selected :\t" + activeTarget.name);
 			return true;
 
 		}
@@ -353,7 +355,7 @@ public class RDJ : ExperimentTask
 		if (hud.actionButtonClicked == true)		// participant is saying the obj are the same distance
 		{
 			hud.actionButtonClicked = false;
-			log.log("Options :\t" + targetList, 1);
+			log.log("Options :\t" + targetList[0].name + "\t" + targetList[1].name, 1);
 			log.log("Selected :\t" + "SAME DISTANCE", 1);
 			return true;
 		}

@@ -464,8 +464,8 @@ public class DistanceAndNavTask : ExperimentTask
         
 
         log.log("LM_OUTPUT\tNavigationTask.cs\t" + masterTask + "\t" + this.name + "\n" +
-        	"Task\tBlock\tTrial\tTargetName\tOptimalPath\tActualPath\tRouteDuration\n" +
-        	masterTask.name + "\t" + masterTask.repeatCount + "\t" + parent.repeatCount + "\t" + Rooms.currentString() + "\t" + distances + "\t"+ perfDistance + "\t" + navTime
+        	"Task\tBlock\tTrial\tTargetName\tActualPath\tRouteDuration\n" +
+        	masterTask.name + "\t" + masterTask.repeatCount + "\t" + parent.repeatCount + "\t" + Rooms.currentString() + "\t"+ perfDistance + "\t" + navTime
             , 1);
 
 
@@ -474,7 +474,7 @@ public class DistanceAndNavTask : ExperimentTask
         {
             trialLog.AddData(transform.name + "_target", Rooms.currentString());
             trialLog.AddData(transform.name + "_actualPath", perfDistance.ToString());
-            trialLog.AddData(transform.name + "_distances", distances.ToString());
+            // trialLog.AddData(transform.name + "_distances", distances.ToString());
             // trialLog.AddData(transform.name + "_excessPath", excessPath.ToString());
             trialLog.AddData(transform.name + "_duration", navTime.ToString());
         }
