@@ -228,7 +228,7 @@ public class Experiment : MonoBehaviour {
             //config.subject + "/";
 
             logfile = 
-                "MapsGraphsThesis_p1_" + nowString + ".log";
+                "MapsGraphsThesis_p2_" + nowString + ".log";
             //config.experiment + "_" +
             //config.subject + "_" +
             //config.levelNames[config.levelNumber] + "_" +
