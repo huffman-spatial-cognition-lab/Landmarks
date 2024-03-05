@@ -62,7 +62,9 @@ public class Config : MonoBehaviour{
     [HideInInspector]
     public string subjectPath = "default";
     public string subject = "default";
-    public int id = 999;
+    // DJH changing for PTO, where we want the default to be 101
+    //public int id = 999;
+    public int id = 101;
     [HideInInspector]
     public string session = "default";
     [HideInInspector]
