@@ -12,7 +12,8 @@ public class pto_trialsTruth : ExperimentTask
     [Header("Task-specific Properties")]
 
     public AllTrials allTrials;
-    public int currentParticipantNo = 0;
+    int currentParticipantNo;
+    public int participantNumOffset = 101;
     public Trials trialsTruth;
 
     public override void startTask()
@@ -28,8 +29,10 @@ public class pto_trialsTruth : ExperimentTask
 
         // WRITE TASK STARTUP CODE HERE
         allTrials = ImportFromJSON("json/dynamic");
-
-        trialsTruth = allTrials.allTrials[currentParticipantNo];
+        currentParticipantNo = manager.config.id;
+        Debug.Log("Current No.\t" + currentParticipantNo + "\tOffset:\t" + participantNumOffset);
+        Debug.Log("Equals\t" + (currentParticipantNo - participantNumOffset).ToString());
+        trialsTruth = allTrials.allTrials[currentParticipantNo - participantNumOffset];
         Debug.Log("imported trials data from JSON!");
         Debug.Log(trialsTruth);
     }

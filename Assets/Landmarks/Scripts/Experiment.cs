@@ -225,10 +225,10 @@ public class Experiment : MonoBehaviour {
             dataPath =
                 Application.persistentDataPath + "/" +
                 config.experiment + "/" +
-                config.subject + "/";
+                config.id.ToString() + "/";
             logfile =
                 config.experiment + "_" +
-                config.subject + "_" +
+                config.id.ToString() + "_" +
                 config.levelNames[config.levelNumber] + "_" +
                 config.conditions[config.levelNumber] +
                 nowString + ".log";
@@ -257,7 +257,7 @@ public class Experiment : MonoBehaviour {
 			dblog = new dbPlaybackLog(dataPath + logfile);
 		}
 
-        dblog.log("EXPERIMENT:\t" + PlayerPrefs.GetString("expID") + "\tSUBJECT:\t" + config.subject +
+        dblog.log("EXPERIMENT:\t" + PlayerPrefs.GetString("expID") + "\tSUBJECT:\t" + config.id.ToString() +
                   "\tSTART_SCENE\t" + config.levelNames[config.levelNumber] + "\tSTART_CONDITION:\t" + config.conditions[config.levelNumber] + "\tUI:\t" + userInterface.ToString(), 1);
     }
 

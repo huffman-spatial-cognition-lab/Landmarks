@@ -62,6 +62,8 @@ public class RelocationTask : ExperimentTask
 
         // load data from our ground-truth
         // repeatCount starts from 1, we subtract one to 0-index into the arrays
+        //var trialsTruth = FindObjectsOfType<pto_trialsTruth>();
+        //if (trialsTruth != null) trialsTruth.trialsTruth.trials[this.parentTask.repeatCount - 1];
         trialData = GameObject.Find("TrialsTruth").GetComponent<pto_trialsTruth>().trialsTruth.trials[this.parentTask.repeatCount - 1];
         numObjects = trialData.targetObjects.Count;
         currObjInd = 0;

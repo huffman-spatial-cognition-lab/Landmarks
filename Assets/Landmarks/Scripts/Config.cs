@@ -62,6 +62,7 @@ public class Config : MonoBehaviour{
     [HideInInspector]
     public string subjectPath = "default";
     public string subject = "default";
+    public int id = 999;
     [HideInInspector]
     public string session = "default";
     [HideInInspector]
@@ -110,7 +111,6 @@ public class Config : MonoBehaviour{
         DontDestroyOnLoad(transform.gameObject);
     }
 
-
     public void Initialize(Config config) {
         //Debug.Log("Initializing the Config");
 
@@ -138,6 +138,12 @@ public class Config : MonoBehaviour{
         //}
 
         config.initialized = true;
+    }
+
+    public void CheckConfig()
+    {
+        while (conditions.Count < levelNames.Count) conditions.Add("default");
+        while (conditions.Count > levelNames.Count) conditions.RemoveAt(conditions.Count - 1);
     }
 }
 
