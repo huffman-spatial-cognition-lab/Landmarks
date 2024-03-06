@@ -934,7 +934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &229562795
 Transform:
   m_ObjectHideFlags: 0
@@ -3634,7 +3634,7 @@ PrefabInstance:
     - target: {fileID: 1705576873524179968, guid: 89dd74c61103b7644ab2dd9d26606ea0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4820851769206954926, guid: 89dd74c61103b7644ab2dd9d26606ea0,
         type: 3}
@@ -3716,6 +3716,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorV6
       objectReference: {fileID: 0}
+    - target: {fileID: 7546480463726356068, guid: 89dd74c61103b7644ab2dd9d26606ea0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89dd74c61103b7644ab2dd9d26606ea0, type: 3}
 --- !u!1 &1102077755 stripped
@@ -3735,7 +3740,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.009848416, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.31991243, y: 0.014999999, z: -0.599607}
+  m_ConnectedAnchor: {x: -0.31991243, y: 0.014999999, z: 0.00039303975}
   m_UseSpring: 1
   m_Spring:
     spring: 7
@@ -5619,7 +5624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1739538086
 Transform:
   m_ObjectHideFlags: 0
@@ -6397,7 +6402,7 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  mode: 0
+  mode: 1
   borderParent: {fileID: 265180561}
   materialOpaque: {fileID: 2100000, guid: 938b51fc3723cff40b5102963c305709, type: 2}
   materialFade: {fileID: 2100000, guid: 0bbb5eb98afaae14694effc1dae06f9f, type: 2}
@@ -6569,7 +6574,7 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  mode: 0
+  mode: 1
   borderParent: {fileID: 1139086608}
   materialOpaque: {fileID: 2100000, guid: 0b7dd8513656d9c4fa0cbe919fb9fa8d, type: 2}
   materialFade: {fileID: 2100000, guid: 4342d83ccd155e442b8ff30a39002c00, type: 2}
@@ -13011,7 +13016,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5308465570580963481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1966802553}
