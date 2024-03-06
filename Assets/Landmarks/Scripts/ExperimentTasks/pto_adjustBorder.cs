@@ -84,6 +84,16 @@ public class pto_adjustBorder : ExperimentTask
                     currentObject.transform.localPosition = initLocalPosition;
                     // set the local rotation
                     currentObject.transform.localRotation = initLocalRotation;
+                    // and deal with the door handle as well
+                    // gather the initial transform and rotation information for the door handle
+                    Vector3 initHandleLocalPos = GameObject.Find("GatherInitialDoorTransform").GetComponent<gatherDoorInitTransform>().doorHandleInitPos;
+                    Quaternion initHandleLocalRot = GameObject.Find("GatherInitialDoorTransform").GetComponent<gatherDoorInitTransform>().doorHandleInitRotation;
+                    foreach (Transform doorHandle in child.transform)
+                    {
+                        GameObject currDoorHandle = doorHandle.gameObject;
+                        currDoorHandle.transform.localPosition = initHandleLocalPos;
+                        currDoorHandle.transform.localRotation = initHandleLocalRot;
+                    }
                 }
                 Debug.Log("We made it to the get component enablethenfade in bit");
                 child.gameObject.GetComponent<fadeable>().EnableThenFadeIn(materialFade, materialOpaque);

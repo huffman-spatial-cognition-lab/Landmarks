@@ -23,6 +23,9 @@ public class gatherDoorInitTransform : ExperimentTask
     public Vector3 doorInitTransform;
     public Quaternion doorInitRotation;
 
+    public Vector3 doorHandleInitPos;
+    public Quaternion doorHandleInitRotation;
+
     public override void startTask()
     {
         TASK_START();
@@ -39,6 +42,13 @@ public class gatherDoorInitTransform : ExperimentTask
         // gather the initial transform and rotation information
         doorInitTransform = swingingDoor.transform.localPosition;
         doorInitRotation = swingingDoor.transform.localRotation;
+
+        // gather the initial transform and rotation information for the door handle
+        foreach (Transform child in swingingDoor.transform)
+        {
+            doorHandleInitPos = child.gameObject.transform.localPosition;
+            doorHandleInitRotation = child.gameObject.transform.localRotation;
+        }
     }
 
 
