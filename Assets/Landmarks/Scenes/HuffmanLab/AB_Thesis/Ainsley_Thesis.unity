@@ -1833,45 +1833,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 338bfaf408516884f8af56d2217bfb17, type: 3}
---- !u!1 &741330388 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3761813939128150750, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
+--- !u!114 &741330389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5794021996459444765, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
     type: 3}
   m_PrefabInstance: {fileID: 868073007}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &741330389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 741330388}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b21646dc9a2c4c69b48f97c63072ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 1
-  interval: 0
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  EndListBehavior: 0
-  size: 9999
-  subjNum: 0
-  currentTrial: 
 --- !u!1001 &796515458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3258,15 +3231,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ee
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7822154229053003462, guid: 0eaa84beeb5544ef08a8fa759a1176ce, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eaa84beeb5544ef08a8fa759a1176ce, type: 3}
---- !u!1 &868073008 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4705709993550872585, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 868073007}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &868073009 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4105533459228797989, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
@@ -3279,39 +3245,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572428a0bca054262b270b09ccad87aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &868073010
+--- !u!114 &868073010 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7251228430669349024, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 868073007}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868073008}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0c57f286f7b74c2bb546cb900a04987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skip: 0
-  canIncrementLists: 1
-  interval: 0
-  interruptTasks: {fileID: 0}
-  interruptInterval: 0
-  repeatInterrupts: 9999
-  currentInterrupt: 0
-  pausedTasks: {fileID: 0}
-  parentTask: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
-  overheadCamera: {fileID: 0}
-  debugButton: {fileID: 0}
-  actionButton: {fileID: 0}
-  vrEnabled: 0
-  triggerLabel: 
-  triggerOnStart: 0
-  triggerOnEnd: 0
-  EndListBehavior: 0
-  size: 9999
-  subjNum: 0
-  currentTrial: 
 --- !u!4 &868073013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5308465572180033509, guid: 0eaa84beeb5544ef08a8fa759a1176ce,
