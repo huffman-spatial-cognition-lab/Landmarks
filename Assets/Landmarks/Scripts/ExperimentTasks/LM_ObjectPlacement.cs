@@ -32,6 +32,8 @@ public class LM_ObjectPlacement : ExperimentTask
 
     public Transform RightHand;
 
+    public int responseCooldownMs = 500;
+
     // Private Variables
 
     private dbLog log;
@@ -43,6 +45,8 @@ public class LM_ObjectPlacement : ExperimentTask
     private bool triggerWasPushed = false;
 
     private LineRenderer _lineRenderer;
+
+    private long timeStarted;
 
     public override void startTask()
     {
@@ -130,6 +134,9 @@ public class LM_ObjectPlacement : ExperimentTask
                 // move on to the next stage
                 stage = PointingTaskStage.Pointing;
                 Debug.Log("Orienting stage complete, moving to placing markers (ie Pointing)");
+
+                // get the current time as the start time for the first pointing object
+                timeStarted = Experiment.Now();
             }
         }
 
@@ -203,27 +210,39 @@ public class LM_ObjectPlacement : ExperimentTask
             // submit the position
             if ((Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput)){
 
-                //log.log("OBJECT_PLACEMENT\tOBJECT_PLACED\tRAY_START:\t" + startPoint.x + "\t" + startPoint.y + "\t"+ startPoint.z + "\t"+
-                //    "RAY_END:\t" + endPoint.x + "\t" + endPoint.y + "\t"+ endPoint.z, 1);
-                string taskStringForLog = gatherTaskStringForLog("OBJECT_PLACED", startPoint, endPoint);
-                log.log(taskStringForLog, 1);
+                if (Experiment.Now() >= (timeStarted + responseCooldownMs))
+                {
+                    //log.log("OBJECT_PLACEMENT\tOBJECT_PLACED\tRAY_START:\t" + startPoint.x + "\t" + startPoint.y + "\t"+ startPoint.z + "\t"+
+                    //    "RAY_END:\t" + endPoint.x + "\t" + endPoint.y + "\t"+ endPoint.z, 1);
+                    string taskStringForLog = gatherTaskStringForLog("OBJECT_PLACED", startPoint, endPoint);
+                    log.log(taskStringForLog, 1);
 
-                currentPlacementObject.SetActive(false);
-                currentPlacementObject = null;
-                currObjInd++;
+                    currentPlacementObject.SetActive(false);
+                    currentPlacementObject = null;
+                    currObjInd++;
 
-                Debug.Log(currObjInd);
-                Debug.Log(numObjects);
-                if(currObjInd == numObjects){ // are we done with all the objects? if so, move on from this task
-                    Debug.Log("completed!");
-                    return true;
+                    Debug.Log(currObjInd);
+                    Debug.Log(numObjects);
+                    if (currObjInd == numObjects)
+                    { // are we done with all the objects? if so, move on from this task
+                        Debug.Log("completed!");
+                        return true;
+                    }
+
+                    initializeObjectForPlacement();
+
+                    // and log the start of the new trial
+                    taskStringForLog = gatherTaskStringForLog("OBJECT_INSTANTIATED", startPoint, endPoint);
+                    log.log(taskStringForLog, 1);
+
+                    // and update the timeStarted for the next object
+                    timeStarted = Experiment.Now();
+                } else
+                {
+                    // if the response cooldown has not passed, then do not move on and log this info
+                    string taskStringForLog = gatherTaskStringForLog("PRESSED_RETURN_BEFORE_COOLDOWN", startPoint, endPoint);
+                    log.log(taskStringForLog, 1);
                 }
-                
-                initializeObjectForPlacement();
-
-                // and log the start of the new trial
-                taskStringForLog = gatherTaskStringForLog("OBJECT_INSTANTIATED", startPoint, endPoint);
-                log.log(taskStringForLog, 1);
             } else
             {
                 // log the raycast and object information (e.g., so we can recreate the object "path" from log)
