@@ -21,6 +21,8 @@ public class pto_adjustBorder : ExperimentTask
     public Material materialOpaque;
     public Material materialFade;
 
+    public bool isSwingingDoor = false;
+
     private GameObject trialData; // game object from which to pull the masterTrialMatrix data
 
     public override void startTask()
@@ -65,6 +67,24 @@ public class pto_adjustBorder : ExperimentTask
         foreach (Transform child in borderParent.transform) {
             if(newBorderActive)
             {
+                // set the door to a default of being closed (here z = 0), when it loads
+                // to fix bug where it won't close if it was inactivated in an open position
+                // i.e., the door seems to set its zero point based on the angle it was instantiated
+                if (isSwingingDoor)
+                {
+                    // get the initial transform local position and local rotation
+                    Vector3 initLocalPosition = GameObject.Find("GatherInitialDoorTransform").GetComponent<gatherDoorInitTransform>().doorInitTransform;
+                    Quaternion initLocalRotation = GameObject.Find("GatherInitialDoorTransform").GetComponent<gatherDoorInitTransform>().doorInitRotation;
+                    Debug.Log("-------------------------------");
+                    Debug.Log(initLocalPosition);
+                    Debug.Log(initLocalRotation);
+                    // gather the game object so that we can reset its transform to the original local position and rotation
+                    GameObject currentObject = child.gameObject;
+                    // set the local position
+                    currentObject.transform.localPosition = initLocalPosition;
+                    // set the local rotation
+                    currentObject.transform.localRotation = initLocalRotation;
+                }
                 Debug.Log("We made it to the get component enablethenfade in bit");
                 child.gameObject.GetComponent<fadeable>().EnableThenFadeIn(materialFade, materialOpaque);
             }
