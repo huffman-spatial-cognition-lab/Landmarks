@@ -32,6 +32,7 @@ public class LM_ObjectPlacement : ExperimentTask
 
     public Transform RightHand;
 
+    public bool responseCooldown = true;
     public int responseCooldownMs = 500;
 
     // Private Variables
@@ -209,8 +210,8 @@ public class LM_ObjectPlacement : ExperimentTask
 
             // submit the position
             if ((Input.GetKeyDown(KeyCode.Return)) || (vrEnabled && vrInput)){
-
-                if (Experiment.Now() >= (timeStarted + responseCooldownMs))
+                // if we do not want to use a response cooldown OR the responseCooldownMs has passed
+                if (!responseCooldown || Experiment.Now() >= (timeStarted + responseCooldownMs))
                 {
                     //log.log("OBJECT_PLACEMENT\tOBJECT_PLACED\tRAY_START:\t" + startPoint.x + "\t" + startPoint.y + "\t"+ startPoint.z + "\t"+
                     //    "RAY_END:\t" + endPoint.x + "\t" + endPoint.y + "\t"+ endPoint.z, 1);
