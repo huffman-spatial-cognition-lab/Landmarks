@@ -252,7 +252,8 @@ def generate_adj(participant_number, shortcut=False):
     
     return
     
-    
-generate_paths(1)
-generate_adj(1)
-generate_adj(1, shortcut=True)
+
+for i in range(2,50):
+    generate_paths(i)
+    generate_adj(i)
+    generate_adj(i, shortcut=True)
