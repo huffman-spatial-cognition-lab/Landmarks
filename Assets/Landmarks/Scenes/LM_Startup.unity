@@ -7329,12 +7329,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Spatial Neuroscience Laboratory
+  m_text: 'Huffman Environmental Cognition Lab
 
-    Neurobiology & Behavior
+    Department of Psychology
 
-    PI:
-    Liz Chrastil'
+    Colby
+    College'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7403,10 +7403,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8059743512264521478}
-    characterCount: 72
+    characterCount: 74
     spriteCount: 0
     spaceCount: 8
-    wordCount: 8
+    wordCount: 9
     linkCount: 0
     lineCount: 3
     pageCount: 1
