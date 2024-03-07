@@ -37,6 +37,11 @@ public class RelocationTask : ExperimentTask
     public GameObject relocationTargetTemplateParent;
     public GameObject currentTargetObjectHolder;
 
+    public bool responseCooldown = true;
+    public int responseCooldownMs = 500;
+
+    private long timeStartedThisTarg;
+
     // moving the final_x and final_y here so we can access across functions
     private float final_x;
     private float final_y;
@@ -90,6 +95,9 @@ public class RelocationTask : ExperimentTask
 
         // startTime = Current time in seconds
         startTime = Time.time;
+
+        // here, we iterate targets within this script, so set time for current target
+        timeStartedThisTarg = Experiment.Now();
 
         // Get the avatar start location (distance = 0)
         playerDistance = 0.0f;
@@ -148,19 +156,25 @@ public class RelocationTask : ExperimentTask
         }
 
         if (completedCurrentObject){
-            // log the information, here do this before relocateTargetEnd() so that we do not prematurely update the currObjInd in the log
-            string targetEndString = gatherTargetStringForLog("COMPLETED_OBJECT");
-            log.log(targetEndString, 1);
-            // update the currObjInd
-            relocateTargetEnd();
-            //log.log("RelocationTask.cs\tcompleted_object\tobject_ind\t" + currObjInd.ToString() + "\tnum_objects\t" + numObjects.ToString());
-            if(currObjInd == numObjects){ // are we done with all the objects? if so, move on from this task
-                return true;
+            if (!responseCooldown || Experiment.Now() >= (timeStartedThisTarg + responseCooldownMs))
+            {
+                // log the information, here do this before relocateTargetEnd() so that we do not prematurely update the currObjInd in the log
+                string targetEndString = gatherTargetStringForLog("COMPLETED_OBJECT");
+                log.log(targetEndString, 1);
+                // update the currObjInd
+                relocateTargetEnd();
+                //log.log("RelocationTask.cs\tcompleted_object\tobject_ind\t" + currObjInd.ToString() + "\tnum_objects\t" + numObjects.ToString());
+                if (currObjInd == numObjects)
+                { // are we done with all the objects? if so, move on from this task
+                    return true;
+                }
+                relocateTargetStart();
+                string targetStartString = gatherTargetStringForLog("INSTANTIATING_TARGET");
+                log.log(targetStartString, 1);
+                completedCurrentObject = false;
+                // update the time start for the new target
+                timeStartedThisTarg = Experiment.Now();
             }
-            relocateTargetStart();
-            string targetStartString = gatherTargetStringForLog("INSTANTIATING_TARGET");
-            log.log(targetStartString, 1);
-            completedCurrentObject = false;
         }
         completedCurrentObject = false;
 
