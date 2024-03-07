@@ -3223,7 +3223,7 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  mode: 0
+  mode: 1
   borderParent: {fileID: 268682752}
   materialOpaque: {fileID: 2100000, guid: 0b7dd8513656d9c4fa0cbe919fb9fa8d, type: 2}
   materialFade: {fileID: 2100000, guid: 4342d83ccd155e442b8ff30a39002c00, type: 2}
@@ -5731,6 +5731,8 @@ MonoBehaviour:
     type: 3}
   relocationTargetTemplateParent: {fileID: 2140146889}
   currentTargetObjectHolder: {fileID: 1450415156}
+  responseCooldown: 1
+  responseCooldownMs: 500
 --- !u!1 &1772511063
 GameObject:
   m_ObjectHideFlags: 0
@@ -6599,7 +6601,7 @@ MonoBehaviour:
   triggerLabel: 
   triggerOnStart: 0
   triggerOnEnd: 0
-  mode: 0
+  mode: 1
   borderParent: {fileID: 1267733712}
   materialOpaque: {fileID: 2100000, guid: 0b7dd8513656d9c4fa0cbe919fb9fa8d, type: 2}
   materialFade: {fileID: 2100000, guid: 4342d83ccd155e442b8ff30a39002c00, type: 2}
