@@ -36,9 +36,6 @@ public class LM_ObjectPlacement : ExperimentTask
     public int responseCooldownMs = 500;
 
     // Private Variables
-
-    private dbLog log;
-	private Experiment manager;
     
     private GameObject markerObject;
     private Vector3 markerLocation;
@@ -72,9 +69,6 @@ public class LM_ObjectPlacement : ExperimentTask
         
         lineRendererTemplate.gameObject.SetActive(false);
 		_lineRenderer = Instantiate(lineRendererTemplate);
-
-        manager = experiment.GetComponent("Experiment") as Experiment;
-		log = manager.dblog;
 
         hud.showEverything();
         

@@ -6,9 +6,6 @@ using TMPro;
 public class RelocationTask : ExperimentTask
 {
 
-    private dbLog log;
-	private Experiment manager;
-
     [Header("Task-specific Properties")]
     private Trial trialData;
     private int numObjects;
@@ -74,9 +71,6 @@ public class RelocationTask : ExperimentTask
         currObjInd = 0;
         completedCurrentObject = false;
         relocateTargetStart();
-
-        manager = experiment.GetComponent("Experiment") as Experiment;
-		log = manager.dblog;
 
         // log the information
         string targetStartString = gatherTargetStringForLog("INSTANTIATING_TARGET");
