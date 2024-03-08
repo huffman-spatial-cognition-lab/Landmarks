@@ -40,7 +40,8 @@ public class ReadRoomsFromTxt : ExperimentTask {
 
 	public EndListMode EndListBehavior; 
 	public int size = 9999;
-    public int subjNum;
+	public InputParticipantID participantInfo;
+    private int subjNum;
 
 	private List<List<string>> roomList;
     private List<string> trial;
@@ -52,7 +53,11 @@ public class ReadRoomsFromTxt : ExperimentTask {
 	public override void startTask () {
 		TASK_START();
 
+		subjNum = participantInfo.participantID;
+		Debug.Log(subjNum);
+
         string filename = "Assets/Landmarks/TextFiles/ParticipantFiles/s" + subjNum.ToString() + "_paths.txt";
+		log.log("READING: " + filename, 1);
 		string[] rooms = System.IO.File.ReadAllLines(filename);
 
 		int eachLine;

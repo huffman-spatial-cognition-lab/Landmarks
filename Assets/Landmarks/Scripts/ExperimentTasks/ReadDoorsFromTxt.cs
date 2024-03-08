@@ -41,7 +41,8 @@ public class ReadDoorsFromTxt : ExperimentTask {
 	//public GameObject parentObject;
 	public EndListMode EndListBehavior; 
 	public int size = 9999;
-    public int subjNum;
+    public InputParticipantID participantInfo;
+    private int subjNum;
 
 	private List<List<string>> doorList;
     private List<string> trial;
@@ -53,10 +54,10 @@ public class ReadDoorsFromTxt : ExperimentTask {
 	public override void startTask () {
 		TASK_START();
 
+		subjNum = participantInfo.participantID;
         string filename = "Assets/Landmarks/TextFiles/ParticipantFiles/s" + subjNum.ToString() + "_doors.txt";
+		log.log("READING: " + filename, 1);
 		string[] doors = System.IO.File.ReadAllLines(filename);
-
-		Debug.Log(Application.persistentDataPath);
 
 		int eachLine;
         trial = new List<string>();

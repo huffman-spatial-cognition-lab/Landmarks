@@ -38,7 +38,8 @@ public class ReadRDJFromTxt : ExperimentTask {
 
 	public EndListMode EndListBehavior; 
 	public int size = 9999;
-    public int subjNum;
+    private int subjNum;
+	public InputParticipantID participantInfo;
 
 	private List<List<string>> objList;
     private List<string> trial;
@@ -50,7 +51,9 @@ public class ReadRDJFromTxt : ExperimentTask {
 	public override void startTask () {
 		TASK_START();
 
+		subjNum = participantInfo.participantID;
         string filename = "Assets/Landmarks/TextFiles/ParticipantFiles/s" + subjNum.ToString() + "_rdj.txt";
+		log.log("READING: " + filename, 1);
 		string[] objs = System.IO.File.ReadAllLines(filename);
 
 		int eachLine;
