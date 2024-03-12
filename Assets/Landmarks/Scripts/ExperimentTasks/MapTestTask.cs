@@ -138,17 +138,17 @@ public class MapTestTask : ExperimentTask {
 			// ... but only if that game object is one of our target stores ...
 			if (hit.transform.CompareTag("Target"))
 			{
-				hud.setMessage(hit.transform.name);
-				hud.hudPanel.SetActive(true);
-				hud.ForceShowMessage();
+				//hud.setMessage(hit.transform.name);
+				//hud.hudPanel.SetActive(true);
+				//hud.ForceShowMessage();
 
 				// move hud text to the store being highlighted (coroutine to prevent Update framerate jitter)
 				// jitterGuardOn is inherited from Experiment task so it can be used in multiple task scripts (e.g., MapStudy and MapTest) - MJS 2019
-				if (!jitterGuardOn)
+				/*if (!jitterGuardOn)
 				{
 					hud.hudPanel.transform.position = Camera.main.WorldToScreenPoint(hit.transform.position + hudTextOffset);
 					StartCoroutine(HudJitterReduction());
-				}
+				}*/
 
 				log.log("Mouseover \t" + hit.transform.name, 1);
 
@@ -166,17 +166,17 @@ public class MapTestTask : ExperimentTask {
 			}
             else if (hit.transform.parent.transform.CompareTag("Target"))
             {
-				hud.setMessage(hit.transform.parent.transform.name);
-				hud.hudPanel.SetActive(true);
-				hud.ForceShowMessage();
+				//hud.setMessage(hit.transform.parent.transform.name);
+				//hud.hudPanel.SetActive(true);
+				//hud.ForceShowMessage();
 
 				// move hud text to the store being highlighted (coroutine to prevent Update framerate jitter)
 				// jitterGuardOn is inherited from Experiment task so it can be used in multiple task scripts (e.g., MapStudy and MapTest) - MJS 2019
-				if (!jitterGuardOn)
+				/*if (!jitterGuardOn)
 				{
 					hud.hudPanel.transform.position = Camera.main.WorldToScreenPoint(hit.transform.parent.transform.position + hudTextOffset);
 					StartCoroutine(HudJitterReduction());
-				}
+				}*/
 
 				log.log("Mouseover \t" + hit.transform.parent.transform.name, 1);
 

@@ -128,17 +128,13 @@ MonoBehaviour:
   triggerOnStart: 0
   triggerOnEnd: 0
   targetObjectList: {fileID: 4472178114858927060}
-  placeholderSpacing: 10
-  offsetX: 0
-  offsetZ: 0
-  offsetX2: 990
-  offsetZ2: 1050
+  placeholderSpacing: 5
+  offsetX: 970
+  offsetZ: 1020
+  offsetX2: 975
+  offsetZ2: 1065
   offsetX3: 980
   offsetZ3: 1100
-  offsetX4: 985
-  offsetZ4: 1075
-  offsetX5: 980
-  offsetZ5: 1100
 --- !u!1 &6597833657191363210
 GameObject:
   m_ObjectHideFlags: 0

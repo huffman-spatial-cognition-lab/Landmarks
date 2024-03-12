@@ -12,20 +12,15 @@ public class LM_CreatePlaceHolders : ExperimentTask
     public float placeholderSpacing = 10.0f;
 
     // DJH - adding functionality for offset
-    public float offsetX = 0.0f;
-    public float offsetZ = 0.0f;
+    public float offsetX = 985.0f;
+    public float offsetZ = 1025.0f;
 
-    public float offsetX2 = 995.0f;
-    public float offsetZ2 = 1025.0f;
+    public float offsetX2 = 990.0f;
+    public float offsetZ2 = 1050.0f;
 
-    public float offsetX3 = 990.0f;
-    public float offsetZ3 = 1050.0f;
+    public float offsetX3 = 995.0f;
+    public float offsetZ3 = 1075.0f;
 
-    public float offsetX4 = 985.0f;
-    public float offsetZ4 = 1075.0f;
-
-    public float offsetX5 = 980.0f;
-    public float offsetZ5 = 1100.0f;
 
     private GameObject placeholder;
 
@@ -86,33 +81,23 @@ public class LM_CreatePlaceHolders : ExperimentTask
         // Prev:
         //placeholder.transform.localPosition = new Vector3(0.0f, 0.0f, -1 * i * placeholderSpacing);
         // Updated:
-        if(i <= 4)
+        if (i <= 8)
         {
           placeholder.transform.localPosition = new Vector3(offsetX, 1.5f, offsetZ + (-1 * i * placeholderSpacing));
 
         }
-        else if(i >= 5 &&
-        i <= 9)
+        else if (i > 8 && i <= 17)
         {
           placeholder.transform.localPosition = new Vector3(offsetX2, 1.5f, offsetZ2 + (-1 * i * placeholderSpacing));
+
         }
-        else if(i >= 9 && i <= 14)
+        else if (i > 17)
         {
-          placeholder.transform.localPosition = new Vector3(offsetX3, 1.5f, offsetZ3 + (-1 * i * placeholderSpacing));
-
-        }
-        else if(i >= 14 && i <= 19)
-        {
-          placeholder.transform.localPosition = new Vector3(offsetX4, 1.5f, offsetZ4 + (-1 * i * placeholderSpacing));
-
-        }
-        else if(i >= 14)
-        {
-          placeholder.transform.localPosition = new Vector3(offsetX5, 1.5f, offsetZ5 + (-1 * i * placeholderSpacing));
+            placeholder.transform.localPosition = new Vector3(offsetX3, 1.5f, offsetZ3 + (-1 * i * placeholderSpacing));
 
         }
 
-    }
+        }
   }
 
 
