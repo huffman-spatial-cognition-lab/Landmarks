@@ -71,7 +71,11 @@ public class LM_ObjectPlacement : ExperimentTask
 		_lineRenderer = Instantiate(lineRendererTemplate);
 
         hud.showEverything();
-        
+
+        // removing the HUD by setting display time to 0 seconds
+        hud.setMessage("");
+        hud.SecondsToShow = 0;
+
     }
 
     public override bool updateTask()
