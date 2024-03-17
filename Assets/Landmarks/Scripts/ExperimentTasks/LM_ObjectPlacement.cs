@@ -284,7 +284,8 @@ public class LM_ObjectPlacement : ExperimentTask
 
         // Object clean-up
         Destroy(markerObject);
-        Destroy(_lineRenderer);
+        // DJH update the call here to include the .gameObject to destroy if from the scene
+        Destroy(_lineRenderer.gameObject);
 
         if(!vrEnabled){
             avatar.GetComponent<FirstPersonController>().enabled = true;
