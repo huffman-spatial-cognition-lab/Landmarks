@@ -28,6 +28,7 @@ public class RelocationTask : ExperimentTask
     private float alternateDistThreshold = 0.32f;
     private LineRenderer _lineRenderer;
     public LineRenderer lineRendererTemplate;
+    public bool DebugWithLineRenderer = false;
 
     // for creating relocation targets
     public GameObject relocationFinalTargetPrefab;
@@ -111,7 +112,11 @@ public class RelocationTask : ExperimentTask
 
         // store the CenterEyeAnchor so that we do not search for it every game loop (expensive)
         CenterEyeAnchor = GameObject.Find("TrackingSpace/CenterEyeAnchor");
-        _lineRenderer = Instantiate(lineRendererTemplate);
+
+        if (DebugWithLineRenderer)
+        {
+            _lineRenderer = Instantiate(lineRendererTemplate);
+        }
 
         Debug.Log("END OF STARTTASK FOR RELOCATIONTASK");
     }
@@ -177,15 +182,19 @@ public class RelocationTask : ExperimentTask
         Vector2 alternate_to = new Vector2(current.transform.position.x, current.transform.position.z);
         Vector2 alternate_from = new Vector2(CenterEyeAnchor.transform.position.x, CenterEyeAnchor.transform.position.z);
         
-        Vector3 debug_to = new Vector3(alternate_from.x, 0.2f, alternate_from.y);
-        Vector3 debug_from = new Vector3(alternate_to.x, 0.2f, alternate_to.y);
+        // DJH making this optional
+        if (DebugWithLineRenderer)
+        {
+            Vector3 debug_to = new Vector3(alternate_from.x, 0.2f, alternate_from.y);
+            Vector3 debug_from = new Vector3(alternate_to.x, 0.2f, alternate_to.y);
 
-        debug_to = debug_from + (debug_to - debug_from).normalized * alternateDistThreshold;
-        
-        _lineRenderer.gameObject.SetActive(true);
-        _lineRenderer.positionCount = 2;
-        _lineRenderer.SetPosition(0, debug_to);
-        _lineRenderer.SetPosition(1, debug_from);
+            debug_to = debug_from + (debug_to - debug_from).normalized * alternateDistThreshold;
+
+            _lineRenderer.gameObject.SetActive(true);
+            _lineRenderer.positionCount = 2;
+            _lineRenderer.SetPosition(0, debug_to);
+            _lineRenderer.SetPosition(1, debug_from);
+        }
         
         float alternateDist = Vector2.Distance(alternate_from, alternate_to);
         if (alternateDist < alternateDistThreshold){
@@ -260,6 +269,12 @@ public class RelocationTask : ExperimentTask
         }
 
         log.log("RelocationTask.cs\tTASK_END", 1);
+
+        // DJH adding optional clean up the _lineRenderer by destroying the game object here
+        if (DebugWithLineRenderer)
+        {
+            Destroy(_lineRenderer.gameObject);
+        }
 
     }
 
