@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class pto_createTargetObjects : ExperimentTask
 {
-    private List<string> OBJ_COLOR_NAMES = new List<string>() {"red", "orange", "yellow", "green", "cyan", "purple", "white", "blue"};
+    private List<string> OBJ_COLOR_NAMES = new List<string>() {"red", "orange", "yellow", "green", "cyan", "purple", "white", "blue", "black"};
     private List<string> OBJ_SHAPE_NAMES = new List<string>() {"capsule", "cube", "cylinder", "sphere"};
 
     [Header("Task-specific Properties")]
