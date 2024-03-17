@@ -5012,6 +5012,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 383df45b84430a44a9a22b30b33e1426, type: 2}
   - {fileID: 2100000, guid: 3e4c42f285a32354fac8d477d5a48f61, type: 2}
   - {fileID: 2100000, guid: e6579be1a4f5c4caaaf83f8f7a403138, type: 2}
+  - {fileID: 2100000, guid: 8d9b57c87fb3aa94daa7f005d890627b, type: 2}
   OBJ_SHAPES:
   - {fileID: 1826109240961611768, guid: 6437af112a0084edb8483f0919f34c21, type: 3}
   - {fileID: 5027744588697575296, guid: 5b7dcdfb1d2f743f68406d0915df5a2a, type: 3}
