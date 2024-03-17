@@ -502,6 +502,7 @@ MonoBehaviour:
   participantNumOffset: 101
   trialsTruth:
     trials: []
+  json_trials_file: json/dynamic
 --- !u!4 &112308777 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd,
@@ -4866,7 +4867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1307107160
 Transform:
   m_ObjectHideFlags: 0
@@ -5532,7 +5533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1739538086
 Transform:
   m_ObjectHideFlags: 0
@@ -8356,7 +8357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1722285302138624231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17312,7 +17313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &7555576699072575497
 CanvasRenderer:
   m_ObjectHideFlags: 0
