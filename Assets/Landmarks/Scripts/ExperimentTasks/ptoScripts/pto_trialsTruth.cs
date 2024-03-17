@@ -15,6 +15,7 @@ public class pto_trialsTruth : ExperimentTask
     int currentParticipantNo;
     public int participantNumOffset = 101;
     public Trials trialsTruth;
+    public string json_trials_file = "json/dynamic";
 
     public override void startTask()
     {
@@ -28,7 +29,7 @@ public class pto_trialsTruth : ExperimentTask
         base.startTask();
 
         // WRITE TASK STARTUP CODE HERE
-        allTrials = ImportFromJSON("json/dynamic");
+        allTrials = ImportFromJSON(json_trials_file);
         currentParticipantNo = manager.config.id;
         Debug.Log("Current No.\t" + currentParticipantNo + "\tOffset:\t" + participantNumOffset);
         Debug.Log("Equals\t" + (currentParticipantNo - participantNumOffset).ToString());
