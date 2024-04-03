@@ -221,7 +221,7 @@ public class Experiment : MonoBehaviour {
             string nowString = nowDateTime.ToString("yyyyMMdd_HH_mm_ss");
 
             Debug.Log("SAVING BUILD DATA IN PERSISTENTDATAPATH");
-            dataPath = "/Users/lab/Documents/git_repos/Ainsley_Thesis/Landmarks/data/";
+            dataPath = "/Users/huffmanlab/Documents/git_repos/Ainsley_Thesis/Landmarks/data/";
             // CHANGING DATA PATH
             // Application.persistentDataPath + "/" +
             //config.experiment + "/" +

@@ -3847,7 +3847,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1147837274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c108f8411c7c7fc449bbda60e39a656b, type: 3}
+  m_Script: {fileID: 11500000, guid: 87973ae86f11a644c932168cc22fdc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skip: 0
@@ -3878,7 +3878,7 @@ MonoBehaviour:
   instructionFont: {fileID: 0}
   instructionSize: 12
   actionButtonOn: 1
-  customButtonText: Continue
+  customButtonText: 
   restrictMovement: 1
   withAnswer: 0
   question: 
