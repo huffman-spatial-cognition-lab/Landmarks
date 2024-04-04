@@ -57,6 +57,7 @@ public class Abs_Distance_Judgment : ExperimentTask {
 	public float envCenterZ = 0.0f;  // same as above, but for the Z dimension
     private int saveLayer;
 	private int viewLayer = 11;
+    public ObjectList env;
         
     public bool blackout = true;
     public Color text_color = Color.white;
@@ -198,9 +199,8 @@ public class Abs_Distance_Judgment : ExperimentTask {
         }
 
         // Turn off all objects in Map Environment
-		GameObject[] env = GameObject.FindGameObjectsWithTag("MapEnv");
 
-		foreach (GameObject envObj in env) {
+		foreach (GameObject envObj in env.objects) {
 			envObj.SetActive(false);
 		}
 
@@ -456,10 +456,8 @@ public class Abs_Distance_Judgment : ExperimentTask {
             item.SetActive(true);
         }
 
-        // Turn off all objects in Map Environment
-		GameObject[] env = GameObject.FindGameObjectsWithTag("MapEnv");
-
-		foreach (GameObject envObj in env) {
+        // // Turn off all objects in Map Environment
+		foreach (GameObject envObj in env.objects) {
 			envObj.SetActive(true);
 		}
 

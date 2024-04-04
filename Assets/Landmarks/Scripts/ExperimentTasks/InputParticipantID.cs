@@ -54,6 +54,8 @@ public class InputParticipantID : ExperimentTask {
     private bool numberYet = false;
     private string currResponse;
 
+    public ObjectList env;
+
     private Vector3 initialHUDposition;
 
     
@@ -129,9 +131,7 @@ public class InputParticipantID : ExperimentTask {
         }
 
         // Turn off all objects in Map Environment
-		GameObject[] env = GameObject.FindGameObjectsWithTag("MapEnv");
-
-		foreach (GameObject envObj in env) {
+		foreach (GameObject envObj in env.objects) {
 			envObj.SetActive(false);
 		}
 
@@ -306,9 +306,7 @@ public class InputParticipantID : ExperimentTask {
         }
 
         // Turn off all objects in Map Environment
-		GameObject[] env = GameObject.FindGameObjectsWithTag("MapEnv");
-
-		foreach (GameObject envObj in env) {
+		foreach (GameObject envObj in env.objects) {
 			envObj.SetActive(true);
 		}
 

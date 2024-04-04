@@ -18,13 +18,13 @@ public class MapTestTask : ExperimentTask {
 	[TextArea]
 	//public string buttonText = "Get Score";
 
-	private GameObject[] targets;
 	private GameObject activeTarget; // This is the container we will use for whichever object is currently being clicked and dragged
 	private bool targetActive = false; // Are we currently manipulating a targetobject?
 	private Vector3 previousTargetPos; // save the position when a target was clicked so users can undo the current move
 	private Vector3 previousTargetRot; // save the rotation when a target was clicked so users can undo the current rotate
 	// allow for user input to shift the store labels during the map task (to allow viewing store and text clearly);
 	public Vector3 hudTextOffset; // Text will be centered over an object. This allows users to move that to a desireable distance in order to keep the object visible when the name is shown
+	public ObjectList env;
 
 	private Vector3 baselineScaling;
 
@@ -81,11 +81,17 @@ public class MapTestTask : ExperimentTask {
 		overheadCamera.transform.localEulerAngles = new Vector3(90, 0, 0);
 
 		// Make sure all targets are visible
-        targets = GameObject.FindGameObjectsWithTag("Target");
+        // targets = GameObject.FindGameObjectsWithTag("TargetObject");
 
-        foreach (GameObject tar in targets) {
+        foreach (GameObject tar in targetList.objects) {
             tar.SetActive(true);
         }
+
+		 // Turn off all objects in Map Environment
+
+		foreach (GameObject envObj in env.objects) {
+			envObj.SetActive(true);
+		}
 
 
 		// Remove environment topography so tall things don't get in the way of dragging objects
@@ -316,6 +322,18 @@ public class MapTestTask : ExperimentTask {
 
 		// log data
 		// Log data
+		foreach (GameObject tar in targetList.objects) {
+
+			log.log("Object: \t" + tar.name + "\tFinalPosition (xyz): \t" + tar.transform.position.x + "\t" + tar.transform.position.y + "\t" + tar.transform.position.z +
+                    "\tInitialRotation (xyz): \t" + tar.transform.eulerAngles.x + "\t" + tar.transform.eulerAngles.y + "\t" + tar.transform.eulerAngles.z
+                    , 1);
+			Debug.Log("Object: \t" + tar.name + "\tFinalPosition (xyz): \t" + tar.transform.position.x + "\t" + tar.transform.position.y + "\t" + tar.transform.position.z +
+                    "\tFinalRotation (xyz): \t" + tar.transform.eulerAngles.x + "\t" + tar.transform.eulerAngles.y + "\t" + tar.transform.eulerAngles.z);
+
+		}
+
+
+
 		trialLog.AddData(transform.name + "_testTime", taskDuration.ToString());
 
 		// Set up hud for other tasks
@@ -358,6 +376,12 @@ public class MapTestTask : ExperimentTask {
 			//	tmp.y = mapTestHighlights.transform.localPosition.y - 10;
 			//	mapTestHighlights.transform.localPosition = tmp;
 			//}
+		}
+
+		 // Turn off all objects in Map Environment
+
+		foreach (GameObject envObj in env.objects) {
+			envObj.SetActive(false);
 		}
 
 		// turn off the map action button

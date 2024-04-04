@@ -51,6 +51,12 @@ public class CopyChildObjects : ExperimentTask {
 			}
            
             copy.name = sourceChild.name;
+
+			log.log("Object: \t" + sourceChild.name + "\tInitialPosition (xyz): \t" + copy.transform.position.x + "\t" + copy.transform.position.y + "\t" + copy.transform.position.z +
+                    "\tInitialRotation (xyz): \t" + copy.transform.eulerAngles.x + "\t" + copy.transform.eulerAngles.y + "\t" + copy.transform.eulerAngles.z
+                    , 1);
+			Debug.Log("Object: \t" + sourceChild.name + "\tInitialPosition (xyz): \t" + copy.transform.position.x + "\t" + copy.transform.position.y + "\t" + copy.transform.position.z +
+                    "\tInitialRotation (xyz): \t" + copy.transform.eulerAngles.x + "\t" + copy.transform.eulerAngles.y + "\t" + copy.transform.eulerAngles.z);
 		}
 
 		if (setOriginalInactive == true) {
