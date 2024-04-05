@@ -17,7 +17,7 @@ public class DistanceAndNavTask : ExperimentTask
 {
     [HideInInspector] public GameObject start;
     [Header("Task-specific Properties")]
-    // public ObjectList targetObjects;
+    public ObjectList targetObjects;
     public ExperimentTask Doors;
     private GameObject[] doors;
     private GameObject door;
@@ -102,9 +102,8 @@ public class DistanceAndNavTask : ExperimentTask
 
 
         // Disable the objects to start
-        targets = GameObject.FindGameObjectsWithTag("Target");
 
-        foreach (GameObject tar in targets) {
+        foreach (GameObject tar in targetObjects.objects) {
             tar.SetActive(false);
         }
 
@@ -139,12 +138,12 @@ public class DistanceAndNavTask : ExperimentTask
             doors = GameObject.FindGameObjectsWithTag("Doors");
 
             foreach (GameObject door in doors) {
-                door.GetComponentInChildren<AKB_Door>().doorMaxOpenAngle = -20;
+                door.GetComponentInChildren<AKB_Door>().doorMaxOpenAngle = -25;
                 door.GetComponentInChildren<AKB_Door>().OpenDoor();
             }
         }
 
-        foreach (GameObject tar in targets) {
+        foreach (GameObject tar in targetObjects.objects) {
             tar.SetActive(true);
         }
 		
@@ -176,7 +175,7 @@ public class DistanceAndNavTask : ExperimentTask
         if (hideNonTargets)
         {
             startCue = objDict[GameObject.Find(roomObjList[0])];
-            foreach (GameObject tar in targets) {
+            foreach (GameObject tar in targetObjects.objects) {
                 tar.SetActive(false);
             }
 
@@ -404,7 +403,7 @@ public class DistanceAndNavTask : ExperimentTask
             door.GetComponentInChildren<AKB_Door>().CloseDoor();
         }
 
-        foreach (GameObject tar in targets) {
+        foreach (GameObject tar in targetObjects.objects) {
             tar.SetActive(true);
         }
     
