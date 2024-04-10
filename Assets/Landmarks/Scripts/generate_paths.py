@@ -2,6 +2,7 @@
 @author: ainsleybonin
 """
 import numpy as np
+import pandas as pd
 
 def generate_paths(participant_number):
     '''
@@ -251,9 +252,127 @@ def generate_adj(participant_number, shortcut=False):
 
     
     return
+
+
+def generate_adj_revised(participant_number, shortcut=False):
+    '''
+    This function creates the randomized paths (3 repetitions of 7 paths = 21 total)
+    for one participant.
+
+    Arguments:
+    ----------
+    participant_number: int, subject number for saving the txt file
+
+    Returns:
+    --------
+    paths_for_subj : np array - shape=(21,7)
+        Array of paths for one participant
+        
+    Written by Ainsley (11/16/2023)
+
+    Maze coded as follows:
+    0  1  2  3  4 
+    5  6  7  8  9 
+    10 11 12 13 14 
+    15 16 17 18 19 
+    20 21 22 23 24
+
+    Doors coded as (rooms are numbers, doors are letters):
+    0   a   1   b   2   c   3   d   4 
+    e       f       g       h       i
+    5   j   6   k   7   l   8   m   9 
+    n       o       p       q       r
+    10  s  11   t   12  u   13  v   14 
+    w       x       y        z      aa
+    15  bb 16   cc  17  dd  18  ee  19 
+    ff     gg       hh      ii      jj   
+    20  kk 21  ll   22  mm  23  nn  24
+
+    '''
+    route1 = [6,11,10,5,0,1,2]
+    route2 = [10,5,6,11,16,15]
+    route3 = [21,20,15,16,17,22]
+    route4 = [12,7,6,11,16,17,18]
+    route5 = [8,13,12,7,2,3,4]
+    route6 = [9,4,3,8,13,14]
+    route7 = [18,13,14,19,24,23]
+    paths = [route1, route2, route3, route4, route5, route6, route7]
+
+
+    # CONDITION 1 --------------------------------------------------------------------------------------
+    condition1 = np.array([[10,2], [5,16], [20,17], [6,18], [12,4], [3,14], [13,24]])
+    np.random.shuffle(condition1)
+    condition1_arr = np.ones((7,))
+
+
+    # CONDITION 2 --------------------------------------------------------------------------------------
+    condition2 = np.array([[0,7], [1,13], [8,19], [9,23], [11,22], [5,23], [15,18]])
+    np.random.shuffle(condition2)
+    condition2_arr = np.ones((7,)) * 2
+
+
+    # CONDITION 3 --------------------------------------------------------------------------------------
+    condition3_all = np.array([[1,6], [7,8], [8,9], [9,14], [11,12], [10,15], 
+                               [16,21], [12,17], [18,19], [18,23], [21,22], [22,23]])
+    np.random.shuffle(condition3_all)
+    condition3 = condition3_all[:7, :]
+    condition3_arr = np.ones((7,)) * 3
+
+
+    # CONDITION 4 --------------------------------------------------------------------------------------
+    condition4_all = np.array([[0,1], [1,2], [2,3], [3,4], [5,6], [6,7], [10,11], [12,13], 
+                               [13,14], [15,16], [16,17], [17,18], [20,21], [23,24],
+                               [0,5], [2,7], [3,8], [4,9], [5,10], [6,11], [7,12], [8,13],
+                               [11,16], [13,18], [14,19], [15,20], [17,22], [19,24]])
+    np.random.shuffle(condition4_all)
+    condition4 = condition4_all[:7, :]
+    condition4_arr = np.ones((7,)) * 4
     
 
-for i in range(2,50):
+    all_trials = np.row_stack((condition1, condition2, condition3, condition4))
+    all_conds = np.concatenate((condition1_arr, condition2_arr, condition3_arr, condition4_arr))
+
+    p = np.random.permutation(len(all_trials))
+    all_trials = all_trials[p]
+    all_conds = all_conds[p]
+
+
+    # SAVE PARTICIPANT FILE -----------------------------------------------------------------------------
+    if shortcut:
+
+        adj_filename = "../TextFiles/ParticipantFiles/" + "s" + str(participant_number) + "_nav2.txt"
+
+        with open(adj_filename, "w") as output_adj:
+            for trial in all_trials:
+                for room in trial:
+                    output_adj.write("%i\n" %room)
+                output_adj.write("\n")
+        output_adj.close()
+
+        cond_df = pd.DataFrame(all_conds)
+        cond_filename = "../../../../../MapsGraphsThesis/ShortcutConditionFiles/" + "s" + str(participant_number) + "_shortcut_conds.csv"
+        cond_df.to_csv(cond_filename)
+
+    else:
+
+        adj_filename = "../TextFiles/ParticipantFiles/" + "s" + str(participant_number) + "_adj.txt"
+
+        with open(adj_filename, "w") as output_adj:
+            for trial in all_trials:
+                for room in trial:
+                    output_adj.write("%i\n" %room)
+                output_adj.write("\n")
+        output_adj.close()
+
+
+        cond_df = pd.DataFrame(all_conds)
+        cond_filename = "../../../../../MapsGraphsThesis/ADJConditionFiles/" + "s" + str(participant_number) + "_adj_conds.csv"
+        cond_df.to_csv(cond_filename)
+    
+    return
+    
+
+for i in range(11,50):
     generate_paths(i)
-    generate_adj(i)
-    generate_adj(i, shortcut=True)
+    generate_adj_revised(i)
+    generate_adj_revised(i, shortcut=True)
